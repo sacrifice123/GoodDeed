@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E66043E911AC64879784645F /* libPods-GoodDeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EDE6627E679C36DA5BE5B6 /* libPods-GoodDeed.a */; };
+		E6655CCC20C5138F005B46C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CCB20C5138F005B46C3 /* AppDelegate.m */; };
+		E6655CCF20C5138F005B46C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CCE20C5138F005B46C3 /* ViewController.m */; };
+		E6655CD220C5138F005B46C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6655CD020C5138F005B46C3 /* Main.storyboard */; };
+		E6655CD420C51391005B46C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6655CD320C51391005B46C3 /* Assets.xcassets */; };
+		E6655CD720C51391005B46C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6655CD520C51391005B46C3 /* LaunchScreen.storyboard */; };
+		E6655CDA20C51391005B46C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CD920C51391005B46C3 /* main.m */; };
+		E6655CE420C51391005B46C3 /* GoodDeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CE320C51391005B46C3 /* GoodDeedTests.m */; };
+		E6655CEF20C51391005B46C3 /* GoodDeedUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CEE20C51391005B46C3 /* GoodDeedUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E6655CE020C51391005B46C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E6655CBF20C5138F005B46C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6655CC620C5138F005B46C3;
+			remoteInfo = GoodDeed;
+		};
+		E6655CEB20C51391005B46C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E6655CBF20C5138F005B46C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6655CC620C5138F005B46C3;
+			remoteInfo = GoodDeed;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		22D5E47E039051D8DA31CC88 /* Pods-GoodDeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodDeed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoodDeed/Pods-GoodDeed.debug.xcconfig"; sourceTree = "<group>"; };
+		52EDE6627E679C36DA5BE5B6 /* libPods-GoodDeed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoodDeed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63ACA7DF26CA804978045942 /* Pods-GoodDeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodDeed.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoodDeed/Pods-GoodDeed.release.xcconfig"; sourceTree = "<group>"; };
+		E6655CC720C5138F005B46C3 /* GoodDeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodDeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6655CCA20C5138F005B46C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E6655CCB20C5138F005B46C3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E6655CCD20C5138F005B46C3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E6655CCE20C5138F005B46C3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E6655CD120C5138F005B46C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E6655CD320C51391005B46C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E6655CD620C51391005B46C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E6655CD820C51391005B46C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6655CD920C51391005B46C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E6655CDF20C51391005B46C3 /* GoodDeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodDeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6655CE320C51391005B46C3 /* GoodDeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodDeedTests.m; sourceTree = "<group>"; };
+		E6655CE520C51391005B46C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6655CEA20C51391005B46C3 /* GoodDeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodDeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6655CEE20C51391005B46C3 /* GoodDeedUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodDeedUITests.m; sourceTree = "<group>"; };
+		E6655CF020C51391005B46C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E6655CC420C5138F005B46C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E66043E911AC64879784645F /* libPods-GoodDeed.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6655CDC20C51391005B46C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6655CE720C51391005B46C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		59FFDD98CC625E01DAF878AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				22D5E47E039051D8DA31CC88 /* Pods-GoodDeed.debug.xcconfig */,
+				63ACA7DF26CA804978045942 /* Pods-GoodDeed.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8C67CC21E632F4664075565F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52EDE6627E679C36DA5BE5B6 /* libPods-GoodDeed.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E6655CBE20C5138F005B46C3 = {
+			isa = PBXGroup;
+			children = (
+				E6655CC920C5138F005B46C3 /* GoodDeed */,
+				E6655CE220C51391005B46C3 /* GoodDeedTests */,
+				E6655CED20C51391005B46C3 /* GoodDeedUITests */,
+				E6655CC820C5138F005B46C3 /* Products */,
+				59FFDD98CC625E01DAF878AA /* Pods */,
+				8C67CC21E632F4664075565F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E6655CC820C5138F005B46C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E6655CC720C5138F005B46C3 /* GoodDeed.app */,
+				E6655CDF20C51391005B46C3 /* GoodDeedTests.xctest */,
+				E6655CEA20C51391005B46C3 /* GoodDeedUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E6655CC920C5138F005B46C3 /* GoodDeed */ = {
+			isa = PBXGroup;
+			children = (
+				E6655CCA20C5138F005B46C3 /* AppDelegate.h */,
+				E6655CCB20C5138F005B46C3 /* AppDelegate.m */,
+				E6655CCD20C5138F005B46C3 /* ViewController.h */,
+				E6655CCE20C5138F005B46C3 /* ViewController.m */,
+				E6655CD020C5138F005B46C3 /* Main.storyboard */,
+				E6655CD320C51391005B46C3 /* Assets.xcassets */,
+				E6655CD520C51391005B46C3 /* LaunchScreen.storyboard */,
+				E6655CD820C51391005B46C3 /* Info.plist */,
+				E6655CD920C51391005B46C3 /* main.m */,
+			);
+			path = GoodDeed;
+			sourceTree = "<group>";
+		};
+		E6655CE220C51391005B46C3 /* GoodDeedTests */ = {
+			isa = PBXGroup;
+			children = (
+				E6655CE320C51391005B46C3 /* GoodDeedTests.m */,
+				E6655CE520C51391005B46C3 /* Info.plist */,
+			);
+			path = GoodDeedTests;
+			sourceTree = "<group>";
+		};
+		E6655CED20C51391005B46C3 /* GoodDeedUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E6655CEE20C51391005B46C3 /* GoodDeedUITests.m */,
+				E6655CF020C51391005B46C3 /* Info.plist */,
+			);
+			path = GoodDeedUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E6655CC620C5138F005B46C3 /* GoodDeed */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6655CF320C51391005B46C3 /* Build configuration list for PBXNativeTarget "GoodDeed" */;
+			buildPhases = (
+				41D685569BEF3C666079BB76 /* [CP] Check Pods Manifest.lock */,
+				E6655CC320C5138F005B46C3 /* Sources */,
+				E6655CC420C5138F005B46C3 /* Frameworks */,
+				E6655CC520C5138F005B46C3 /* Resources */,
+				EB6B23459115D94047D70E81 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoodDeed;
+			productName = GoodDeed;
+			productReference = E6655CC720C5138F005B46C3 /* GoodDeed.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E6655CDE20C51391005B46C3 /* GoodDeedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6655CF620C51391005B46C3 /* Build configuration list for PBXNativeTarget "GoodDeedTests" */;
+			buildPhases = (
+				E6655CDB20C51391005B46C3 /* Sources */,
+				E6655CDC20C51391005B46C3 /* Frameworks */,
+				E6655CDD20C51391005B46C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E6655CE120C51391005B46C3 /* PBXTargetDependency */,
+			);
+			name = GoodDeedTests;
+			productName = GoodDeedTests;
+			productReference = E6655CDF20C51391005B46C3 /* GoodDeedTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E6655CE920C51391005B46C3 /* GoodDeedUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6655CF920C51391005B46C3 /* Build configuration list for PBXNativeTarget "GoodDeedUITests" */;
+			buildPhases = (
+				E6655CE620C51391005B46C3 /* Sources */,
+				E6655CE720C51391005B46C3 /* Frameworks */,
+				E6655CE820C51391005B46C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E6655CEC20C51391005B46C3 /* PBXTargetDependency */,
+			);
+			name = GoodDeedUITests;
+			productName = GoodDeedUITests;
+			productReference = E6655CEA20C51391005B46C3 /* GoodDeedUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E6655CBF20C5138F005B46C3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = GoodDeed;
+				TargetAttributes = {
+					E6655CC620C5138F005B46C3 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					E6655CDE20C51391005B46C3 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = E6655CC620C5138F005B46C3;
+					};
+					E6655CE920C51391005B46C3 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = E6655CC620C5138F005B46C3;
+					};
+				};
+			};
+			buildConfigurationList = E6655CC220C5138F005B46C3 /* Build configuration list for PBXProject "GoodDeed" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E6655CBE20C5138F005B46C3;
+			productRefGroup = E6655CC820C5138F005B46C3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E6655CC620C5138F005B46C3 /* GoodDeed */,
+				E6655CDE20C51391005B46C3 /* GoodDeedTests */,
+				E6655CE920C51391005B46C3 /* GoodDeedUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E6655CC520C5138F005B46C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6655CD720C51391005B46C3 /* LaunchScreen.storyboard in Resources */,
+				E6655CD420C51391005B46C3 /* Assets.xcassets in Resources */,
+				E6655CD220C5138F005B46C3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6655CDD20C51391005B46C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6655CE820C51391005B46C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		41D685569BEF3C666079BB76 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoodDeed-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB6B23459115D94047D70E81 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GoodDeed/Pods-GoodDeed-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoodDeed/Pods-GoodDeed-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E6655CC320C5138F005B46C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6655CCF20C5138F005B46C3 /* ViewController.m in Sources */,
+				E6655CDA20C51391005B46C3 /* main.m in Sources */,
+				E6655CCC20C5138F005B46C3 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6655CDB20C51391005B46C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6655CE420C51391005B46C3 /* GoodDeedTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6655CE620C51391005B46C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6655CEF20C51391005B46C3 /* GoodDeedUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E6655CE120C51391005B46C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6655CC620C5138F005B46C3 /* GoodDeed */;
+			targetProxy = E6655CE020C51391005B46C3 /* PBXContainerItemProxy */;
+		};
+		E6655CEC20C51391005B46C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6655CC620C5138F005B46C3 /* GoodDeed */;
+			targetProxy = E6655CEB20C51391005B46C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E6655CD020C5138F005B46C3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E6655CD120C5138F005B46C3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E6655CD520C51391005B46C3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E6655CD620C51391005B46C3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E6655CF120C51391005B46C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E6655CF220C51391005B46C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E6655CF420C51391005B46C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22D5E47E039051D8DA31CC88 /* Pods-GoodDeed.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GoodDeed/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zhangtao.GoodDeed;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E6655CF520C51391005B46C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63ACA7DF26CA804978045942 /* Pods-GoodDeed.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GoodDeed/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zhangtao.GoodDeed;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E6655CF720C51391005B46C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GoodDeedTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zhangtao.GoodDeedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoodDeed.app/GoodDeed";
+			};
+			name = Debug;
+		};
+		E6655CF820C51391005B46C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GoodDeedTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zhangtao.GoodDeedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoodDeed.app/GoodDeed";
+			};
+			name = Release;
+		};
+		E6655CFA20C51391005B46C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GoodDeedUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zhangtao.GoodDeedUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GoodDeed;
+			};
+			name = Debug;
+		};
+		E6655CFB20C51391005B46C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GoodDeedUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zhangtao.GoodDeedUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GoodDeed;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E6655CC220C5138F005B46C3 /* Build configuration list for PBXProject "GoodDeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6655CF120C51391005B46C3 /* Debug */,
+				E6655CF220C51391005B46C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6655CF320C51391005B46C3 /* Build configuration list for PBXNativeTarget "GoodDeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6655CF420C51391005B46C3 /* Debug */,
+				E6655CF520C51391005B46C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6655CF620C51391005B46C3 /* Build configuration list for PBXNativeTarget "GoodDeedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6655CF720C51391005B46C3 /* Debug */,
+				E6655CF820C51391005B46C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6655CF920C51391005B46C3 /* Build configuration list for PBXNativeTarget "GoodDeedUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6655CFA20C51391005B46C3 /* Debug */,
+				E6655CFB20C51391005B46C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E6655CBF20C5138F005B46C3 /* Project object */;
+}
