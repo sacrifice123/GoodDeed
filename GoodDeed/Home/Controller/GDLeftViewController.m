@@ -1,0 +1,113 @@
+//
+//  GDLeftViewController.m
+//  GoodDeed
+//
+//  Created by xiaozhan on 2018/6/7.
+//  Copyright © 2018年 GoodDeed. All rights reserved.
+//
+
+#import "GDLeftViewController.h"
+#import "GDLeftCell.h"
+#import "GDLeftHeaderView.h"
+#import "GDLeftModel.h"
+
+@interface GDLeftViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *datas;
+@property (nonatomic, strong) GDLeftHeaderView *headerView;
+
+@end
+
+@implementation GDLeftViewController
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor greenColor];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"GDLeftCell" bundle:nil] forCellReuseIdentifier:@"GDLeftCell"];
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+}
+
+
+- (UITableView *)tableView {
+    
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+        _tableView.showsVerticalScrollIndicator = NO;
+        _tableView.bounces = NO;
+        _tableView.scrollEnabled = NO;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+    }
+    return _tableView;
+}
+
+- (GDLeftHeaderView *)headerView{
+    
+    if (_headerView == nil) {
+        _headerView = [[GDLeftHeaderView alloc] init];
+    }
+    return _headerView;
+}
+
+- (NSMutableArray *)datas{
+    
+    if (_datas == nil) {
+        _datas = [[NSMutableArray alloc] init];
+        NSArray *titles = @[@"首页",@"我的事业",@"我的团队",@"我的团队",@"我的调查",@"反馈与帮助",@"退出"];
+        for (int i=0; i<7; i++) {
+            GDLeftModel *model = [[GDLeftModel alloc] init];
+            model.title = titles[i];
+            [_datas addObject:model];
+        }
+    }
+    return _datas;
+}
+
+#pragma mark - UITableViewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 7;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    GDLeftCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GDLeftCell" forIndexPath:indexPath];
+    cell.model = self.datas[indexPath.row];
+    return cell;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 75;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    return self.headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return 130;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [GDHelper closeDrawerWithFull];
+}
+
+
+@end

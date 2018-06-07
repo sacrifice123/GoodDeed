@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "GDHomeViewController.h"
+#import "GDLeftViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,9 +18,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    GDHomeViewController *home = [[GDHomeViewController alloc] init];
+    GDLeftViewController *leftVC = [[GDLeftViewController alloc] init];
+    MMDrawerController *mmdc = [[MMDrawerController alloc] initWithCenterViewController:home leftDrawerViewController:leftVC];
+    [mmdc setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+        [mmdc setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    self.window.rootViewController = mmdc;
     return YES;
+    
 }
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
