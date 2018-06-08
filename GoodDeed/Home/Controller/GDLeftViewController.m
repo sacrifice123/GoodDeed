@@ -43,6 +43,7 @@
         _tableView.scrollEnabled = NO;
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.tableHeaderView = self.headerView;
     }
     return _tableView;
 }
@@ -50,7 +51,8 @@
 - (GDLeftHeaderView *)headerView{
     
     if (_headerView == nil) {
-        _headerView = [[GDLeftHeaderView alloc] init];
+        _headerView = [[NSBundle mainBundle] loadNibNamed:@"GDLeftHeaderView" owner:self options:nil].lastObject;
+        _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 130);
     }
     return _headerView;
 }
@@ -59,8 +61,8 @@
     
     if (_datas == nil) {
         _datas = [[NSMutableArray alloc] init];
-        NSArray *titles = @[@"首页",@"我的事业",@"我的团队",@"我的团队",@"我的调查",@"反馈与帮助",@"退出"];
-        for (int i=0; i<7; i++) {
+        NSArray *titles = @[@"首页",@"我的事业",@"我的团队",@"我的调查",@"反馈与帮助",@"退出"];
+        for (int i=0; i<titles.count; i++) {
             GDLeftModel *model = [[GDLeftModel alloc] init];
             model.title = titles[i];
             [_datas addObject:model];
@@ -78,7 +80,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 7;
+    return self.datas.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -94,10 +96,10 @@
     return 75;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    return self.headerView;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//
+//    return self.headerView;
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     

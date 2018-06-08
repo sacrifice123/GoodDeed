@@ -17,6 +17,18 @@
 		E664C95D20C93B17004E81A4 /* GDLeftHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E664C95C20C93B17004E81A4 /* GDLeftHeaderView.m */; };
 		E664C95F20C93B7B004E81A4 /* GDLeftHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E664C95E20C93B7B004E81A4 /* GDLeftHeaderView.xib */; };
 		E664C96220C93D33004E81A4 /* GDLeftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E664C96120C93D33004E81A4 /* GDLeftModel.m */; };
+		E664C96E20CA174D004E81A4 /* SCAdCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E664C96420CA174D004E81A4 /* SCAdCollectionViewLayout.m */; };
+		E664C96F20CA174D004E81A4 /* HeroModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E664C96820CA174D004E81A4 /* HeroModel.m */; };
+		E664C97020CA174D004E81A4 /* SCAdDemoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E664C96A20CA174D004E81A4 /* SCAdDemoCollectionViewCell.m */; };
+		E664C97120CA174D004E81A4 /* SCAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = E664C96C20CA174D004E81A4 /* SCAdView.m */; };
+		E664C97220CA174D004E81A4 /* SCAdDemoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E664C96D20CA174D004E81A4 /* SCAdDemoCollectionViewCell.xib */; };
+		E664C97C20CA7502004E81A4 /* GDHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E664C97A20CA7502004E81A4 /* GDHomeCell.m */; };
+		E664C97D20CA7502004E81A4 /* GDHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E664C97B20CA7502004E81A4 /* GDHomeCell.xib */; };
+		E664C98120CA7522004E81A4 /* GDSurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E664C97F20CA7522004E81A4 /* GDSurveyCell.m */; };
+		E664C98220CA7522004E81A4 /* GDSurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E664C98020CA7522004E81A4 /* GDSurveyCell.xib */; };
+		E664C98620CA7547004E81A4 /* GDCauseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E664C98420CA7547004E81A4 /* GDCauseCell.m */; };
+		E664C98720CA7547004E81A4 /* GDCauseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E664C98520CA7547004E81A4 /* GDCauseCell.xib */; };
+		E664C98920CA7AE7004E81A4 /* pic.png in Resources */ = {isa = PBXBuildFile; fileRef = E664C98820CA7AE6004E81A4 /* pic.png */; };
 		E6655CCC20C5138F005B46C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CCB20C5138F005B46C3 /* AppDelegate.m */; };
 		E6655CCF20C5138F005B46C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CCE20C5138F005B46C3 /* ViewController.m */; };
 		E6655CD220C5138F005B46C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6655CD020C5138F005B46C3 /* Main.storyboard */; };
@@ -25,6 +37,9 @@
 		E6655CDA20C51391005B46C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CD920C51391005B46C3 /* main.m */; };
 		E6655CE420C51391005B46C3 /* GoodDeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CE320C51391005B46C3 /* GoodDeedTests.m */; };
 		E6655CEF20C51391005B46C3 /* GoodDeedUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CEE20C51391005B46C3 /* GoodDeedUITests.m */; };
+		E6C55C2A20CA7EBC0034A65A /* GDBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C55C2920CA7EBC0034A65A /* GDBaseCell.m */; };
+		E6C55C2E20CA85970034A65A /* GDPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C55C2C20CA85970034A65A /* GDPreviewViewController.m */; };
+		E6C55C2F20CA85970034A65A /* GDPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C55C2D20CA85970034A65A /* GDPreviewViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +80,26 @@
 		E664C95E20C93B7B004E81A4 /* GDLeftHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDLeftHeaderView.xib; sourceTree = "<group>"; };
 		E664C96020C93D33004E81A4 /* GDLeftModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLeftModel.h; sourceTree = "<group>"; };
 		E664C96120C93D33004E81A4 /* GDLeftModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLeftModel.m; sourceTree = "<group>"; };
+		E664C96420CA174D004E81A4 /* SCAdCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAdCollectionViewLayout.m; sourceTree = "<group>"; };
+		E664C96520CA174D004E81A4 /* SCAdDemoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAdDemoCollectionViewCell.h; sourceTree = "<group>"; };
+		E664C96620CA174D004E81A4 /* HeroModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroModel.h; sourceTree = "<group>"; };
+		E664C96720CA174D004E81A4 /* SCAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAdView.h; sourceTree = "<group>"; };
+		E664C96820CA174D004E81A4 /* HeroModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroModel.m; sourceTree = "<group>"; };
+		E664C96920CA174D004E81A4 /* GDOperationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDOperationDelegate.h; sourceTree = "<group>"; };
+		E664C96A20CA174D004E81A4 /* SCAdDemoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAdDemoCollectionViewCell.m; sourceTree = "<group>"; };
+		E664C96B20CA174D004E81A4 /* SCAdCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAdCollectionViewLayout.h; sourceTree = "<group>"; };
+		E664C96C20CA174D004E81A4 /* SCAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAdView.m; sourceTree = "<group>"; };
+		E664C96D20CA174D004E81A4 /* SCAdDemoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCAdDemoCollectionViewCell.xib; sourceTree = "<group>"; };
+		E664C97920CA7502004E81A4 /* GDHomeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDHomeCell.h; sourceTree = "<group>"; };
+		E664C97A20CA7502004E81A4 /* GDHomeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDHomeCell.m; sourceTree = "<group>"; };
+		E664C97B20CA7502004E81A4 /* GDHomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDHomeCell.xib; sourceTree = "<group>"; };
+		E664C97E20CA7522004E81A4 /* GDSurveyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSurveyCell.h; sourceTree = "<group>"; };
+		E664C97F20CA7522004E81A4 /* GDSurveyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSurveyCell.m; sourceTree = "<group>"; };
+		E664C98020CA7522004E81A4 /* GDSurveyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDSurveyCell.xib; sourceTree = "<group>"; };
+		E664C98320CA7547004E81A4 /* GDCauseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDCauseCell.h; sourceTree = "<group>"; };
+		E664C98420CA7547004E81A4 /* GDCauseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDCauseCell.m; sourceTree = "<group>"; };
+		E664C98520CA7547004E81A4 /* GDCauseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDCauseCell.xib; sourceTree = "<group>"; };
+		E664C98820CA7AE6004E81A4 /* pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic.png; sourceTree = "<group>"; };
 		E6655CC720C5138F005B46C3 /* GoodDeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodDeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6655CCA20C5138F005B46C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E6655CCB20C5138F005B46C3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -81,6 +116,11 @@
 		E6655CEA20C51391005B46C3 /* GoodDeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodDeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6655CEE20C51391005B46C3 /* GoodDeedUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodDeedUITests.m; sourceTree = "<group>"; };
 		E6655CF020C51391005B46C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6C55C2820CA7EBC0034A65A /* GDBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseCell.h; sourceTree = "<group>"; };
+		E6C55C2920CA7EBC0034A65A /* GDBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDBaseCell.m; sourceTree = "<group>"; };
+		E6C55C2B20CA85970034A65A /* GDPreviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDPreviewViewController.h; sourceTree = "<group>"; };
+		E6C55C2C20CA85970034A65A /* GDPreviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDPreviewViewController.m; sourceTree = "<group>"; };
+		E6C55C2D20CA85970034A65A /* GDPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDPreviewViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +195,9 @@
 				E664C94820C925A5004E81A4 /* GDHomeViewController.m */,
 				E664C94720C925A5004E81A4 /* GDLeftViewController.h */,
 				E664C94A20C925A5004E81A4 /* GDLeftViewController.m */,
+				E6C55C2B20CA85970034A65A /* GDPreviewViewController.h */,
+				E6C55C2C20CA85970034A65A /* GDPreviewViewController.m */,
+				E6C55C2D20CA85970034A65A /* GDPreviewViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -162,6 +205,7 @@
 		E664C94D20C925A5004E81A4 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				E664C98820CA7AE6004E81A4 /* pic.png */,
 				E664C94E20C925A5004E81A4 /* PrefixHeader.pch */,
 				E664C95820C9327B004E81A4 /* GDHelper.h */,
 				E664C95920C9327B004E81A4 /* GDHelper.m */,
@@ -172,6 +216,7 @@
 		E664C94F20C925A5004E81A4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E664C96320CA174D004E81A4 /* SCAdView */,
 				E664C95320C92F24004E81A4 /* GDLeftCell.h */,
 				E664C95420C92F24004E81A4 /* GDLeftCell.m */,
 				E664C95520C92F24004E81A4 /* GDLeftCell.xib */,
@@ -180,6 +225,42 @@
 				E664C95E20C93B7B004E81A4 /* GDLeftHeaderView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E664C96320CA174D004E81A4 /* SCAdView */ = {
+			isa = PBXGroup;
+			children = (
+				E664C97320CA7240004E81A4 /* Cell */,
+				E664C96B20CA174D004E81A4 /* SCAdCollectionViewLayout.h */,
+				E664C96420CA174D004E81A4 /* SCAdCollectionViewLayout.m */,
+				E664C96620CA174D004E81A4 /* HeroModel.h */,
+				E664C96820CA174D004E81A4 /* HeroModel.m */,
+				E664C96720CA174D004E81A4 /* SCAdView.h */,
+				E664C96C20CA174D004E81A4 /* SCAdView.m */,
+				E664C96920CA174D004E81A4 /* GDOperationDelegate.h */,
+				E664C96520CA174D004E81A4 /* SCAdDemoCollectionViewCell.h */,
+				E664C96A20CA174D004E81A4 /* SCAdDemoCollectionViewCell.m */,
+				E664C96D20CA174D004E81A4 /* SCAdDemoCollectionViewCell.xib */,
+			);
+			path = SCAdView;
+			sourceTree = "<group>";
+		};
+		E664C97320CA7240004E81A4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E664C97920CA7502004E81A4 /* GDHomeCell.h */,
+				E664C97A20CA7502004E81A4 /* GDHomeCell.m */,
+				E664C97B20CA7502004E81A4 /* GDHomeCell.xib */,
+				E664C97E20CA7522004E81A4 /* GDSurveyCell.h */,
+				E664C97F20CA7522004E81A4 /* GDSurveyCell.m */,
+				E664C98020CA7522004E81A4 /* GDSurveyCell.xib */,
+				E664C98320CA7547004E81A4 /* GDCauseCell.h */,
+				E664C98420CA7547004E81A4 /* GDCauseCell.m */,
+				E664C98520CA7547004E81A4 /* GDCauseCell.xib */,
+				E6C55C2820CA7EBC0034A65A /* GDBaseCell.h */,
+				E6C55C2920CA7EBC0034A65A /* GDBaseCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		E6655CBE20C5138F005B46C3 = {
@@ -345,10 +426,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E664C97220CA174D004E81A4 /* SCAdDemoCollectionViewCell.xib in Resources */,
 				E6655CD720C51391005B46C3 /* LaunchScreen.storyboard in Resources */,
+				E664C98220CA7522004E81A4 /* GDSurveyCell.xib in Resources */,
+				E664C97D20CA7502004E81A4 /* GDHomeCell.xib in Resources */,
+				E664C98920CA7AE7004E81A4 /* pic.png in Resources */,
 				E664C95720C92F24004E81A4 /* GDLeftCell.xib in Resources */,
 				E664C95F20C93B7B004E81A4 /* GDLeftHeaderView.xib in Resources */,
 				E6655CD420C51391005B46C3 /* Assets.xcassets in Resources */,
+				E6C55C2F20CA85970034A65A /* GDPreviewViewController.xib in Resources */,
+				E664C98720CA7547004E81A4 /* GDCauseCell.xib in Resources */,
 				E6655CD220C5138F005B46C3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,12 +504,21 @@
 			files = (
 				E664C95A20C9327B004E81A4 /* GDHelper.m in Sources */,
 				E664C95D20C93B17004E81A4 /* GDLeftHeaderView.m in Sources */,
+				E664C98120CA7522004E81A4 /* GDSurveyCell.m in Sources */,
 				E664C95020C925A5004E81A4 /* GDHomeViewController.m in Sources */,
 				E6655CCF20C5138F005B46C3 /* ViewController.m in Sources */,
+				E664C96E20CA174D004E81A4 /* SCAdCollectionViewLayout.m in Sources */,
+				E664C97020CA174D004E81A4 /* SCAdDemoCollectionViewCell.m in Sources */,
+				E664C98620CA7547004E81A4 /* GDCauseCell.m in Sources */,
 				E6655CDA20C51391005B46C3 /* main.m in Sources */,
+				E664C97120CA174D004E81A4 /* SCAdView.m in Sources */,
 				E664C95620C92F24004E81A4 /* GDLeftCell.m in Sources */,
 				E6655CCC20C5138F005B46C3 /* AppDelegate.m in Sources */,
 				E664C95220C925A5004E81A4 /* GDLeftViewController.m in Sources */,
+				E6C55C2A20CA7EBC0034A65A /* GDBaseCell.m in Sources */,
+				E664C97C20CA7502004E81A4 /* GDHomeCell.m in Sources */,
+				E6C55C2E20CA85970034A65A /* GDPreviewViewController.m in Sources */,
+				E664C96F20CA174D004E81A4 /* HeroModel.m in Sources */,
 				E664C95120C925A5004E81A4 /* GDBaseViewController.m in Sources */,
 				E664C96220C93D33004E81A4 /* GDLeftModel.m in Sources */,
 			);
@@ -595,6 +691,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HQ3FLUKHX3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/xiaozhan/Desktop/GoodDeed/GoodDeed/Home/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = GoodDeed/Info.plist;
@@ -614,6 +711,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HQ3FLUKHX3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/xiaozhan/Desktop/GoodDeed/GoodDeed/Home/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = GoodDeed/Info.plist;
