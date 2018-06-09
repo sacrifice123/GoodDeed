@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GDOperationDelegate.h"
 
-
-@interface GDBaseCell : UICollectionViewCell<GDOperationDelegate>
+@interface GDBaseCell : UICollectionViewCell
+@property (nonatomic, weak) id<GDOperationDelegate>delegate;
 
 @end

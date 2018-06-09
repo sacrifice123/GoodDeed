@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @protocol GDOperationDelegate <NSObject>
-@required
+@optional
 /**
  *  @brief 通过实现此代理为view或者cell来设置
  */
 -(void)setModel:(id)model;
+-(void)gotoPreVc;
+
 @end

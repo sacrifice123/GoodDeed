@@ -17,6 +17,9 @@
 - (IBAction)preview:(id)sender {
     
     
+    [self.delegate gotoPreVc];
+    
 }
+
 
 @end

@@ -7,14 +7,16 @@
 //
 
 #import "GDHomeViewController.h"
+#import "GDPreviewViewController.h"
 #import "SCAdView.h"
 
-@interface GDHomeViewController ()<SCAdViewDelegate>
+@interface GDHomeViewController ()<SCAdViewDelegate,GDOperationDelegate>
 
 @property (nonatomic, strong) SCAdView *adView;
 @end
 
 @implementation GDHomeViewController
+
 
 - (void)viewDidLoad {
     
@@ -37,11 +39,11 @@
         make.height.equalTo(@20);
     }];
     [leftItem addTarget:self action:@selector(leftBarButtonItemClick) forControlEvents:UIControlEventTouchUpInside];
- 
+    
 }
 
 - (void)leftBarButtonItemClick{
-
+    
     [GDHelper showDrawer];
 }
 
@@ -92,6 +94,15 @@
         return;
     }
     NSLog(@"sc_scrollToIndex-->%ld",index);
+}
+
+#pragma mark GDOperationDelegate
+- (void)gotoPreVc{
+    [UIView animateWithDuration:1 animations:^{
+        self.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.5, 1.5);
+    }];
+    [self presentViewController:[GDPreviewViewController new] animated:YES completion:nil];
+    
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import "SCAdView.h"
 #import "SCAdCollectionViewLayout.h"
-
+#import "GDBaseCell.h"
 ///默认的自动轮播的时间间隔
 #define SC_BUILDER_DEFAULT_AUTO_SCROLL_CYCLE 1.0
 ///2D时自动计算linespacing的倍数
@@ -200,9 +200,9 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    id model = self.dataArray[indexPath.item];
-    UICollectionViewCell<GDOperationDelegate> *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SC_AD_CELL_IDENTIFIER forIndexPath:indexPath];
-    [cell setModel:model];
+    //id model = self.dataArray[indexPath.item];
+    GDBaseCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SC_AD_CELL_IDENTIFIER forIndexPath:indexPath];
+    cell.delegate = self.delegate;
     return cell;
 }
 
