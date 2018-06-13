@@ -13,6 +13,8 @@
 @interface GDHomeViewController ()<SCAdViewDelegate,GDOperationDelegate>
 
 @property (nonatomic, strong) SCAdView *adView;
+@property (nonatomic, strong) UIView *transitionView;
+
 @end
 
 @implementation GDHomeViewController
@@ -21,31 +23,12 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor purpleColor];
-    [self setleftItem];
+   // [self setleftItem];
     [self showAdHorizontally];
     
 }
 
-- (void)setleftItem{
-    
-    UIButton *leftItem = [[UIButton alloc] init];
-    leftItem.backgroundColor = [UIColor redColor];
-    [self.view addSubview:leftItem];
-    [leftItem mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).offset(Item_Space);
-        make.top.equalTo(self.view).offset(15);
-        make.width.equalTo(@20);
-        make.height.equalTo(@20);
-    }];
-    [leftItem addTarget:self action:@selector(leftBarButtonItemClick) forControlEvents:UIControlEventTouchUpInside];
-    
-}
 
-- (void)leftBarButtonItemClick{
-    
-    [GDHelper showDrawer];
-}
 
 - (void)showAdHorizontally{
     NSArray *testArray =@[@"刘备",@"李白",@"嬴政",@"韩信",@"韩信"];
@@ -68,7 +51,7 @@
         builder.threeDimensionalScale = 0;
         builder.itemCellNibName = @"GDSurveyCell";
     }];
-    adView.backgroundColor = [UIColor redColor];
+    adView.backgroundColor = [UIColor clearColor];
     adView.dataArray = arrayFromService;
     adView.delegate = self;
     _adView = adView;
@@ -97,12 +80,17 @@
 }
 
 #pragma mark GDOperationDelegate
-- (void)gotoPreVc{
-    [UIView animateWithDuration:1 animations:^{
-        self.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.5, 1.5);
-    }];
-    [self presentViewController:[GDPreviewViewController new] animated:YES completion:nil];
-    
+- (void)gotoPreVc:(UIView *)view{
+//    [UIView animateWithDuration:1 animations:^{
+//        self.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.5, 1.5);
+//    }];
+//    [self presentViewController:[GDPreviewViewController new] animated:YES completion:nil];
+    self.transitionView = view;
+    [self.navigationController hh_pushScaleViewController:[GDPreviewViewController new]];
 }
 
+- (UIView *)hh_transitionAnimationView{
+    
+    return self.transitionView;
+}
 @end

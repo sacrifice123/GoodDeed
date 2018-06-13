@@ -14,6 +14,6 @@
  *  @brief 通过实现此代理为view或者cell来设置
  */
 -(void)setModel:(id)model;
--(void)gotoPreVc;
+-(void)gotoPreVc:(UIView *)view;
 
 @end

@@ -12,12 +12,15 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = 5;
 }
 - (IBAction)preview:(id)sender {
     
-    
-    [self.delegate gotoPreVc];
+    if ([self.delegate respondsToSelector:@selector(gotoPreVc:)]) {
+        [self.delegate gotoPreVc:sender];
+
+    }
     
 }
 

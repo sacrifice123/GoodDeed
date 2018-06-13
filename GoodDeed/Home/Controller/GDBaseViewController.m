@@ -16,22 +16,67 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController setNavigationBarHidden:YES];
+
+    [self setUpView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setUpView{
+    
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_bg.pic"]];
+    [self.view addSubview:imgView];
+    [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    [self setUpItems];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setUpItems{
+    
+    UIButton *leftItem = [[UIButton alloc] init];
+    [leftItem setBackgroundImage:[UIImage imageNamed:@"home_menu"] forState:0];
+    [self.view addSubview:leftItem];
+    [leftItem mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(Item_Space);
+        make.top.equalTo(self.view).offset(15);
+        make.width.equalTo(@19);
+        make.height.equalTo(@15);
+    }];
+    [leftItem addTarget:self action:@selector(leftBarButtonItemClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *rightItem = [[UIButton alloc] init];
+    [rightItem setBackgroundImage:[UIImage imageNamed:@"home_edit"] forState:0];
+    [self.view addSubview:rightItem];
+    [rightItem mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view).offset(-Item_Space+3);
+        make.width.equalTo(@20);
+        make.height.equalTo(@20);
+        make.centerY.equalTo(leftItem.mas_centerY);
+    }];
+    [rightItem addTarget:self action:@selector(rightBarButtonItemClick) forControlEvents:UIControlEventTouchUpInside];
+
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_title"]];
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:imgView];
+    [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.centerY.equalTo(leftItem.mas_centerY);
+
+    }];
+    
+
 }
-*/
+
+- (void)rightBarButtonItemClick{
+    
+}
+
+- (void)leftBarButtonItemClick{
+    
+    [GDHelper showDrawer];
+}
 
 @end

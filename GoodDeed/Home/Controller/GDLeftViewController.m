@@ -24,7 +24,6 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"GDLeftCell" bundle:nil] forCellReuseIdentifier:@"GDLeftCell"];
     [self.view addSubview:self.tableView];
@@ -44,6 +43,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableHeaderView = self.headerView;
+        _tableView.backgroundColor = [UIColor colorWithHexString:@"#535353"];
     }
     return _tableView;
 }

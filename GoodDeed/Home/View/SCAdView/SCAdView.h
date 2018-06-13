@@ -10,7 +10,6 @@
 #import "GDOperationDelegate.h"
 #import "HeroModel.h"
 
-#define Item_Space 15 //行间距
 ///将builder的LINE_SPACING设置为该值则会自动计算合适的间距
 #define SC_BUILDER_LINE_SPACING_AUTO -10001
 typedef NS_ENUM(NSInteger,SCAdViewScrollDirection) {

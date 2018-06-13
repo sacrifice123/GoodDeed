@@ -9,6 +9,7 @@
 #import "GDPreviewViewController.h"
 
 @interface GDPreviewViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *button;
 
 @end
 
@@ -21,6 +22,11 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (UIView *)hh_transitionAnimationView{
+    
+    return self.button;
 }
 @end

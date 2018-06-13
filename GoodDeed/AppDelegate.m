@@ -22,7 +22,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     GDHomeViewController *home = [[GDHomeViewController alloc] init];
     GDLeftViewController *leftVC = [[GDLeftViewController alloc] init];
-    MMDrawerController *mmdc = [[MMDrawerController alloc] initWithCenterViewController:home leftDrawerViewController:leftVC];
+    UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:home];
+    UINavigationController *leftNav = [[UINavigationController alloc] initWithRootViewController:leftVC];
+//    [home.navigationController setNavigationBarHidden:YES];
+//    [leftNav.navigationController setNavigationBarHidden:YES];
+    MMDrawerController *mmdc = [[MMDrawerController alloc] initWithCenterViewController:homeNav leftDrawerViewController:leftNav];
     [mmdc setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
         [mmdc setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     self.window.rootViewController = mmdc;
