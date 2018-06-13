@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49F0A78120D1715300CD06C3 /* GDEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F0A78020D1715300CD06C3 /* GDEditViewController.xib */; };
+		49F0A78420D171B500CD06C3 /* GDEditButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F0A78320D171B500CD06C3 /* GDEditButton.m */; };
 		E65E68BD20D0E60B003E07CB /* GDEditBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E65E68BC20D0E60B003E07CB /* GDEditBaseViewController.m */; };
 		E65E68C120D0EC0F003E07CB /* GDEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E65E68BF20D0EC0F003E07CB /* GDEditViewController.m */; };
-		E65E68C220D0EC0F003E07CB /* GDEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E65E68C020D0EC0F003E07CB /* GDEditViewController.xib */; };
 		E66043E911AC64879784645F /* libPods-GoodDeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EDE6627E679C36DA5BE5B6 /* libPods-GoodDeed.a */; };
 		E664C95120C925A5004E81A4 /* GDBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E664C94920C925A5004E81A4 /* GDBaseViewController.m */; };
 		E664C95220C925A5004E81A4 /* GDLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E664C94A20C925A5004E81A4 /* GDLeftViewController.m */; };
@@ -84,13 +85,15 @@
 
 /* Begin PBXFileReference section */
 		22D5E47E039051D8DA31CC88 /* Pods-GoodDeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodDeed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoodDeed/Pods-GoodDeed.debug.xcconfig"; sourceTree = "<group>"; };
+		49F0A78020D1715300CD06C3 /* GDEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDEditViewController.xib; sourceTree = "<group>"; };
+		49F0A78220D171B500CD06C3 /* GDEditButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDEditButton.h; sourceTree = "<group>"; };
+		49F0A78320D171B500CD06C3 /* GDEditButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDEditButton.m; sourceTree = "<group>"; };
 		52EDE6627E679C36DA5BE5B6 /* libPods-GoodDeed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoodDeed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63ACA7DF26CA804978045942 /* Pods-GoodDeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodDeed.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoodDeed/Pods-GoodDeed.release.xcconfig"; sourceTree = "<group>"; };
 		E65E68BB20D0E60B003E07CB /* GDEditBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDEditBaseViewController.h; sourceTree = "<group>"; };
 		E65E68BC20D0E60B003E07CB /* GDEditBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDEditBaseViewController.m; sourceTree = "<group>"; };
 		E65E68BE20D0EC0F003E07CB /* GDEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDEditViewController.h; sourceTree = "<group>"; };
 		E65E68BF20D0EC0F003E07CB /* GDEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDEditViewController.m; sourceTree = "<group>"; };
-		E65E68C020D0EC0F003E07CB /* GDEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDEditViewController.xib; sourceTree = "<group>"; };
 		E664C94720C925A5004E81A4 /* GDLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDLeftViewController.h; sourceTree = "<group>"; };
 		E664C94920C925A5004E81A4 /* GDBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDBaseViewController.m; sourceTree = "<group>"; };
 		E664C94A20C925A5004E81A4 /* GDLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDLeftViewController.m; sourceTree = "<group>"; };
@@ -441,6 +444,8 @@
 		E69C3FB320CFB4DB004F5614 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				49F0A78220D171B500CD06C3 /* GDEditButton.h */,
+				49F0A78320D171B500CD06C3 /* GDEditButton.m */,
 				E664C94E20C925A5004E81A4 /* PrefixHeader.pch */,
 				E664C95820C9327B004E81A4 /* GDHelper.h */,
 				E664C95920C9327B004E81A4 /* GDHelper.m */,
@@ -497,7 +502,7 @@
 				E65E68BC20D0E60B003E07CB /* GDEditBaseViewController.m */,
 				E65E68BE20D0EC0F003E07CB /* GDEditViewController.h */,
 				E65E68BF20D0EC0F003E07CB /* GDEditViewController.m */,
-				E65E68C020D0EC0F003E07CB /* GDEditViewController.xib */,
+				49F0A78020D1715300CD06C3 /* GDEditViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -699,7 +704,7 @@
 				E664C98220CA7522004E81A4 /* GDSurveyCell.xib in Resources */,
 				E664C97D20CA7502004E81A4 /* GDHomeCell.xib in Resources */,
 				E664C98920CA7AE7004E81A4 /* pic.png in Resources */,
-				E65E68C220D0EC0F003E07CB /* GDEditViewController.xib in Resources */,
+				49F0A78120D1715300CD06C3 /* GDEditViewController.xib in Resources */,
 				E664C95720C92F24004E81A4 /* GDLeftCell.xib in Resources */,
 				E664C95F20C93B7B004E81A4 /* GDLeftHeaderView.xib in Resources */,
 				E6655CD420C51391005B46C3 /* Assets.xcassets in Resources */,
@@ -775,6 +780,7 @@
 				E65E68C120D0EC0F003E07CB /* GDEditViewController.m in Sources */,
 				E69C3FA720CF6F6E004F5614 /* AnimationErectEnd.m in Sources */,
 				E69C3F9C20CF6F6E004F5614 /* AnimationTiltBegin.m in Sources */,
+				49F0A78420D171B500CD06C3 /* GDEditButton.m in Sources */,
 				E69C3FAA20CF6F6E004F5614 /* QuadrantRecognise.m in Sources */,
 				E69C3FA520CF6F6E004F5614 /* AnimationErectBegin.m in Sources */,
 				E664C95D20C93B17004E81A4 /* GDLeftHeaderView.m in Sources */,
@@ -984,7 +990,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQ3FLUKHX3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/xiaozhan/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/zhangtao/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
 				INFOPLIST_FILE = GoodDeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1004,7 +1010,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQ3FLUKHX3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/xiaozhan/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/zhangtao/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
 				INFOPLIST_FILE = GoodDeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

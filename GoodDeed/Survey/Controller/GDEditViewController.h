@@ -6,8 +6,8 @@
 //  Copyright © 2018年 GoodDeed. All rights reserved.
 //
 
-#import "GDBaseViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface GDEditViewController : GDBaseViewController
+@interface GDEditViewController : UIViewController
 
 @end

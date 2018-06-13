@@ -7,7 +7,7 @@
 //
 
 #import "GDBaseViewController.h"
-
+#import "GDEditViewController.h"
 @interface GDBaseViewController ()
 
 @end
@@ -72,6 +72,7 @@
 
 - (void)rightBarButtonItemClick{
     
+    [self presentViewController:[GDEditViewController new] animated:YES completion:nil];
 }
 
 - (void)leftBarButtonItemClick{
