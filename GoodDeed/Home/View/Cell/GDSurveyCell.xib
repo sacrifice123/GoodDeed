@@ -23,7 +23,21 @@
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htH-BJ-fdl" userLabel="bgView">
                         <rect key="frame" x="0.0" y="0.0" width="340" height="611"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDi-nU-Jzd">
+                                <rect key="frame" x="120" y="255" width="100" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="TEu-et-MfP"/>
+                                    <constraint firstAttribute="height" constant="100" id="aJp-L1-DZR"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.3047410102739726" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yDi-nU-Jzd" firstAttribute="centerY" secondItem="htH-BJ-fdl" secondAttribute="centerY" id="T73-sb-1rH"/>
+                            <constraint firstItem="yDi-nU-Jzd" firstAttribute="centerX" secondItem="htH-BJ-fdl" secondAttribute="centerX" id="rOq-Zb-Yi3"/>
+                        </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="此处是一条调查的题目此处是一条调查" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhu-Fi-tQv">
                         <rect key="frame" x="30" y="80" width="280" height="67.5"/>
@@ -253,6 +267,9 @@
                 <constraint firstItem="HJf-qe-qVr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yvS-zG-oB5"/>
             </constraints>
             <size key="customSize" width="193" height="364"/>
+            <connections>
+                <outlet property="transitionView" destination="yDi-nU-Jzd" id="bOo-FF-gEe"/>
+            </connections>
             <point key="canvasLocation" x="-1" y="19.5"/>
         </collectionViewCell>
     </objects>

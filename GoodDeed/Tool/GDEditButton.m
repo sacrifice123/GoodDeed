@@ -29,11 +29,11 @@
 
 -(CGRect)titleRectForContentRect:(CGRect)contentRect//文字
 {
-    //CGFloat x=self.frame.size.width*0.25;
-    CGFloat x=10;
+    CGFloat width = [GDHelper calculateRectWithFont:12 Withtext:self.currentTitle Withsize:CGSizeMake(0, 0)].width;
+    CGFloat x=(self.frame.size.width-width)*0.5;
     CGFloat y=self.frame.size.height*IMAGE_PERCENT;//文字在3/4处显示
     CGFloat w=self.frame.size.width;
-    CGFloat h=17;
+    CGFloat h=20;
     
     return CGRectMake(x, y, w, h);
 }
@@ -41,7 +41,7 @@
 -(CGRect)imageRectForContentRect:(CGRect)contentRect//图片
 {
     CGFloat x=(self.frame.size.width-self.imgSize.width)*0.5;
-    CGFloat y=5;
+    CGFloat y=6;
     return CGRectMake(x, y,self.imgSize.width, self.imgSize.height);
 }
 

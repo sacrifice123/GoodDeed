@@ -33,4 +33,10 @@
     
 }
 
++ (CGSize)calculateRectWithFont:(CGFloat)textfont Withtext:(NSString*)text Withsize:(CGSize)size{
+    NSDictionary*attr = @{NSFontAttributeName:[UIFont systemFontOfSize:textfont]};//用来计算label字体的
+    CGRect titleRect = [text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:attr context:nil];
+    
+    return titleRect.size;
+}
 @end

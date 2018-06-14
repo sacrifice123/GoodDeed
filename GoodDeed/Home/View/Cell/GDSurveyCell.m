@@ -8,6 +8,11 @@
 
 #import "GDSurveyCell.h"
 
+@interface GDSurveyCell()
+@property (weak, nonatomic) IBOutlet UIView *transitionView;
+
+
+@end
 @implementation GDSurveyCell
 
 - (void)awakeFromNib {
@@ -18,7 +23,7 @@
 - (IBAction)preview:(id)sender {
     
     if ([self.delegate respondsToSelector:@selector(gotoPreVc:)]) {
-        [self.delegate gotoPreVc:sender];
+        [self.delegate gotoPreVc:self.transitionView];
 
     }
     

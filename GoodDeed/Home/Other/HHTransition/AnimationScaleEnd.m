@@ -57,6 +57,7 @@
     toView.alpha = 0;
     fromView.hidden = YES;
     destinationView.hidden = YES;
+    snapShot.hidden = YES;
     [UIView animateWithDuration:duration animations:^{
         snapShot.transform = CGAffineTransformMakeScale(widthScale, heightScale);
         snapShot.origin = destinationPoint;

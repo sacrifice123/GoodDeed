@@ -56,7 +56,6 @@
         snapShot.origin = destinationPoint;
         fromView.alpha = 0;
         fromView.transform = snapShot.transform;
-        CGPoint point = CGPointMake(-SCREEN_WIDTH*0.5,-SCREEN_HEIGHT*0.5);
         fromView.origin = CGPointMake((destinationPoint.x - sourcePoint.x)*widthScale-70, (destinationPoint.y - sourcePoint.y)*heightScale);
         
     } completion:^(BOOL finished) {

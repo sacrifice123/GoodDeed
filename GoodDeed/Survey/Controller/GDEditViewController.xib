@@ -24,30 +24,33 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HqV-1j-PSj" customClass="GDEditButton">
                             <rect key="frame" x="20" y="0.0" width="113" height="50"/>
-                            <color key="backgroundColor" red="1" green="0.28324488583843521" blue="0.31514959700747636" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="HTx-6F-XoA"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="Button" image="suvery_save"/>
+                            <state key="normal" title="保存草稿" image="suvery_save">
+                                <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wh-D1-f6C" customClass="GDEditButton">
                             <rect key="frame" x="153" y="-10" width="70" height="60"/>
-                            <color key="backgroundColor" red="1" green="0.1100367535" blue="0.15152657219999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="70" id="gFn-Cw-Y6J"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="下一步" image="suvery_next"/>
+                            <state key="normal" title="下一步" image="suvery_next">
+                                <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gc-HI-WRz" customClass="GDEditButton">
                             <rect key="frame" x="243" y="0.0" width="112" height="50"/>
-                            <color key="backgroundColor" red="1" green="0.28324488580000001" blue="0.315149597" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Wpw-aG-MRa"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="Button" image="suvery_save"/>
+                            <state key="normal" title="整理" image="suvery_org">
+                                <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -77,6 +80,7 @@
     </objects>
     <resources>
         <image name="suvery_next" width="25" height="20"/>
+        <image name="suvery_org" width="19" height="19"/>
         <image name="suvery_save" width="19" height="19"/>
     </resources>
 </document>
