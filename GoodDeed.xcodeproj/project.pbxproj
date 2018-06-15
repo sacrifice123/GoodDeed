@@ -990,7 +990,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQ3FLUKHX3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/zhangtao/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/xiaozhan/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
 				INFOPLIST_FILE = GoodDeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1010,7 +1010,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQ3FLUKHX3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/zhangtao/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/xiaozhan/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
 				INFOPLIST_FILE = GoodDeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -46,7 +46,7 @@
     [[transitionContext containerView] addSubview:snapShot];
     snapShot.origin = sourcePoint;
     CGFloat heightScale = 1.5;//destinationView.height/sourceView.height;
-    CGFloat widthScale = destinationView.width/sourceView.width;
+    CGFloat widthScale = 1.5;//destinationView.width/sourceView.width;
     
     CGRect originFrame = fromView.frame;
     toView.hidden = YES;
@@ -56,7 +56,8 @@
         snapShot.origin = destinationPoint;
         fromView.alpha = 0;
         fromView.transform = snapShot.transform;
-        fromView.origin = CGPointMake((destinationPoint.x - sourcePoint.x)*widthScale-70, (destinationPoint.y - sourcePoint.y)*heightScale);
+      //  CGPoint point = CGPointMake((destinationPoint.x - sourcePoint.x)*widthScale-70, (destinationPoint.y - sourcePoint.y)*heightScale);
+        fromView.origin = CGPointMake((destinationPoint.x - sourcePoint.x)*widthScale+100, (destinationPoint.y - sourcePoint.y)*heightScale+200);
         
     } completion:^(BOOL finished) {
         [transitionContext containerView].backgroundColor = containerViewColor;
