@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "GDHomeViewController.h"
-#import "GDLeftViewController.h"
+#import "GDLaunchViewController.h"
+#import "GDHomeManager.h"
 
 @interface AppDelegate ()
 
@@ -20,16 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    GDHomeViewController *home = [[GDHomeViewController alloc] init];
-    GDLeftViewController *leftVC = [[GDLeftViewController alloc] init];
-    UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:home];
-    UINavigationController *leftNav = [[UINavigationController alloc] initWithRootViewController:leftVC];
-//    [home.navigationController setNavigationBarHidden:YES];
-//    [leftNav.navigationController setNavigationBarHidden:YES];
-    MMDrawerController *mmdc = [[MMDrawerController alloc] initWithCenterViewController:homeNav leftDrawerViewController:leftNav];
-    [mmdc setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-        [mmdc setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
-    self.window.rootViewController = mmdc;
+    self.window.rootViewController = [GDLaunchViewController new];
     return YES;
     
 }

@@ -7,7 +7,7 @@
 //
 
 #import "GDPreviewViewController.h"
-#import <POP.h>
+#import "GDHomeManager.h"
 
 @interface GDPreviewViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *button;
@@ -67,36 +67,10 @@ static CGFloat const XMGSpringFactor = 10;
     return cell;
 }
 
-- (void)testwith:(NSArray *)arr{
-    NSArray *images = @[@"publish-video", @"publish-picture", @"publish-text", @"publish-audio", @"publish-review", @"publish-offline"];
-    NSArray *titles = @[@"发视频", @"发图片", @"发段子", @"发声音", @"审帖", @"离线下载"];
-    
-    for (int i = 0; i<arr.count; i++) {
-        UICollectionViewCell *button = arr[i];
-        CGFloat buttonEndX = button.x;
-        CGFloat buttonBeginX = buttonEndX + SCREEN_WIDTH;
-        CGFloat buttonEndY = button.y;
-
-        // 按钮动画
-        POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-        anim.fromValue = [NSValue valueWithCGRect:CGRectMake(buttonBeginX, buttonEndY, button.width, button.width)];
-        anim.toValue = [NSValue valueWithCGRect:CGRectMake(buttonEndX, buttonEndY, button.width, button.width)];
-        anim.springBounciness = XMGSpringFactor*0.05;
-        anim.springSpeed = XMGSpringFactor;
-        NSIndexPath *index = [self.collectionView indexPathForCell:button];
-        NSInteger row = i/2;
-        anim.beginTime = CACurrentMediaTime() + XMGAnimationDelay * (arr.count-i)*0.2;
-        [button pop_addAnimation:anim forKey:nil];
-    }
-    
-}
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     self.collectionView.hidden = NO;
-    NSArray *arr = self.collectionView.visibleCells;
-
-    [self testwith:arr];
-
+    [GDHomeManager POPAnimationExecutionWith:self.collectionView];
     
 }
 

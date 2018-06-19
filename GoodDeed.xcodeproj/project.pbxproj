@@ -40,6 +40,9 @@
 		E6655CDA20C51391005B46C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CD920C51391005B46C3 /* main.m */; };
 		E6655CE420C51391005B46C3 /* GoodDeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CE320C51391005B46C3 /* GoodDeedTests.m */; };
 		E6655CEF20C51391005B46C3 /* GoodDeedUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CEE20C51391005B46C3 /* GoodDeedUITests.m */; };
+		E668759F20D8B1FD0038307F /* GDHomeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E668759E20D8B1FD0038307F /* GDHomeManager.m */; };
+		E66875AC20D903CD0038307F /* GDLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E66875AA20D903CD0038307F /* GDLaunchViewController.m */; };
+		E66875AD20D903CD0038307F /* GDLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E66875AB20D903CD0038307F /* GDLaunchViewController.xib */; };
 		E69C3F9820CF6F6E004F5614 /* AnimationWaveEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3F7120CF6F6E004F5614 /* AnimationWaveEnd.m */; };
 		E69C3F9920CF6F6E004F5614 /* AnimationBackEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3F7420CF6F6E004F5614 /* AnimationBackEnd.m */; };
 		E69C3F9A20CF6F6E004F5614 /* AnimationTransitionEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3F7520CF6F6E004F5614 /* AnimationTransitionEnd.m */; };
@@ -145,6 +148,11 @@
 		E6655CEA20C51391005B46C3 /* GoodDeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodDeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6655CEE20C51391005B46C3 /* GoodDeedUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodDeedUITests.m; sourceTree = "<group>"; };
 		E6655CF020C51391005B46C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E668759D20D8B1FD0038307F /* GDHomeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDHomeManager.h; sourceTree = "<group>"; };
+		E668759E20D8B1FD0038307F /* GDHomeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDHomeManager.m; sourceTree = "<group>"; };
+		E66875A920D903CD0038307F /* GDLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLaunchViewController.h; sourceTree = "<group>"; };
+		E66875AA20D903CD0038307F /* GDLaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLaunchViewController.m; sourceTree = "<group>"; };
+		E66875AB20D903CD0038307F /* GDLaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDLaunchViewController.xib; sourceTree = "<group>"; };
 		E69C3F7120CF6F6E004F5614 /* AnimationWaveEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationWaveEnd.m; sourceTree = "<group>"; };
 		E69C3F7220CF6F6E004F5614 /* AnimationStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationStyle.h; sourceTree = "<group>"; };
 		E69C3F7320CF6F6E004F5614 /* UIView+HHLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HHLayout.h"; sourceTree = "<group>"; };
@@ -279,6 +287,8 @@
 			children = (
 				E69C3F7020CF6F6E004F5614 /* HHTransition */,
 				E664C98820CA7AE6004E81A4 /* pic.png */,
+				E668759D20D8B1FD0038307F /* GDHomeManager.h */,
+				E668759E20D8B1FD0038307F /* GDHomeManager.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -358,6 +368,7 @@
 		E6655CC920C5138F005B46C3 /* GoodDeed */ = {
 			isa = PBXGroup;
 			children = (
+				E66875A020D9009E0038307F /* Lunch */,
 				E69C3FB720CFBE47004F5614 /* Survey */,
 				E69C3FB620CFBE15004F5614 /* FeedBack&Help */,
 				E69C3FB520CFBDF8004F5614 /* Cause */,
@@ -393,6 +404,40 @@
 				E6655CF020C51391005B46C3 /* Info.plist */,
 			);
 			path = GoodDeedUITests;
+			sourceTree = "<group>";
+		};
+		E66875A020D9009E0038307F /* Lunch */ = {
+			isa = PBXGroup;
+			children = (
+				E66875A320D902B10038307F /* Controller */,
+				E66875A220D901E90038307F /* View */,
+				E66875A120D900B10038307F /* Model */,
+			);
+			path = Lunch;
+			sourceTree = "<group>";
+		};
+		E66875A120D900B10038307F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E66875A220D901E90038307F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E66875A320D902B10038307F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E66875A920D903CD0038307F /* GDLaunchViewController.h */,
+				E66875AA20D903CD0038307F /* GDLaunchViewController.m */,
+				E66875AB20D903CD0038307F /* GDLaunchViewController.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		E69C3F7020CF6F6E004F5614 /* HHTransition */ = {
@@ -709,6 +754,7 @@
 				E664C95F20C93B7B004E81A4 /* GDLeftHeaderView.xib in Resources */,
 				E6655CD420C51391005B46C3 /* Assets.xcassets in Resources */,
 				E6C55C2F20CA85970034A65A /* GDPreviewViewController.xib in Resources */,
+				E66875AD20D903CD0038307F /* GDLaunchViewController.xib in Resources */,
 				E664C98720CA7547004E81A4 /* GDCauseCell.xib in Resources */,
 				E6655CD220C5138F005B46C3 /* Main.storyboard in Resources */,
 			);
@@ -788,6 +834,7 @@
 				E664C98120CA7522004E81A4 /* GDSurveyCell.m in Sources */,
 				E69C3F9820CF6F6E004F5614 /* AnimationWaveEnd.m in Sources */,
 				E6655CCF20C5138F005B46C3 /* ViewController.m in Sources */,
+				E66875AC20D903CD0038307F /* GDLaunchViewController.m in Sources */,
 				E69C3FA420CF6F6E004F5614 /* AnimationWaveBegin.m in Sources */,
 				E664C96E20CA174D004E81A4 /* SCAdCollectionViewLayout.m in Sources */,
 				E69C3F9B20CF6F6E004F5614 /* VCTransitionDelegate.m in Sources */,
@@ -811,6 +858,7 @@
 				E69C3FA320CF6F6E004F5614 /* VCInteractionDelegate.m in Sources */,
 				E664C96F20CA174D004E81A4 /* HeroModel.m in Sources */,
 				E65E68BD20D0E60B003E07CB /* GDEditBaseViewController.m in Sources */,
+				E668759F20D8B1FD0038307F /* GDHomeManager.m in Sources */,
 				E664C95120C925A5004E81A4 /* GDBaseViewController.m in Sources */,
 				E69C3FA120CF6F6E004F5614 /* AnimationScaleBegin.m in Sources */,
 				E69C3FA620CF6F6E004F5614 /* UIView+HHLayout.m in Sources */,
