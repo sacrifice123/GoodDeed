@@ -9,6 +9,7 @@
 #import "GDLaunchViewController.h"
 
 @interface GDLaunchViewController ()
+@property (strong, nonatomic) IBOutlet UIView *startView;
 
 @end
 
@@ -17,13 +18,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.navigationController setNavigationBarHidden:YES];
+
 }
 
 
 - (IBAction)startHere:(id)sender {
+
+    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.view addSubview:self.startView];
+    [self.startView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+}
+
+- (IBAction)Go:(id)sender {
     
     
 }
 
+
+- (IBAction)login:(id)sender {
+    
+    
+}
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "GDLaunchViewController.h"
 #import "GDHomeManager.h"
 
 @interface AppDelegate ()
@@ -19,8 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [GDLaunchViewController new];
+    self.window.rootViewController = [GDHomeManager getRootController:NO];
     return YES;
     
 }

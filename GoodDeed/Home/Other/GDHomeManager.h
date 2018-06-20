@@ -11,6 +11,6 @@
 @interface GDHomeManager : NSObject
 
 + (void)POPAnimationExecutionWith:(UICollectionView *)collectionView;
-+ (MMDrawerController *)getHomeMainVC;
++ (UIViewController *)getRootController:(BOOL)isLogin;
 
 @end

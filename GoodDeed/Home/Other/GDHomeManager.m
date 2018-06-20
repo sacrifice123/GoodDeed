@@ -9,6 +9,8 @@
 #import "GDHomeManager.h"
 #import "GDHomeViewController.h"
 #import "GDLeftViewController.h"
+#import "GDLaunchViewController.h"
+
 #import <POP.h>
 @implementation GDHomeManager
 
@@ -52,5 +54,14 @@ static CGFloat const GDSpringFactor = 10;
     [mmdc setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     return mmdc;
 
+}
+
++ (UIViewController *)getRootController:(BOOL)isLogin{
+    
+    if (isLogin) {
+        return [self getHomeMainVC];
+    }else{
+        return [[UINavigationController alloc] initWithRootViewController:[GDLaunchViewController new]];
+    }
 }
 @end

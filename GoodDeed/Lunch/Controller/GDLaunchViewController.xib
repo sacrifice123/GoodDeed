@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GDLaunchViewController">
             <connections>
+                <outlet property="startView" destination="hS6-9I-q6k" id="lLI-He-r5k"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -50,6 +50,9 @@
                             <state key="normal" title="直接登录" image="Launch_login">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="login:" destination="-1" eventType="touchUpInside" id="wA9-En-t9f"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -74,6 +77,12 @@
                     <state key="normal" title="从这里开始">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="startHere:" destination="-1" eventType="touchUpInside" id="rhn-hJ-L5B"/>
                     </connections>
@@ -97,13 +106,100 @@
         <view contentMode="scaleToFill" id="hS6-9I-q6k">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <viewLayoutGuide key="safeArea" id="bv2-SL-BqI"/>
-            <point key="canvasLocation" x="-60" y="505"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_bg.pic" translatesAutoresizingMaskIntoConstraints="NO" id="arn-yn-fHP">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="准备开始了吗？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG0-Se-ZC1">
+                    <rect key="frame" x="118" y="299" width="140" height="28"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_logo" translatesAutoresizingMaskIntoConstraints="NO" id="EpQ-On-Wwo">
+                    <rect key="frame" x="113" y="105" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="E08-fs-bKA"/>
+                        <constraint firstAttribute="height" constant="150" id="eNu-1C-w5d"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8X-7m-bBd">
+                    <rect key="frame" x="127.5" y="417" width="121" height="70"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="121" id="GO7-zL-ckt"/>
+                        <constraint firstAttribute="height" constant="70" id="nUE-PZ-mTw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="35"/>
+                    <state key="normal" title="Go!">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="Go:" destination="-1" eventType="touchUpInside" id="gn2-hs-vol"/>
+                        <action selector="startHere:" destination="-1" eventType="touchUpInside" id="pF4-Gj-bGO"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZ5-hl-te5">
+                    <rect key="frame" x="90" y="630" width="195" height="17"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已经在使用 GoodDeed？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvj-XS-ZIb">
+                            <rect key="frame" x="0.0" y="0.0" width="135" height="17"/>
+                            <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yG2-or-3TG">
+                            <rect key="frame" x="138" y="0.0" width="57" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="-12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="48" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="直接登录" image="Launch_login">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="login:" destination="-1" eventType="touchUpInside" id="nel-wR-wpb"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="mvj-XS-ZIb" firstAttribute="leading" secondItem="uZ5-hl-te5" secondAttribute="leading" id="6l9-9H-CKp"/>
+                        <constraint firstAttribute="bottom" secondItem="mvj-XS-ZIb" secondAttribute="bottom" id="BPR-zl-lc5"/>
+                        <constraint firstItem="yG2-or-3TG" firstAttribute="leading" secondItem="mvj-XS-ZIb" secondAttribute="trailing" constant="3" id="Frm-5a-T6Y"/>
+                        <constraint firstItem="yG2-or-3TG" firstAttribute="top" secondItem="uZ5-hl-te5" secondAttribute="top" id="PIU-FS-qSv"/>
+                        <constraint firstAttribute="height" constant="17" id="R7z-Hv-JPI"/>
+                        <constraint firstItem="mvj-XS-ZIb" firstAttribute="top" secondItem="uZ5-hl-te5" secondAttribute="top" id="YOb-Qu-8n3"/>
+                        <constraint firstAttribute="trailing" secondItem="yG2-or-3TG" secondAttribute="trailing" id="hPJ-FW-4rl"/>
+                        <constraint firstAttribute="bottom" secondItem="yG2-or-3TG" secondAttribute="bottom" id="ndR-lq-SqP"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="EpQ-On-Wwo" firstAttribute="top" secondItem="hS6-9I-q6k" secondAttribute="top" constant="105" id="3AA-kg-ort"/>
+                <constraint firstItem="arn-yn-fHP" firstAttribute="top" secondItem="hS6-9I-q6k" secondAttribute="top" id="3Xo-ik-pJr"/>
+                <constraint firstItem="uZ5-hl-te5" firstAttribute="centerX" secondItem="hS6-9I-q6k" secondAttribute="centerX" id="AjX-vZ-8d4"/>
+                <constraint firstItem="W8X-7m-bBd" firstAttribute="centerX" secondItem="hS6-9I-q6k" secondAttribute="centerX" id="FHx-7G-4SN"/>
+                <constraint firstItem="arn-yn-fHP" firstAttribute="leading" secondItem="hS6-9I-q6k" secondAttribute="leading" id="Gtp-f6-OIx"/>
+                <constraint firstAttribute="trailing" secondItem="arn-yn-fHP" secondAttribute="trailing" id="TdK-7x-KSz"/>
+                <constraint firstItem="bG0-Se-ZC1" firstAttribute="centerX" secondItem="hS6-9I-q6k" secondAttribute="centerX" id="XO4-8d-UDn"/>
+                <constraint firstItem="bG0-Se-ZC1" firstAttribute="top" secondItem="EpQ-On-Wwo" secondAttribute="bottom" constant="44" id="fAc-UO-01N"/>
+                <constraint firstAttribute="bottom" secondItem="uZ5-hl-te5" secondAttribute="bottom" constant="20" id="flH-8v-y2l"/>
+                <constraint firstAttribute="bottom" secondItem="arn-yn-fHP" secondAttribute="bottom" id="jSb-3S-7uf"/>
+                <constraint firstItem="W8X-7m-bBd" firstAttribute="top" secondItem="bG0-Se-ZC1" secondAttribute="bottom" constant="90" id="pY7-bI-FPk"/>
+                <constraint firstItem="EpQ-On-Wwo" firstAttribute="centerX" secondItem="hS6-9I-q6k" secondAttribute="centerX" id="rUK-vr-bBQ"/>
+            </constraints>
+            <point key="canvasLocation" x="-423" y="63"/>
         </view>
     </objects>
     <resources>
         <image name="Launch_login" width="7" height="8"/>
+        <image name="home_bg.pic" width="375" height="667"/>
         <image name="main_logo" width="150" height="150"/>
     </resources>
 </document>
