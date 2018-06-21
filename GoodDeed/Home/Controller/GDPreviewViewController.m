@@ -18,9 +18,6 @@
 
 @implementation GDPreviewViewController
 
-static CGFloat const XMGAnimationDelay = 0.1;
-static CGFloat const XMGSpringFactor = 10;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

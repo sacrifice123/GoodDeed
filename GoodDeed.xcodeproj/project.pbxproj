@@ -11,6 +11,37 @@
 		496026DB20D95A1000C3DD15 /* GDKnowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496026D920D95A1000C3DD15 /* GDKnowViewController.xib */; };
 		49F0A78120D1715300CD06C3 /* GDEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F0A78020D1715300CD06C3 /* GDEditViewController.xib */; };
 		49F0A78420D171B500CD06C3 /* GDEditButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F0A78320D171B500CD06C3 /* GDEditButton.m */; };
+		E611FBC620D9FE7A00807E95 /* GDLaunchQuestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FBC520D9FE7A00807E95 /* GDLaunchQuestionController.m */; };
+		E611FBC920DA070900807E95 /* GDLaunchReadyView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FBC820DA070900807E95 /* GDLaunchReadyView.m */; };
+		E611FBE120DA3DDE00807E95 /* GDOrgAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FBE020DA3DDE00807E95 /* GDOrgAnimationView.m */; };
+		E611FBF720DA42CC00807E95 /* animation_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBE320DA42CC00807E95 /* animation_8.jpg */; };
+		E611FBF820DA42CC00807E95 /* animation_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBE420DA42CC00807E95 /* animation_9.jpg */; };
+		E611FBF920DA42CC00807E95 /* animation_14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBE520DA42CC00807E95 /* animation_14.jpg */; };
+		E611FBFA20DA42CC00807E95 /* animation_15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBE620DA42CC00807E95 /* animation_15.jpg */; };
+		E611FBFB20DA42CC00807E95 /* animation_17.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBE720DA42CC00807E95 /* animation_17.jpg */; };
+		E611FBFC20DA42CC00807E95 /* animation_16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBE820DA42CC00807E95 /* animation_16.jpg */; };
+		E611FBFD20DA42CC00807E95 /* animation_12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBE920DA42CC00807E95 /* animation_12.jpg */; };
+		E611FBFE20DA42CC00807E95 /* animation_13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBEA20DA42CC00807E95 /* animation_13.jpg */; };
+		E611FBFF20DA42CC00807E95 /* animation_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBEB20DA42CC00807E95 /* animation_11.jpg */; };
+		E611FC0020DA42CC00807E95 /* animation_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBEC20DA42CC00807E95 /* animation_10.jpg */; };
+		E611FC0120DA42CC00807E95 /* animation_20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBED20DA42CC00807E95 /* animation_20.jpg */; };
+		E611FC0220DA42CC00807E95 /* animation_18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBEE20DA42CC00807E95 /* animation_18.jpg */; };
+		E611FC0320DA42CC00807E95 /* animation_19.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBEF20DA42CC00807E95 /* animation_19.jpg */; };
+		E611FC0420DA42CC00807E95 /* animation_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBF020DA42CC00807E95 /* animation_4.jpg */; };
+		E611FC0520DA42CC00807E95 /* animation_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBF120DA42CC00807E95 /* animation_5.jpg */; };
+		E611FC0620DA42CC00807E95 /* animation_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBF220DA42CC00807E95 /* animation_7.jpg */; };
+		E611FC0720DA42CC00807E95 /* animation_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBF320DA42CC00807E95 /* animation_6.jpg */; };
+		E611FC0820DA42CC00807E95 /* animation_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBF420DA42CC00807E95 /* animation_2.jpg */; };
+		E611FC0920DA42CC00807E95 /* animation_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBF520DA42CC00807E95 /* animation_3.jpg */; };
+		E611FC0A20DA42CC00807E95 /* animation_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E611FBF620DA42CC00807E95 /* animation_1.jpg */; };
+		E611FC1020DB9EF300807E95 /* GDQuestionBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FC0F20DB9EF300807E95 /* GDQuestionBaseView.m */; };
+		E611FC1320DB9FD100807E95 /* GDSingleSelQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FC1220DB9FD100807E95 /* GDSingleSelQuestionView.m */; };
+		E611FC1620DB9FE800807E95 /* GDMoreSelQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FC1520DB9FE800807E95 /* GDMoreSelQuestionView.m */; };
+		E611FC1920DBA01100807E95 /* GDSlideQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FC1820DBA01100807E95 /* GDSlideQuestionView.m */; };
+		E611FC1C20DBA04600807E95 /* GDQuantifyQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FC1B20DBA04600807E95 /* GDQuantifyQuestionView.m */; };
+		E611FC1F20DBA07500807E95 /* GDSortQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FC1E20DBA07500807E95 /* GDSortQuestionView.m */; };
+		E611FC2220DBA0F000807E95 /* GDImageSelQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FC2120DBA0F000807E95 /* GDImageSelQuestionView.m */; };
+		E611FC2820DBA16600807E95 /* GDWriteQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FC2720DBA16600807E95 /* GDWriteQuestionView.m */; };
 		E65E68BD20D0E60B003E07CB /* GDEditBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E65E68BC20D0E60B003E07CB /* GDEditBaseViewController.m */; };
 		E65E68C120D0EC0F003E07CB /* GDEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E65E68BF20D0EC0F003E07CB /* GDEditViewController.m */; };
 		E66043E911AC64879784645F /* libPods-GoodDeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EDE6627E679C36DA5BE5B6 /* libPods-GoodDeed.a */; };
@@ -98,6 +129,48 @@
 		49F0A78320D171B500CD06C3 /* GDEditButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDEditButton.m; sourceTree = "<group>"; };
 		52EDE6627E679C36DA5BE5B6 /* libPods-GoodDeed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoodDeed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63ACA7DF26CA804978045942 /* Pods-GoodDeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodDeed.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoodDeed/Pods-GoodDeed.release.xcconfig"; sourceTree = "<group>"; };
+		E611FBC420D9FE7A00807E95 /* GDLaunchQuestionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLaunchQuestionController.h; sourceTree = "<group>"; };
+		E611FBC520D9FE7A00807E95 /* GDLaunchQuestionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLaunchQuestionController.m; sourceTree = "<group>"; };
+		E611FBC720DA070900807E95 /* GDLaunchReadyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLaunchReadyView.h; sourceTree = "<group>"; };
+		E611FBC820DA070900807E95 /* GDLaunchReadyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLaunchReadyView.m; sourceTree = "<group>"; };
+		E611FBDF20DA3DDE00807E95 /* GDOrgAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDOrgAnimationView.h; sourceTree = "<group>"; };
+		E611FBE020DA3DDE00807E95 /* GDOrgAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDOrgAnimationView.m; sourceTree = "<group>"; };
+		E611FBE320DA42CC00807E95 /* animation_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_8.jpg; sourceTree = "<group>"; };
+		E611FBE420DA42CC00807E95 /* animation_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_9.jpg; sourceTree = "<group>"; };
+		E611FBE520DA42CC00807E95 /* animation_14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_14.jpg; sourceTree = "<group>"; };
+		E611FBE620DA42CC00807E95 /* animation_15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_15.jpg; sourceTree = "<group>"; };
+		E611FBE720DA42CC00807E95 /* animation_17.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_17.jpg; sourceTree = "<group>"; };
+		E611FBE820DA42CC00807E95 /* animation_16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_16.jpg; sourceTree = "<group>"; };
+		E611FBE920DA42CC00807E95 /* animation_12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_12.jpg; sourceTree = "<group>"; };
+		E611FBEA20DA42CC00807E95 /* animation_13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_13.jpg; sourceTree = "<group>"; };
+		E611FBEB20DA42CC00807E95 /* animation_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_11.jpg; sourceTree = "<group>"; };
+		E611FBEC20DA42CC00807E95 /* animation_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_10.jpg; sourceTree = "<group>"; };
+		E611FBED20DA42CC00807E95 /* animation_20.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_20.jpg; sourceTree = "<group>"; };
+		E611FBEE20DA42CC00807E95 /* animation_18.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_18.jpg; sourceTree = "<group>"; };
+		E611FBEF20DA42CC00807E95 /* animation_19.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_19.jpg; sourceTree = "<group>"; };
+		E611FBF020DA42CC00807E95 /* animation_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_4.jpg; sourceTree = "<group>"; };
+		E611FBF120DA42CC00807E95 /* animation_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_5.jpg; sourceTree = "<group>"; };
+		E611FBF220DA42CC00807E95 /* animation_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_7.jpg; sourceTree = "<group>"; };
+		E611FBF320DA42CC00807E95 /* animation_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_6.jpg; sourceTree = "<group>"; };
+		E611FBF420DA42CC00807E95 /* animation_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_2.jpg; sourceTree = "<group>"; };
+		E611FBF520DA42CC00807E95 /* animation_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_3.jpg; sourceTree = "<group>"; };
+		E611FBF620DA42CC00807E95 /* animation_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation_1.jpg; sourceTree = "<group>"; };
+		E611FC0E20DB9EF300807E95 /* GDQuestionBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDQuestionBaseView.h; sourceTree = "<group>"; };
+		E611FC0F20DB9EF300807E95 /* GDQuestionBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDQuestionBaseView.m; sourceTree = "<group>"; };
+		E611FC1120DB9FD100807E95 /* GDSingleSelQuestionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSingleSelQuestionView.h; sourceTree = "<group>"; };
+		E611FC1220DB9FD100807E95 /* GDSingleSelQuestionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSingleSelQuestionView.m; sourceTree = "<group>"; };
+		E611FC1420DB9FE800807E95 /* GDMoreSelQuestionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDMoreSelQuestionView.h; sourceTree = "<group>"; };
+		E611FC1520DB9FE800807E95 /* GDMoreSelQuestionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDMoreSelQuestionView.m; sourceTree = "<group>"; };
+		E611FC1720DBA01100807E95 /* GDSlideQuestionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSlideQuestionView.h; sourceTree = "<group>"; };
+		E611FC1820DBA01100807E95 /* GDSlideQuestionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSlideQuestionView.m; sourceTree = "<group>"; };
+		E611FC1A20DBA04600807E95 /* GDQuantifyQuestionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDQuantifyQuestionView.h; sourceTree = "<group>"; };
+		E611FC1B20DBA04600807E95 /* GDQuantifyQuestionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDQuantifyQuestionView.m; sourceTree = "<group>"; };
+		E611FC1D20DBA07500807E95 /* GDSortQuestionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSortQuestionView.h; sourceTree = "<group>"; };
+		E611FC1E20DBA07500807E95 /* GDSortQuestionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSortQuestionView.m; sourceTree = "<group>"; };
+		E611FC2020DBA0F000807E95 /* GDImageSelQuestionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDImageSelQuestionView.h; sourceTree = "<group>"; };
+		E611FC2120DBA0F000807E95 /* GDImageSelQuestionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDImageSelQuestionView.m; sourceTree = "<group>"; };
+		E611FC2620DBA16600807E95 /* GDWriteQuestionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDWriteQuestionView.h; sourceTree = "<group>"; };
+		E611FC2720DBA16600807E95 /* GDWriteQuestionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDWriteQuestionView.m; sourceTree = "<group>"; };
 		E65E68BB20D0E60B003E07CB /* GDEditBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDEditBaseViewController.h; sourceTree = "<group>"; };
 		E65E68BC20D0E60B003E07CB /* GDEditBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDEditBaseViewController.m; sourceTree = "<group>"; };
 		E65E68BE20D0EC0F003E07CB /* GDEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDEditViewController.h; sourceTree = "<group>"; };
@@ -249,6 +322,33 @@
 				52EDE6627E679C36DA5BE5B6 /* libPods-GoodDeed.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E611FBE220DA42CC00807E95 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E611FBE320DA42CC00807E95 /* animation_8.jpg */,
+				E611FBE420DA42CC00807E95 /* animation_9.jpg */,
+				E611FBE520DA42CC00807E95 /* animation_14.jpg */,
+				E611FBE620DA42CC00807E95 /* animation_15.jpg */,
+				E611FBE720DA42CC00807E95 /* animation_17.jpg */,
+				E611FBE820DA42CC00807E95 /* animation_16.jpg */,
+				E611FBE920DA42CC00807E95 /* animation_12.jpg */,
+				E611FBEA20DA42CC00807E95 /* animation_13.jpg */,
+				E611FBEB20DA42CC00807E95 /* animation_11.jpg */,
+				E611FBEC20DA42CC00807E95 /* animation_10.jpg */,
+				E611FBED20DA42CC00807E95 /* animation_20.jpg */,
+				E611FBEE20DA42CC00807E95 /* animation_18.jpg */,
+				E611FBEF20DA42CC00807E95 /* animation_19.jpg */,
+				E611FBF020DA42CC00807E95 /* animation_4.jpg */,
+				E611FBF120DA42CC00807E95 /* animation_5.jpg */,
+				E611FBF220DA42CC00807E95 /* animation_7.jpg */,
+				E611FBF320DA42CC00807E95 /* animation_6.jpg */,
+				E611FBF420DA42CC00807E95 /* animation_2.jpg */,
+				E611FBF520DA42CC00807E95 /* animation_3.jpg */,
+				E611FBF620DA42CC00807E95 /* animation_1.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		E664C94420C92595004E81A4 /* Home */ = {
@@ -431,6 +531,27 @@
 		E66875A220D901E90038307F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E611FBE220DA42CC00807E95 /* Images */,
+				E611FBC720DA070900807E95 /* GDLaunchReadyView.h */,
+				E611FBC820DA070900807E95 /* GDLaunchReadyView.m */,
+				E611FC0E20DB9EF300807E95 /* GDQuestionBaseView.h */,
+				E611FC0F20DB9EF300807E95 /* GDQuestionBaseView.m */,
+				E611FBDF20DA3DDE00807E95 /* GDOrgAnimationView.h */,
+				E611FBE020DA3DDE00807E95 /* GDOrgAnimationView.m */,
+				E611FC1120DB9FD100807E95 /* GDSingleSelQuestionView.h */,
+				E611FC1220DB9FD100807E95 /* GDSingleSelQuestionView.m */,
+				E611FC1420DB9FE800807E95 /* GDMoreSelQuestionView.h */,
+				E611FC1520DB9FE800807E95 /* GDMoreSelQuestionView.m */,
+				E611FC1720DBA01100807E95 /* GDSlideQuestionView.h */,
+				E611FC1820DBA01100807E95 /* GDSlideQuestionView.m */,
+				E611FC1A20DBA04600807E95 /* GDQuantifyQuestionView.h */,
+				E611FC1B20DBA04600807E95 /* GDQuantifyQuestionView.m */,
+				E611FC1D20DBA07500807E95 /* GDSortQuestionView.h */,
+				E611FC1E20DBA07500807E95 /* GDSortQuestionView.m */,
+				E611FC2020DBA0F000807E95 /* GDImageSelQuestionView.h */,
+				E611FC2120DBA0F000807E95 /* GDImageSelQuestionView.m */,
+				E611FC2620DBA16600807E95 /* GDWriteQuestionView.h */,
+				E611FC2720DBA16600807E95 /* GDWriteQuestionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -444,6 +565,8 @@
 				496026D720D95A1000C3DD15 /* GDKnowViewController.h */,
 				496026D820D95A1000C3DD15 /* GDKnowViewController.m */,
 				496026D920D95A1000C3DD15 /* GDKnowViewController.xib */,
+				E611FBC420D9FE7A00807E95 /* GDLaunchQuestionController.h */,
+				E611FBC520D9FE7A00807E95 /* GDLaunchQuestionController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -753,19 +876,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				496026DB20D95A1000C3DD15 /* GDKnowViewController.xib in Resources */,
+				E611FC0A20DA42CC00807E95 /* animation_1.jpg in Resources */,
+				E611FBFD20DA42CC00807E95 /* animation_12.jpg in Resources */,
 				E664C97220CA174D004E81A4 /* SCAdDemoCollectionViewCell.xib in Resources */,
+				E611FC0820DA42CC00807E95 /* animation_2.jpg in Resources */,
 				E6655CD720C51391005B46C3 /* LaunchScreen.storyboard in Resources */,
 				E664C98220CA7522004E81A4 /* GDSurveyCell.xib in Resources */,
+				E611FC0020DA42CC00807E95 /* animation_10.jpg in Resources */,
+				E611FBF820DA42CC00807E95 /* animation_9.jpg in Resources */,
+				E611FC0920DA42CC00807E95 /* animation_3.jpg in Resources */,
+				E611FC0420DA42CC00807E95 /* animation_4.jpg in Resources */,
 				E664C97D20CA7502004E81A4 /* GDHomeCell.xib in Resources */,
+				E611FC0620DA42CC00807E95 /* animation_7.jpg in Resources */,
 				E664C98920CA7AE7004E81A4 /* pic.png in Resources */,
 				49F0A78120D1715300CD06C3 /* GDEditViewController.xib in Resources */,
+				E611FBF720DA42CC00807E95 /* animation_8.jpg in Resources */,
 				E664C95720C92F24004E81A4 /* GDLeftCell.xib in Resources */,
 				E664C95F20C93B7B004E81A4 /* GDLeftHeaderView.xib in Resources */,
+				E611FBFF20DA42CC00807E95 /* animation_11.jpg in Resources */,
+				E611FC0320DA42CC00807E95 /* animation_19.jpg in Resources */,
+				E611FBF920DA42CC00807E95 /* animation_14.jpg in Resources */,
+				E611FBFA20DA42CC00807E95 /* animation_15.jpg in Resources */,
+				E611FBFE20DA42CC00807E95 /* animation_13.jpg in Resources */,
 				E6655CD420C51391005B46C3 /* Assets.xcassets in Resources */,
 				E6C55C2F20CA85970034A65A /* GDPreviewViewController.xib in Resources */,
 				E66875AD20D903CD0038307F /* GDLaunchViewController.xib in Resources */,
+				E611FBFB20DA42CC00807E95 /* animation_17.jpg in Resources */,
+				E611FC0220DA42CC00807E95 /* animation_18.jpg in Resources */,
+				E611FC0720DA42CC00807E95 /* animation_6.jpg in Resources */,
+				E611FBFC20DA42CC00807E95 /* animation_16.jpg in Resources */,
 				E664C98720CA7547004E81A4 /* GDCauseCell.xib in Resources */,
+				E611FC0520DA42CC00807E95 /* animation_5.jpg in Resources */,
 				E6655CD220C5138F005B46C3 /* Main.storyboard in Resources */,
+				E611FC0120DA42CC00807E95 /* animation_20.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,16 +974,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E611FC1C20DBA04600807E95 /* GDQuantifyQuestionView.m in Sources */,
 				E664C95A20C9327B004E81A4 /* GDHelper.m in Sources */,
 				E65E68C120D0EC0F003E07CB /* GDEditViewController.m in Sources */,
 				E69C3FA720CF6F6E004F5614 /* AnimationErectEnd.m in Sources */,
 				E69C3F9C20CF6F6E004F5614 /* AnimationTiltBegin.m in Sources */,
 				49F0A78420D171B500CD06C3 /* GDEditButton.m in Sources */,
 				E69C3FAA20CF6F6E004F5614 /* QuadrantRecognise.m in Sources */,
+				E611FC1F20DBA07500807E95 /* GDSortQuestionView.m in Sources */,
+				E611FC1620DB9FE800807E95 /* GDMoreSelQuestionView.m in Sources */,
 				E69C3FA520CF6F6E004F5614 /* AnimationErectBegin.m in Sources */,
+				E611FC1020DB9EF300807E95 /* GDQuestionBaseView.m in Sources */,
 				E664C95D20C93B17004E81A4 /* GDLeftHeaderView.m in Sources */,
 				E69C3FAE20CFA3E5004F5614 /* GDHomeViewController.m in Sources */,
 				E664C98120CA7522004E81A4 /* GDSurveyCell.m in Sources */,
+				E611FBC920DA070900807E95 /* GDLaunchReadyView.m in Sources */,
+				E611FBE120DA3DDE00807E95 /* GDOrgAnimationView.m in Sources */,
 				E69C3F9820CF6F6E004F5614 /* AnimationWaveEnd.m in Sources */,
 				E6655CCF20C5138F005B46C3 /* ViewController.m in Sources */,
 				E66875AC20D903CD0038307F /* GDLaunchViewController.m in Sources */,
@@ -853,6 +1002,7 @@
 				E6655CDA20C51391005B46C3 /* main.m in Sources */,
 				E69C3F9920CF6F6E004F5614 /* AnimationBackEnd.m in Sources */,
 				496026DA20D95A1000C3DD15 /* GDKnowViewController.m in Sources */,
+				E611FC1920DBA01100807E95 /* GDSlideQuestionView.m in Sources */,
 				E69C3FA920CF6F6E004F5614 /* AnimationScaleEnd.m in Sources */,
 				E69C3F9E20CF6F6E004F5614 /* AnimationTildEnd.m in Sources */,
 				E664C97120CA174D004E81A4 /* SCAdView.m in Sources */,
@@ -864,6 +1014,8 @@
 				E6C55C2A20CA7EBC0034A65A /* GDBaseCell.m in Sources */,
 				E69C3FA020CF6F6E004F5614 /* AnimationFadeBegin.m in Sources */,
 				E664C97C20CA7502004E81A4 /* GDHomeCell.m in Sources */,
+				E611FC2220DBA0F000807E95 /* GDImageSelQuestionView.m in Sources */,
+				E611FC2820DBA16600807E95 /* GDWriteQuestionView.m in Sources */,
 				E6C55C2E20CA85970034A65A /* GDPreviewViewController.m in Sources */,
 				E69C3FA320CF6F6E004F5614 /* VCInteractionDelegate.m in Sources */,
 				E664C96F20CA174D004E81A4 /* HeroModel.m in Sources */,
@@ -875,6 +1027,8 @@
 				E664C96220C93D33004E81A4 /* GDLeftModel.m in Sources */,
 				E69C3F9D20CF6F6E004F5614 /* AnimationBackBegin.m in Sources */,
 				E69C3FB220CFB3C0004F5614 /* UIColor+HEX.m in Sources */,
+				E611FBC620D9FE7A00807E95 /* GDLaunchQuestionController.m in Sources */,
+				E611FC1320DB9FD100807E95 /* GDSingleSelQuestionView.m in Sources */,
 				E69C3F9F20CF6F6E004F5614 /* AnimationFadeEnd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1048,7 +1202,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQ3FLUKHX3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/zhangtao/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/xiaozhan/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
 				INFOPLIST_FILE = GoodDeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1068,7 +1222,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQ3FLUKHX3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/zhangtao/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/xiaozhan/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
 				INFOPLIST_FILE = GoodDeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
