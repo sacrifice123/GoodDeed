@@ -55,6 +55,12 @@
     
     if (_imgView == nil) {
         _imgView = [[UIImageView alloc] init];
+        _imgView.image = [UIImage imageNamed:@"animation_1.jpg"];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgViewTap:)];
+        _imgView.userInteractionEnabled = YES;
+        _imgView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        [_imgView addGestureRecognizer:tap];
     }
     return _imgView;
 }
@@ -67,7 +73,7 @@
         
     } completion:^(BOOL finished) {
         NSMutableArray <UIImage *> *array = [[NSMutableArray alloc] init];
-        for (int i=0; i<18; i++) {
+        for (int i=1; i<18; i++) {
             UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"animation_%i.jpg",i+1]];
             [array addObject:image];
         }
@@ -75,8 +81,19 @@
         self.imgView.animationDuration = 5;
         self.imgView.animationRepeatCount = 1;
         [self.imgView startAnimating];
+        self.imgView.image = [UIImage imageNamed:@"tap_image"];
+
 
     }];
 }
 
+- (void)imgViewTap:(UITapGestureRecognizer *)gesture{
+    
+    UIImageView *view = (UIImageView *)gesture.view;
+    if (!view.isAnimating) {
+        UIViewController *vc = [GDHomeManager getSuperVc:view];
+        
+    }
+    
+}
 @end

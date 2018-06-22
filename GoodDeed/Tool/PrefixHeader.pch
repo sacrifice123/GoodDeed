@@ -21,5 +21,6 @@
 #import "UIViewController+HHTransition.h"
 #import "UIView+HHLayout.h"
 #import "UIColor+HEX.h"
+#import "GDHomeManager.h"
 
 #endif 

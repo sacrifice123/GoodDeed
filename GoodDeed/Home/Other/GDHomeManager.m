@@ -64,4 +64,13 @@ static CGFloat const GDSpringFactor = 10;
         return [[UINavigationController alloc] initWithRootViewController:[GDLaunchViewController new]];
     }
 }
+
+
++ (UIViewController *)getSuperVc:(UIView *)view{
+    id object = view.nextResponder;
+    while (object&&![object isKindOfClass:[UIViewController class]]) {
+        object = [object nextResponder];
+    }
+    return object;
+}
 @end

@@ -62,7 +62,7 @@
 - (void)buttonClicked{
     
     GDOrgAnimationView *view = [[GDOrgAnimationView alloc] initWithFrame:self.frame];
-    [self addSubview:view];
+    [self.superview addSubview:view];
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];

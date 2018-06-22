@@ -12,5 +12,5 @@
 
 + (void)POPAnimationExecutionWith:(UICollectionView *)collectionView;
 + (UIViewController *)getRootController:(BOOL)isLogin;
-
++ (UIViewController *)getSuperVc:(UIView *)view;
 @end
