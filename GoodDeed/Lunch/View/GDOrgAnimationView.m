@@ -7,6 +7,7 @@
 //
 
 #import "GDOrgAnimationView.h"
+#import "GDPGChooseViewController.h"
 
 #define bgHeight 233
 @interface GDOrgAnimationView()
@@ -92,7 +93,8 @@
     UIImageView *view = (UIImageView *)gesture.view;
     if (!view.isAnimating) {
         UIViewController *vc = [GDHomeManager getSuperVc:view];
-        
+        GDPGChooseViewController *pgVc = [[GDPGChooseViewController alloc] init];
+        [vc presentViewController:pgVc animated:YES completion:nil];
     }
     
 }

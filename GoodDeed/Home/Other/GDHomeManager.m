@@ -73,4 +73,10 @@ static CGFloat const GDSpringFactor = 10;
     }
     return object;
 }
+
++ (void)presentToTargetControllerWith:(UIView *)view targetVc:(UIViewController *)targetVc{
+    
+    UIViewController *vc = [self getSuperVc:view];
+    [vc presentViewController:targetVc animated:YES completion:nil];
+}
 @end
