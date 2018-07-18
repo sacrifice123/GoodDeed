@@ -84,6 +84,8 @@
 		E668759F20D8B1FD0038307F /* GDHomeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E668759E20D8B1FD0038307F /* GDHomeManager.m */; };
 		E66875AC20D903CD0038307F /* GDLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E66875AA20D903CD0038307F /* GDLaunchViewController.m */; };
 		E66875AD20D903CD0038307F /* GDLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E66875AB20D903CD0038307F /* GDLaunchViewController.xib */; };
+		E692347820E4AE5000AF1585 /* GDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E692347620E4AE5000AF1585 /* GDLoginViewController.m */; };
+		E692347920E4AE5000AF1585 /* GDLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E692347720E4AE5000AF1585 /* GDLoginViewController.xib */; };
 		E69C3F9820CF6F6E004F5614 /* AnimationWaveEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3F7120CF6F6E004F5614 /* AnimationWaveEnd.m */; };
 		E69C3F9920CF6F6E004F5614 /* AnimationBackEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3F7420CF6F6E004F5614 /* AnimationBackEnd.m */; };
 		E69C3F9A20CF6F6E004F5614 /* AnimationTransitionEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3F7520CF6F6E004F5614 /* AnimationTransitionEnd.m */; };
@@ -252,6 +254,9 @@
 		E66875A920D903CD0038307F /* GDLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLaunchViewController.h; sourceTree = "<group>"; };
 		E66875AA20D903CD0038307F /* GDLaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLaunchViewController.m; sourceTree = "<group>"; };
 		E66875AB20D903CD0038307F /* GDLaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDLaunchViewController.xib; sourceTree = "<group>"; };
+		E692347520E4AE5000AF1585 /* GDLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLoginViewController.h; sourceTree = "<group>"; };
+		E692347620E4AE5000AF1585 /* GDLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLoginViewController.m; sourceTree = "<group>"; };
+		E692347720E4AE5000AF1585 /* GDLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDLoginViewController.xib; sourceTree = "<group>"; };
 		E69C3F7120CF6F6E004F5614 /* AnimationWaveEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationWaveEnd.m; sourceTree = "<group>"; };
 		E69C3F7220CF6F6E004F5614 /* AnimationStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationStyle.h; sourceTree = "<group>"; };
 		E69C3F7320CF6F6E004F5614 /* UIView+HHLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HHLayout.h"; sourceTree = "<group>"; };
@@ -609,6 +614,9 @@
 				E61F433920E237A9004D2E09 /* GDPGSearchViewController.h */,
 				E61F433A20E237A9004D2E09 /* GDPGSearchViewController.m */,
 				E61F433B20E237A9004D2E09 /* GDPGSearchViewController.xib */,
+				E692347520E4AE5000AF1585 /* GDLoginViewController.h */,
+				E692347620E4AE5000AF1585 /* GDLoginViewController.m */,
+				E692347720E4AE5000AF1585 /* GDLoginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -928,6 +936,7 @@
 				E611FBF820DA42CC00807E95 /* animation_9.jpg in Resources */,
 				E611FC0920DA42CC00807E95 /* animation_3.jpg in Resources */,
 				E61F433320E21A22004D2E09 /* GDPGChooseCell.xib in Resources */,
+				E692347920E4AE5000AF1585 /* GDLoginViewController.xib in Resources */,
 				E611FC0420DA42CC00807E95 /* animation_4.jpg in Resources */,
 				E664C97D20CA7502004E81A4 /* GDHomeCell.xib in Resources */,
 				E61F433820E22E91004D2E09 /* GDPGHeaderView.xib in Resources */,
@@ -1072,6 +1081,7 @@
 				E668759F20D8B1FD0038307F /* GDHomeManager.m in Sources */,
 				E664C95120C925A5004E81A4 /* GDBaseViewController.m in Sources */,
 				E61F434020E245CD004D2E09 /* GDPGChooseView.m in Sources */,
+				E692347820E4AE5000AF1585 /* GDLoginViewController.m in Sources */,
 				E69C3FA120CF6F6E004F5614 /* AnimationScaleBegin.m in Sources */,
 				E69C3FA620CF6F6E004F5614 /* UIView+HHLayout.m in Sources */,
 				E664C96220C93D33004E81A4 /* GDLeftModel.m in Sources */,

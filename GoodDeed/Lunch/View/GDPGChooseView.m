@@ -80,7 +80,11 @@ static NSString * const headerReuseIdentifier = @"GDPGHeaderView";
 #pragma mark <UICollectionViewDelegate>
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-   // [self dismissViewControllerAnimated:YES completion:nil];
+    UIViewController *vc = [GDHomeManager getSuperVc:self];
+    //[vc dismissViewControllerAnimated:YES completion:nil];
+    
+    [UIApplication sharedApplication].keyWindow.rootViewController = [GDHomeManager getRootController:YES];
+
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{

@@ -8,6 +8,7 @@
 
 #import "GDLaunchViewController.h"
 #import "GDKnowViewController.h"
+#import "GDLoginViewController.h"
 
 @interface GDLaunchViewController ()
 @property (strong, nonatomic) IBOutlet UIView *startView;
@@ -45,6 +46,7 @@
 
 - (IBAction)login:(id)sender {
     
+    [self presentViewController:[GDLoginViewController new] animated:YES completion:nil];
     
 }
 

@@ -56,6 +56,7 @@ static CGFloat const GDSpringFactor = 10;
 
 }
 
+//isLogin:是否登录
 + (UIViewController *)getRootController:(BOOL)isLogin{
     
     if (isLogin) {

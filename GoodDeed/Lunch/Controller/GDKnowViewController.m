@@ -10,7 +10,8 @@
 #import "GDLaunchQuestionController.h"
 
 @interface GDKnowViewController ()
-@property (nonatomic, strong) UIView *transitionView;
+//@property (nonatomic, strong) UIView *transitionView;
+@property (weak, nonatomic) IBOutlet UIView *transitionView;
 
 @end
 
@@ -25,7 +26,7 @@
 //准备答题
 - (IBAction)goReady:(id)sender {
     
-    self.transitionView = sender;
+  //  self.transitionView = sender;
     [self.navigationController hh_pushScaleViewController:[GDLaunchQuestionController new]];
     
 }
