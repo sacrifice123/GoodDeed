@@ -511,9 +511,6 @@
 			children = (
 				E66875A020D9009E0038307F /* Lunch */,
 				E69C3FB720CFBE47004F5614 /* Survey */,
-				E69C3FB620CFBE15004F5614 /* FeedBack&Help */,
-				E69C3FB520CFBDF8004F5614 /* Cause */,
-				E69C3FB420CFBDEF004F5614 /* Team */,
 				E69C3FB320CFB4DB004F5614 /* Tool */,
 				E664C94420C92595004E81A4 /* Home */,
 				E6655CCA20C5138F005B46C3 /* AppDelegate.h */,
@@ -552,16 +549,8 @@
 			children = (
 				E66875A320D902B10038307F /* Controller */,
 				E66875A220D901E90038307F /* View */,
-				E66875A120D900B10038307F /* Model */,
 			);
 			path = Lunch;
-			sourceTree = "<group>";
-		};
-		E66875A120D900B10038307F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E66875A220D901E90038307F /* View */ = {
@@ -681,41 +670,9 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
-		E69C3FB420CFBDEF004F5614 /* Team */ = {
-			isa = PBXGroup;
-			children = (
-				E69C3FC220CFC174004F5614 /* Controller */,
-				E69C3FC320CFC174004F5614 /* Model */,
-				E69C3FC120CFC174004F5614 /* View */,
-			);
-			path = Team;
-			sourceTree = "<group>";
-		};
-		E69C3FB520CFBDF8004F5614 /* Cause */ = {
-			isa = PBXGroup;
-			children = (
-				E69C3FBF20CFC16E004F5614 /* Controller */,
-				E69C3FC020CFC16E004F5614 /* Model */,
-				E69C3FBE20CFC16E004F5614 /* View */,
-			);
-			path = Cause;
-			sourceTree = "<group>";
-		};
-		E69C3FB620CFBE15004F5614 /* FeedBack&Help */ = {
-			isa = PBXGroup;
-			children = (
-				E69C3FBC20CFC166004F5614 /* Controller */,
-				E69C3FBD20CFC166004F5614 /* Model */,
-				E69C3FBB20CFC166004F5614 /* View */,
-			);
-			path = "FeedBack&Help";
-			sourceTree = "<group>";
-		};
 		E69C3FB720CFBE47004F5614 /* Survey */ = {
 			isa = PBXGroup;
 			children = (
-				E69C3FBA20CFBEA7004F5614 /* Model */,
-				E69C3FB920CFBEA3004F5614 /* View */,
 				E69C3FB820CFBE8F004F5614 /* Controller */,
 			);
 			path = Survey;
@@ -732,92 +689,6 @@
 			);
 			path = Controller;
 			sourceTree = "<group>";
-		};
-		E69C3FB920CFBEA3004F5614 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E69C3FBA20CFBEA7004F5614 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E69C3FBB20CFC166004F5614 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			path = GoodDeed/Survey/View;
-			sourceTree = SOURCE_ROOT;
-		};
-		E69C3FBC20CFC166004F5614 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Controller;
-			path = GoodDeed/Survey/Controller;
-			sourceTree = SOURCE_ROOT;
-		};
-		E69C3FBD20CFC166004F5614 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			path = GoodDeed/Survey/Model;
-			sourceTree = SOURCE_ROOT;
-		};
-		E69C3FBE20CFC16E004F5614 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			path = GoodDeed/Survey/View;
-			sourceTree = SOURCE_ROOT;
-		};
-		E69C3FBF20CFC16E004F5614 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Controller;
-			path = GoodDeed/Survey/Controller;
-			sourceTree = SOURCE_ROOT;
-		};
-		E69C3FC020CFC16E004F5614 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			path = GoodDeed/Survey/Model;
-			sourceTree = SOURCE_ROOT;
-		};
-		E69C3FC120CFC174004F5614 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			path = GoodDeed/Survey/View;
-			sourceTree = SOURCE_ROOT;
-		};
-		E69C3FC220CFC174004F5614 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Controller;
-			path = GoodDeed/Survey/Controller;
-			sourceTree = SOURCE_ROOT;
-		};
-		E69C3FC320CFC174004F5614 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			path = GoodDeed/Survey/Model;
-			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -1260,9 +1131,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HQ3FLUKHX3;
+				DEVELOPMENT_TEAM = 5RB384YXLM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/xiaozhan/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/zhangtao/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
 				INFOPLIST_FILE = GoodDeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1280,9 +1151,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HQ3FLUKHX3;
+				DEVELOPMENT_TEAM = 5RB384YXLM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/xiaozhan/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/zhangtao/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
 				INFOPLIST_FILE = GoodDeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

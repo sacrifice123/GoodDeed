@@ -18,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    ///////
     self.window.rootViewController = [GDHomeManager getRootController:NO];
     return YES;
     
