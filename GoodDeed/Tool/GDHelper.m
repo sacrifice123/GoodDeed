@@ -7,6 +7,7 @@
 //
 
 #import "GDHelper.h"
+#import <MBProgressHUD.h>
 
 @implementation GDHelper
 
@@ -39,4 +40,13 @@
     
     return titleRect.size;
 }
+
++ (void)showHud{
+    [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+}
+
++ (void)hideHud{
+    [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
+}
+
 @end

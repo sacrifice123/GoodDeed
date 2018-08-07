@@ -10,5 +10,6 @@
 
 @interface GDLoginViewController : UIViewController
 
+//是不是注册后的用户
 @property (nonatomic, assign) BOOL isUser;
 @end

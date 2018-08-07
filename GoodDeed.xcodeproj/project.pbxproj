@@ -110,6 +110,9 @@
 		E6C55C2A20CA7EBC0034A65A /* GDBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C55C2920CA7EBC0034A65A /* GDBaseCell.m */; };
 		E6C55C2E20CA85970034A65A /* GDPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C55C2C20CA85970034A65A /* GDPreviewViewController.m */; };
 		E6C55C2F20CA85970034A65A /* GDPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C55C2D20CA85970034A65A /* GDPreviewViewController.xib */; };
+		E6F1435A21198B290038A9D6 /* GDLoginApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F1435921198B290038A9D6 /* GDLoginApi.m */; };
+		E6F1435D21198EEC0038A9D6 /* GDBaseApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F1435C21198EEC0038A9D6 /* GDBaseApi.m */; };
+		E6F143622119BB850038A9D6 /* GDLunchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F143612119BB850038A9D6 /* GDLunchManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -305,6 +308,12 @@
 		E6C55C2B20CA85970034A65A /* GDPreviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDPreviewViewController.h; sourceTree = "<group>"; };
 		E6C55C2C20CA85970034A65A /* GDPreviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDPreviewViewController.m; sourceTree = "<group>"; };
 		E6C55C2D20CA85970034A65A /* GDPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDPreviewViewController.xib; sourceTree = "<group>"; };
+		E6F1435821198B290038A9D6 /* GDLoginApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLoginApi.h; sourceTree = "<group>"; };
+		E6F1435921198B290038A9D6 /* GDLoginApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLoginApi.m; sourceTree = "<group>"; };
+		E6F1435B21198EEC0038A9D6 /* GDBaseApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseApi.h; sourceTree = "<group>"; };
+		E6F1435C21198EEC0038A9D6 /* GDBaseApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDBaseApi.m; sourceTree = "<group>"; };
+		E6F143602119BB850038A9D6 /* GDLunchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLunchManager.h; sourceTree = "<group>"; };
+		E6F143612119BB850038A9D6 /* GDLunchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLunchManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -547,6 +556,8 @@
 		E66875A020D9009E0038307F /* Lunch */ = {
 			isa = PBXGroup;
 			children = (
+				E6F1435F2119BB4D0038A9D6 /* Model */,
+				E6F1435721198AF50038A9D6 /* Api */,
 				E66875A320D902B10038307F /* Controller */,
 				E66875A220D901E90038307F /* View */,
 			);
@@ -688,6 +699,26 @@
 				49F0A78020D1715300CD06C3 /* GDEditViewController.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E6F1435721198AF50038A9D6 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				E6F1435821198B290038A9D6 /* GDLoginApi.h */,
+				E6F1435921198B290038A9D6 /* GDLoginApi.m */,
+				E6F1435B21198EEC0038A9D6 /* GDBaseApi.h */,
+				E6F1435C21198EEC0038A9D6 /* GDBaseApi.m */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		E6F1435F2119BB4D0038A9D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E6F143602119BB850038A9D6 /* GDLunchManager.h */,
+				E6F143612119BB850038A9D6 /* GDLunchManager.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -905,6 +936,7 @@
 				E664C95A20C9327B004E81A4 /* GDHelper.m in Sources */,
 				E65E68C120D0EC0F003E07CB /* GDEditViewController.m in Sources */,
 				E69C3FA720CF6F6E004F5614 /* AnimationErectEnd.m in Sources */,
+				E6F1435D21198EEC0038A9D6 /* GDBaseApi.m in Sources */,
 				E69C3F9C20CF6F6E004F5614 /* AnimationTiltBegin.m in Sources */,
 				49F0A78420D171B500CD06C3 /* GDEditButton.m in Sources */,
 				E69C3FAA20CF6F6E004F5614 /* QuadrantRecognise.m in Sources */,
@@ -947,10 +979,12 @@
 				E611FC2820DBA16600807E95 /* GDWriteQuestionView.m in Sources */,
 				E6C55C2E20CA85970034A65A /* GDPreviewViewController.m in Sources */,
 				E69C3FA320CF6F6E004F5614 /* VCInteractionDelegate.m in Sources */,
+				E6F1435A21198B290038A9D6 /* GDLoginApi.m in Sources */,
 				E664C96F20CA174D004E81A4 /* HeroModel.m in Sources */,
 				E65E68BD20D0E60B003E07CB /* GDEditBaseViewController.m in Sources */,
 				E668759F20D8B1FD0038307F /* GDHomeManager.m in Sources */,
 				E664C95120C925A5004E81A4 /* GDBaseViewController.m in Sources */,
+				E6F143622119BB850038A9D6 /* GDLunchManager.m in Sources */,
 				E61F434020E245CD004D2E09 /* GDPGChooseView.m in Sources */,
 				E692347820E4AE5000AF1585 /* GDLoginViewController.m in Sources */,
 				E69C3FA120CF6F6E004F5614 /* AnimationScaleBegin.m in Sources */,
@@ -1133,7 +1167,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5RB384YXLM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/zhangtao/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GoodDeed/Tool/PrefixHeader.pch";
 				INFOPLIST_FILE = GoodDeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1153,7 +1187,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5RB384YXLM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/zhangtao/Desktop/GoodDeed/GoodDeed/Tool/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GoodDeed/Tool/PrefixHeader.pch";
 				INFOPLIST_FILE = GoodDeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

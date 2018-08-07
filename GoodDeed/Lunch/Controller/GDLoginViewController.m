@@ -9,6 +9,9 @@
 #import "GDLoginViewController.h"
 
 @interface GDLoginViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *checkButton;
 
 @end
 
@@ -16,10 +19,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    if (self.isUser) {
+        self.titleLabel.text = @"通过邮箱登录：";
+        [self.loginButton setTitle:@"登录" forState:0];
+        [self.checkButton setTitle:@"忘记密码？" forState:0];
+
+    }
     
 }
 
+//登录与注册
+- (IBAction)loginAndRegister:(id)sender {
+    
+    
+    
+}
+
+//退出页面
 - (IBAction)close:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];

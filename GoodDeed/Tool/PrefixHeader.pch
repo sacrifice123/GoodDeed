@@ -22,5 +22,5 @@
 #import "UIView+HHLayout.h"
 #import "UIColor+HEX.h"
 #import "GDHomeManager.h"
-
+#import <MBProgressHUD.h>
 #endif 

@@ -46,7 +46,9 @@
 
 - (IBAction)login:(id)sender {
     
-    [self presentViewController:[GDLoginViewController new] animated:YES completion:nil];
+    GDLoginViewController *loginVc = [GDLoginViewController new];
+    loginVc.isUser = YES;
+    [self presentViewController:loginVc animated:YES completion:nil];
     
 }
 
