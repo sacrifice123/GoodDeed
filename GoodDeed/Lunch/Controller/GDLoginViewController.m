@@ -7,11 +7,14 @@
 //
 
 #import "GDLoginViewController.h"
+#import "GDLunchManager.h"
 
 @interface GDLoginViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *checkButton;
+@property (weak, nonatomic) IBOutlet UITextField *mailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
 
 @end
 
@@ -31,7 +34,10 @@
 //登录与注册
 - (IBAction)loginAndRegister:(id)sender {
     
-    
+    [GDLunchManager loginWithMail:self.mailTextField.text password:self.pwdTextField.text type:@1 token:@"" block:^(BOOL result) {
+        
+        
+    }];
     
 }
 

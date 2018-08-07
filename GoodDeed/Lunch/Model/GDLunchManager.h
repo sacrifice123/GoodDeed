@@ -10,4 +10,6 @@
 
 @interface GDLunchManager : NSObject
 
++ (void)loginWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token block:(void(^)(BOOL))block;
+
 @end

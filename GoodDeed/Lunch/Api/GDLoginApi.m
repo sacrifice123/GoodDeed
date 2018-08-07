@@ -17,7 +17,10 @@
     
 }
 
-- (instancetype)initWith:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token{
+- (instancetype)initWith:(NSString *)mail
+                password:(NSString *)password
+                    type:(NSNumber *)type
+                   token:(NSString *)token{
     
     if (self = [super init]) {
         _mail = mail;

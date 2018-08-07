@@ -45,6 +45,10 @@
     [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
 }
 
++ (void)showHudWith:(NSString *)text{
+
+}
+
 + (void)hideHud{
     [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
 }

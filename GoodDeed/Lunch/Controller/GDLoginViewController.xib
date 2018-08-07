@@ -13,6 +13,8 @@
             <connections>
                 <outlet property="checkButton" destination="JFK-si-psu" id="c15-ez-XXz"/>
                 <outlet property="loginButton" destination="I6t-Va-fx4" id="kVA-qH-Vxe"/>
+                <outlet property="mailTextField" destination="7Nt-rR-og8" id="uMB-He-yfF"/>
+                <outlet property="pwdTextField" destination="Qaw-sQ-olH" id="H6J-Y4-BSG"/>
                 <outlet property="titleLabel" destination="0kJ-dS-bA1" id="NpA-sP-its"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

@@ -22,6 +22,11 @@
     [self setUpView];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSLog(@"%@--WillAppear",NSStringFromClass([self class]));
+    
+}
 - (void)setUpView{
     
     UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_bg.pic"]];

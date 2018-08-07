@@ -14,4 +14,11 @@
     
     return @"http://47.97.102.73/giraffe";
 }
+
+
+- (YTKRequestSerializerType)requestSerializerType{
+    
+    return YTKRequestSerializerTypeJSON;
+}
+
 @end

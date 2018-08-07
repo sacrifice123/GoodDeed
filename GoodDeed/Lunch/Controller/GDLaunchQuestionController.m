@@ -90,11 +90,12 @@
     }
     
     UIPageControl *pc = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 19, 5, 5)];
+    pc.center = CGPointMake(self.view.center.x, pc.center.y);
     pc.numberOfPages = self.pages.count;
     pc.currentPage = 0;
     pc.pageIndicatorTintColor = [UIColor colorWithHexString:@"#AAAAAA"];
     pc.currentPageIndicatorTintColor = [UIColor colorWithHexString:@"#555555"];
-    [_scrollView addSubview:pc];
+    [self.view addSubview:pc];
 
     
 }

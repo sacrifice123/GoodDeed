@@ -43,7 +43,7 @@
     
 }
 
-
+//登录
 - (IBAction)login:(id)sender {
     
     GDLoginViewController *loginVc = [GDLoginViewController new];
