@@ -34,8 +34,7 @@
 //登录与注册
 - (IBAction)loginAndRegister:(id)sender {
     
-    [GDLunchManager loginWithMail:self.mailTextField.text password:self.pwdTextField.text type:@1 token:@"" block:^(BOOL result) {
-        
+    [GDLunchManager loginWithMail:self.mailTextField.text password:self.pwdTextField.text type:@1 token:@"" completionBlock:^(BOOL result) {
         
     }];
     

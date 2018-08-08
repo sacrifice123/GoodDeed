@@ -9,6 +9,7 @@
 #import "GDLaunchViewController.h"
 #import "GDKnowViewController.h"
 #import "GDLoginViewController.h"
+#import "GDLunchManager.h"
 
 @interface GDLaunchViewController ()
 @property (strong, nonatomic) IBOutlet UIView *startView;
@@ -37,9 +38,13 @@
 
 //去答题首页
 - (IBAction)Go:(id)sender {
-    
-    GDKnowViewController *vc = [[GDKnowViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [GDLunchManager getFirstSurveyListWithCompletionBlock:^(NSArray *list) {
+        
+        GDKnowViewController *vc = [[GDKnowViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+
+    }];
+
     
 }
 

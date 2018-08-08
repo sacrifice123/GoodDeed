@@ -115,6 +115,7 @@
 		E6F1435A21198B290038A9D6 /* GDLoginApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F1435921198B290038A9D6 /* GDLoginApi.m */; };
 		E6F1435D21198EEC0038A9D6 /* GDBaseApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F1435C21198EEC0038A9D6 /* GDBaseApi.m */; };
 		E6F143622119BB850038A9D6 /* GDLunchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F143612119BB850038A9D6 /* GDLunchManager.m */; };
+		E6F1436B211A81600038A9D6 /* GDGetFirstSurveyApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F1436A211A81600038A9D6 /* GDGetFirstSurveyApi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -320,6 +321,8 @@
 		E6F1435C21198EEC0038A9D6 /* GDBaseApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDBaseApi.m; sourceTree = "<group>"; };
 		E6F143602119BB850038A9D6 /* GDLunchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLunchManager.h; sourceTree = "<group>"; };
 		E6F143612119BB850038A9D6 /* GDLunchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLunchManager.m; sourceTree = "<group>"; };
+		E6F14369211A81600038A9D6 /* GDGetFirstSurveyApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDGetFirstSurveyApi.h; sourceTree = "<group>"; };
+		E6F1436A211A81600038A9D6 /* GDGetFirstSurveyApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDGetFirstSurveyApi.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -718,6 +721,8 @@
 				E6F1435C21198EEC0038A9D6 /* GDBaseApi.m */,
 				49120BFA2119E43E00EA263C /* GDRegisterApi.h */,
 				49120BFB2119E43E00EA263C /* GDRegisterApi.m */,
+				E6F14369211A81600038A9D6 /* GDGetFirstSurveyApi.h */,
+				E6F1436A211A81600038A9D6 /* GDGetFirstSurveyApi.m */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -1003,6 +1008,7 @@
 				E69C3FA620CF6F6E004F5614 /* UIView+HHLayout.m in Sources */,
 				E664C96220C93D33004E81A4 /* GDLeftModel.m in Sources */,
 				E69C3F9D20CF6F6E004F5614 /* AnimationBackBegin.m in Sources */,
+				E6F1436B211A81600038A9D6 /* GDGetFirstSurveyApi.m in Sources */,
 				E69C3FB220CFB3C0004F5614 /* UIColor+HEX.m in Sources */,
 				E611FBC620D9FE7A00807E95 /* GDLaunchQuestionController.m in Sources */,
 				E611FC1320DB9FD100807E95 /* GDSingleSelQuestionView.m in Sources */,

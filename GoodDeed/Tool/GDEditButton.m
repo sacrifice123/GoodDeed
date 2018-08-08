@@ -14,7 +14,7 @@
 @end
 @implementation GDEditButton
 
--(id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame
 {
     if (self) {
         self=[super initWithFrame:frame];
@@ -26,8 +26,7 @@
     return self;
 }
 
-
--(CGRect)titleRectForContentRect:(CGRect)contentRect//文字
+- (CGRect)titleRectForContentRect:(CGRect)contentRect//文字
 {
     CGFloat width = [GDHelper calculateRectWithFont:12 Withtext:self.currentTitle Withsize:CGSizeMake(0, 0)].width;
     CGFloat x=(self.frame.size.width-width)*0.5;
@@ -38,7 +37,7 @@
     return CGRectMake(x, y, w, h);
 }
 
--(CGRect)imageRectForContentRect:(CGRect)contentRect//图片
+- (CGRect)imageRectForContentRect:(CGRect)contentRect//图片
 {
     CGFloat x=(self.frame.size.width-self.imgSize.width)*0.5;
     CGFloat y=6;

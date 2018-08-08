@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface GDLunchManager : NSObject
+@property (nonatomic, strong)NSArray *suveryList;
 
-+ (void)loginWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token block:(void(^)(BOOL))block;
-
++ (void)loginWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token completionBlock:(void(^)(BOOL))block;
++ (void)getFirstSurveyListWithCompletionBlock:(void(^)(NSArray *))block;
 @end
