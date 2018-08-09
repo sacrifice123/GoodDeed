@@ -142,6 +142,7 @@
 
 /* Begin PBXFileReference section */
 		22D5E47E039051D8DA31CC88 /* Pods-GoodDeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodDeed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoodDeed/Pods-GoodDeed.debug.xcconfig"; sourceTree = "<group>"; };
+		46932CB3211C7A1D00573682 /* QuestionsModule.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = QuestionsModule.md; sourceTree = "<group>"; };
 		49120BF72119DDF600EA263C /* UIWindow+HUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWindow+HUD.h"; sourceTree = "<group>"; };
 		49120BF82119DDF600EA263C /* UIWindow+HUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+HUD.m"; sourceTree = "<group>"; };
 		49120BFA2119E43E00EA263C /* GDRegisterApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDRegisterApi.h; sourceTree = "<group>"; };
@@ -367,6 +368,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46932CB2211C797400573682 /* Questions */ = {
+			isa = PBXGroup;
+			children = (
+				46932CB3211C7A1D00573682 /* QuestionsModule.md */,
+			);
+			path = Questions;
+			sourceTree = "<group>";
+		};
 		59FFDD98CC625E01DAF878AA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +552,7 @@
 		E6655CC920C5138F005B46C3 /* GoodDeed */ = {
 			isa = PBXGroup;
 			children = (
+				46932CB2211C797400573682 /* Questions */,
 				E66875A020D9009E0038307F /* Lunch */,
 				E69C3FB720CFBE47004F5614 /* Survey */,
 				E69C3FB320CFB4DB004F5614 /* Tool */,
