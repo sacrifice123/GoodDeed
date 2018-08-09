@@ -10,6 +10,7 @@
 #import "GDLaunchReadyView.h"
 #import "GDQuestionBaseView.h"
 #import "GDLaunchReadyView.h"
+#import "GDLunchManager.h"
 
 @interface GDLaunchQuestionController ()<UIScrollViewDelegate>
 
@@ -47,7 +48,8 @@
 - (NSMutableArray *)pages{
     if (_pages == nil) {
         _pages = [NSMutableArray array];
-        for (int i=0; i<8; i++) {
+        
+        for (int i=0; i<[GDLunchManager sharedManager].suveryList.count; i++) {
             GDQuestionBaseView *view;
             if (i==0) {
                 view = [[GDLaunchReadyView alloc] initWithFrame:self.view.frame];

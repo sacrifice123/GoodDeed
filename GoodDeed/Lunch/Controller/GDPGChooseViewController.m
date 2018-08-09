@@ -8,6 +8,7 @@
 
 #import "GDPGChooseViewController.h"
 #import "GDPGChooseView.h"
+#import "GDLunchManager.h"
 
 @interface GDPGChooseViewController ()
 
@@ -18,8 +19,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    GDPGChooseView *view = [[GDPGChooseView alloc] initWithFrame:self.view.frame];
-    [self.view addSubview:view];
+    GDPGChooseView *chooseView = [[GDPGChooseView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:chooseView];
+    if (self.organList&&self.organList.count>0) {
+        [chooseView reloadWithDatas:self.organList];
+    }else{
+        [GDLunchManager getOrganListWithCompletionBlock:^(NSArray *list) {
+             [chooseView reloadWithDatas:list];
+        }];
+    }
     
 }
 

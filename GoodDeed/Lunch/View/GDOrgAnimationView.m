@@ -8,15 +8,23 @@
 
 #import "GDOrgAnimationView.h"
 #import "GDPGChooseViewController.h"
-
+#import "GDLunchManager.h"
 #define bgHeight 233
 @interface GDOrgAnimationView()
 
 @property (nonatomic, strong) UIImageView *imgView;
 @property (nonatomic, strong) UIView *bgView;
-
+@property (nonatomic, strong) NSArray *organList;
 @end
 @implementation GDOrgAnimationView
+
+- (NSArray *)organList{
+    
+    if (_organList == nil) {
+        _organList = [[NSArray alloc] init];
+    }
+    return _organList;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
@@ -68,6 +76,10 @@
 
 - (void)animationStart{
 
+    //提前请求
+    [GDLunchManager getOrganListWithCompletionBlock:^(NSArray *list) {
+        self.organList = list;
+    }];
     [UIView animateWithDuration:0.5 animations:^{
         self.bgView.frame = CGRectMake(SCREEN_WIDTH-169, 0, 164, bgHeight);
         [self layoutIfNeeded];
@@ -91,9 +103,10 @@
 - (void)imgViewTap:(UITapGestureRecognizer *)gesture{
     
     UIImageView *view = (UIImageView *)gesture.view;
-    if (!view.isAnimating) {
+    if (!view.isAnimating) {//轮播停止后点击选择公益组织
         UIViewController *vc = [GDHomeManager getSuperVc:view];
         GDPGChooseViewController *pgVc = [[GDPGChooseViewController alloc] init];
+        pgVc.organList = self.organList;
         [vc presentViewController:pgVc animated:YES completion:nil];
     }
     

@@ -109,6 +109,11 @@
 		E69C3FAA20CF6F6E004F5614 /* QuadrantRecognise.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3F9220CF6F6E004F5614 /* QuadrantRecognise.m */; };
 		E69C3FAE20CFA3E5004F5614 /* GDHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3FAC20CFA3E5004F5614 /* GDHomeViewController.m */; };
 		E69C3FB220CFB3C0004F5614 /* UIColor+HEX.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3FB020CFB3C0004F5614 /* UIColor+HEX.m */; };
+		E6B39ACE211BD1000080772F /* GDBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39ACD211BD1000080772F /* GDBaseModel.m */; };
+		E6B39AD1211BD1130080772F /* GDFirstSurveyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD0211BD1130080772F /* GDFirstSurveyModel.m */; };
+		E6B39AD4211BDC300080772F /* GDFirstQuestionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD3211BDC300080772F /* GDFirstQuestionListModel.m */; };
+		E6B39C0B211C4F3F0080772F /* GDGetOrganListApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39C0A211C4F3F0080772F /* GDGetOrganListApi.m */; };
+		E6B39C0E211C58210080772F /* GDOrganModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39C0D211C58210080772F /* GDOrganModel.m */; };
 		E6C55C2A20CA7EBC0034A65A /* GDBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C55C2920CA7EBC0034A65A /* GDBaseCell.m */; };
 		E6C55C2E20CA85970034A65A /* GDPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C55C2C20CA85970034A65A /* GDPreviewViewController.m */; };
 		E6C55C2F20CA85970034A65A /* GDPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C55C2D20CA85970034A65A /* GDPreviewViewController.xib */; };
@@ -310,11 +315,22 @@
 		E69C3FAC20CFA3E5004F5614 /* GDHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDHomeViewController.m; sourceTree = "<group>"; };
 		E69C3FB020CFB3C0004F5614 /* UIColor+HEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HEX.m"; sourceTree = "<group>"; };
 		E69C3FB120CFB3C0004F5614 /* UIColor+HEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HEX.h"; sourceTree = "<group>"; };
+		E6B39ACC211BD1000080772F /* GDBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseModel.h; sourceTree = "<group>"; };
+		E6B39ACD211BD1000080772F /* GDBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDBaseModel.m; sourceTree = "<group>"; };
+		E6B39ACF211BD1130080772F /* GDFirstSurveyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDFirstSurveyModel.h; sourceTree = "<group>"; };
+		E6B39AD0211BD1130080772F /* GDFirstSurveyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDFirstSurveyModel.m; sourceTree = "<group>"; };
+		E6B39AD2211BDC300080772F /* GDFirstQuestionListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDFirstQuestionListModel.h; sourceTree = "<group>"; };
+		E6B39AD3211BDC300080772F /* GDFirstQuestionListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDFirstQuestionListModel.m; sourceTree = "<group>"; };
+		E6B39C09211C4F3F0080772F /* GDGetOrganListApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDGetOrganListApi.h; sourceTree = "<group>"; };
+		E6B39C0A211C4F3F0080772F /* GDGetOrganListApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDGetOrganListApi.m; sourceTree = "<group>"; };
+		E6B39C0C211C58200080772F /* GDOrganModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDOrganModel.h; sourceTree = "<group>"; };
+		E6B39C0D211C58210080772F /* GDOrganModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDOrganModel.m; sourceTree = "<group>"; };
 		E6C55C2820CA7EBC0034A65A /* GDBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseCell.h; sourceTree = "<group>"; };
 		E6C55C2920CA7EBC0034A65A /* GDBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDBaseCell.m; sourceTree = "<group>"; };
 		E6C55C2B20CA85970034A65A /* GDPreviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDPreviewViewController.h; sourceTree = "<group>"; };
 		E6C55C2C20CA85970034A65A /* GDPreviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDPreviewViewController.m; sourceTree = "<group>"; };
 		E6C55C2D20CA85970034A65A /* GDPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDPreviewViewController.xib; sourceTree = "<group>"; };
+		E6DF79BD211C60A900ED8951 /* GDHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDHeader.h; sourceTree = "<group>"; };
 		E6F1435821198B290038A9D6 /* GDLoginApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLoginApi.h; sourceTree = "<group>"; };
 		E6F1435921198B290038A9D6 /* GDLoginApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLoginApi.m; sourceTree = "<group>"; };
 		E6F1435B21198EEC0038A9D6 /* GDBaseApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseApi.h; sourceTree = "<group>"; };
@@ -682,6 +698,7 @@
 				49F0A78220D171B500CD06C3 /* GDEditButton.h */,
 				49F0A78320D171B500CD06C3 /* GDEditButton.m */,
 				E664C94E20C925A5004E81A4 /* PrefixHeader.pch */,
+				E6DF79BD211C60A900ED8951 /* GDHeader.h */,
 				E664C95820C9327B004E81A4 /* GDHelper.h */,
 				E664C95920C9327B004E81A4 /* GDHelper.m */,
 				E69C3FB120CFB3C0004F5614 /* UIColor+HEX.h */,
@@ -723,6 +740,8 @@
 				49120BFB2119E43E00EA263C /* GDRegisterApi.m */,
 				E6F14369211A81600038A9D6 /* GDGetFirstSurveyApi.h */,
 				E6F1436A211A81600038A9D6 /* GDGetFirstSurveyApi.m */,
+				E6B39C09211C4F3F0080772F /* GDGetOrganListApi.h */,
+				E6B39C0A211C4F3F0080772F /* GDGetOrganListApi.m */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -732,6 +751,14 @@
 			children = (
 				E6F143602119BB850038A9D6 /* GDLunchManager.h */,
 				E6F143612119BB850038A9D6 /* GDLunchManager.m */,
+				E6B39ACC211BD1000080772F /* GDBaseModel.h */,
+				E6B39ACD211BD1000080772F /* GDBaseModel.m */,
+				E6B39ACF211BD1130080772F /* GDFirstSurveyModel.h */,
+				E6B39AD0211BD1130080772F /* GDFirstSurveyModel.m */,
+				E6B39AD2211BDC300080772F /* GDFirstQuestionListModel.h */,
+				E6B39AD3211BDC300080772F /* GDFirstQuestionListModel.m */,
+				E6B39C0C211C58200080772F /* GDOrganModel.h */,
+				E6B39C0D211C58210080772F /* GDOrganModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -962,6 +989,7 @@
 				E611FC1020DB9EF300807E95 /* GDQuestionBaseView.m in Sources */,
 				E664C95D20C93B17004E81A4 /* GDLeftHeaderView.m in Sources */,
 				E69C3FAE20CFA3E5004F5614 /* GDHomeViewController.m in Sources */,
+				E6B39AD4211BDC300080772F /* GDFirstQuestionListModel.m in Sources */,
 				E664C98120CA7522004E81A4 /* GDSurveyCell.m in Sources */,
 				E611FBC920DA070900807E95 /* GDLaunchReadyView.m in Sources */,
 				E611FBE120DA3DDE00807E95 /* GDOrgAnimationView.m in Sources */,
@@ -974,6 +1002,7 @@
 				E69C3F9B20CF6F6E004F5614 /* VCTransitionDelegate.m in Sources */,
 				E664C97020CA174D004E81A4 /* SCAdDemoCollectionViewCell.m in Sources */,
 				E69C3FA820CF6F6E004F5614 /* AnimationTransitionBegin.m in Sources */,
+				E6B39C0B211C4F3F0080772F /* GDGetOrganListApi.m in Sources */,
 				E664C98620CA7547004E81A4 /* GDCauseCell.m in Sources */,
 				E6655CDA20C51391005B46C3 /* main.m in Sources */,
 				E69C3F9920CF6F6E004F5614 /* AnimationBackEnd.m in Sources */,
@@ -982,6 +1011,7 @@
 				E611FC1920DBA01100807E95 /* GDSlideQuestionView.m in Sources */,
 				E69C3FA920CF6F6E004F5614 /* AnimationScaleEnd.m in Sources */,
 				E69C3F9E20CF6F6E004F5614 /* AnimationTildEnd.m in Sources */,
+				E6B39AD1211BD1130080772F /* GDFirstSurveyModel.m in Sources */,
 				E664C97120CA174D004E81A4 /* SCAdView.m in Sources */,
 				E664C95620C92F24004E81A4 /* GDLeftCell.m in Sources */,
 				E6655CCC20C5138F005B46C3 /* AppDelegate.m in Sources */,
@@ -1005,6 +1035,7 @@
 				E61F434020E245CD004D2E09 /* GDPGChooseView.m in Sources */,
 				E692347820E4AE5000AF1585 /* GDLoginViewController.m in Sources */,
 				E69C3FA120CF6F6E004F5614 /* AnimationScaleBegin.m in Sources */,
+				E6B39C0E211C58210080772F /* GDOrganModel.m in Sources */,
 				E69C3FA620CF6F6E004F5614 /* UIView+HHLayout.m in Sources */,
 				E664C96220C93D33004E81A4 /* GDLeftModel.m in Sources */,
 				E69C3F9D20CF6F6E004F5614 /* AnimationBackBegin.m in Sources */,
@@ -1013,6 +1044,7 @@
 				E611FBC620D9FE7A00807E95 /* GDLaunchQuestionController.m in Sources */,
 				E611FC1320DB9FD100807E95 /* GDSingleSelQuestionView.m in Sources */,
 				E69C3F9F20CF6F6E004F5614 /* AnimationFadeEnd.m in Sources */,
+				E6B39ACE211BD1000080772F /* GDBaseModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

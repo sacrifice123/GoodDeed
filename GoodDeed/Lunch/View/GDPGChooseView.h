@@ -10,4 +10,5 @@
 
 @interface GDPGChooseView : UIView
 
+- (void)reloadWithDatas:(NSArray *)datas;
 @end

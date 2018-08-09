@@ -23,5 +23,10 @@
     self.imgView.layer.borderColor = [UIColor colorWithHexString:@"BBBBBB"].CGColor;
 }
 
+- (void)setModel:(GDOrganModel *)model{
+    _model = model;
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",GDBaseUrl,model.imgUrl?:@""]]];
+    
+}
 
 @end

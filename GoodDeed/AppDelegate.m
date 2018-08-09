@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GDHomeManager.h"
+#import "IQKeyboardManager.h"
 
 @interface AppDelegate ()
 
@@ -18,7 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    ///////
+    [IQKeyboardManager sharedManager].enable = YES;
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     self.window.rootViewController = [GDHomeManager getRootController:NO];
     return YES;
     

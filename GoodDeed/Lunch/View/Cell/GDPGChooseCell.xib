@@ -21,22 +21,12 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ARn-WI-QZk">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点我到主页" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpx-Nr-c3Y">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="ARn-WI-QZk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5mD-yc-Xh9"/>
-                <constraint firstAttribute="bottom" secondItem="kpx-Nr-c3Y" secondAttribute="bottom" id="GRc-1n-5Ux"/>
-                <constraint firstAttribute="trailing" secondItem="kpx-Nr-c3Y" secondAttribute="trailing" id="KNt-bu-3U3"/>
                 <constraint firstAttribute="trailing" secondItem="ARn-WI-QZk" secondAttribute="trailing" id="UtS-y5-nBI"/>
-                <constraint firstItem="kpx-Nr-c3Y" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dDJ-0N-SNg"/>
                 <constraint firstItem="ARn-WI-QZk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hzZ-L7-xnQ"/>
-                <constraint firstItem="kpx-Nr-c3Y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jDW-aW-dbh"/>
                 <constraint firstAttribute="bottom" secondItem="ARn-WI-QZk" secondAttribute="bottom" id="nao-w1-NX6"/>
             </constraints>
             <connections>

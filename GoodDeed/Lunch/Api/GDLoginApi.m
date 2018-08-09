@@ -17,6 +17,9 @@
     
 }
 
+/*登录
+ type: 1邮箱 2手机号 3微信 4新浪 5用户名
+ */
 - (instancetype)initWith:(NSString *)mail
                 password:(NSString *)password
                     type:(NSNumber *)type

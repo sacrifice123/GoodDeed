@@ -10,4 +10,6 @@
 
 @interface GDPGChooseViewController : UIViewController
 
+@property (nonatomic, strong) NSArray *organList;
+
 @end

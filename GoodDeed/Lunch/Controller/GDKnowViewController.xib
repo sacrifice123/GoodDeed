@@ -26,9 +26,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaJ-Wl-8Vy">
                     <rect key="frame" x="17.5" y="44" width="340" height="611"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x2I-93-T2R">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="know_bg" translatesAutoresizingMaskIntoConstraints="NO" id="x2I-93-T2R">
                             <rect key="frame" x="0.0" y="0.0" width="340" height="611"/>
-                            <color key="backgroundColor" red="0.112369026" green="1" blue="0.109448066" alpha="1" colorSpace="calibratedRGB"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z14-zE-cmD">
                             <rect key="frame" x="102.5" y="238" width="135" height="135.5"/>
@@ -77,7 +76,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="Z14-zE-cmD" firstAttribute="top" secondItem="QcX-7t-XYb" secondAttribute="top" id="1eP-93-mgZ"/>
                         <constraint firstItem="QcX-7t-XYb" firstAttribute="centerX" secondItem="BaJ-Wl-8Vy" secondAttribute="centerX" id="2ue-lp-pUr"/>
@@ -129,5 +127,6 @@
     <resources>
         <image name="home_bg.pic" width="375" height="667"/>
         <image name="home_title" width="101" height="14"/>
+        <image name="know_bg" width="346" height="553"/>
     </resources>
 </document>

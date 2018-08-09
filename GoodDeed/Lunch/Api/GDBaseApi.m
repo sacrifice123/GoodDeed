@@ -12,7 +12,7 @@
 
 - (NSString *)baseUrl{
     
-    return @"http://47.97.102.73/giraffe";
+    return GDBaseUrl;
 }
 
 

@@ -11,5 +11,6 @@ pod 'SDWebImage'
 pod 'MJRefresh'
 pod 'IQKeyboardManager', '~> 3.3.7'
 pod 'MMDrawerController'
+pod 'YYModel'
 end
 

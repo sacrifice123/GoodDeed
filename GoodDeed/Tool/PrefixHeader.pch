@@ -9,13 +9,9 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#define GDWindow       [UIApplication sharedApplication].keyWindow
-#define SCREEN_WIDTH    ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT   ([UIScreen mainScreen].bounds.size.height)
-#define Item_Space      15 //行间距
-
 
 //header
+#import "GDHeader.h"
 #import "Masonry.h"
 #import "MMDrawerController.h"
 #import "GDHelper.h"
@@ -25,5 +21,7 @@
 #import "GDHomeManager.h"
 #import <MBProgressHUD.h>
 #import "UIWindow+HUD.h"
+#import <YYModel.h>
+#import <UIImageView+WebCache.h>
 
 #endif

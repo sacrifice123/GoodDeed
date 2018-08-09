@@ -31,6 +31,14 @@ static NSString * const headerReuseIdentifier = @"GDPGHeaderView";
     return self;
 }
 
+- (void)reloadWithDatas:(NSArray *)datas{
+    if (datas&&[datas isKindOfClass:[NSArray class]]) {
+        [self.datas addObjectsFromArray:datas];
+        [self.collectionView reloadData];
+    }
+    
+}
+
 - (NSMutableArray *)datas{
     
     if (_datas == nil) {
@@ -68,19 +76,19 @@ static NSString * const headerReuseIdentifier = @"GDPGHeaderView";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return self.datas.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GDPGChooseCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
+    cell.model = self.datas[indexPath.row];
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    UIViewController *vc = [GDHomeManager getSuperVc:self];
+    //UIViewController *vc = [GDHomeManager getSuperVc:self];
     //[vc dismissViewControllerAnimated:YES completion:nil];
     
     [UIApplication sharedApplication].keyWindow.rootViewController = [GDHomeManager getRootController:YES];
@@ -90,7 +98,7 @@ static NSString * const headerReuseIdentifier = @"GDPGHeaderView";
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     if ([kind isEqualToString: UICollectionElementKindSectionHeader]) {
         GDPGHeaderView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerReuseIdentifier forIndexPath:indexPath];
-        view.block = ^{
+        view.block = ^{//点击搜索
             [GDHomeManager presentToTargetControllerWith:self targetVc:[GDPGSearchViewController new]];
         };
         return view;

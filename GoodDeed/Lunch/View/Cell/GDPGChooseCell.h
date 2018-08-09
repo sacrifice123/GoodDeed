@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GDOrganModel.h"
 
 @interface GDPGChooseCell : UICollectionViewCell
+
+@property (nonatomic, strong) GDOrganModel *model;
 
 @end
