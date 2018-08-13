@@ -76,6 +76,10 @@
     return _scrollView;
 }
 
+- (void)setUpChildVc{
+    
+    
+}
 
 - (void)setUpSubViews{
     for (GDQuestionBaseView *view in self.pages) {

@@ -8,6 +8,17 @@
 
 #import "GDBaseModel.h"
 
+typedef NS_ENUM(NSInteger, GDSurveyType) {
+    
+    GDSingleType = 1,   //单选题
+    GDMultipleType,     //多选题
+    GDSlideType,        //滑动题
+    GDQuantitativeType, //定量题
+    GDSortType,         //排序题
+    GDSelectType,       //勾选图片题
+    GDWriteType         //填写题
+};
+
 @interface GDFirstQuestionListModel : GDBaseModel
 
 @property (nonatomic,strong) NSArray *firstOptionList;
@@ -15,7 +26,7 @@
 @property (nonatomic,copy) NSString *isSkip;
 @property (nonatomic,copy) NSString *questionName;
 @property (nonatomic,copy) NSString *sort;
-@property (nonatomic,copy) NSString *type;
+@property (nonatomic,assign) GDSurveyType type;
 
 
 @end
