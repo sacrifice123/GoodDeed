@@ -10,10 +10,14 @@
 #import "GDPGChooseCell.h"
 #import "GDPGHeaderView.h"
 #import "GDPGSearchViewController.h"
+#import "GDLunchManager.h"
+#import "UIView+LXShadowPath.h"
 
 @interface GDPGChooseView()<UICollectionViewDelegate,UICollectionViewDataSource>
+
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *datas;
+@property (nonatomic, strong) UIView *selectView;
 
 @end
 @implementation GDPGChooseView
@@ -24,8 +28,10 @@ static NSString * const headerReuseIdentifier = @"GDPGHeaderView";
 - (instancetype)initWithFrame:(CGRect)frame{
     
     if (self = [super initWithFrame:frame]) {
+        [GDLunchManager sharedManager].selectOrganModel = nil;
         self.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.collectionView];
+        [self addSubview:self.selectView];
     }
     
     return self;
@@ -37,6 +43,28 @@ static NSString * const headerReuseIdentifier = @"GDPGHeaderView";
         [self.collectionView reloadData];
     }
     
+}
+
+- (UIView *)selectView{
+    if (_selectView == nil) {
+        _selectView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 124)];
+        [_selectView LX_SetShadowPathWith:[UIColor colorWithHexString:@"#777777"] shadowOpacity:0.5 shadowRadius:1.5 shadowSide:LXShadowPathTop shadowPathWidth:1.5];
+        _selectView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.8];
+        UIButton *button = [[UIButton alloc] init];
+        [button setTitle:@"选择后继续 》" forState:0];
+        button.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Light" size:20];
+        button.backgroundColor = [UIColor colorWithRed:0.06 green:0.45 blue:0.69 alpha:1];
+        [button addTarget:self action:@selector(chooseButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        [_selectView addSubview:button];
+        [button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self->_selectView).offset(40);
+            make.right.equalTo(self->_selectView).offset(-40);
+            make.top.equalTo(self->_selectView).offset(27);
+            make.bottom.equalTo(self->_selectView).offset(-27);
+        }];
+    }
+    
+    return _selectView;
 }
 
 - (NSMutableArray *)datas{
@@ -61,7 +89,10 @@ static NSString * const headerReuseIdentifier = @"GDPGHeaderView";
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         [_collectionView registerNib:[UINib nibWithNibName:@"GDPGChooseCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
-        [_collectionView registerNib:[UINib nibWithNibName:@"GDPGHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerReuseIdentifier];
+        if (!self.isSearch) {
+            [_collectionView registerNib:[UINib nibWithNibName:@"GDPGHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerReuseIdentifier];
+
+        }
 
     }
     
@@ -90,13 +121,29 @@ static NSString * const headerReuseIdentifier = @"GDPGHeaderView";
     
     //UIViewController *vc = [GDHomeManager getSuperVc:self];
     //[vc dismissViewControllerAnimated:YES completion:nil];
+//     [GDLunchManager sharedManager].selectOrganModel = self.datas[indexPath.row];
+    GDOrganModel *model = self.datas[indexPath.row];
+    if ([GDLunchManager sharedManager].selectOrganModel) {
+        if (model != [GDLunchManager sharedManager].selectOrganModel) {
+            [GDLunchManager sharedManager].selectOrganModel.isSelected = NO;
+        }
+        model.isSelected = !model.isSelected;
+    }else{
+        model.isSelected = YES;
+    }
+   
+    [GDLunchManager sharedManager].selectOrganModel = model;
+    [self.collectionView reloadData];
     
-    [UIApplication sharedApplication].keyWindow.rootViewController = [GDHomeManager getRootController:YES];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.selectView.frame = CGRectMake(0, SCREEN_HEIGHT-(model.isSelected?124:0), SCREEN_WIDTH, 124);
+    }];
+    
 
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    if ([kind isEqualToString: UICollectionElementKindSectionHeader]) {
+    if ([kind isEqualToString: UICollectionElementKindSectionHeader]&&!self.isSearch) {
         GDPGHeaderView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerReuseIdentifier forIndexPath:indexPath];
         view.block = ^{//点击搜索
             [GDHomeManager presentToTargetControllerWith:self targetVc:[GDPGSearchViewController new]];
@@ -110,7 +157,14 @@ static NSString * const headerReuseIdentifier = @"GDPGHeaderView";
                   layout: (UICollectionViewLayout*)collectionViewLayout
 referenceSizeForHeaderInSection: (NSInteger)section{
     
-    return CGSizeMake(SCREEN_WIDTH, 125);
+    return CGSizeMake(SCREEN_WIDTH, self.isSearch?0:125);
+}
+
+//选择后继续
+- (void)chooseButtonClicked{
+    
+   // [UIApplication sharedApplication].keyWindow.rootViewController = [GDHomeManager getRootController:YES];
+
 }
 
 

@@ -10,5 +10,6 @@
 
 @interface GDPGChooseView : UIView
 
+@property (nonatomic,assign) BOOL isSearch;
 - (void)reloadWithDatas:(NSArray *)datas;
 @end

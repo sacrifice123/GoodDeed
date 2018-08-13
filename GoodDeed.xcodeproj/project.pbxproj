@@ -114,9 +114,13 @@
 		E6B39AD4211BDC300080772F /* GDFirstQuestionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD3211BDC300080772F /* GDFirstQuestionListModel.m */; };
 		E6B39C0B211C4F3F0080772F /* GDGetOrganListApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39C0A211C4F3F0080772F /* GDGetOrganListApi.m */; };
 		E6B39C0E211C58210080772F /* GDOrganModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39C0D211C58210080772F /* GDOrganModel.m */; };
+		E6BE89D6211F231B00C3AEDC /* GDSearchOrganApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BE89D5211F231B00C3AEDC /* GDSearchOrganApi.m */; };
+		E6BE89D9211F41A700C3AEDC /* GDAddOrganApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BE89D8211F41A700C3AEDC /* GDAddOrganApi.m */; };
+		E6BE89E62120062D00C3AEDC /* UIView+LXShadowPath.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BE89E42120062C00C3AEDC /* UIView+LXShadowPath.m */; };
 		E6C55C2A20CA7EBC0034A65A /* GDBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C55C2920CA7EBC0034A65A /* GDBaseCell.m */; };
 		E6C55C2E20CA85970034A65A /* GDPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C55C2C20CA85970034A65A /* GDPreviewViewController.m */; };
 		E6C55C2F20CA85970034A65A /* GDPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C55C2D20CA85970034A65A /* GDPreviewViewController.xib */; };
+		E6DF79DC211D514600ED8951 /* UIImageView+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = E6DF79DB211D514600ED8951 /* UIImageView+URL.m */; };
 		E6F1435A21198B290038A9D6 /* GDLoginApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F1435921198B290038A9D6 /* GDLoginApi.m */; };
 		E6F1435D21198EEC0038A9D6 /* GDBaseApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F1435C21198EEC0038A9D6 /* GDBaseApi.m */; };
 		E6F143622119BB850038A9D6 /* GDLunchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F143612119BB850038A9D6 /* GDLunchManager.m */; };
@@ -326,12 +330,20 @@
 		E6B39C0A211C4F3F0080772F /* GDGetOrganListApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDGetOrganListApi.m; sourceTree = "<group>"; };
 		E6B39C0C211C58200080772F /* GDOrganModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDOrganModel.h; sourceTree = "<group>"; };
 		E6B39C0D211C58210080772F /* GDOrganModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDOrganModel.m; sourceTree = "<group>"; };
+		E6BE89D4211F231B00C3AEDC /* GDSearchOrganApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSearchOrganApi.h; sourceTree = "<group>"; };
+		E6BE89D5211F231B00C3AEDC /* GDSearchOrganApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSearchOrganApi.m; sourceTree = "<group>"; };
+		E6BE89D7211F41A700C3AEDC /* GDAddOrganApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDAddOrganApi.h; sourceTree = "<group>"; };
+		E6BE89D8211F41A700C3AEDC /* GDAddOrganApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDAddOrganApi.m; sourceTree = "<group>"; };
+		E6BE89E42120062C00C3AEDC /* UIView+LXShadowPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LXShadowPath.m"; sourceTree = "<group>"; };
+		E6BE89E52120062C00C3AEDC /* UIView+LXShadowPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LXShadowPath.h"; sourceTree = "<group>"; };
 		E6C55C2820CA7EBC0034A65A /* GDBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseCell.h; sourceTree = "<group>"; };
 		E6C55C2920CA7EBC0034A65A /* GDBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDBaseCell.m; sourceTree = "<group>"; };
 		E6C55C2B20CA85970034A65A /* GDPreviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDPreviewViewController.h; sourceTree = "<group>"; };
 		E6C55C2C20CA85970034A65A /* GDPreviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDPreviewViewController.m; sourceTree = "<group>"; };
 		E6C55C2D20CA85970034A65A /* GDPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDPreviewViewController.xib; sourceTree = "<group>"; };
 		E6DF79BD211C60A900ED8951 /* GDHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDHeader.h; sourceTree = "<group>"; };
+		E6DF79DA211D514600ED8951 /* UIImageView+URL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+URL.h"; sourceTree = "<group>"; };
+		E6DF79DB211D514600ED8951 /* UIImageView+URL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+URL.m"; sourceTree = "<group>"; };
 		E6F1435821198B290038A9D6 /* GDLoginApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLoginApi.h; sourceTree = "<group>"; };
 		E6F1435921198B290038A9D6 /* GDLoginApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLoginApi.m; sourceTree = "<group>"; };
 		E6F1435B21198EEC0038A9D6 /* GDBaseApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseApi.h; sourceTree = "<group>"; };
@@ -705,6 +717,8 @@
 		E69C3FB320CFB4DB004F5614 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				E6BE89E52120062C00C3AEDC /* UIView+LXShadowPath.h */,
+				E6BE89E42120062C00C3AEDC /* UIView+LXShadowPath.m */,
 				49F0A78220D171B500CD06C3 /* GDEditButton.h */,
 				49F0A78320D171B500CD06C3 /* GDEditButton.m */,
 				E664C94E20C925A5004E81A4 /* PrefixHeader.pch */,
@@ -715,6 +729,8 @@
 				E69C3FB020CFB3C0004F5614 /* UIColor+HEX.m */,
 				49120BF72119DDF600EA263C /* UIWindow+HUD.h */,
 				49120BF82119DDF600EA263C /* UIWindow+HUD.m */,
+				E6DF79DA211D514600ED8951 /* UIImageView+URL.h */,
+				E6DF79DB211D514600ED8951 /* UIImageView+URL.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -752,6 +768,10 @@
 				E6F1436A211A81600038A9D6 /* GDGetFirstSurveyApi.m */,
 				E6B39C09211C4F3F0080772F /* GDGetOrganListApi.h */,
 				E6B39C0A211C4F3F0080772F /* GDGetOrganListApi.m */,
+				E6BE89D4211F231B00C3AEDC /* GDSearchOrganApi.h */,
+				E6BE89D5211F231B00C3AEDC /* GDSearchOrganApi.m */,
+				E6BE89D7211F41A700C3AEDC /* GDAddOrganApi.h */,
+				E6BE89D8211F41A700C3AEDC /* GDAddOrganApi.m */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -997,6 +1017,7 @@
 				E61F433720E22E91004D2E09 /* GDPGHeaderView.m in Sources */,
 				E69C3FA520CF6F6E004F5614 /* AnimationErectBegin.m in Sources */,
 				E611FC1020DB9EF300807E95 /* GDQuestionBaseView.m in Sources */,
+				E6BE89D9211F41A700C3AEDC /* GDAddOrganApi.m in Sources */,
 				E664C95D20C93B17004E81A4 /* GDLeftHeaderView.m in Sources */,
 				E69C3FAE20CFA3E5004F5614 /* GDHomeViewController.m in Sources */,
 				E6B39AD4211BDC300080772F /* GDFirstQuestionListModel.m in Sources */,
@@ -1018,6 +1039,7 @@
 				E69C3F9920CF6F6E004F5614 /* AnimationBackEnd.m in Sources */,
 				E61F432C20E219D2004D2E09 /* GDPGChooseViewController.m in Sources */,
 				496026DA20D95A1000C3DD15 /* GDKnowViewController.m in Sources */,
+				E6BE89D6211F231B00C3AEDC /* GDSearchOrganApi.m in Sources */,
 				E611FC1920DBA01100807E95 /* GDSlideQuestionView.m in Sources */,
 				E69C3FA920CF6F6E004F5614 /* AnimationScaleEnd.m in Sources */,
 				E69C3F9E20CF6F6E004F5614 /* AnimationTildEnd.m in Sources */,
@@ -1030,6 +1052,7 @@
 				E69C3F9A20CF6F6E004F5614 /* AnimationTransitionEnd.m in Sources */,
 				E69C3FA220CF6F6E004F5614 /* UIViewController+HHTransition.m in Sources */,
 				E6C55C2A20CA7EBC0034A65A /* GDBaseCell.m in Sources */,
+				E6DF79DC211D514600ED8951 /* UIImageView+URL.m in Sources */,
 				E69C3FA020CF6F6E004F5614 /* AnimationFadeBegin.m in Sources */,
 				E664C97C20CA7502004E81A4 /* GDHomeCell.m in Sources */,
 				E611FC2220DBA0F000807E95 /* GDImageSelQuestionView.m in Sources */,
@@ -1039,6 +1062,7 @@
 				E6F1435A21198B290038A9D6 /* GDLoginApi.m in Sources */,
 				E664C96F20CA174D004E81A4 /* HeroModel.m in Sources */,
 				E65E68BD20D0E60B003E07CB /* GDEditBaseViewController.m in Sources */,
+				E6BE89E62120062D00C3AEDC /* UIView+LXShadowPath.m in Sources */,
 				E668759F20D8B1FD0038307F /* GDHomeManager.m in Sources */,
 				E664C95120C925A5004E81A4 /* GDBaseViewController.m in Sources */,
 				E6F143622119BB850038A9D6 /* GDLunchManager.m in Sources */,

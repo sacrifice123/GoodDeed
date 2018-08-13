@@ -30,7 +30,7 @@
 {
     CGFloat width = [GDHelper calculateRectWithFont:12 Withtext:self.currentTitle Withsize:CGSizeMake(0, 0)].width;
     CGFloat x=(self.frame.size.width-width)*0.5;
-    CGFloat y=self.frame.size.height*IMAGE_PERCENT;//文字在3/4处显示
+    CGFloat y=self.frame.size.height*IMAGE_PERCENT;
     CGFloat w=self.frame.size.width;
     CGFloat h=20;
     

@@ -18,15 +18,17 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
-    self.imgView.layer.borderWidth = 0.5;
-    self.imgView.layer.borderColor = [UIColor colorWithHexString:@"BBBBBB"].CGColor;
+    self.imgView.layer.borderWidth = 4;
+
 }
 
 - (void)setModel:(GDOrganModel *)model{
     _model = model;
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",GDBaseUrl,model.imgUrl?:@""]]];
+    [self.imgView gd_setImageWithUrlStr:model.imgUrl];
+    self.imgView.layer.borderColor = [UIColor colorWithHexString:model.isSelected?@"#2BA9E0":@"FFFFFF"].CGColor;
+
     
 }
+
 
 @end

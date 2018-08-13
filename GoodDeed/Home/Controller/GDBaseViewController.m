@@ -82,7 +82,7 @@
 
 - (void)leftBarButtonItemClick{
     
-    [GDHelper showDrawer];
+    [GDHomeManager showDrawer];
 }
 
 @end

@@ -44,7 +44,7 @@
         }];
         
         __weak typeof(self) weakSelf = self;
-        self.block = ^{
+        self.animationblock = ^{
             [weakSelf animationStart];
         };
         [self layoutIfNeeded];
@@ -91,7 +91,7 @@
             [array addObject:image];
         }
         self.imgView.animationImages = array;
-        self.imgView.animationDuration = 5;
+        self.imgView.animationDuration = 3.5;
         self.imgView.animationRepeatCount = 1;
         [self.imgView startAnimating];
         self.imgView.image = [UIImage imageNamed:@"tap_image"];
@@ -103,11 +103,15 @@
 - (void)imgViewTap:(UITapGestureRecognizer *)gesture{
     
     UIImageView *view = (UIImageView *)gesture.view;
+    __weak typeof(self) weakSelf = self;
     if (!view.isAnimating) {//轮播停止后点击选择公益组织
         UIViewController *vc = [GDHomeManager getSuperVc:view];
         GDPGChooseViewController *pgVc = [[GDPGChooseViewController alloc] init];
         pgVc.organList = self.organList;
-        [vc presentViewController:pgVc animated:YES completion:nil];
+        [vc presentViewController:pgVc animated:YES completion:^{
+            
+            weakSelf.finishBlock(YES);
+        }];
     }
     
 }

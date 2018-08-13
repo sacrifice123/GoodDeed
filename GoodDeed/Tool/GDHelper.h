@@ -10,12 +10,8 @@
 
 @interface GDHelper : NSObject
 
-+ (MMDrawerController *)getRootMMDVc;
-+ (void)showDrawer;
-+ (void)closeDrawer;
-+ (void)closeDrawerWithFull;
 + (CGSize)calculateRectWithFont:(CGFloat)textfont Withtext:(NSString*)text Withsize:(CGSize)size;
 + (void)showHud;
 + (void)hideHud;
-
++ (void)showHudWith:(NSString *)text;
 @end

@@ -23,5 +23,6 @@
 #import "UIWindow+HUD.h"
 #import <YYModel.h>
 #import <UIImageView+WebCache.h>
+#import "UIImageView+URL.h"
 
 #endif

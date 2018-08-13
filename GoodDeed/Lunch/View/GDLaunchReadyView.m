@@ -9,6 +9,11 @@
 #import "GDLaunchReadyView.h"
 #import "GDOrgAnimationView.h"
 
+@interface GDLaunchReadyView()
+@property (nonatomic,strong) UIButton *readyButton;
+
+@end
+
 @implementation GDLaunchReadyView
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -24,7 +29,7 @@
     
     UIImageView *imgView = [[UIImageView alloc] init];
     [self addSubview:imgView];
-    imgView.backgroundColor = [UIColor blueColor];
+    imgView.image = [UIImage imageNamed:@"lunch_quesBg"];
     
     [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self);
@@ -45,7 +50,8 @@
     
     UIButton *button = [[UIButton alloc] init];
     [button setTitle:@"准备好了" forState:0];
-    [button setTitleColor:[UIColor colorWithHexString:@"#333333"] forState:0];
+    [button setTitleColor:[UIColor colorWithHexString:@"#333333"] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateSelected];
     button.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Light" size:20];
     button.backgroundColor = [UIColor colorWithHexString:@"#EFEFEF"];
     [self addSubview:button];
@@ -56,17 +62,26 @@
         make.right.equalTo(self).offset(-44);
         make.height.equalTo(@70);
     }];
+    self.readyButton = button;
     
 }
 
+//准备好了
 - (void)buttonClicked{
     
+    self.readyButton.selected = YES;
+    self.readyButton.backgroundColor = [UIColor colorWithHexString:@"##2E3192"];
     GDOrgAnimationView *view = [[GDOrgAnimationView alloc] initWithFrame:self.frame];
     [self.superview addSubview:view];
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
-    view.block();
+    view.animationblock();
+    __weak typeof(self) weakSelf = self;
+    view.finishBlock = ^(BOOL finish) {
+        weakSelf.readyButton.selected = NO;
+        weakSelf.readyButton.backgroundColor = [UIColor colorWithHexString:@"#EFEFEF"];
+    };
 
 }
 

@@ -15,5 +15,5 @@
 - (void)showString:(NSString *)text forSeconds:(NSTimeInterval)seconds;
 - (void)hideHud;
 - (void)hideHudAfterSeconds:(NSTimeInterval)interval;
-
+- (void)showWithString:(NSString *)text;
 @end

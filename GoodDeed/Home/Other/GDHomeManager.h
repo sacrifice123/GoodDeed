@@ -10,6 +10,10 @@
 
 @interface GDHomeManager : NSObject
 
++ (MMDrawerController *)getRootMMDVc;
++ (void)showDrawer;
++ (void)closeDrawer;
++ (void)closeDrawerWithFull;
 + (void)POPAnimationExecutionWith:(UICollectionView *)collectionView;
 + (UIViewController *)getRootController:(BOOL)isLogin;
 + (UIViewController *)getSuperVc:(UIView *)view;

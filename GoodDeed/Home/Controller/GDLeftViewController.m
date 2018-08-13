@@ -108,7 +108,41 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    [GDHelper closeDrawerWithFull];
+   // [GDHomeManager closeDrawerWithFull];
+    [GDHomeManager closeDrawer];
+    switch (indexPath.row) {
+        case 0:{//首页
+        }
+            break;
+        case 1:{//我的事业
+        }
+            
+            break;
+        case 2:{//我的团队
+        }
+            
+            break;
+        case 3:{//我的团队
+        }
+            
+            break;
+        case 4:{//我的调查
+        }
+            
+            break;
+        case 5:{//反馈与帮助
+            
+        }
+            break;
+        case 6:{//退出
+            
+        }
+            break;
+
+        default:
+            break;
+    }
+    
 }
 
 

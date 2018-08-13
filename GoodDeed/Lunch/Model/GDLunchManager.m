@@ -12,6 +12,8 @@
 #import "GDFirstSurveyModel.h"
 #import "GDGetOrganListApi.h"
 #import "GDOrganModel.h"
+#import "GDSearchOrganApi.h"
+#import "GDAddOrganApi.h"
 
 @implementation GDLunchManager
 
@@ -45,7 +47,7 @@ static GDLunchManager *manager;
         
     } failure:^(YTKBaseRequest *request) {
         
-        [GDWindow showHudWithString:@"网络异常"];
+        [GDWindow showWithString:@"网络异常"];
     }];
     
 }
@@ -59,56 +61,131 @@ static GDLunchManager *manager;
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
         NSDictionary *jsonData = request.responseJSONObject;
-        if (jsonData&&[[jsonData objectForKey:@"code"] integerValue] == 200) {
-            NSArray *list = [[jsonData objectForKey:@"data"] objectForKey:@"firstQuestionList"];
-            if (list&&[list isKindOfClass:[NSArray class]]) {
-                NSMutableArray *suveryList = [[NSMutableArray alloc] init];
-                for (NSDictionary *obj in list) {
-                    GDFirstQuestionListModel *model = [GDFirstQuestionListModel yy_modelWithDictionary:obj];
-                    [suveryList addObject:model];
+        if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
+            if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
+                NSArray *list = [[jsonData objectForKey:@"data"] objectForKey:@"firstQuestionList"];
+                if (list&&[list isKindOfClass:[NSArray class]]) {
+                    NSMutableArray *suveryList = [[NSMutableArray alloc] init];
+                    for (NSDictionary *obj in list) {
+                        GDFirstQuestionListModel *model = [GDFirstQuestionListModel yy_modelWithDictionary:obj];
+                        [suveryList addObject:model];
+                    }
+                    [GDLunchManager sharedManager].suveryList = suveryList;
+                    NSLog(@"%@",suveryList);
                 }
-                [GDLunchManager sharedManager].suveryList = suveryList;
-                NSLog(@"%@",suveryList);
+            }else{
+                [GDWindow showWithString:@"请求失败"];
             }
-        }else{
-            [GDWindow showHudWithString:@"请求失败"];
+
         }
-        
         block([GDLunchManager sharedManager].suveryList);
+
     } failure:^(YTKBaseRequest *request) {
         
         block([GDLunchManager sharedManager].suveryList);
-        [GDWindow showHudWithString:@"网络异常"];
+        [GDWindow showWithString:@"网络异常"];
     }];
     
 }
 
+/*
+ 获取公益组织列表
+ */
 + (void)getOrganListWithCompletionBlock:(void(^)(NSArray *))block{
     
     GDGetOrganListApi *api = [[GDGetOrganListApi alloc] init];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
        
         NSDictionary *jsonData = request.responseJSONObject;
-        if (jsonData&&[[jsonData objectForKey:@"code"] integerValue] == 200) {
-            NSArray *list = [jsonData objectForKey:@"data"];
-            if (list&&[list isKindOfClass:[NSArray class]]) {
-                NSMutableArray *organList = [[NSMutableArray alloc] init];
-                for (NSDictionary *obj in list) {
-                    GDOrganModel *model = [GDOrganModel yy_modelWithDictionary:obj];
-                    [organList addObject:model];
+        if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
+            if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
+                NSArray *list = [jsonData objectForKey:@"data"];
+                if (list&&[list isKindOfClass:[NSArray class]]) {
+                    NSMutableArray *organList = [[NSMutableArray alloc] init];
+                    for (NSDictionary *obj in list) {
+                        GDOrganModel *model = [GDOrganModel yy_modelWithDictionary:obj];
+                        [organList addObject:model];
+                    }
+                    block(organList);
+                    NSLog(@"%@",organList);
                 }
-                block(organList);
-                NSLog(@"%@",organList);
+            }else{
+                [GDWindow showWithString:@"请求失败"];
             }
-        }else{
-            [GDWindow showHudWithString:@"请求失败"];
+
         }
 
         
     } failure:^(YTKBaseRequest *request) {
         
+        [GDWindow showWithString:@"网络异常"];
     }];
     
+}
+
+/*
+ 根据名称搜索公益组织
+ */
++ (void)searchOrganWithName:(NSString *)name uid:(NSString *)uid completionBlock:(void(^)(NSArray *))block{
+    
+    GDSearchOrganApi *api = [[GDSearchOrganApi alloc] initWithOrganName:name uid:uid];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        NSDictionary *jsonData = request.responseJSONObject;
+        if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
+            if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
+                NSArray *list = [jsonData objectForKey:@"data"];
+                if (list&&[list isKindOfClass:[NSArray class]]) {
+                    NSMutableArray *organList = [[NSMutableArray alloc] init];
+                    for (NSDictionary *obj in list) {
+                        GDOrganModel *model = [GDOrganModel yy_modelWithDictionary:obj];
+                        [organList addObject:model];
+                    }
+                    block(organList);
+                    NSLog(@"%@",organList);
+                }
+            }else{
+                 [GDWindow showWithString:@"请求失败"];
+            }
+
+        }else{
+            
+          //  block(nil);
+        }
+
+        
+    } failure:^(YTKBaseRequest *request) {
+        [GDWindow showWithString:@"网络异常"];
+    }];
+}
+
+/*
+ 添加公益组织
+ */
++ (void)addOrganWithName:(NSString *)name uid:(NSString *)uid completionBlock:(void(^)(BOOL))block{
+    
+    GDAddOrganApi *api = [[GDAddOrganApi alloc] initWithOrganName:name uid:uid];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        NSDictionary *jsonData = request.responseJSONObject;
+        if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
+            if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
+                block(YES);
+
+            }else{
+                block(NO);;
+            }
+            
+        }else{
+            
+            block(NO);
+        }
+        
+    } failure:^(YTKBaseRequest *request) {
+        block(NO);
+        [GDWindow showWithString:@"网络异常"];
+    }];
+
 }
 
 @end

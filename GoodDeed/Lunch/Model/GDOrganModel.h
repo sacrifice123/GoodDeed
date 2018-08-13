@@ -13,5 +13,6 @@
 @property (nonatomic,copy) NSString *organId;//公益组织ID
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *imgUrl;
+@property (nonatomic,assign) BOOL isSelected;
 
 @end

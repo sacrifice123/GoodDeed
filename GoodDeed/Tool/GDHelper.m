@@ -11,31 +11,9 @@
 
 @implementation GDHelper
 
-+ (MMDrawerController *)getRootMMDVc{
-    MMDrawerController *mmdc = (MMDrawerController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-    return mmdc;
-}
-
-+ (void)showDrawer{
-    
-    [[self getRootMMDVc] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-}
-
-+ (void)closeDrawer{
-    
-    [[self getRootMMDVc] closeDrawerAnimated:YES completion:nil];
-
-}
-
-+ (void)closeDrawerWithFull{
-    
-    MMDrawerController *mmdc = [self getRootMMDVc];
-    [mmdc setCenterViewController:mmdc.centerViewController withFullCloseAnimation:YES completion:nil];
-    
-}
-
+//计算label字体的
 + (CGSize)calculateRectWithFont:(CGFloat)textfont Withtext:(NSString*)text Withsize:(CGSize)size{
-    NSDictionary*attr = @{NSFontAttributeName:[UIFont systemFontOfSize:textfont]};//用来计算label字体的
+    NSDictionary*attr = @{NSFontAttributeName:[UIFont systemFontOfSize:textfont]};
     CGRect titleRect = [text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:attr context:nil];
     
     return titleRect.size;
@@ -46,7 +24,7 @@
 }
 
 + (void)showHudWith:(NSString *)text{
-
+    [GDWindow showHudWithString:text];
 }
 
 + (void)hideHud{

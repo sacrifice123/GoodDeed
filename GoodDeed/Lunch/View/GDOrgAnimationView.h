@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^AnimationBlock)(void);
-
+typedef void(^FinishBlock)(BOOL);
 @interface GDOrgAnimationView : UIView
 
-@property (nonatomic, strong) AnimationBlock block;
-
+@property (nonatomic, strong) AnimationBlock animationblock;
+@property (nonatomic, strong) FinishBlock finishBlock;
 @end

@@ -18,7 +18,7 @@
     if (!hud) {
         hud = [[MBProgressHUD alloc] initWithView:self];
         hud.tag = 1000000;
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mgt_tapHud)];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gd_tapHud)];
         [hud addGestureRecognizer:tapGesture];
         [self addSubview:hud];
     }
@@ -79,9 +79,10 @@
     }];
     
     [backView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.mas_bottom).offset(- height);
+        //make.bottom.equalTo(self.mas_bottom).offset(- height);
         make.width.equalTo(@(width));
         make.centerX.equalTo(self.mas_centerX);
+        make.centerY.equalTo(self.mas_centerY);
     }];
     
     [self layoutIfNeeded];
@@ -96,6 +97,11 @@
 {
     [self showHudWithString:text];
     [self hideHudAfterSeconds:seconds];
+}
+
+- (void)showWithString:(NSString *)text{
+    
+    [self showString:text forSeconds:1.5];
 }
 
 - (void)showHudWithString:(NSString *)text
@@ -113,14 +119,14 @@
     [self bringSubviewToFront:hud];
 }
 
-- (void)mgt_tapHud
+- (void)gd_tapHud
 {
     [[self gethudType:NO] hideAnimated:NO];
 }
 
 - (void)hideHud
 {
-    [[self gethudType:NO] hide:NO];
+    [[self gethudType:NO] hideAnimated:NO];
 }
 
 - (void)hideHudAfterSeconds:(NSTimeInterval)interval

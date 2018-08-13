@@ -46,7 +46,7 @@
 - (id)requestArgument{
     return @{
              @"data":@{
-                        @"mail":_mail,
+                     @"mail":_mail,
                         @"passwork":_password
         
                       },

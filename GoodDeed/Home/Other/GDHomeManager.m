@@ -17,6 +17,33 @@
 static CGFloat const GDAnimationDelay = 0.1;
 static CGFloat const GDSpringFactor = 10;
 
+
++ (MMDrawerController *)getRootMMDVc{
+    MMDrawerController *mmdc = (MMDrawerController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+    return mmdc;
+}
+
++ (void)showDrawer{
+    
+    [[self getRootMMDVc] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
+
+//抽屉直接退出
++ (void)closeDrawer{
+    
+    [[self getRootMMDVc] closeDrawerAnimated:YES completion:nil];
+    
+}
+
+//抽屉推向全屏后退出
++ (void)closeDrawerWithFull{
+    
+    MMDrawerController *mmdc = [self getRootMMDVc];
+    [mmdc setCenterViewController:mmdc.centerViewController withFullCloseAnimation:YES completion:nil];
+    
+}
+
+//POP动画
 + (void)POPAnimationExecutionWith:(UICollectionView *)collectionView {
     
     NSMutableArray *items = [NSMutableArray arrayWithArray:collectionView.visibleCells];
@@ -56,7 +83,7 @@ static CGFloat const GDSpringFactor = 10;
 
 }
 
-//isLogin:是否登录
+//isLogin:是否登录（登录状态直接跳到首页）
 + (UIViewController *)getRootController:(BOOL)isLogin{
     
     if (isLogin) {
@@ -67,6 +94,7 @@ static CGFloat const GDSpringFactor = 10;
 }
 
 
+//获取view下的第一个控制器
 + (UIViewController *)getSuperVc:(UIView *)view{
     id object = view.nextResponder;
     while (object&&![object isKindOfClass:[UIViewController class]]) {
