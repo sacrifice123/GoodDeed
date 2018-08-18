@@ -10,7 +10,8 @@
 
 typedef NS_ENUM(NSInteger, GDSurveyType) {
     
-    GDSingleType = 1,   //单选题
+    GDReadyType = 0,    //准备
+    GDSingleType,       //单选题
     GDMultipleType,     //多选题
     GDSlideType,        //滑动题
     GDQuantitativeType, //定量题

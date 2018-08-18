@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @class GDOrganModel;
+@class GDFirstQuestionListModel;
 @interface GDLunchManager : NSObject
 
-@property (nonatomic, strong) NSArray *suveryList;
+@property (nonatomic, strong) NSArray <GDFirstQuestionListModel *> *suveryList;
 @property (nonatomic, strong) GDOrganModel *selectOrganModel;
 
 + (GDLunchManager *)sharedManager;
@@ -20,5 +21,5 @@
 + (void)getOrganListWithCompletionBlock:(void(^)(NSArray *))block;
 + (void)searchOrganWithName:(NSString *)name uid:(NSString *)uid completionBlock:(void(^)(NSArray *))block;
 + (void)addOrganWithName:(NSString *)name uid:(NSString *)uid completionBlock:(void(^)(BOOL))block;
-+ (void)addOrganWithName:(NSString *)name uid:(NSString *)uid completionBlock:(void(^)(BOOL))block;
+//+ (void)addOrganWithName:(NSString *)name uid:(NSString *)uid completionBlock:(void(^)(BOOL))block;
 @end

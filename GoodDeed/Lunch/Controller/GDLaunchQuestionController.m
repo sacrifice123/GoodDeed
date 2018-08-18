@@ -9,8 +9,16 @@
 #import "GDLaunchQuestionController.h"
 #import "GDLaunchReadyView.h"
 #import "GDQuestionBaseView.h"
-#import "GDLaunchReadyView.h"
 #import "GDLunchManager.h"
+#import "GDLaunchReadyView.h"
+//7大问题页面
+#import "GDSingleSelQuestionView.h"
+#import "GDMoreSelQuestionView.h"
+#import "GDSlideQuestionView.h"
+#import "GDQuantifyQuestionView.h"
+#import "GDSortQuestionView.h"
+#import "GDImageSelQuestionView.h"
+#import "GDWriteQuestionView.h"
 
 @interface GDLaunchQuestionController ()<UIScrollViewDelegate>
 
@@ -49,16 +57,15 @@
     if (_pages == nil) {
         _pages = [NSMutableArray array];
         
-        for (int i=0; i<[GDLunchManager sharedManager].suveryList.count; i++) {
-            GDQuestionBaseView *view;
-            if (i==0) {
-                view = [[GDLaunchReadyView alloc] initWithFrame:self.view.frame];
-            }else{
-                view = [GDQuestionBaseView new];
-            }
-            view.type = i;
-            [_pages addObject:view];
+        GDQuestionBaseView *readyView = [[GDLaunchReadyView alloc] initWithFrame:self.view.frame];
+        GDFirstQuestionListModel *model = [GDFirstQuestionListModel new];
+        model.type = GDReadyType;
+        [_pages addObject:readyView];
+       // [_pages addObjectsFromArray:[GDLunchManager sharedManager].suveryList];
+        for (GDFirstQuestionListModel*obj in [GDLunchManager sharedManager].suveryList) {
+            
         }
+
     }
     
     return _pages;
@@ -82,18 +89,6 @@
 }
 
 - (void)setUpSubViews{
-    for (GDQuestionBaseView *view in self.pages) {
-        [_scrollView addSubview:view];
-        view.frame = CGRectMake(view.type*SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-        if (view.type>0) {
-            if (view.type%2) {
-                view.backgroundColor = [UIColor redColor];
-            }else{
-                view.backgroundColor = [UIColor blueColor];
-                
-            }
-        }
-    }
     
     UIPageControl *pc = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 19, 5, 5)];
     pc.center = CGPointMake(self.view.center.x, pc.center.y);
@@ -119,6 +114,68 @@
 //
 //    }
     
+}
+
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    CGFloat offsetX = scrollView.contentOffset.x;
+    NSInteger index = offsetX/SCREEN_WIDTH;
+    GDQuestionBaseView *quesView = self.pages[index];
+    [scrollView addSubview:quesView];
+}
+
+- (GDQuestionBaseView *)createSurveyView:(GDSurveyType)type{
+    
+    GDQuestionBaseView *surveyView;
+    switch (type) {
+        case 0:{
+            
+        }
+            
+            break;
+        case 1:{
+            
+        }
+            
+            break;
+        case 2:{
+            
+        }
+            
+            break;
+        case 3:{
+            
+        }
+            
+            break;
+        case 4:{
+            
+        }
+            
+            break;
+        case 5:{
+            
+        }
+            
+            break;
+        case 6:{
+            
+        }
+            
+            break;
+        case 7:{
+            
+        }
+            
+            break;
+
+        default:
+            surveyView = [[GDQuestionBaseView alloc] init];
+            break;
+    }
+    
+    return surveyView;
 }
 
 @end

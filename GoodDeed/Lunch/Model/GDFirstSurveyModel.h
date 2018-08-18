@@ -8,7 +8,7 @@
 
 #import "GDBaseModel.h"
 #import "GDFirstQuestionListModel.h"
-
+//暂时没用
 @interface GDFirstSurveyModel : GDBaseModel
 
 @property (nonatomic,copy) NSString *organId;//公益组织ID
