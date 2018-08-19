@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, GDSurveyType) {
 @property (nonatomic,copy) NSString *imgUrl;
 @property (nonatomic,copy) NSString *isSkip;
 @property (nonatomic,copy) NSString *questionName;
+@property (nonatomic,copy) NSString *questionId;
 @property (nonatomic,copy) NSString *sort;
 @property (nonatomic,assign) GDSurveyType type;
 

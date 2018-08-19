@@ -56,6 +56,10 @@
 		E61F433C20E237A9004D2E09 /* GDPGSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E61F433A20E237A9004D2E09 /* GDPGSearchViewController.m */; };
 		E61F433D20E237A9004D2E09 /* GDPGSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61F433B20E237A9004D2E09 /* GDPGSearchViewController.xib */; };
 		E61F434020E245CD004D2E09 /* GDPGChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = E61F433F20E245CD004D2E09 /* GDPGChooseView.m */; };
+		E65BDC1C21294B8700F2D5C0 /* GDQuestionDescCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E65BDC1A21294B8600F2D5C0 /* GDQuestionDescCell.m */; };
+		E65BDC1D21294B8700F2D5C0 /* GDQuestionDescCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E65BDC1B21294B8600F2D5C0 /* GDQuestionDescCell.xib */; };
+		E65BDC2021294F4300F2D5C0 /* GDQuestionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = E65BDC1F21294F4300F2D5C0 /* GDQuestionHeadView.m */; };
+		E65BDC23212971C400F2D5C0 /* GDQuestionWriteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E65BDC22212971C400F2D5C0 /* GDQuestionWriteModel.m */; };
 		E65E68BD20D0E60B003E07CB /* GDEditBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E65E68BC20D0E60B003E07CB /* GDEditBaseViewController.m */; };
 		E65E68C120D0EC0F003E07CB /* GDEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E65E68BF20D0EC0F003E07CB /* GDEditViewController.m */; };
 		E66043E911AC64879784645F /* libPods-GoodDeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EDE6627E679C36DA5BE5B6 /* libPods-GoodDeed.a */; };
@@ -224,6 +228,13 @@
 		E61F433B20E237A9004D2E09 /* GDPGSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDPGSearchViewController.xib; sourceTree = "<group>"; };
 		E61F433E20E245CD004D2E09 /* GDPGChooseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDPGChooseView.h; sourceTree = "<group>"; };
 		E61F433F20E245CD004D2E09 /* GDPGChooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDPGChooseView.m; sourceTree = "<group>"; };
+		E65BDC1921294B8600F2D5C0 /* GDQuestionDescCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDQuestionDescCell.h; sourceTree = "<group>"; };
+		E65BDC1A21294B8600F2D5C0 /* GDQuestionDescCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDQuestionDescCell.m; sourceTree = "<group>"; };
+		E65BDC1B21294B8600F2D5C0 /* GDQuestionDescCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDQuestionDescCell.xib; sourceTree = "<group>"; };
+		E65BDC1E21294F4300F2D5C0 /* GDQuestionHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDQuestionHeadView.h; sourceTree = "<group>"; };
+		E65BDC1F21294F4300F2D5C0 /* GDQuestionHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDQuestionHeadView.m; sourceTree = "<group>"; };
+		E65BDC21212971C400F2D5C0 /* GDQuestionWriteModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDQuestionWriteModel.h; sourceTree = "<group>"; };
+		E65BDC22212971C400F2D5C0 /* GDQuestionWriteModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDQuestionWriteModel.m; sourceTree = "<group>"; };
 		E65E68BB20D0E60B003E07CB /* GDEditBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDEditBaseViewController.h; sourceTree = "<group>"; };
 		E65E68BC20D0E60B003E07CB /* GDEditBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDEditBaseViewController.m; sourceTree = "<group>"; };
 		E65E68BE20D0EC0F003E07CB /* GDEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDEditViewController.h; sourceTree = "<group>"; };
@@ -454,6 +465,9 @@
 				499C7B7C212854F70012C329 /* GDMoreCell.h */,
 				499C7B7D212854F70012C329 /* GDMoreCell.m */,
 				499C7B7E212854F70012C329 /* GDMoreCell.xib */,
+				E65BDC1921294B8600F2D5C0 /* GDQuestionDescCell.h */,
+				E65BDC1A21294B8600F2D5C0 /* GDQuestionDescCell.m */,
+				E65BDC1B21294B8600F2D5C0 /* GDQuestionDescCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -634,6 +648,8 @@
 				E611FBE220DA42CC00807E95 /* Images */,
 				E611FBC720DA070900807E95 /* GDLaunchReadyView.h */,
 				E611FBC820DA070900807E95 /* GDLaunchReadyView.m */,
+				E65BDC1E21294F4300F2D5C0 /* GDQuestionHeadView.h */,
+				E65BDC1F21294F4300F2D5C0 /* GDQuestionHeadView.m */,
 				E611FC0E20DB9EF300807E95 /* GDQuestionBaseView.h */,
 				E611FC0F20DB9EF300807E95 /* GDQuestionBaseView.m */,
 				E611FBDF20DA3DDE00807E95 /* GDOrgAnimationView.h */,
@@ -805,6 +821,8 @@
 				E6B39AD3211BDC300080772F /* GDFirstQuestionListModel.m */,
 				E6B39C0C211C58200080772F /* GDOrganModel.h */,
 				E6B39C0D211C58210080772F /* GDOrganModel.m */,
+				E65BDC21212971C400F2D5C0 /* GDQuestionWriteModel.h */,
+				E65BDC22212971C400F2D5C0 /* GDQuestionWriteModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -931,6 +949,7 @@
 				499C7B80212854F70012C329 /* GDMoreCell.xib in Resources */,
 				E664C97D20CA7502004E81A4 /* GDHomeCell.xib in Resources */,
 				E61F433820E22E91004D2E09 /* GDPGHeaderView.xib in Resources */,
+				E65BDC1D21294B8700F2D5C0 /* GDQuestionDescCell.xib in Resources */,
 				E611FC0620DA42CC00807E95 /* animation_7.jpg in Resources */,
 				E664C98920CA7AE7004E81A4 /* pic.png in Resources */,
 				49F0A78120D1715300CD06C3 /* GDEditViewController.xib in Resources */,
@@ -1026,6 +1045,7 @@
 				E664C95A20C9327B004E81A4 /* GDHelper.m in Sources */,
 				E65E68C120D0EC0F003E07CB /* GDEditViewController.m in Sources */,
 				E69C3FA720CF6F6E004F5614 /* AnimationErectEnd.m in Sources */,
+				E65BDC23212971C400F2D5C0 /* GDQuestionWriteModel.m in Sources */,
 				E6F1435D21198EEC0038A9D6 /* GDBaseApi.m in Sources */,
 				E69C3F9C20CF6F6E004F5614 /* AnimationTiltBegin.m in Sources */,
 				49F0A78420D171B500CD06C3 /* GDEditButton.m in Sources */,
@@ -1035,6 +1055,7 @@
 				E611FC1620DB9FE800807E95 /* GDMoreSelQuestionView.m in Sources */,
 				E61F433720E22E91004D2E09 /* GDPGHeaderView.m in Sources */,
 				E69C3FA520CF6F6E004F5614 /* AnimationErectBegin.m in Sources */,
+				E65BDC2021294F4300F2D5C0 /* GDQuestionHeadView.m in Sources */,
 				E611FC1020DB9EF300807E95 /* GDQuestionBaseView.m in Sources */,
 				E6BE89D9211F41A700C3AEDC /* GDAddOrganApi.m in Sources */,
 				E664C95D20C93B17004E81A4 /* GDLeftHeaderView.m in Sources */,
@@ -1053,6 +1074,7 @@
 				E664C97020CA174D004E81A4 /* SCAdDemoCollectionViewCell.m in Sources */,
 				E69C3FA820CF6F6E004F5614 /* AnimationTransitionBegin.m in Sources */,
 				E6B39C0B211C4F3F0080772F /* GDGetOrganListApi.m in Sources */,
+				E65BDC1C21294B8700F2D5C0 /* GDQuestionDescCell.m in Sources */,
 				E664C98620CA7547004E81A4 /* GDCauseCell.m in Sources */,
 				E6655CDA20C51391005B46C3 /* main.m in Sources */,
 				E69C3F9920CF6F6E004F5614 /* AnimationBackEnd.m in Sources */,
