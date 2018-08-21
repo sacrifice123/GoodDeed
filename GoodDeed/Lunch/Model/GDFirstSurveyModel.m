@@ -10,10 +10,24 @@
 
 @implementation GDFirstSurveyModel
 
++ (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper{
+    
+    return @{
+             @"surveyId":@"id"
+             };
+}
+
 + (nullable NSDictionary<NSString *, id> *)modelContainerPropertyGenericClass{
     
     return @{@"firstQuestionList":[GDFirstQuestionListModel class]};
 }
 
+- (NSArray<GDFirstQuestionListModel *> *)firstQuestionList{
+    
+    if (_firstQuestionList == nil) {
+        _firstQuestionList = [[NSArray alloc] init];
+    }
+    return _firstQuestionList;
+}
 
 @end

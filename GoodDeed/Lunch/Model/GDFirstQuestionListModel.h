@@ -7,28 +7,20 @@
 //
 
 #import "GDBaseModel.h"
+#import "GDQuestionWriteModel.h"
 
-typedef NS_ENUM(NSInteger, GDSurveyType) {
-    
-    GDReadyType = 0,    //准备
-    GDSingleType,       //单选题
-    GDMultipleType,     //多选题
-    GDSlideType,        //滑动题
-    GDQuantitativeType, //定量题
-    GDSortType,         //排序题
-    GDSelectType,       //勾选图片题
-    GDWriteType         //填写题
-};
 
 @interface GDFirstQuestionListModel : GDBaseModel
 
-@property (nonatomic,strong) NSArray *firstOptionList;
-@property (nonatomic,copy) NSString *imgUrl;
-@property (nonatomic,copy) NSString *isSkip;
-@property (nonatomic,copy) NSString *questionName;
-@property (nonatomic,copy) NSString *questionId;
-@property (nonatomic,copy) NSString *sort;
-@property (nonatomic,assign) GDSurveyType type;
+@property (nonatomic,strong) NSArray *firstOptionList;//问题选项
+@property (nonatomic,copy) NSString *imgUrl;//问题头部图片
+@property (nonatomic,copy) NSString *isSkip;//是否跳过
+@property (nonatomic,copy) NSString *questionName;//问题描述
+@property (nonatomic,copy) NSString *questionId;//问题id，唯一标识
+@property (nonatomic,copy) NSString *sort;//排序
+@property (nonatomic,assign) GDSurveyType type;//问题类型
+
+@property (nonatomic,strong) GDQuestionWriteModel *writeModel;//每次答题结束后记录相关答题内容
 
 
 @end

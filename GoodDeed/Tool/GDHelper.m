@@ -31,4 +31,34 @@
     [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
 }
 
+//model转化为字典
++ (NSDictionary *)dictionaryFromModel:(NSObject *)model {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    unsigned int count;
+    objc_property_t *propertyList = class_copyPropertyList([model class], &count);
+    
+    for (int i = 0; i < count; i++) {
+        objc_property_t property = propertyList[i];
+        const char *cName = property_getName(property);
+        NSString *name = [NSString stringWithUTF8String:cName];
+        NSObject *value = [model valueForKey:name];//valueForKey返回的数字和字符串都是对象
+        
+        if ([value isKindOfClass:[NSString class]] || [value isKindOfClass:[NSNumber class]]) {
+            //string , bool, int ,NSinteger
+            [dic setObject:value forKey:name];
+            
+        }else if (value == nil) {
+            //null
+            [dic setObject:@"" forKey:name];//这行可以注释掉?????
+            
+        } else {
+            //model
+            [dic setObject:[self dictionaryFromModel:value] forKey:name];
+        }
+    }
+    
+    return [dic copy];
+}
+
+
 @end

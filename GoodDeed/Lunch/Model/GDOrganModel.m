@@ -10,4 +10,11 @@
 
 @implementation GDOrganModel
 
++ (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper{
+    
+    return @{
+             @"organId":@"id"
+             };
+}
+
 @end

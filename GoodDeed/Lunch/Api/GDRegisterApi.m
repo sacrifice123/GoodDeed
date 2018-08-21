@@ -9,7 +9,52 @@
 #import "GDRegisterApi.h"
 
 @implementation GDRegisterApi
+{
+    NSString *_mail;
+    NSString *_password;
+    NSNumber *_type;
+    NSString *_token;
+    
+}
 
+/*登录
+ type: 1邮箱 2手机号 3微信 4新浪 5用户名
+ */
+- (instancetype)initWith:(NSString *)mail
+                password:(NSString *)password
+                    type:(NSNumber *)type
+                   {
+    if (self == [super init]) {
+        
+    }
+    
+    return self;
+}
+
+/*{
+    "data": {
+        "mail": "string",
+        "password": "string",
+        "resultReqVo": {
+            "organId": 0,
+            "writeReqVo": {
+                "surveyId": 0,
+                "uid": "string",
+                "writeReqVoList": [
+                                   {
+                                       "content": "string",
+                                       "optionId": 0,
+                                       "optionOrder": 0,
+                                       "questionId": 0,
+                                       "type": 0
+                                   }
+                                   ]
+            }
+        },
+        "type": 0
+    },
+    "token": "string"
+}*/
 /*
  
 "resultReqVo": {
@@ -29,5 +74,22 @@
     }
 },
  */
+- (YTKRequestMethod)requestMethod {
+    return YTKRequestMethodPost;
+}
 
+- (NSString *)requestUrl{
+    
+    return  @"/login/onLogin";
+}
+
+- (id)requestArgument{
+    return @{
+             @"data":@{
+                     
+                     },
+             @"token":@""
+             };
+    
+}
 @end

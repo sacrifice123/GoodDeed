@@ -10,4 +10,15 @@
 
 @implementation GDFirstQuestionListModel
 
+
+- (GDQuestionWriteModel *)writeModel{
+    
+    if (_writeModel == nil) {
+        _writeModel = [[GDQuestionWriteModel alloc] init];
+    }
+    
+    _writeModel.questionId = self.questionId;
+    _writeModel.type = self.type;
+    return _writeModel;
+}
 @end

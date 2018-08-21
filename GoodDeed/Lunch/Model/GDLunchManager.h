@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class GDOrganModel;
+@class GDFirstSurveyModel;
 @class GDFirstQuestionListModel;
 @interface GDLunchManager : NSObject
 
 @property (nonatomic, strong) NSArray <GDFirstQuestionListModel *> *suveryList;
 @property (nonatomic, strong) GDOrganModel *selectOrganModel;
+@property (nonatomic, strong) GDFirstSurveyModel *surveyModel;
 
 + (GDLunchManager *)sharedManager;
 + (void)loginWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token completionBlock:(void(^)(BOOL))block;

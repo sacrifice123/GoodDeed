@@ -14,4 +14,5 @@
 + (void)showHud;
 + (void)hideHud;
 + (void)showHudWith:(NSString *)text;
++ (NSDictionary *)dictionaryFromModel:(NSObject *)model;
 @end

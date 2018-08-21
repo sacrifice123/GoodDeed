@@ -10,11 +10,5 @@
 
 @implementation GDBaseModel
 
-+ (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper{
-    
-    return @{
-             @"organId":@"id"
-             };
-}
 
 @end

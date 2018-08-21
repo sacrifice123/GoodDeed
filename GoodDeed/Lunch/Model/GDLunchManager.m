@@ -29,10 +29,8 @@ static GDLunchManager *manager;
 }
 
 - (NSArray *)suveryList{
-    if (_suveryList == nil) {
-        _suveryList = [[NSArray alloc] init];
-    }
-    return _suveryList;
+
+    return self.surveyModel.firstQuestionList;
 }
 
 /*登录
@@ -62,17 +60,12 @@ static GDLunchManager *manager;
         
         NSDictionary *jsonData = request.responseJSONObject;
         if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
-            if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
-                NSArray *list = [[jsonData objectForKey:@"data"] objectForKey:@"firstQuestionList"];
-                if (list&&[list isKindOfClass:[NSArray class]]) {
-                    NSMutableArray *suveryList = [[NSMutableArray alloc] init];
-                    for (NSDictionary *obj in list) {
-                        GDFirstQuestionListModel *model = [GDFirstQuestionListModel yy_modelWithDictionary:obj];
-                        [suveryList addObject:model];
-                    }
-                    [GDLunchManager sharedManager].suveryList = suveryList;
-                    NSLog(@"%@",suveryList);
-                }
+            if ([[jsonData objectForKey:@"code"] integerValue] == 200&&[jsonData objectForKey:@"data"]) {
+                
+                GDFirstSurveyModel *surveyModel = [GDFirstSurveyModel yy_modelWithDictionary:[jsonData objectForKey:@"data"]];
+                [GDLunchManager sharedManager].surveyModel= surveyModel;
+                NSLog(@"%@",surveyModel.firstQuestionList);
+
             }else{
                 [GDWindow showWithString:@"请求失败"];
             }
