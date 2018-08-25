@@ -10,10 +10,10 @@
 
 @implementation GDSingleSelQuestionView
 
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)init{
     
-    if (self = [super initWithFrame:frame]) {
-        
+    if (self = [super init]) {
+        self.backgroundColor = [UIColor redColor];
     }
     
     return self;

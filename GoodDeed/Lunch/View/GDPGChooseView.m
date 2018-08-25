@@ -162,8 +162,8 @@ referenceSizeForHeaderInSection: (NSInteger)section{
 
 //选择后继续
 - (void)chooseButtonClicked{
-    
-   // [UIApplication sharedApplication].keyWindow.rootViewController = [GDHomeManager getRootController:YES];
+    UIViewController *superVc = [GDHomeManager getSuperVc:self];
+    [superVc dismissViewControllerAnimated:YES completion:nil];
 
 }
 

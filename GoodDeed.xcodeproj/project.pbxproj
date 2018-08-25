@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		49120BF92119DDF600EA263C /* UIWindow+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 49120BF82119DDF600EA263C /* UIWindow+HUD.m */; };
 		49120BFC2119E43E00EA263C /* GDRegisterApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 49120BFB2119E43E00EA263C /* GDRegisterApi.m */; };
+		49594A4F212F01CF00402ADB /* GDAnswerFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49594A4D212F01CF00402ADB /* GDAnswerFinishViewController.m */; };
+		49594A50212F01CF00402ADB /* GDAnswerFinishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49594A4E212F01CF00402ADB /* GDAnswerFinishViewController.xib */; };
+		49594A54212F0B0200402ADB /* GDOpenNotiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49594A52212F0B0200402ADB /* GDOpenNotiViewController.m */; };
+		49594A55212F0B0200402ADB /* GDOpenNotiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49594A53212F0B0200402ADB /* GDOpenNotiViewController.xib */; };
 		496026DA20D95A1000C3DD15 /* GDKnowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496026D820D95A1000C3DD15 /* GDKnowViewController.m */; };
 		496026DB20D95A1000C3DD15 /* GDKnowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496026D920D95A1000C3DD15 /* GDKnowViewController.xib */; };
 		499C7B7A212854D20012C329 /* GDSingleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 499C7B78212854D20012C329 /* GDSingleCell.m */; };
@@ -159,6 +163,12 @@
 		49120BF82119DDF600EA263C /* UIWindow+HUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+HUD.m"; sourceTree = "<group>"; };
 		49120BFA2119E43E00EA263C /* GDRegisterApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDRegisterApi.h; sourceTree = "<group>"; };
 		49120BFB2119E43E00EA263C /* GDRegisterApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDRegisterApi.m; sourceTree = "<group>"; };
+		49594A4C212F01CF00402ADB /* GDAnswerFinishViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDAnswerFinishViewController.h; sourceTree = "<group>"; };
+		49594A4D212F01CF00402ADB /* GDAnswerFinishViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDAnswerFinishViewController.m; sourceTree = "<group>"; };
+		49594A4E212F01CF00402ADB /* GDAnswerFinishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDAnswerFinishViewController.xib; sourceTree = "<group>"; };
+		49594A51212F0B0200402ADB /* GDOpenNotiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDOpenNotiViewController.h; sourceTree = "<group>"; };
+		49594A52212F0B0200402ADB /* GDOpenNotiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDOpenNotiViewController.m; sourceTree = "<group>"; };
+		49594A53212F0B0200402ADB /* GDOpenNotiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDOpenNotiViewController.xib; sourceTree = "<group>"; };
 		496026D720D95A1000C3DD15 /* GDKnowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDKnowViewController.h; sourceTree = "<group>"; };
 		496026D820D95A1000C3DD15 /* GDKnowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDKnowViewController.m; sourceTree = "<group>"; };
 		496026D920D95A1000C3DD15 /* GDKnowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDKnowViewController.xib; sourceTree = "<group>"; };
@@ -409,6 +419,29 @@
 			path = Questions;
 			sourceTree = "<group>";
 		};
+		49DF7F6D2131A53100906B4C /* questionViews */ = {
+			isa = PBXGroup;
+			children = (
+				E611FC0E20DB9EF300807E95 /* GDQuestionBaseView.h */,
+				E611FC0F20DB9EF300807E95 /* GDQuestionBaseView.m */,
+				E611FC1120DB9FD100807E95 /* GDSingleSelQuestionView.h */,
+				E611FC1220DB9FD100807E95 /* GDSingleSelQuestionView.m */,
+				E611FC1420DB9FE800807E95 /* GDMoreSelQuestionView.h */,
+				E611FC1520DB9FE800807E95 /* GDMoreSelQuestionView.m */,
+				E611FC1720DBA01100807E95 /* GDSlideQuestionView.h */,
+				E611FC1820DBA01100807E95 /* GDSlideQuestionView.m */,
+				E611FC1A20DBA04600807E95 /* GDQuantifyQuestionView.h */,
+				E611FC1B20DBA04600807E95 /* GDQuantifyQuestionView.m */,
+				E611FC1D20DBA07500807E95 /* GDSortQuestionView.h */,
+				E611FC1E20DBA07500807E95 /* GDSortQuestionView.m */,
+				E611FC2020DBA0F000807E95 /* GDImageSelQuestionView.h */,
+				E611FC2120DBA0F000807E95 /* GDImageSelQuestionView.m */,
+				E611FC2620DBA16600807E95 /* GDWriteQuestionView.h */,
+				E611FC2720DBA16600807E95 /* GDWriteQuestionView.m */,
+			);
+			path = questionViews;
+			sourceTree = "<group>";
+		};
 		59FFDD98CC625E01DAF878AA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,30 +677,15 @@
 		E66875A220D901E90038307F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49DF7F6D2131A53100906B4C /* questionViews */,
 				E61F432E20E219FF004D2E09 /* Cell */,
 				E611FBE220DA42CC00807E95 /* Images */,
 				E611FBC720DA070900807E95 /* GDLaunchReadyView.h */,
 				E611FBC820DA070900807E95 /* GDLaunchReadyView.m */,
 				E65BDC1E21294F4300F2D5C0 /* GDQuestionHeadView.h */,
 				E65BDC1F21294F4300F2D5C0 /* GDQuestionHeadView.m */,
-				E611FC0E20DB9EF300807E95 /* GDQuestionBaseView.h */,
-				E611FC0F20DB9EF300807E95 /* GDQuestionBaseView.m */,
 				E611FBDF20DA3DDE00807E95 /* GDOrgAnimationView.h */,
 				E611FBE020DA3DDE00807E95 /* GDOrgAnimationView.m */,
-				E611FC1120DB9FD100807E95 /* GDSingleSelQuestionView.h */,
-				E611FC1220DB9FD100807E95 /* GDSingleSelQuestionView.m */,
-				E611FC1420DB9FE800807E95 /* GDMoreSelQuestionView.h */,
-				E611FC1520DB9FE800807E95 /* GDMoreSelQuestionView.m */,
-				E611FC1720DBA01100807E95 /* GDSlideQuestionView.h */,
-				E611FC1820DBA01100807E95 /* GDSlideQuestionView.m */,
-				E611FC1A20DBA04600807E95 /* GDQuantifyQuestionView.h */,
-				E611FC1B20DBA04600807E95 /* GDQuantifyQuestionView.m */,
-				E611FC1D20DBA07500807E95 /* GDSortQuestionView.h */,
-				E611FC1E20DBA07500807E95 /* GDSortQuestionView.m */,
-				E611FC2020DBA0F000807E95 /* GDImageSelQuestionView.h */,
-				E611FC2120DBA0F000807E95 /* GDImageSelQuestionView.m */,
-				E611FC2620DBA16600807E95 /* GDWriteQuestionView.h */,
-				E611FC2720DBA16600807E95 /* GDWriteQuestionView.m */,
 				E61F433420E22E91004D2E09 /* GDPGHeaderView.h */,
 				E61F433520E22E91004D2E09 /* GDPGHeaderView.m */,
 				E61F433620E22E91004D2E09 /* GDPGHeaderView.xib */,
@@ -696,6 +714,12 @@
 				E692347520E4AE5000AF1585 /* GDLoginViewController.h */,
 				E692347620E4AE5000AF1585 /* GDLoginViewController.m */,
 				E692347720E4AE5000AF1585 /* GDLoginViewController.xib */,
+				49594A4C212F01CF00402ADB /* GDAnswerFinishViewController.h */,
+				49594A4D212F01CF00402ADB /* GDAnswerFinishViewController.m */,
+				49594A4E212F01CF00402ADB /* GDAnswerFinishViewController.xib */,
+				49594A51212F0B0200402ADB /* GDOpenNotiViewController.h */,
+				49594A52212F0B0200402ADB /* GDOpenNotiViewController.m */,
+				49594A53212F0B0200402ADB /* GDOpenNotiViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -934,6 +958,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				496026DB20D95A1000C3DD15 /* GDKnowViewController.xib in Resources */,
+				49594A55212F0B0200402ADB /* GDOpenNotiViewController.xib in Resources */,
 				E611FC0A20DA42CC00807E95 /* animation_1.jpg in Resources */,
 				E611FBFD20DA42CC00807E95 /* animation_12.jpg in Resources */,
 				E664C97220CA174D004E81A4 /* SCAdDemoCollectionViewCell.xib in Resources */,
@@ -943,6 +968,7 @@
 				E611FC0020DA42CC00807E95 /* animation_10.jpg in Resources */,
 				E611FBF820DA42CC00807E95 /* animation_9.jpg in Resources */,
 				E611FC0920DA42CC00807E95 /* animation_3.jpg in Resources */,
+				49594A50212F01CF00402ADB /* GDAnswerFinishViewController.xib in Resources */,
 				E61F433320E21A22004D2E09 /* GDPGChooseCell.xib in Resources */,
 				E692347920E4AE5000AF1585 /* GDLoginViewController.xib in Resources */,
 				E611FC0420DA42CC00807E95 /* animation_4.jpg in Resources */,
@@ -1066,8 +1092,10 @@
 				E611FBE120DA3DDE00807E95 /* GDOrgAnimationView.m in Sources */,
 				E69C3F9820CF6F6E004F5614 /* AnimationWaveEnd.m in Sources */,
 				E6655CCF20C5138F005B46C3 /* ViewController.m in Sources */,
+				49594A54212F0B0200402ADB /* GDOpenNotiViewController.m in Sources */,
 				E66875AC20D903CD0038307F /* GDLaunchViewController.m in Sources */,
 				49120BFC2119E43E00EA263C /* GDRegisterApi.m in Sources */,
+				49594A4F212F01CF00402ADB /* GDAnswerFinishViewController.m in Sources */,
 				E69C3FA420CF6F6E004F5614 /* AnimationWaveBegin.m in Sources */,
 				E664C96E20CA174D004E81A4 /* SCAdCollectionViewLayout.m in Sources */,
 				E69C3F9B20CF6F6E004F5614 /* VCTransitionDelegate.m in Sources */,

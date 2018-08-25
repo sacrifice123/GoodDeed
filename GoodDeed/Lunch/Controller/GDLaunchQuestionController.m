@@ -19,11 +19,13 @@
 #import "GDSortQuestionView.h"
 #import "GDImageSelQuestionView.h"
 #import "GDWriteQuestionView.h"
+#import "GDPGChooseViewController.h"
 
 @interface GDLaunchQuestionController ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *pages;
+@property (nonatomic, strong) UIPageControl *pageControl;
 @end
 
 @implementation GDLaunchQuestionController
@@ -52,7 +54,10 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+}
 - (NSMutableArray *)pages{
     if (_pages == nil) {
         _pages = [NSMutableArray array];
@@ -61,9 +66,11 @@
         GDFirstQuestionListModel *model = [GDFirstQuestionListModel new];
         model.type = GDReadyType;
         [_pages addObject:readyView];
-       // [_pages addObjectsFromArray:[GDLunchManager sharedManager].suveryList];
+
         for (GDFirstQuestionListModel*obj in [GDLunchManager sharedManager].suveryList) {
-            
+            GDQuestionBaseView *view = [self createSurveyView:obj.type];
+            view.model = obj;
+            [_pages addObject:view];
         }
 
     }
@@ -90,22 +97,21 @@
 
 - (void)setUpSubViews{
     
-    UIPageControl *pc = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 19, 5, 5)];
-    pc.center = CGPointMake(self.view.center.x, pc.center.y);
-    pc.numberOfPages = self.pages.count;
-    pc.currentPage = 0;
-    pc.pageIndicatorTintColor = [UIColor colorWithHexString:@"#AAAAAA"];
-    pc.currentPageIndicatorTintColor = [UIColor colorWithHexString:@"#555555"];
-    [self.view addSubview:pc];
-
-    
+    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 19, 5, 5)];
+    pageControl.center = CGPointMake(self.view.center.x, pageControl.center.y);
+    pageControl.numberOfPages = self.pages.count;
+    pageControl.currentPage = 0;
+    pageControl.pageIndicatorTintColor = [UIColor colorWithHexString:@"#AAAAAA"];
+    pageControl.currentPageIndicatorTintColor = [UIColor colorWithHexString:@"#555555"];
+    [self.view addSubview:pageControl];
+    self.pageControl = pageControl;
+    [self.scrollView addSubview:self.pages.firstObject];
 }
 
 - (UIView *)hh_transitionAnimationView{
-    
+
     return self.view;
 }
-
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
@@ -121,51 +127,69 @@
     
     CGFloat offsetX = scrollView.contentOffset.x;
     NSInteger index = offsetX/SCREEN_WIDTH;
+    self.pageControl.currentPage = index;
     GDQuestionBaseView *quesView = self.pages[index];
-    [scrollView addSubview:quesView];
+    quesView.frame = CGRectMake(index*SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    if (![scrollView.subviews containsObject:quesView]) {
+        [scrollView addSubview:quesView];
+
+    }
 }
+
+//GDReadyType = 0,    //准备
+//GDSingleType,       //单选题
+//GDMultipleType,     //多选题
+//GDSlideType,        //滑动题
+//GDQuantitativeType, //定量题
+//GDSortType,         //排序题
+//GDSelectType,       //勾选图片题
+//GDWriteType         //填写题
 
 - (GDQuestionBaseView *)createSurveyView:(GDSurveyType)type{
     
     GDQuestionBaseView *surveyView;
     switch (type) {
         case 0:{
-            
+            surveyView = [[GDLaunchReadyView alloc] init];
+
         }
             
             break;
         case 1:{
-            
+            surveyView = [[GDSingleSelQuestionView alloc] init];
+
         }
             
             break;
         case 2:{
-            
+            surveyView = [[GDMoreSelQuestionView alloc] init];
+
         }
             
             break;
         case 3:{
-            
+            surveyView = [[GDSlideQuestionView alloc] init];
+
         }
             
             break;
         case 4:{
-            
+            surveyView = [[GDQuantifyQuestionView alloc] init];
         }
             
             break;
         case 5:{
-            
+            surveyView = [[GDSortQuestionView alloc] init];
         }
             
             break;
         case 6:{
-            
+            surveyView = [[GDImageSelQuestionView alloc] init];
         }
             
             break;
         case 7:{
-            
+            surveyView = [[GDWriteQuestionView alloc] init];
         }
             
             break;
@@ -174,7 +198,6 @@
             surveyView = [[GDQuestionBaseView alloc] init];
             break;
     }
-    
     return surveyView;
 }
 

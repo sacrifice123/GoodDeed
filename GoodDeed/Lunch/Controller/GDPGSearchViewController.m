@@ -78,7 +78,7 @@
 
 }
 
-- (IBAction)close:(id)sender {//15335277810
+- (IBAction)close:(id)sender {
     
     [self dismissViewControllerAnimated:self completion:nil];
 }

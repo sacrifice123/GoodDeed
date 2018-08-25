@@ -26,19 +26,19 @@ static char * const animationStyleKey     = "animationStyleKey";
 + (void)load
 {
     Class class = [self class];
-    
+
     SEL originalSelector = @selector(dismissViewControllerAnimated:completion:);
     SEL swizzledSelector = @selector(hh_dismissViewControllerAnimated:completion:);
-    
+
     Method originalMethod = class_getInstanceMethod(class, originalSelector);
     Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-    
+
     BOOL didAddMethod =
     class_addMethod(class,
                     originalSelector,
                     method_getImplementation(swizzledMethod),
                     method_getTypeEncoding(swizzledMethod));
-    
+
     if (didAddMethod) {
         class_replaceMethod(class,
                             swizzledSelector,

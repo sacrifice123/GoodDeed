@@ -56,6 +56,7 @@
  */
 - (void)hh_dismissWithPoint:(CGPoint)point completion:(void (^ __nullable)(void))completion;
 
+- (void)hh_dismissViewControllerAnimated:(BOOL)animated completion:(void (^)(void))completion;
 /**
  pushScale转场控制器重写
  
