@@ -52,6 +52,7 @@
 		E611FC1F20DBA07500807E95 /* GDSortQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FC1E20DBA07500807E95 /* GDSortQuestionView.m */; };
 		E611FC2220DBA0F000807E95 /* GDImageSelQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FC2120DBA0F000807E95 /* GDImageSelQuestionView.m */; };
 		E611FC2820DBA16600807E95 /* GDWriteQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FC2720DBA16600807E95 /* GDWriteQuestionView.m */; };
+		E612DD7F21328E4200B4B774 /* GDBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E612DD7E21328E4200B4B774 /* GDBaseNavigationController.m */; };
 		E61F432C20E219D2004D2E09 /* GDPGChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E61F432A20E219D2004D2E09 /* GDPGChooseViewController.m */; };
 		E61F433220E21A22004D2E09 /* GDPGChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61F433020E21A22004D2E09 /* GDPGChooseCell.m */; };
 		E61F433320E21A22004D2E09 /* GDPGChooseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61F433120E21A22004D2E09 /* GDPGChooseCell.xib */; };
@@ -225,6 +226,8 @@
 		E611FC2120DBA0F000807E95 /* GDImageSelQuestionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDImageSelQuestionView.m; sourceTree = "<group>"; };
 		E611FC2620DBA16600807E95 /* GDWriteQuestionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDWriteQuestionView.h; sourceTree = "<group>"; };
 		E611FC2720DBA16600807E95 /* GDWriteQuestionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDWriteQuestionView.m; sourceTree = "<group>"; };
+		E612DD7D21328E4200B4B774 /* GDBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseNavigationController.h; sourceTree = "<group>"; };
+		E612DD7E21328E4200B4B774 /* GDBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDBaseNavigationController.m; sourceTree = "<group>"; };
 		E61F432920E219D2004D2E09 /* GDPGChooseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDPGChooseViewController.h; sourceTree = "<group>"; };
 		E61F432A20E219D2004D2E09 /* GDPGChooseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDPGChooseViewController.m; sourceTree = "<group>"; };
 		E61F432F20E21A22004D2E09 /* GDPGChooseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDPGChooseCell.h; sourceTree = "<group>"; };
@@ -720,6 +723,8 @@
 				49594A51212F0B0200402ADB /* GDOpenNotiViewController.h */,
 				49594A52212F0B0200402ADB /* GDOpenNotiViewController.m */,
 				49594A53212F0B0200402ADB /* GDOpenNotiViewController.xib */,
+				E612DD7D21328E4200B4B774 /* GDBaseNavigationController.h */,
+				E612DD7E21328E4200B4B774 /* GDBaseNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1069,6 +1074,7 @@
 				E61F433220E21A22004D2E09 /* GDPGChooseCell.m in Sources */,
 				E611FC1C20DBA04600807E95 /* GDQuantifyQuestionView.m in Sources */,
 				E664C95A20C9327B004E81A4 /* GDHelper.m in Sources */,
+				E612DD7F21328E4200B4B774 /* GDBaseNavigationController.m in Sources */,
 				E65E68C120D0EC0F003E07CB /* GDEditViewController.m in Sources */,
 				E69C3FA720CF6F6E004F5614 /* AnimationErectEnd.m in Sources */,
 				E65BDC23212971C400F2D5C0 /* GDQuestionWriteModel.m in Sources */,

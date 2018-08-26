@@ -9,12 +9,16 @@
 #import "GDOrgAnimationView.h"
 #import "GDPGChooseViewController.h"
 #import "GDLunchManager.h"
+#import "GDOrganModel.h"
+
 #define bgHeight 233
 @interface GDOrgAnimationView()
 
 @property (nonatomic, strong) UIImageView *imgView;
 @property (nonatomic, strong) UIView *bgView;
 @property (nonatomic, strong) NSArray *organList;
+@property (nonatomic, strong) UIProgressView *progressView;
+
 @end
 @implementation GDOrgAnimationView
 
@@ -42,7 +46,12 @@
             make.centerX.equalTo(self.bgView);
             
         }];
-        
+        [self.bgView addSubview:self.progressView];
+        [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.bgView).offset(10);
+             make.right.bottom.equalTo(self.bgView).offset(-10);
+            make.height.equalTo(@8.5);
+        }];
         __weak typeof(self) weakSelf = self;
         self.animationblock = ^{
             [weakSelf animationStart];
@@ -56,6 +65,7 @@
     if (_bgView == nil) {
         _bgView = [[UIView alloc] init];
         _bgView.backgroundColor = [UIColor whiteColor];
+        
     }
     return _bgView;
 }
@@ -72,6 +82,20 @@
         [_imgView addGestureRecognizer:tap];
     }
     return _imgView;
+}
+
+- (UIProgressView *)progressView{
+    
+    if (_progressView == nil) {
+        _progressView =  [[UIProgressView alloc] init];
+        _progressView.layer.cornerRadius = 2;
+        _progressView.layer.masksToBounds = YES;
+        _progressView.progress = 1/6.0;
+        _progressView.trackTintColor = [UIColor blackColor];
+        _progressView.progressTintColor = [UIColor greenColor];
+
+    }
+    return _progressView;
 }
 
 - (void)animationStart{
@@ -107,6 +131,9 @@
     if (!view.isAnimating) {//轮播停止后点击选择公益组织
         UIViewController *vc = [GDHomeManager getSuperVc:view];
         GDPGChooseViewController *pgVc = [[GDPGChooseViewController alloc] init];
+        for (GDOrganModel *model in self.organList) {
+            model.isSelected = NO;
+        }
         pgVc.organList = self.organList;
         [vc presentViewController:pgVc animated:YES completion:^{
             

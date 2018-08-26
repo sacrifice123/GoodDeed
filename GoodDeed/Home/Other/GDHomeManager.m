@@ -89,7 +89,7 @@ static CGFloat const GDSpringFactor = 10;
     if (isLogin) {
         return [self getHomeMainVC];
     }else{
-        return [[UINavigationController alloc] initWithRootViewController:[GDLaunchViewController new]];
+        return [[GDBaseNavigationController alloc] initWithRootViewController:[GDLaunchViewController new]];
     }
 }
 

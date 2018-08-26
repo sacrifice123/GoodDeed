@@ -11,7 +11,7 @@
 
 @interface GDLaunchReadyView()
 @property (nonatomic,strong) UIButton *readyButton;
-
+@property (nonatomic,assign) BOOL isAnimation;
 @end
 
 @implementation GDLaunchReadyView
@@ -69,19 +69,29 @@
 //准备好了
 - (void)buttonClicked{
     
-    self.readyButton.selected = YES;
-    self.readyButton.backgroundColor = [UIColor colorWithHexString:@"##2E3192"];
-    GDOrgAnimationView *view = [[GDOrgAnimationView alloc] initWithFrame:self.frame];
-    [self.superview addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self);
-    }];
-    view.animationblock();
-    __weak typeof(self) weakSelf = self;
-    view.finishBlock = ^(BOOL finish) {
-        weakSelf.readyButton.selected = NO;
-        weakSelf.readyButton.backgroundColor = [UIColor colorWithHexString:@"#EFEFEF"];
-    };
+    if ([self.delegate respondsToSelector:@selector(readyClickedEvent:)]) {
+        [self.delegate readyClickedEvent:self.isAnimation];
+        
+    }
+
+    if (!self.isAnimation) {
+        self.isAnimation = YES;
+        self.readyButton.selected = YES;
+        self.readyButton.backgroundColor = [UIColor colorWithHexString:@"##2E3192"];
+        GDOrgAnimationView *view = [[GDOrgAnimationView alloc] initWithFrame:self.frame];
+        view.tag = 666;
+        [self.superview addSubview:view];
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self);
+        }];
+        view.animationblock();
+        __weak typeof(self) weakSelf = self;
+        view.finishBlock = ^(BOOL finish) {
+            weakSelf.readyButton.selected = NO;
+            weakSelf.readyButton.backgroundColor = [UIColor colorWithHexString:@"#EFEFEF"];
+        };
+
+    }
 
 }
 

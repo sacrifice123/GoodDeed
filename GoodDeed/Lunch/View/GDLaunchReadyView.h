@@ -8,6 +8,13 @@
 
 #import "GDQuestionBaseView.h"
 
+@protocol GDLaunchReadyViewDelegate <NSObject>
+
+- (void)readyClickedEvent:(BOOL)isAnimation;
+
+@end
+
 @interface GDLaunchReadyView : GDQuestionBaseView
 
+@property (nonatomic, weak) id<GDLaunchReadyViewDelegate>delegate;
 @end

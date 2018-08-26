@@ -21,11 +21,13 @@
 #import "GDWriteQuestionView.h"
 #import "GDPGChooseViewController.h"
 
-@interface GDLaunchQuestionController ()<UIScrollViewDelegate>
+@interface GDLaunchQuestionController ()<UIScrollViewDelegate,GDLaunchReadyViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *pages;
 @property (nonatomic, strong) UIPageControl *pageControl;
+@property (nonatomic, strong) UIButton *backButton;
+
 @end
 
 @implementation GDLaunchQuestionController
@@ -46,7 +48,18 @@
     [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
     [self.view bringSubviewToFront:backButton];
+    self.backButton = backButton;
 
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    UIView *view = [self.view viewWithTag:666];
+    if (view) {
+        [view removeFromSuperview];
+        [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH, 0) animated:YES];
+    }
+    
 }
 
 - (void)back{
@@ -54,10 +67,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-    
-}
 - (NSMutableArray *)pages{
     if (_pages == nil) {
         _pages = [NSMutableArray array];
@@ -105,7 +114,10 @@
     pageControl.currentPageIndicatorTintColor = [UIColor colorWithHexString:@"#555555"];
     [self.view addSubview:pageControl];
     self.pageControl = pageControl;
-    [self.scrollView addSubview:self.pages.firstObject];
+    
+    GDLaunchReadyView *readyView = self.pages.firstObject;
+    readyView.delegate = self;
+    [self.scrollView addSubview:readyView];
 }
 
 - (UIView *)hh_transitionAnimationView{
@@ -119,11 +131,11 @@
 //        [scrollView setContentOffset:CGPointMake(0, scrollView.contentOffset.y) animated:NO];
 //
 //    }
-    
+    [self scrollViewDidEndScroll:scrollView];
 }
 
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+- (void)scrollViewDidEndScroll:(UIScrollView *)scrollView{
     
     CGFloat offsetX = scrollView.contentOffset.x;
     NSInteger index = offsetX/SCREEN_WIDTH;
@@ -199,6 +211,17 @@
             break;
     }
     return surveyView;
+}
+
+
+#pragma mark - GDLaunchReadyViewDelegate
+- (void)readyClickedEvent:(BOOL)isAnimation{
+    
+    self.backButton.hidden = YES;
+    if (isAnimation) {
+        [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH, 0) animated:YES];
+
+    }
 }
 
 @end
