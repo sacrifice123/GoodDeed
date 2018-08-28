@@ -14,6 +14,15 @@
 #import "GDOrganModel.h"
 #import "GDSearchOrganApi.h"
 #import "GDAddOrganApi.h"
+#import "GDQuestionBaseCell.h"
+//七个问题cell
+#import "GDSingleSelCell.h"
+#import "GDMoreSelCell.h"
+#import "GDSlideCell.h"
+#import "GDSortCell.h"
+#import "GDQuantifyCell.h"
+#import "GDImageSelCell.h"
+#import "GDWriteCell.h"
 
 @implementation GDLunchManager
 
@@ -181,4 +190,55 @@ static GDLunchManager *manager;
 
 }
 
+/*
+ 获取7大问题cell
+ */
++ (GDQuestionBaseCell *)getQuestionReuseCellWith:(GDSurveyType)type collectionView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath{
+    GDQuestionBaseCell *cell;
+    switch (type) {
+        case 1:{
+            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSingleSelCell" forIndexPath:indexPath];
+            
+        }
+            
+            break;
+        case 2:{
+            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDMoreSelCell" forIndexPath:indexPath];
+            
+        }
+            
+            break;
+        case 3:{
+           cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSlideCell" forIndexPath:indexPath];
+            
+        }
+            
+            break;
+        case 4:{
+            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSortCell" forIndexPath:indexPath];
+            
+        }
+            
+            break;
+        case 5:{
+            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDQuantifyCell" forIndexPath:indexPath];
+        }
+            
+            break;
+        case 6:{
+            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDImageSelCell" forIndexPath:indexPath];
+        }
+            
+            break;
+        case 7:{
+            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDWriteCell" forIndexPath:indexPath];
+        }
+            
+        default:
+            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDQuestionBaseCell" forIndexPath:indexPath];
+            break;
+    }
+    return cell;
+
+}
 @end

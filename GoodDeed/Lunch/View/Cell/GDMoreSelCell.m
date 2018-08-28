@@ -1,14 +1,14 @@
 //
-//  GDQuestionDescCell.m
+//  GDMoreSelCell.m
 //  GoodDeed
 //
 //  Created by xiaozhan on 2018/8/28.
 //  Copyright © 2018年 GoodDeed. All rights reserved.
 //
 
-#import "GDQuestionDescCell.h"
+#import "GDMoreSelCell.h"
 
-@implementation GDQuestionDescCell
+@implementation GDMoreSelCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

@@ -1,5 +1,5 @@
 //
-//  GDQuestionDescCell.h
+//  GDMoreSelCell.h
 //  GoodDeed
 //
 //  Created by xiaozhan on 2018/8/28.
@@ -8,6 +8,6 @@
 
 #import "GDQuestionBaseCell.h"
 
-@interface GDQuestionDescCell : GDQuestionBaseCell
+@interface GDMoreSelCell : GDQuestionBaseCell
 
 @end
