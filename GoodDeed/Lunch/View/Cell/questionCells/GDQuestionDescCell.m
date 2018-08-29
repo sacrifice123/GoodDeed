@@ -8,11 +8,23 @@
 
 #import "GDQuestionDescCell.h"
 
+@interface GDQuestionDescCell()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+
+@end
 @implementation GDQuestionDescCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+}
+
+
+- (void)setModel:(GDFirstQuestionListModel *)model{
+    
+    self.titleLabel.text = model.questionName;
+    
 }
 
 @end

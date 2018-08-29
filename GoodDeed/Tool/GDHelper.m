@@ -11,7 +11,7 @@
 
 @implementation GDHelper
 
-//计算label字体的
+//计算label size
 + (CGSize)calculateRectWithFont:(CGFloat)textfont Withtext:(NSString*)text Withsize:(CGSize)size{
     NSDictionary*attr = @{NSFontAttributeName:[UIFont systemFontOfSize:textfont]};
     CGRect titleRect = [text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:attr context:nil];

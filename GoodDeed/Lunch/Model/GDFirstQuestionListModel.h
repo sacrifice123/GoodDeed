@@ -21,6 +21,6 @@
 @property (nonatomic,assign) GDSurveyType type;//问题类型
 
 @property (nonatomic,strong) GDQuestionWriteModel *writeModel;//每次答题结束后记录相关答题内容
-
+@property (nonatomic,assign) NSInteger index;//第几个选项
 
 @end

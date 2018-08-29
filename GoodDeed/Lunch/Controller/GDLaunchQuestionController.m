@@ -9,6 +9,7 @@
 #import "GDLaunchQuestionController.h"
 #import "GDLaunchReadyView.h"
 #import "GDQuestionBaseView.h"
+#import "GDQuestionView.h"
 #import "GDLunchManager.h"
 #import "GDLaunchReadyView.h"
 //7大问题页面
@@ -71,14 +72,15 @@
     if (_pages == nil) {
         _pages = [NSMutableArray array];
         
-        GDQuestionBaseView *readyView = [[GDLaunchReadyView alloc] initWithFrame:self.view.frame];
+        GDLaunchReadyView *readyView = [[GDLaunchReadyView alloc] initWithFrame:self.view.frame];
         GDFirstQuestionListModel *model = [GDFirstQuestionListModel new];
         model.type = GDReadyType;
         [_pages addObject:readyView];
 
-        for (GDFirstQuestionListModel*obj in [GDLunchManager sharedManager].suveryList) {
-            GDQuestionBaseView *view = [self createSurveyView:obj.type];
-            view.model = obj;
+        for (GDFirstQuestionListModel*model in [GDLunchManager sharedManager].suveryList) {
+            //GDQuestionBaseView *view = [self createSurveyView:obj.type];
+            GDQuestionView *view = [[GDQuestionView alloc] initWithFrame:self.view.frame listModel:model];
+            //view.model = obj;
             [_pages addObject:view];
         }
 

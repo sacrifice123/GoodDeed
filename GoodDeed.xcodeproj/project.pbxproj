@@ -469,8 +469,6 @@
 				E611FC2120DBA0F000807E95 /* GDImageSelQuestionView.m */,
 				E611FC2620DBA16600807E95 /* GDWriteQuestionView.h */,
 				E611FC2720DBA16600807E95 /* GDWriteQuestionView.m */,
-				E61A5EFD213519530074D215 /* GDQuestionView.h */,
-				E61A5EFE213519530074D215 /* GDQuestionView.m */,
 			);
 			path = questionViews;
 			sourceTree = "<group>";
@@ -519,14 +517,9 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		E61F432E20E219FF004D2E09 /* Cell */ = {
+		E61A5F35213664AF0074D215 /* questionCells */ = {
 			isa = PBXGroup;
 			children = (
-				E61A5F2B2135661C0074D215 /* GDPGChooseCell.h */,
-				E61A5F2D2135661C0074D215 /* GDPGChooseCell.m */,
-				E61A5F2C2135661C0074D215 /* GDPGChooseCell.xib */,
-				E61A5EFA2134FCAB0074D215 /* GDSlideCell.h */,
-				E61A5EFB2134FCAB0074D215 /* GDSlideCell.m */,
 				E61A5F062135246F0074D215 /* GDQuestionBaseCell.h */,
 				E61A5F072135246F0074D215 /* GDQuestionBaseCell.m */,
 				E61A5F09213524AB0074D215 /* GDQuestionDescCell.h */,
@@ -548,6 +541,19 @@
 				E61A5F30213567F10074D215 /* GDWriteCell.h */,
 				E61A5F31213567F10074D215 /* GDWriteCell.m */,
 				E61A5F32213567F10074D215 /* GDWriteCell.xib */,
+				E61A5EFA2134FCAB0074D215 /* GDSlideCell.h */,
+				E61A5EFB2134FCAB0074D215 /* GDSlideCell.m */,
+			);
+			path = questionCells;
+			sourceTree = "<group>";
+		};
+		E61F432E20E219FF004D2E09 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E61A5F35213664AF0074D215 /* questionCells */,
+				E61A5F2B2135661C0074D215 /* GDPGChooseCell.h */,
+				E61A5F2D2135661C0074D215 /* GDPGChooseCell.m */,
+				E61A5F2C2135661C0074D215 /* GDPGChooseCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -724,6 +730,8 @@
 		E66875A220D901E90038307F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E61A5EFD213519530074D215 /* GDQuestionView.h */,
+				E61A5EFE213519530074D215 /* GDQuestionView.m */,
 				49DF7F6D2131A53100906B4C /* questionViews */,
 				E61F432E20E219FF004D2E09 /* Cell */,
 				E611FBE220DA42CC00807E95 /* Images */,

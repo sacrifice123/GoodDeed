@@ -9,7 +9,6 @@
 #import "GDLunchManager.h"
 #import "GDLoginApi.h"
 #import "GDGetFirstSurveyApi.h"
-#import "GDFirstSurveyModel.h"
 #import "GDGetOrganListApi.h"
 #import "GDOrganModel.h"
 #import "GDSearchOrganApi.h"
@@ -195,48 +194,53 @@ static GDLunchManager *manager;
  */
 + (GDQuestionBaseCell *)getQuestionReuseCellWith:(GDSurveyType)type collectionView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath{
     GDQuestionBaseCell *cell;
-    switch (type) {
-        case 1:{
-            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSingleSelCell" forIndexPath:indexPath];
-            
+    if (indexPath.section == 0) {//问题描述cell
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDQuestionDescCell" forIndexPath:indexPath];
+    }else{//7大问题cell
+        switch (type) {
+            case 1:{
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSingleSelCell" forIndexPath:indexPath];
+                
+            }
+                
+                break;
+            case 2:{
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDMoreSelCell" forIndexPath:indexPath];
+                
+            }
+                
+                break;
+            case 3:{
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSlideCell" forIndexPath:indexPath];
+                
+            }
+                
+                break;
+            case 4:{
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSortCell" forIndexPath:indexPath];
+                
+            }
+                
+                break;
+            case 5:{
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDQuantifyCell" forIndexPath:indexPath];
+            }
+                
+                break;
+            case 6:{
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDImageSelCell" forIndexPath:indexPath];
+            }
+                
+                break;
+            case 7:{
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDWriteCell" forIndexPath:indexPath];
+            }
+                
+            default:
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDQuestionBaseCell" forIndexPath:indexPath];
+                break;
         }
-            
-            break;
-        case 2:{
-            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDMoreSelCell" forIndexPath:indexPath];
-            
-        }
-            
-            break;
-        case 3:{
-           cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSlideCell" forIndexPath:indexPath];
-            
-        }
-            
-            break;
-        case 4:{
-            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSortCell" forIndexPath:indexPath];
-            
-        }
-            
-            break;
-        case 5:{
-            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDQuantifyCell" forIndexPath:indexPath];
-        }
-            
-            break;
-        case 6:{
-            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDImageSelCell" forIndexPath:indexPath];
-        }
-            
-            break;
-        case 7:{
-            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDWriteCell" forIndexPath:indexPath];
-        }
-            
-        default:
-            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDQuestionBaseCell" forIndexPath:indexPath];
-            break;
+
     }
     return cell;
 

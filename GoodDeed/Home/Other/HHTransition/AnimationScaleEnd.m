@@ -44,15 +44,16 @@
     snapShot.origin = sourcePoint;
     [[transitionContext containerView] addSubview:snapShot];
     
-    CGFloat heightScale = destinationView.height/sourceView.height;
-    CGFloat widthScale = destinationView.width/sourceView.width;
+    CGFloat heightScale = destinationView.height/sourceView.height;//0.2
+    CGFloat widthScale = destinationView.width/sourceView.width;//0.34
     
     CGRect originFrame = toView.frame;
-    CGFloat originHeightScale = sourceView.height/destinationView.height+0.3;
-    CGFloat originWidthScale = sourceView.width/destinationView.width;
-    
+    CGFloat originHeightScale = sourceView.height/destinationView.height;//5.24
+    CGFloat originWidthScale = sourceView.width/destinationView.width;//2.78
+    originHeightScale = originWidthScale;
     toView.transform = CGAffineTransformMakeScale(originWidthScale,originHeightScale);
-    toView.origin = CGPointMake((sourcePoint.x - destinationPoint.x)*originWidthScale-70, (sourcePoint.y - destinationPoint.y)*originHeightScale);
+    CGPoint originPoint = CGPointMake((sourcePoint.x - destinationPoint.x)*originWidthScale, (sourcePoint.y - destinationPoint.y)*originHeightScale);
+    toView.origin = originPoint;
     
     toView.alpha = 0;
     fromView.hidden = YES;

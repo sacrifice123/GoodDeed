@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GDFirstSurveyModel.h"
 
 @class GDOrganModel;
 @class GDFirstSurveyModel;
 @class GDFirstQuestionListModel;
+@class GDQuestionBaseCell;
 @interface GDLunchManager : NSObject
 
 @property (nonatomic, strong) NSArray <GDFirstQuestionListModel *> *suveryList;

@@ -13,48 +13,59 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GDMoreSelCell">
-            <rect key="frame" x="0.0" y="0.0" width="307" height="129"/>
+            <rect key="frame" x="0.0" y="0.0" width="307" height="65"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="307" height="129"/>
+                <rect key="frame" x="0.0" y="0.0" width="307" height="65"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIN-Bp-pCX">
-                        <rect key="frame" x="45" y="0.0" width="217" height="119"/>
+                        <rect key="frame" x="45" y="0.0" width="217" height="65"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ozg-Ly-EH0">
-                                <rect key="frame" x="0.0" y="41.5" width="35" height="35"/>
-                                <color key="backgroundColor" red="0.94117647059999998" green="0.30196078430000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ozg-Ly-EH0">
+                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="1Dj-vc-MlY"/>
                                     <constraint firstAttribute="height" constant="35" id="P7r-qa-u8T"/>
                                 </constraints>
+                                <state key="normal" image="more_unSelect"/>
+                                <state key="selected" image="more_unSelect"/>
+                                <state key="highlighted" image="more_selected"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lc0-Hh-57A">
-                                <rect key="frame" x="45" y="45" width="50" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lc0-Hh-57A">
+                                <rect key="frame" x="45" y="4" width="172" height="28"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="20"/>
-                                <color key="textColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.59607843137254901" green="0.59607843137254901" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Ozg-Ly-EH0" firstAttribute="top" secondItem="QIN-Bp-pCX" secondAttribute="top" id="1HN-lg-ua1"/>
                             <constraint firstItem="Lc0-Hh-57A" firstAttribute="top" secondItem="Ozg-Ly-EH0" secondAttribute="top" constant="3.5" id="9sB-KZ-qxB"/>
                             <constraint firstItem="Lc0-Hh-57A" firstAttribute="leading" secondItem="Ozg-Ly-EH0" secondAttribute="trailing" constant="10" id="Btz-4S-80l"/>
                             <constraint firstItem="Ozg-Ly-EH0" firstAttribute="leading" secondItem="QIN-Bp-pCX" secondAttribute="leading" id="PSL-FY-82c"/>
-                            <constraint firstItem="Ozg-Ly-EH0" firstAttribute="centerY" secondItem="QIN-Bp-pCX" secondAttribute="centerY" id="yI9-hu-ova"/>
+                            <constraint firstAttribute="trailing" secondItem="Lc0-Hh-57A" secondAttribute="trailing" id="gde-9v-deK"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="QIN-Bp-pCX" secondAttribute="trailing" constant="45" id="5Gh-D5-Qba"/>
                 <constraint firstItem="QIN-Bp-pCX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="45" id="Vw8-db-mzy"/>
                 <constraint firstItem="QIN-Bp-pCX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="WXH-Kr-9wd"/>
-                <constraint firstAttribute="bottom" secondItem="QIN-Bp-pCX" secondAttribute="bottom" constant="10" id="emL-89-hoB"/>
+                <constraint firstAttribute="bottom" secondItem="QIN-Bp-pCX" secondAttribute="bottom" id="ha9-iK-Peb"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
-            <size key="customSize" width="307" height="129"/>
-            <point key="canvasLocation" x="36.5" y="112.5"/>
+            <size key="customSize" width="307" height="65"/>
+            <connections>
+                <outlet property="contentLabel" destination="Lc0-Hh-57A" id="wa6-ad-NV4"/>
+            </connections>
+            <point key="canvasLocation" x="36.5" y="80.5"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="more_selected" width="35" height="35"/>
+        <image name="more_unSelect" width="35" height="35"/>
+    </resources>
 </document>
