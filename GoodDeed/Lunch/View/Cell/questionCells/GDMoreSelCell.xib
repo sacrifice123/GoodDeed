@@ -60,8 +60,9 @@
             <size key="customSize" width="307" height="65"/>
             <connections>
                 <outlet property="contentLabel" destination="Lc0-Hh-57A" id="wa6-ad-NV4"/>
+                <outlet property="selectButton" destination="Ozg-Ly-EH0" id="sO6-A6-mHD"/>
             </connections>
-            <point key="canvasLocation" x="36.5" y="80.5"/>
+            <point key="canvasLocation" x="158" y="74"/>
         </collectionViewCell>
     </objects>
     <resources>

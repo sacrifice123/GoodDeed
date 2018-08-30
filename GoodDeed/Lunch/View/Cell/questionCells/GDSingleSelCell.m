@@ -33,4 +33,20 @@
          [self.contentView setBackgroundColor:[UIColor whiteColor]];
     }
 }
+
+
+- (void)setHighlighted:(BOOL)highlighted{
+
+    self.contentLabel.backgroundColor = highlighted?[UIColor colorWithHexString:@"#777777"]:[UIColor colorWithHexString:@"#EFEFEF"];
+    self.contentLabel.textColor = highlighted?[UIColor whiteColor]:[UIColor colorWithHexString:@"#333333"];
+
+}
+
+- (void)setSelected:(BOOL)selected{
+    
+    self.contentLabel.backgroundColor =  selected?[UIColor colorWithHexString:@"#2E3192"]:[UIColor colorWithHexString:@"#EFEFEF"];
+    self.contentLabel.textColor = selected?[UIColor whiteColor]:[UIColor colorWithHexString:@"#333333"];
+
+
+}
 @end

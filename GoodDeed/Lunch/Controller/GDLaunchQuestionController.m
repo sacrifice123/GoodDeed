@@ -12,6 +12,8 @@
 #import "GDQuestionView.h"
 #import "GDLunchManager.h"
 #import "GDLaunchReadyView.h"
+#import "GDQuestionScrollView.h"
+
 //7大问题页面
 #import "GDSingleSelQuestionView.h"
 #import "GDMoreSelQuestionView.h"
@@ -24,7 +26,7 @@
 
 @interface GDLaunchQuestionController ()<UIScrollViewDelegate,GDLaunchReadyViewDelegate>
 
-@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) GDQuestionScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *pages;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) UIButton *backButton;
@@ -80,7 +82,6 @@
         for (GDFirstQuestionListModel*model in [GDLunchManager sharedManager].suveryList) {
             //GDQuestionBaseView *view = [self createSurveyView:obj.type];
             GDQuestionView *view = [[GDQuestionView alloc] initWithFrame:self.view.frame listModel:model];
-            //view.model = obj;
             [_pages addObject:view];
         }
 
@@ -90,10 +91,10 @@
 }
 
 
-- (UIScrollView *)scrollView{
+- (GDQuestionScrollView *)scrollView{
     
     if (_scrollView == nil) {
-        _scrollView = [[UIScrollView alloc] init];
+        _scrollView = [[GDQuestionScrollView alloc] init];
         _scrollView.delegate = self;
         _scrollView.pagingEnabled = YES;
         _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH*self.pages.count, SCREEN_HEIGHT);

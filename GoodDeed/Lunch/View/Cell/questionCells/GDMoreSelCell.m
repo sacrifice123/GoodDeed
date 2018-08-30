@@ -10,6 +10,7 @@
 
 @interface GDMoreSelCell()
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIButton *selectButton;
 
 
 @end
@@ -25,6 +26,12 @@
     if (model.firstOptionList.count>model.index) {
         self.contentLabel.text = model.firstOptionList[model.index];
     }
+}
+
+- (void)refreshHighlightStatus:(BOOL)isHighlighted{
+    
+    self.contentLabel.textColor = isHighlighted?[UIColor colorWithHexString:@"#2E3192"]:[UIColor colorWithHexString:@"#999999"];
+    self.selectButton.highlighted = isHighlighted;
 }
 
 @end

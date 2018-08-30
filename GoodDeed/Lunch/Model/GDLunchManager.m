@@ -108,7 +108,7 @@ static GDLunchManager *manager;
                         [organList addObject:model];
                     }
                     block(organList);
-                    NSLog(@"%@",organList);
+                   // NSLog(@"%@",organList);
                 }
             }else{
                 [GDWindow showWithString:@"请求失败"];
@@ -143,7 +143,7 @@ static GDLunchManager *manager;
                         [organList addObject:model];
                     }
                     block(organList);
-                    NSLog(@"%@",organList);
+                   // NSLog(@"%@",organList);
                 }
             }else{
                  [GDWindow showWithString:@"请求失败"];
@@ -196,6 +196,7 @@ static GDLunchManager *manager;
     GDQuestionBaseCell *cell;
     if (indexPath.section == 0) {//问题描述cell
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDQuestionDescCell" forIndexPath:indexPath];
+        cell.userInteractionEnabled = NO;
     }else{//7大问题cell
         switch (type) {
             case 1:{
@@ -242,6 +243,7 @@ static GDLunchManager *manager;
         }
 
     }
+    
     return cell;
 
 }

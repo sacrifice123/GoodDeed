@@ -12,4 +12,5 @@
 @interface GDQuestionBaseCell : UICollectionViewCell
 @property (nonatomic, strong) GDFirstQuestionListModel *model;
 
+- (void)refreshHighlightStatus:(BOOL)isHighlighted;
 @end
