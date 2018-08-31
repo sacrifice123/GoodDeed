@@ -33,7 +33,7 @@
         self.model = model;
         [self addSubview:self.collectionView];
         [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self).offset(30);
+            make.top.equalTo(self);
             make.left.right.bottom.equalTo(self);
         }];
         [self.collectionView registerNib:[UINib nibWithNibName:@"GDQuestionDescCell" bundle:nil] forCellWithReuseIdentifier:@"GDQuestionDescCell"];
@@ -64,6 +64,7 @@
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
+        _collectionView.showsVerticalScrollIndicator = NO;
     }
     return _collectionView;
 }
@@ -74,15 +75,16 @@
 }
 
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return (section==0)?1:self.model.firstOptionList.count;
+    return (section==0||
+            self.model.type==GDSlideType||
+            self.model.type==GDQuantitativeType||
+            self.model.type==GDWriteType)?1:self.model.firstOptionList.count;
 }
 
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    GDQuestionBaseCell *cell = [GDLunchManager getQuestionReuseCellWith:self.model.type collectionView:collectionView indexPath:indexPath];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    GDQuestionBaseCell *cell = [GDLunchManager collectionView:collectionView surveyType:self.model.type cellForItemAtIndexPath:indexPath];
     self.model.index = indexPath.row;
     cell.model = self.model;
     return cell;
@@ -120,11 +122,13 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
 
-    return CGSizeMake(SCREEN_WIDTH, 80);
+    return [GDLunchManager collectionView:collectionView surveyModel:self.model sizeForItemAtIndexPath:indexPath];
 }
+
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsZero;
 }
+
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
     return 0;
     

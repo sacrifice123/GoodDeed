@@ -10,6 +10,8 @@
 
 @interface GDSlideCell()
 @property (nonatomic, strong) UISlider *slider;
+@property (nonatomic, strong) UILabel *leftLabel;
+@property (nonatomic, strong) UILabel *rightLabel;
 
 @end
 @implementation GDSlideCell
@@ -23,30 +25,69 @@
         imageView.image = [UIImage imageNamed:@"slider_bg.jpg"];
         [self.contentView addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.contentView);
+            make.top.equalTo(self.contentView).offset(32);
             make.left.equalTo(self.contentView).offset(40);
             make.right.equalTo(self.contentView).offset(-40);
             make.height.equalTo(@12);
         }];
 
         self.slider = [[UISlider alloc] init];
+        self.slider.value = 0.5;
         self.slider.minimumTrackTintColor = [UIColor clearColor];
         self.slider.maximumTrackTintColor = [UIColor clearColor];
         [self.contentView addSubview:self.slider];
         [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.contentView);
+            make.top.equalTo(self.contentView).offset(32);
             make.left.equalTo(self.contentView).offset(40);
             make.right.equalTo(self.contentView).offset(-40);
             make.height.equalTo(@12);
         }];
         [self.contentView bringSubviewToFront:self.slider];
-        UIImage *image = [self OriginImage:[UIImage imageNamed:@"slider_circle"] scaleToSize:CGSizeMake(76, 76)];
+        UIImage *image = [UIImage imageNamed:@"slider_circle"];
         [self.slider setThumbImage:image forState:0];
         [self.slider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventTouchCancel];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
         [self.slider addGestureRecognizer:tap];
+        
+        UIView *lineView = [self createGraduationLineWith:11];
+        [self.contentView addSubview:lineView];
+        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.slider.mas_bottom).offset(38);
+            make.left.equalTo(self.contentView).offset(40);
+            make.right.equalTo(self.contentView).offset(-40);
+            make.height.equalTo(@11);
+        }];
+        
+        UILabel *leftLabel = [[UILabel alloc] init];
+        leftLabel.textColor = [UIColor colorWithHexString:@"#999999"];
+        leftLabel.font = [UIFont fontWithName:@"PingFangSC-Light" size:20];
+        [self.contentView addSubview:leftLabel];
+        [leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(lineView.mas_bottom).offset(10);
+            make.left.equalTo(self.contentView).offset(40);
+        }];
+        self.leftLabel = leftLabel;
+        
+        UILabel *rightLabel = [[UILabel alloc] init];
+        rightLabel.textColor = [UIColor colorWithHexString:@"#999999"];
+        rightLabel.font = [UIFont fontWithName:@"PingFangSC-Light" size:20];
+        [self.contentView addSubview:rightLabel];
+        [rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(lineView.mas_bottom).offset(10);
+            make.right.equalTo(self.contentView).offset(-40);
+        }];
+        self.rightLabel = rightLabel;
+
+        
+
     }
     return self;
+}
+
+- (void)setModel:(GDFirstQuestionListModel *)model{
+    
+    self.leftLabel.text = model.firstOptionList.firstObject;
+    self.rightLabel.text = model.firstOptionList.lastObject;
 }
 
 - (void)valueChanged:(UISlider *)sender
@@ -89,6 +130,22 @@
     UIImage *scaleImage=UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return scaleImage;
+}
+
+/*
+ value:刻度数
+ */
+- (UIView *)createGraduationLineWith:(NSInteger)value{
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-80, 11)];
+    for (int i=0; i<value; i++) {
+        
+        CGFloat space = (SCREEN_WIDTH-80)/(value-1.0);
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(i*space, 0, 1, 11)];
+        line.backgroundColor = [UIColor colorWithHexString:@"#B7B7B7"];
+        [view addSubview:line];
+    }
+    return view;
 }
 
 @end

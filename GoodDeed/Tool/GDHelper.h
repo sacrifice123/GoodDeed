@@ -15,4 +15,6 @@
 + (void)hideHud;
 + (void)showHudWith:(NSString *)text;
 + (NSDictionary *)dictionaryFromModel:(NSObject *)model;
++ (UIViewController *)getSuperVc:(UIView *)view;
++ (UIView *)getTargetView:(Class)targetClass view:(UIView *)view;
 @end

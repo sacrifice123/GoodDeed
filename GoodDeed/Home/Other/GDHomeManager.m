@@ -94,18 +94,9 @@ static CGFloat const GDSpringFactor = 10;
 }
 
 
-//获取view下的第一个控制器
-+ (UIViewController *)getSuperVc:(UIView *)view{
-    id object = view.nextResponder;
-    while (object&&![object isKindOfClass:[UIViewController class]]) {
-        object = [object nextResponder];
-    }
-    return object;
-}
-
 + (void)presentToTargetControllerWith:(UIView *)view targetVc:(UIViewController *)targetVc{
     
-    UIViewController *vc = [self getSuperVc:view];
+    UIViewController *vc = [GDHelper getSuperVc:view];
     [vc presentViewController:targetVc animated:YES completion:nil];
 }
 @end

@@ -190,61 +190,123 @@ static GDLunchManager *manager;
 }
 
 /*
+ 获取cell size
+ */
++ (CGSize)collectionView:(UICollectionView *)collectionView surveyModel:(GDFirstQuestionListModel *)model sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CGFloat width = SCREEN_WIDTH;
+    CGFloat height = 0.0;
+    if (indexPath.section == 0) {//问题描述cell
+        height = [GDHelper calculateRectWithFont:20 Withtext:model.questionName Withsize:CGSizeMake(SCREEN_WIDTH-150, MAXFLOAT)].height+90;
+        
+    }else{
+        switch (model.type) {
+            case 1:{
+                height = [GDHelper calculateRectWithFont:20 Withtext:model.firstOptionList[indexPath.row] Withsize:CGSizeMake(SCREEN_WIDTH-90, MAXFLOAT)].height+43;
+
+            }
+                
+                break;
+            case 2:{
+                height = [GDHelper calculateRectWithFont:20 Withtext:model.questionName Withsize:CGSizeMake(SCREEN_WIDTH-150, MAXFLOAT)].height;
+                height = (height>35?height:35)+20;
+                
+            }
+                
+                break;
+            case 3:{
+                height = 130;
+            }
+                
+                break;
+            case 4:{
+                 height = 160;
+            }
+                
+                break;
+            case 5:{
+                 height = 25;
+            }
+                
+                break;
+            case 6:{
+                width = (SCREEN_WIDTH-24*3)*0.5;
+                height = width;
+            }
+                
+                break;
+            case 7:{
+                height = SCREEN_HEIGHT;
+            }
+                break;
+            default:
+                break;
+        }
+        
+    }
+
+    return CGSizeMake(width, height);
+    
+}
+
+/*
  获取7大问题cell
  */
-+ (GDQuestionBaseCell *)getQuestionReuseCellWith:(GDSurveyType)type collectionView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath{
++ (GDQuestionBaseCell *)collectionView:(UICollectionView *)collectionView surveyType:(GDSurveyType)type cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     GDQuestionBaseCell *cell;
     if (indexPath.section == 0) {//问题描述cell
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDQuestionDescCell" forIndexPath:indexPath];
         cell.userInteractionEnabled = NO;
     }else{//7大问题cell
         switch (type) {
-            case 1:{
+            case 1:{//单选题
                 cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSingleSelCell" forIndexPath:indexPath];
                 
             }
                 
                 break;
-            case 2:{
+            case 2:{//多选题
                 cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDMoreSelCell" forIndexPath:indexPath];
                 
             }
                 
                 break;
-            case 3:{
+            case 3:{//滑动题
                 cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSlideCell" forIndexPath:indexPath];
                 
             }
                 
                 break;
-            case 4:{
-                cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSortCell" forIndexPath:indexPath];
-                
-            }
-                
-                break;
-            case 5:{
+            case 4:{//定量题
                 cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDQuantifyCell" forIndexPath:indexPath];
+                
             }
                 
                 break;
-            case 6:{
+            case 5:{//排序题
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSortCell" forIndexPath:indexPath];
+            }
+                
+                break;
+            case 6:{//勾选图片题
                 cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDImageSelCell" forIndexPath:indexPath];
             }
                 
                 break;
-            case 7:{
+            case 7:{//填写题
                 cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDWriteCell" forIndexPath:indexPath];
             }
-                
-            default:
+                break;
+            default:{
                 cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDQuestionBaseCell" forIndexPath:indexPath];
+            }
                 break;
         }
-
+        
     }
     
     return cell;
-
+    
 }
+
 @end

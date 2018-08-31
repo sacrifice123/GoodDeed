@@ -25,5 +25,7 @@
 + (void)getOrganListWithCompletionBlock:(void(^)(NSArray *))block;
 + (void)searchOrganWithName:(NSString *)name uid:(NSString *)uid completionBlock:(void(^)(NSArray *))block;
 + (void)addOrganWithName:(NSString *)name uid:(NSString *)uid completionBlock:(void(^)(BOOL))block;
-+ (GDQuestionBaseCell *)getQuestionReuseCellWith:(GDSurveyType)type collectionView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath;
+
++ (CGSize)collectionView:(UICollectionView *)collectionView surveyModel:(GDFirstQuestionListModel *)model sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
++ (GDQuestionBaseCell *)collectionView:(UICollectionView *)collectionView surveyType:(GDSurveyType)type cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 @end

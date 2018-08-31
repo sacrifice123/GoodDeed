@@ -129,7 +129,7 @@
     UIImageView *view = (UIImageView *)gesture.view;
     __weak typeof(self) weakSelf = self;
     if (!view.isAnimating) {//轮播停止后点击选择公益组织
-        UIViewController *vc = [GDHomeManager getSuperVc:view];
+        UIViewController *vc = [GDHelper getSuperVc:view];
         GDPGChooseViewController *pgVc = [[GDPGChooseViewController alloc] init];
         for (GDOrganModel *model in self.organList) {
             model.isSelected = NO;

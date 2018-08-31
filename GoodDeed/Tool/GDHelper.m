@@ -60,5 +60,21 @@
     return [dic copy];
 }
 
+//获取view下的第一个控制器
++ (UIViewController *)getSuperVc:(UIView *)view{
+    id object = view.nextResponder;
+    while (object&&![object isKindOfClass:[UIViewController class]]) {
+        object = [object nextResponder];
+    }
+    return object;
+}
+
++ (UIView *)getTargetView:(Class)targetClass view:(UIView *)view{
+    id object = view.nextResponder;
+    while (object&&![object isKindOfClass:targetClass]) {
+        object = [object nextResponder];
+    }
+    return object;
+}
 
 @end

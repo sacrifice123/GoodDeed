@@ -163,7 +163,7 @@ referenceSizeForHeaderInSection: (NSInteger)section{
 
 //选择后继续
 - (void)chooseButtonClicked{
-    UIViewController *superVc = [GDHomeManager getSuperVc:self];
+    UIViewController *superVc = [GDHelper getSuperVc:self];
     [superVc dismissViewControllerAnimated:YES completion:nil];
 
 }
