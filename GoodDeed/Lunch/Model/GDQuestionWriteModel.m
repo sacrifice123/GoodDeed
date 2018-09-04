@@ -10,4 +10,12 @@
 
 @implementation GDQuestionWriteModel
 
+- (NSMutableArray *)selectedArray{
+    
+    if (_selectedArray == nil) {
+        _selectedArray = [[NSMutableArray alloc] init];
+    }
+    return _selectedArray;
+}
+
 @end

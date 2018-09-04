@@ -69,11 +69,11 @@
     return _collectionView;
 }
 
+#pragma mark UICollectionViewDelegate,UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     
     return 2;
 }
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
@@ -106,18 +106,33 @@
         }];
     }else{
         view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"footerView" forIndexPath:indexPath];
+        [view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        UIButton *button = [[UIButton alloc] init];
+        button.backgroundColor = [UIColor colorWithHexString:@"#EFEFEF"];
+        [button setTitle:@"提交" forState:0];
+        [button addTarget:self action:@selector(multipleOptionSubmitButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        button.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Light" size:20];
+        [button setTitleColor:[UIColor colorWithHexString:@"##666666"] forState:0];
+        [view addSubview:button];
+        [button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(view).offset(10);
+            make.height.equalTo(@69);
+            make.width.equalTo(@132);
+            make.centerX.equalTo(view);
+        }];
 
     }
     return view;
 }
 
-////是否允许移动Item
-//- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(9_0){
+//////是否允许移动Item
+//- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
+//
 //    return YES;
 //}
 //
 ////移动Item时触发的方法
-//- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath NS_AVAILABLE_IOS(9_0); {
+//- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath {
 //
 //}
 
@@ -131,6 +146,7 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+  
     return 0;
     
 }
@@ -150,16 +166,40 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
     
-    return CGSizeZero;
+    CGSize size = CGSizeZero;
+    if (self.model.type == GDMultipleType&&section == 1) {
+        size = CGSizeMake(SCREEN_WIDTH, 100);
+    }
+
+    return size;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0) {
         return;
+    }else{
+        
+        if (self.model.type == GDMultipleType) {//多选题选项判断
+            
+            NSMutableArray *selectedArray = self.model.writeModel.selectedArray;
+            if (selectedArray.count>indexPath.row) {
+
+                BOOL status = [[selectedArray objectAtIndex:indexPath.row] boolValue];
+                [selectedArray replaceObjectAtIndex:indexPath.row withObject:@(!status)];
+                [collectionView reloadData];
+
+            }
+            
+        }
+   
     }
 
 }
 
-
+//多选选项提交
+- (void)multipleOptionSubmitButtonClicked{
+    
+  //todo
+}
 @end

@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, GDSurveyType) {
 @interface GDQuestionWriteModel : GDBaseModel
 
 @property (nonatomic,copy) NSString *content;//type为7填写题内容
+@property (nonatomic,strong) NSMutableArray *selectedArray;//type为2选中选项
 @property (nonatomic,copy) NSString *optionId;//如果是填写题为0
 @property (nonatomic,copy) NSString *optionOrder;//type3滑动题 左到右（1-6 7-11） type为5 选项
 @property (nonatomic,copy) NSString *questionId;

@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		49120BF92119DDF600EA263C /* UIWindow+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 49120BF82119DDF600EA263C /* UIWindow+HUD.m */; };
 		49120BFC2119E43E00EA263C /* GDRegisterApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 49120BFB2119E43E00EA263C /* GDRegisterApi.m */; };
+		4928F636213B83E500F9E4CE /* GDMoveLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4928F635213B83E500F9E4CE /* GDMoveLabel.m */; };
 		49594A4F212F01CF00402ADB /* GDAnswerFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49594A4D212F01CF00402ADB /* GDAnswerFinishViewController.m */; };
 		49594A50212F01CF00402ADB /* GDAnswerFinishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49594A4E212F01CF00402ADB /* GDAnswerFinishViewController.xib */; };
 		49594A54212F0B0200402ADB /* GDOpenNotiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49594A52212F0B0200402ADB /* GDOpenNotiViewController.m */; };
 		49594A55212F0B0200402ADB /* GDOpenNotiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49594A53212F0B0200402ADB /* GDOpenNotiViewController.xib */; };
 		496026DA20D95A1000C3DD15 /* GDKnowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496026D820D95A1000C3DD15 /* GDKnowViewController.m */; };
 		496026DB20D95A1000C3DD15 /* GDKnowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496026D920D95A1000C3DD15 /* GDKnowViewController.xib */; };
+		49750EFE213AC73300779DDC /* GDSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 49750EFD213AC73300779DDC /* GDSlider.m */; };
 		49F0A78120D1715300CD06C3 /* GDEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F0A78020D1715300CD06C3 /* GDEditViewController.xib */; };
 		49F0A78420D171B500CD06C3 /* GDEditButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F0A78320D171B500CD06C3 /* GDEditButton.m */; };
 		E611FBC620D9FE7A00807E95 /* GDLaunchQuestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FBC520D9FE7A00807E95 /* GDLaunchQuestionController.m */; };
@@ -176,6 +178,8 @@
 		49120BF82119DDF600EA263C /* UIWindow+HUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+HUD.m"; sourceTree = "<group>"; };
 		49120BFA2119E43E00EA263C /* GDRegisterApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDRegisterApi.h; sourceTree = "<group>"; };
 		49120BFB2119E43E00EA263C /* GDRegisterApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDRegisterApi.m; sourceTree = "<group>"; };
+		4928F634213B83E500F9E4CE /* GDMoveLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDMoveLabel.h; sourceTree = "<group>"; };
+		4928F635213B83E500F9E4CE /* GDMoveLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDMoveLabel.m; sourceTree = "<group>"; };
 		49594A4C212F01CF00402ADB /* GDAnswerFinishViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDAnswerFinishViewController.h; sourceTree = "<group>"; };
 		49594A4D212F01CF00402ADB /* GDAnswerFinishViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDAnswerFinishViewController.m; sourceTree = "<group>"; };
 		49594A4E212F01CF00402ADB /* GDAnswerFinishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDAnswerFinishViewController.xib; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 		496026D720D95A1000C3DD15 /* GDKnowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDKnowViewController.h; sourceTree = "<group>"; };
 		496026D820D95A1000C3DD15 /* GDKnowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDKnowViewController.m; sourceTree = "<group>"; };
 		496026D920D95A1000C3DD15 /* GDKnowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDKnowViewController.xib; sourceTree = "<group>"; };
+		49750EFC213AC73300779DDC /* GDSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSlider.h; sourceTree = "<group>"; };
+		49750EFD213AC73300779DDC /* GDSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSlider.m; sourceTree = "<group>"; };
 		49F0A78020D1715300CD06C3 /* GDEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDEditViewController.xib; sourceTree = "<group>"; };
 		49F0A78220D171B500CD06C3 /* GDEditButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDEditButton.h; sourceTree = "<group>"; };
 		49F0A78320D171B500CD06C3 /* GDEditButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDEditButton.m; sourceTree = "<group>"; };
@@ -531,8 +537,6 @@
 				E61A5F09213524AB0074D215 /* GDQuestionDescCell.h */,
 				E61A5F0A213524AB0074D215 /* GDQuestionDescCell.m */,
 				E61A5F0B213524AB0074D215 /* GDQuestionDescCell.xib */,
-				E61A5F0E213528320074D215 /* GDQuantifyCell.h */,
-				E61A5F0F213528320074D215 /* GDQuantifyCell.m */,
 				E61A5F11213529340074D215 /* GDSortCell.h */,
 				E61A5F12213529340074D215 /* GDSortCell.m */,
 				E61A5F14213529930074D215 /* GDSingleSelCell.h */,
@@ -549,6 +553,8 @@
 				E61A5F32213567F10074D215 /* GDWriteCell.xib */,
 				E61A5EFA2134FCAB0074D215 /* GDSlideCell.h */,
 				E61A5EFB2134FCAB0074D215 /* GDSlideCell.m */,
+				E61A5F0E213528320074D215 /* GDQuantifyCell.h */,
+				E61A5F0F213528320074D215 /* GDQuantifyCell.m */,
 			);
 			path = questionCells;
 			sourceTree = "<group>";
@@ -742,6 +748,10 @@
 				E61A5EFE213519530074D215 /* GDQuestionView.m */,
 				E61A5F7E213E361E0074D215 /* GDMoveItem.h */,
 				E61A5F7F213E361E0074D215 /* GDMoveItem.m */,
+				4928F634213B83E500F9E4CE /* GDMoveLabel.h */,
+				4928F635213B83E500F9E4CE /* GDMoveLabel.m */,
+				49750EFC213AC73300779DDC /* GDSlider.h */,
+				49750EFD213AC73300779DDC /* GDSlider.m */,
 				49DF7F6D2131A53100906B4C /* questionViews */,
 				E61F432E20E219FF004D2E09 /* Cell */,
 				E611FBE220DA42CC00807E95 /* Images */,
@@ -1153,6 +1163,7 @@
 				E61F433720E22E91004D2E09 /* GDPGHeaderView.m in Sources */,
 				E69C3FA520CF6F6E004F5614 /* AnimationErectBegin.m in Sources */,
 				E65BDC2021294F4300F2D5C0 /* GDQuestionHeadView.m in Sources */,
+				49750EFE213AC73300779DDC /* GDSlider.m in Sources */,
 				E611FC1020DB9EF300807E95 /* GDQuestionBaseView.m in Sources */,
 				E6BE89D9211F41A700C3AEDC /* GDAddOrganApi.m in Sources */,
 				E664C95D20C93B17004E81A4 /* GDLeftHeaderView.m in Sources */,
@@ -1210,6 +1221,7 @@
 				E65E68BD20D0E60B003E07CB /* GDEditBaseViewController.m in Sources */,
 				E6BE89E62120062D00C3AEDC /* UIView+LXShadowPath.m in Sources */,
 				E668759F20D8B1FD0038307F /* GDHomeManager.m in Sources */,
+				4928F636213B83E500F9E4CE /* GDMoveLabel.m in Sources */,
 				E664C95120C925A5004E81A4 /* GDBaseViewController.m in Sources */,
 				E6F143622119BB850038A9D6 /* GDLunchManager.m in Sources */,
 				E61A5F2F2135661C0074D215 /* GDPGChooseCell.m in Sources */,

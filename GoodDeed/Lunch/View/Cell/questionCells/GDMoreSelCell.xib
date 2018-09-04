@@ -22,28 +22,25 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIN-Bp-pCX">
                         <rect key="frame" x="45" y="0.0" width="217" height="65"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ozg-Ly-EH0">
-                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="1Dj-vc-MlY"/>
-                                    <constraint firstAttribute="height" constant="35" id="P7r-qa-u8T"/>
-                                </constraints>
-                                <state key="normal" image="more_unSelect"/>
-                                <state key="selected" image="more_unSelect"/>
-                                <state key="highlighted" image="more_selected"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lc0-Hh-57A">
                                 <rect key="frame" x="45" y="4" width="172" height="28"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="20"/>
                                 <color key="textColor" red="0.59607843137254901" green="0.59607843137254901" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="more_unSelect" highlightedImage="more_selected" translatesAutoresizingMaskIntoConstraints="NO" id="XNd-jC-dew">
+                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="QHa-UD-0kA"/>
+                                    <constraint firstAttribute="width" constant="35" id="tC9-hq-gYu"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Ozg-Ly-EH0" firstAttribute="top" secondItem="QIN-Bp-pCX" secondAttribute="top" id="1HN-lg-ua1"/>
-                            <constraint firstItem="Lc0-Hh-57A" firstAttribute="top" secondItem="Ozg-Ly-EH0" secondAttribute="top" constant="3.5" id="9sB-KZ-qxB"/>
-                            <constraint firstItem="Lc0-Hh-57A" firstAttribute="leading" secondItem="Ozg-Ly-EH0" secondAttribute="trailing" constant="10" id="Btz-4S-80l"/>
-                            <constraint firstItem="Ozg-Ly-EH0" firstAttribute="leading" secondItem="QIN-Bp-pCX" secondAttribute="leading" id="PSL-FY-82c"/>
+                            <constraint firstItem="Lc0-Hh-57A" firstAttribute="leading" secondItem="XNd-jC-dew" secondAttribute="trailing" constant="10" id="JWb-Yy-vxd"/>
+                            <constraint firstItem="XNd-jC-dew" firstAttribute="top" secondItem="QIN-Bp-pCX" secondAttribute="top" id="JYL-Hr-4E9"/>
+                            <constraint firstItem="Lc0-Hh-57A" firstAttribute="top" secondItem="XNd-jC-dew" secondAttribute="top" constant="4" id="OuQ-hb-5zF"/>
+                            <constraint firstItem="XNd-jC-dew" firstAttribute="leading" secondItem="QIN-Bp-pCX" secondAttribute="leading" id="emr-PJ-PUf"/>
                             <constraint firstAttribute="trailing" secondItem="Lc0-Hh-57A" secondAttribute="trailing" id="gde-9v-deK"/>
                         </constraints>
                     </view>
@@ -60,9 +57,9 @@
             <size key="customSize" width="307" height="65"/>
             <connections>
                 <outlet property="contentLabel" destination="Lc0-Hh-57A" id="wa6-ad-NV4"/>
-                <outlet property="selectButton" destination="Ozg-Ly-EH0" id="sO6-A6-mHD"/>
+                <outlet property="selectimgView" destination="XNd-jC-dew" id="HRE-OH-UDh"/>
             </connections>
-            <point key="canvasLocation" x="158" y="74"/>
+            <point key="canvasLocation" x="157.5" y="73.5"/>
         </collectionViewCell>
     </objects>
     <resources>

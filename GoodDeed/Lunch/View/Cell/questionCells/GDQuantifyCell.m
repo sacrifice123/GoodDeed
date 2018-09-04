@@ -7,10 +7,11 @@
 //
 
 #import "GDQuantifyCell.h"
+#import "GDSlider.h"
 
 @interface GDQuantifyCell()
 
-@property (nonatomic, strong) UISlider *slider;
+@property (nonatomic, strong) GDSlider *slider;
 @property (nonatomic, strong) UIView *titleView;
 @property (nonatomic, strong) UILabel *rightLabel;
 
@@ -32,8 +33,11 @@
             make.height.equalTo(@12);
         }];
         
-        self.slider = [[UISlider alloc] init];
+        self.slider = [[GDSlider alloc] init];
         self.slider.value = 0.5;
+        self.slider.minimumValue = 1;
+        self.slider.maximumValue = 3;
+        self.slider.continuous = NO;
         self.slider.minimumTrackTintColor = [UIColor clearColor];
         self.slider.maximumTrackTintColor = [UIColor clearColor];
         [self.contentView addSubview:self.slider];
@@ -46,29 +50,10 @@
         [self.contentView bringSubviewToFront:self.slider];
         UIImage *image = [UIImage imageNamed:@"slider_arrow"];
         [self.slider setThumbImage:image forState:0];
-        [self.slider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventTouchCancel];
+        [self.slider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
         [self.slider addGestureRecognizer:tap];
         
-//        UIView *lineView = [self createGraduationLineWith:11];
-//        [self.contentView addSubview:lineView];
-//        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(self.slider.mas_bottom).offset(38);
-//            make.left.equalTo(self.contentView).offset(40);
-//            make.right.equalTo(self.contentView).offset(-40);
-//            make.height.equalTo(@11);
-//        }];
-//
-//        UILabel *leftLabel = [[UILabel alloc] init];
-//        leftLabel.textColor = [UIColor colorWithHexString:@"#999999"];
-//        leftLabel.font = [UIFont fontWithName:@"PingFangSC-Light" size:20];
-//        [self.contentView addSubview:leftLabel];
-//        [leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(lineView.mas_bottom).offset(10);
-//            make.left.equalTo(self.contentView).offset(40);
-//        }];
-//
-
         self.titleView = [[UIView alloc] init];
         [self.contentView addSubview:self.titleView];
         [self.titleView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -109,18 +94,22 @@
 - (void)valueChanged:(UISlider *)sender
 {
     //只取整数值，固定间距
-    //    NSString *tempStr = [self numberFormat:sender.value];
-    //    [sender setValue:tempStr.floatValue];
+    NSString *tempStr = [self numberFormat:sender.value];
+    [sender setValue:tempStr.floatValue];
+    
 }
 
 - (void)tapAction:(UITapGestureRecognizer *)sender
 {
-    //    //取得点击点
-    //    CGPoint p = [sender locationInView:_slider];
-    //    //计算处于背景图的几分之几，并将之转换为滑块的值（1~7）
-    //    float tempFloat = (p.x - 15) / 295.0 * 7 + 1;
-    //    NSString *tempStr = [self numberFormat:tempFloat];
-    //    [_slider setValue:tempStr.floatValue];
+    
+    [self.slider setValue:self.slider.value];
+}
+
+- (NSString *)numberFormat:(float)num
+{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setPositiveFormat:@"0"];
+    return [formatter stringFromNumber:[NSNumber numberWithFloat:num]];
 }
 
 @end

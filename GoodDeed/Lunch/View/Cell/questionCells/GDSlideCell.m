@@ -7,9 +7,10 @@
 //
 
 #import "GDSlideCell.h"
+#import "GDSlider.h"
 
 @interface GDSlideCell()
-@property (nonatomic, strong) UISlider *slider;
+@property (nonatomic, strong) GDSlider *slider;
 @property (nonatomic, strong) UILabel *leftLabel;
 @property (nonatomic, strong) UILabel *rightLabel;
 
@@ -31,8 +32,11 @@
             make.height.equalTo(@12);
         }];
 
-        self.slider = [[UISlider alloc] init];
+        self.slider = [[GDSlider alloc] init];
         self.slider.value = 0.5;
+        self.slider.minimumValue = 1;
+        self.slider.maximumValue = 11;
+        self.slider.continuous = NO;
         self.slider.minimumTrackTintColor = [UIColor clearColor];
         self.slider.maximumTrackTintColor = [UIColor clearColor];
         [self.contentView addSubview:self.slider];
@@ -45,7 +49,7 @@
         [self.contentView bringSubviewToFront:self.slider];
         UIImage *image = [UIImage imageNamed:@"slider_circle"];
         [self.slider setThumbImage:image forState:0];
-        [self.slider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventTouchCancel];
+        [self.slider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
         [self.slider addGestureRecognizer:tap];
         
@@ -88,23 +92,19 @@
     
     self.leftLabel.text = model.firstOptionList.firstObject;
     self.rightLabel.text = model.firstOptionList.lastObject;
+
 }
 
 - (void)valueChanged:(UISlider *)sender
 {
     //只取整数值，固定间距
-//    NSString *tempStr = [self numberFormat:sender.value];
-//    [sender setValue:tempStr.floatValue];
+    NSString *tempStr = [self numberFormat:sender.value];
+    [sender setValue:tempStr.floatValue];
 }
 
 - (void)tapAction:(UITapGestureRecognizer *)sender
 {
-//    //取得点击点
-//    CGPoint p = [sender locationInView:_slider];
-//    //计算处于背景图的几分之几，并将之转换为滑块的值（1~7）
-//    float tempFloat = (p.x - 15) / 295.0 * 7 + 1;
-//    NSString *tempStr = [self numberFormat:tempFloat];
-//    [_slider setValue:tempStr.floatValue];
+    [self.slider setValue:self.slider.value];
 }
 
 /**
@@ -120,8 +120,6 @@
     [formatter setPositiveFormat:@"0"];
     return [formatter stringFromNumber:[NSNumber numberWithFloat:num]];
 }
-
-
 
 - (UIImage *)OriginImage:(UIImage *)image scaleToSize:(CGSize)size
 {
