@@ -225,7 +225,12 @@ static GDLunchManager *manager;
                 
                 break;
             case 5:{
-                 height = 25;
+                BOOL isHasHeader = (model.imgUrl&&[model.imgUrl isKindOfClass:[NSString class]]&&model.imgUrl.length>0);
+                CGFloat sectionOneHeight = [GDHelper calculateRectWithFont:20 Withtext:model.questionName Withsize:CGSizeMake(SCREEN_WIDTH-150, MAXFLOAT)].height+90;
+                CGFloat bottomSpace = SCREEN_HEIGHT-(isHasHeader?SCREEN_HEIGHT*0.52:0)-sectionOneHeight;
+                 height = (44*model.firstOptionList.count+35)*2;
+                 height = height<bottomSpace?bottomSpace:height;
+            
             }
                 
                 break;

@@ -80,6 +80,7 @@
     return (section==0||
             self.model.type==GDSlideType||
             self.model.type==GDQuantitativeType||
+            self.model.type==GDSortType||
             self.model.type==GDWriteType)?1:self.model.firstOptionList.count;
 }
 
