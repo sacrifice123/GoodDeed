@@ -41,6 +41,8 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [self.superview bringSubviewToFront:self];
+//    temButton.selected = NO;
+//    temButton = nil;
     [self itemTouchesBegan];
     [self enableScroll:NO];
    // self.alpha = 0.3;
@@ -51,6 +53,7 @@
     UITouch *touch = [touches anyObject];
     //当前的point
     CGPoint currentP = [touch locationInView:self];
+
     //以前的point
     CGPoint preP = [touch previousLocationInView:self];
     //x轴偏移的量
@@ -61,6 +64,21 @@
     [self pause];
     [self enableScroll:NO];
    // self.alpha = 1;
+    for (UIButton *btn in self.targetArray) {
+        btn.selected = NO;
+        
+    }
+
+    for (UIButton *btn in self.targetArray) {
+        if (self.y<=btn.y+btn.height*0.5&&self.y>btn.y) {
+            btn.selected = YES;
+//            if (btn.tag!=888) {
+//                btn.selected = NO;
+//            }
+            break;
+        }
+    
+    }
 
 }
 
@@ -75,24 +93,16 @@
    // self.alpha = 1;
     
     for (UIButton *btn in self.targetArray) {
-        if (self.y<=btn.y+btn.height*0.5) {
+        if (btn.enabled&&self.y<=btn.y+btn.height*0.5&&self.y>btn.y) {
             [self stop];
+            btn.selected = YES;
+            self.frame = btn.frame;
+            btn.tag = 888;
             temButton = btn;
             break;
+        }else{
+            // btn.tag = 0;
         }
-    }
-    if (temButton) {
-        for (UIButton *btn in self.targetArray) {
-            if (btn == temButton) {
-                btn.selected = YES;
-                self.frame = btn.frame;
-
-            }else{
-                btn.selected = NO;
-            }
-       
-        }
-        
     }
     CGPoint center = self.center;
     self.frame = self.originFrame;
@@ -143,7 +153,7 @@
     self.frame = CGRectMake(self.x, self.y, self.originFrame.size.width*1.5, self.originFrame.size.height*1.5);
     self.center = center;
     [self shakeItem];
-    self.layer.cornerRadius = item_height;
+    self.layer.cornerRadius = item_height*2/3.0;
 
 }
 

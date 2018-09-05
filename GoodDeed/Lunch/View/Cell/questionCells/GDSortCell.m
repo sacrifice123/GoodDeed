@@ -50,6 +50,7 @@
         CGRect frame = CGRectMake(25, i*(item_height+10), SCREEN_WIDTH-50, item_height);
         
         UIButton *button = [[UIButton alloc] initWithFrame:frame];
+        [button setAdjustsImageWhenHighlighted:NO];
         [button setBackgroundImage:[UIImage imageNamed:@"sort_unSelected"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"sort_selected"] forState:UIControlStateSelected];
         [button setTitle:[NSString stringWithFormat:@"%i",i+1] forState:UIControlStateNormal];
