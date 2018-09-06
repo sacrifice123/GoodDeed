@@ -45,10 +45,11 @@
         make.edges.equalTo(self.contentView);
     }];
     [self.contentView layoutIfNeeded];
-    CGFloat space = model.firstOptionList.count*(item_height+10)+25;
+    CGFloat margin = 17;
+    CGFloat space = model.firstOptionList.count*(item_height+margin)+25;
     NSMutableArray *targetArray = [[NSMutableArray alloc] init];
     for (int i=0; i<model.firstOptionList.count; i++) {
-        CGRect frame = CGRectMake(25, i*(item_height+10), SCREEN_WIDTH-50, item_height);
+        CGRect frame = CGRectMake(25, i*(item_height+margin), SCREEN_WIDTH-50, item_height);
         
         UIButton *button = [[UIButton alloc] initWithFrame:frame];
         button.tag = i;
@@ -56,10 +57,11 @@
         [button setBackgroundImage:[UIImage imageNamed:@"sort_unSelected"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"sort_selected"] forState:UIControlStateSelected];
         [button setTitle:[NSString stringWithFormat:@"%i",i+1] forState:UIControlStateNormal];
+        [button setContentEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
         [button setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Thin" size:20];
         [self.bgView addSubview:button];
-        GDMoveItem *item = [[GDMoveItem alloc] initWithFrame:CGRectMake(25, i*(item_height+10)+space, SCREEN_WIDTH-50, item_height)];
+        GDMoveItem *item = [[GDMoveItem alloc] initWithFrame:CGRectMake(25, i*(item_height+margin)+space, SCREEN_WIDTH-50, item_height)];
         item.targetArray = targetArray;
         item.tag = i;
         item.text = model.firstOptionList[i];

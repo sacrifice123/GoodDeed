@@ -24,7 +24,7 @@
         self.layer.cornerRadius = item_height*0.5;
         self.layer.masksToBounds = YES;
         self.originFrame = frame;
-        
+        [self shakeItem];
     }
     
     return self;
@@ -43,7 +43,9 @@
     [self.superview bringSubviewToFront:self];
     [self itemTouchesBegan];
     [self enableScroll:NO];
-
+    self.backgroundColor = [UIColor colorWithHexString:@"#EEEEEE"];
+    self.textColor = [UIColor colorWithHexString:@"#666666"];
+    self.alpha = 0.6;
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -63,7 +65,12 @@
    
 
     for (GDSortModel *model in self.targetArray) {
-        if (self.y<=model.button.y+model.button.height*0.5&&self.y>model.button.y) {
+        model.button.hidden = NO;
+        CGFloat halfY = model.button.y+model.button.height*0.5;
+        if ((self.y<=halfY&&self.y>model.button.y)||
+            (self.maxY>halfY&&self.maxY<model.button.maxY)||
+            (self.y<model.button.y&&self.maxY>model.button.maxY)) {
+            
             model.selected = YES;
         }else{
             if (model.item==nil||model.item==self) {
@@ -85,19 +92,23 @@
     [self resume];
     self.layer.cornerRadius = item_height*0.5;
     [self enableScroll:YES];
-   
-    
+    self.alpha = 1;
+    self.backgroundColor = [UIColor colorWithHexString:@"#EEEEEE"];
+    self.textColor = [UIColor colorWithHexString:@"#666666"];
     for (GDSortModel*model in self.targetArray) {
         if (model.selected) {
             if (model.item==nil||(model.item==self)) {
+                self.backgroundColor = [UIColor colorWithHexString:@"#2E3192"];
+                self.textColor = [UIColor whiteColor];
                 [self stop];
-               // model.selected = YES;
-                self.frame = model.button.frame;
                 model.item = self;
-
+                self.frame = model.button.frame;
+               // model.button.hidden = YES;
             }
-            break;
+           // break;
         }else{
+
+            
 
         }
     }
@@ -114,6 +125,7 @@
     self.frame = self.originFrame;
     self.center = CGPointMake(center.x, center.y);
     self.layer.cornerRadius = item_height*0.5;
+
     [self enableScroll:YES];
 }
 
