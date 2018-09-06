@@ -77,6 +77,8 @@
 		E61F433C20E237A9004D2E09 /* GDPGSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E61F433A20E237A9004D2E09 /* GDPGSearchViewController.m */; };
 		E61F433D20E237A9004D2E09 /* GDPGSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61F433B20E237A9004D2E09 /* GDPGSearchViewController.xib */; };
 		E61F434020E245CD004D2E09 /* GDPGChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = E61F433F20E245CD004D2E09 /* GDPGChooseView.m */; };
+		E63FABE62140EB540066BDE4 /* GDMoveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E63FABE52140EB540066BDE4 /* GDMoveButton.m */; };
+		E64E381E2140BE6200BE5699 /* GDSortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64E381D2140BE6200BE5699 /* GDSortModel.m */; };
 		E65BDC2021294F4300F2D5C0 /* GDQuestionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = E65BDC1F21294F4300F2D5C0 /* GDQuestionHeadView.m */; };
 		E65BDC23212971C400F2D5C0 /* GDQuestionWriteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E65BDC22212971C400F2D5C0 /* GDQuestionWriteModel.m */; };
 		E65E68BD20D0E60B003E07CB /* GDEditBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E65E68BC20D0E60B003E07CB /* GDEditBaseViewController.m */; };
@@ -284,6 +286,10 @@
 		E61F433B20E237A9004D2E09 /* GDPGSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDPGSearchViewController.xib; sourceTree = "<group>"; };
 		E61F433E20E245CD004D2E09 /* GDPGChooseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDPGChooseView.h; sourceTree = "<group>"; };
 		E61F433F20E245CD004D2E09 /* GDPGChooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDPGChooseView.m; sourceTree = "<group>"; };
+		E63FABE42140EB540066BDE4 /* GDMoveButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDMoveButton.h; sourceTree = "<group>"; };
+		E63FABE52140EB540066BDE4 /* GDMoveButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDMoveButton.m; sourceTree = "<group>"; };
+		E64E381C2140BE6200BE5699 /* GDSortModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSortModel.h; sourceTree = "<group>"; };
+		E64E381D2140BE6200BE5699 /* GDSortModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSortModel.m; sourceTree = "<group>"; };
 		E65BDC1E21294F4300F2D5C0 /* GDQuestionHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDQuestionHeadView.h; sourceTree = "<group>"; };
 		E65BDC1F21294F4300F2D5C0 /* GDQuestionHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDQuestionHeadView.m; sourceTree = "<group>"; };
 		E65BDC21212971C400F2D5C0 /* GDQuestionWriteModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDQuestionWriteModel.h; sourceTree = "<group>"; };
@@ -746,6 +752,8 @@
 				E61A5F3B213802130074D215 /* GDQuestionScrollView.m */,
 				E61A5EFD213519530074D215 /* GDQuestionView.h */,
 				E61A5EFE213519530074D215 /* GDQuestionView.m */,
+				E63FABE42140EB540066BDE4 /* GDMoveButton.h */,
+				E63FABE52140EB540066BDE4 /* GDMoveButton.m */,
 				E61A5F7E213E361E0074D215 /* GDMoveItem.h */,
 				E61A5F7F213E361E0074D215 /* GDMoveItem.m */,
 				4928F634213B83E500F9E4CE /* GDMoveLabel.h */,
@@ -926,6 +934,8 @@
 				E6B39AD3211BDC300080772F /* GDFirstQuestionListModel.m */,
 				E65BDC21212971C400F2D5C0 /* GDQuestionWriteModel.h */,
 				E65BDC22212971C400F2D5C0 /* GDQuestionWriteModel.m */,
+				E64E381C2140BE6200BE5699 /* GDSortModel.h */,
+				E64E381D2140BE6200BE5699 /* GDSortModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1202,6 +1212,7 @@
 				E664C95620C92F24004E81A4 /* GDLeftCell.m in Sources */,
 				E6655CCC20C5138F005B46C3 /* AppDelegate.m in Sources */,
 				49120BF92119DDF600EA263C /* UIWindow+HUD.m in Sources */,
+				E63FABE62140EB540066BDE4 /* GDMoveButton.m in Sources */,
 				E664C95220C925A5004E81A4 /* GDLeftViewController.m in Sources */,
 				E69C3F9A20CF6F6E004F5614 /* AnimationTransitionEnd.m in Sources */,
 				E69C3FA220CF6F6E004F5614 /* UIViewController+HHTransition.m in Sources */,
@@ -1230,6 +1241,7 @@
 				E692347820E4AE5000AF1585 /* GDLoginViewController.m in Sources */,
 				E69C3FA120CF6F6E004F5614 /* AnimationScaleBegin.m in Sources */,
 				E6B39C0E211C58210080772F /* GDOrganModel.m in Sources */,
+				E64E381E2140BE6200BE5699 /* GDSortModel.m in Sources */,
 				E69C3FA620CF6F6E004F5614 /* UIView+HHLayout.m in Sources */,
 				E61A5F3C213802130074D215 /* GDQuestionScrollView.m in Sources */,
 				E664C96220C93D33004E81A4 /* GDLeftModel.m in Sources */,

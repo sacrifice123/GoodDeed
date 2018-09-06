@@ -7,12 +7,12 @@
 //
 
 #import "GDMoveItem.h"
+#import "GDSortModel.h"
 #import "GDQuestionScrollView.h"
 
 @implementation GDMoveItem
-{
-    UIButton *temButton;
-}
+
+
 - (instancetype)initWithFrame:(CGRect)frame{
     
     if (self = [super initWithFrame:frame]) {
@@ -41,11 +41,9 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [self.superview bringSubviewToFront:self];
-//    temButton.selected = NO;
-//    temButton = nil;
     [self itemTouchesBegan];
     [self enableScroll:NO];
-   // self.alpha = 0.3;
+
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -53,7 +51,6 @@
     UITouch *touch = [touches anyObject];
     //当前的point
     CGPoint currentP = [touch locationInView:self];
-
     //以前的point
     CGPoint preP = [touch previousLocationInView:self];
     //x轴偏移的量
@@ -63,19 +60,17 @@
     self.transform = CGAffineTransformTranslate(self.transform, offsetX, offsetY);
     [self pause];
     [self enableScroll:NO];
-   // self.alpha = 1;
-    for (UIButton *btn in self.targetArray) {
-        btn.selected = NO;
-        
-    }
+   
 
-    for (UIButton *btn in self.targetArray) {
-        if (self.y<=btn.y+btn.height*0.5&&self.y>btn.y) {
-            btn.selected = YES;
-//            if (btn.tag!=888) {
-//                btn.selected = NO;
-//            }
-            break;
+    for (GDSortModel *model in self.targetArray) {
+        if (self.y<=model.button.y+model.button.height*0.5&&self.y>model.button.y) {
+            model.selected = YES;
+        }else{
+            if (model.item==nil||model.item==self) {
+                 model.selected = NO;
+                 model.item = nil;
+            }
+            
         }
     
     }
@@ -90,18 +85,20 @@
     [self resume];
     self.layer.cornerRadius = item_height*0.5;
     [self enableScroll:YES];
-   // self.alpha = 1;
+   
     
-    for (UIButton *btn in self.targetArray) {
-        if (btn.enabled&&self.y<=btn.y+btn.height*0.5&&self.y>btn.y) {
-            [self stop];
-            btn.selected = YES;
-            self.frame = btn.frame;
-            btn.tag = 888;
-            temButton = btn;
+    for (GDSortModel*model in self.targetArray) {
+        if (model.selected) {
+            if (model.item==nil||(model.item==self)) {
+                [self stop];
+               // model.selected = YES;
+                self.frame = model.button.frame;
+                model.item = self;
+
+            }
             break;
         }else{
-            // btn.tag = 0;
+
         }
     }
     CGPoint center = self.center;

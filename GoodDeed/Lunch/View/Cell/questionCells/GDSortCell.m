@@ -8,6 +8,7 @@
 
 #import "GDSortCell.h"
 #import "GDMoveItem.h"
+#import "GDSortModel.h"
 
 @interface GDSortCell()
 
@@ -50,6 +51,7 @@
         CGRect frame = CGRectMake(25, i*(item_height+10), SCREEN_WIDTH-50, item_height);
         
         UIButton *button = [[UIButton alloc] initWithFrame:frame];
+        button.tag = i;
         [button setAdjustsImageWhenHighlighted:NO];
         [button setBackgroundImage:[UIImage imageNamed:@"sort_unSelected"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"sort_selected"] forState:UIControlStateSelected];
@@ -57,11 +59,16 @@
         [button setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Thin" size:20];
         [self.bgView addSubview:button];
-        [targetArray addObject:button];
         GDMoveItem *item = [[GDMoveItem alloc] initWithFrame:CGRectMake(25, i*(item_height+10)+space, SCREEN_WIDTH-50, item_height)];
         item.targetArray = targetArray;
+        item.tag = i;
         item.text = model.firstOptionList[i];
         [self.bgView addSubview:item];
+        GDSortModel *model = [[GDSortModel alloc] init];
+        model.button = button;
+        //model.item = item;
+        [targetArray addObject:model];
+
 
     }
 }
