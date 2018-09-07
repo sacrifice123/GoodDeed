@@ -12,5 +12,6 @@
 @interface GDQuestionBaseView : UIView
 
 @property (nonatomic, strong) GDFirstQuestionListModel *model;
+@property (nonatomic, assign) BOOL isAnswer;
 
 @end

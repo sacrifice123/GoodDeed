@@ -10,6 +10,13 @@
 
 @implementation GDFirstQuestionListModel
 
++ (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper{
+    
+    return @{
+             @"questionId":@"id"
+             };
+}
+
 
 - (GDQuestionWriteModel *)writeModel{
     

@@ -7,8 +7,18 @@
 //
 
 #import "GDQuestionBaseCell.h"
+#import "GDQuestionScrollView.h"
 
 @implementation GDQuestionBaseCell
+
+- (void)enableScroll:(BOOL)isEnable{
+    
+    GDQuestionScrollView *scrollView = (GDQuestionScrollView *)[GDHelper getTargetView:[GDQuestionScrollView class] view:self];
+    if (scrollView) {
+        scrollView.scrollEnabled = isEnable;
+    }
+    
+}
 
 
 @end

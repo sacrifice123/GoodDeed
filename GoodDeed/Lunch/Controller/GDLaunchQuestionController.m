@@ -140,15 +140,23 @@
 
 - (void)scrollViewDidEndScroll:(UIScrollView *)scrollView{
     
+    GDQuestionBaseView *nextQuesView = self.pages[self.pageControl.currentPage+1];
+    if (self.pageControl.currentPage) {
+        [scrollView setContentOffset:scrollView.contentOffset animated:NO];
+        return;
+    }
     CGFloat offsetX = scrollView.contentOffset.x;
     NSInteger index = offsetX/SCREEN_WIDTH;
     self.pageControl.currentPage = index;
     GDQuestionBaseView *quesView = self.pages[index];
+
     quesView.frame = CGRectMake(index*SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     if (![scrollView.subviews containsObject:quesView]) {
         [scrollView addSubview:quesView];
 
     }
+
+
 }
 
 //GDReadyType = 0,    //准备

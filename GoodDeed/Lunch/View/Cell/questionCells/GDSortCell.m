@@ -75,57 +75,5 @@
     }
 }
 
-- (UIView *)drawDotLineWithLineColor:(UIColor *)lineColor withFillColor:(UIColor *)fillColor withCornerRadius:(CGFloat)radius withLineWidth:(CGFloat)lineWidth AndLineType:(NSString *)type {
-    
-    
-    
-    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    
-    
-    
-    shapeLayer.strokeColor = lineColor.CGColor;
-    
-    
-    
-    shapeLayer.fillColor = fillColor.CGColor;
-    
-    
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:radius];
-    
-    
-    
-    shapeLayer.path = path.CGPath;
-    
-    
-    
-    shapeLayer.frame = self.bounds;
-    
-    
-    
-    shapeLayer.lineWidth = lineWidth;
-    
-    
-    
-    if (type) {
-        
-        shapeLayer.lineCap = type;
-        
-    }else{
-        
-        shapeLayer.lineCap = @"square";
-        
-    }
-    
-    //虚线每段长度和间隔
-    
-    shapeLayer.lineDashPattern = @[@(2), @(2)];
-    
-    [self.layer addSublayer:shapeLayer];
-    
-    return self;
-    
-}
-
 
 @end

@@ -115,7 +115,7 @@
             [array addObject:image];
         }
         self.imgView.animationImages = array;
-        self.imgView.animationDuration = 3.5;
+        self.imgView.animationDuration = 3;
         self.imgView.animationRepeatCount = 1;
         [self.imgView startAnimating];
         self.imgView.image = [UIImage imageNamed:@"tap_image"];
