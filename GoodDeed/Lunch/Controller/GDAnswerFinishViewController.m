@@ -9,6 +9,7 @@
 #import "GDAnswerFinishViewController.h"
 
 @interface GDAnswerFinishViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
 @end
 
@@ -16,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    self.contentLabel.text = @"请创建一个账号，这样我们就可以把\n善款捐给红十字会";
 }
 
 - (void)didReceiveMemoryWarning {

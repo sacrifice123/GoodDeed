@@ -13,6 +13,6 @@
 
 @property (nonatomic, strong) UIButton *button;
 @property (nonatomic, weak) GDMoveItem *item;
-@property (nonatomic, assign) BOOL selected;
+@property (nonatomic, assign) BOOL selected;//是否选中排序
 
 @end

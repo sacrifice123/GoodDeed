@@ -52,8 +52,12 @@
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if ([text isEqualToString:@"\n"]){ //判断输入的字是否是回车，即按下return
-        self.model.writeModel.content = textView.text;
-        [textView resignFirstResponder];
+        if (textView.text&&textView.text.length>0) {
+            self.model.writeModel.content = textView.text;
+            [self finishAnswer];
+            [textView resignFirstResponder];
+
+        }
         return NO;
     }
     

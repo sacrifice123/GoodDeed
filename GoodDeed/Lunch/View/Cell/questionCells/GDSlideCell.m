@@ -95,17 +95,22 @@
 
 }
 
+//滑动
 - (void)valueChanged:(UISlider *)sender
 {
     //只取整数值，固定间距
     NSString *tempStr = [self numberFormat:sender.value];
     [sender setValue:tempStr.floatValue];
+    [self finishAnswer];
 }
 
+//点击
 - (void)tapAction:(UITapGestureRecognizer *)sender
 {
     [self.slider setValue:self.slider.value];
+    [self finishAnswer];
 }
+
 
 /**
  *  四舍五入

@@ -174,23 +174,47 @@
     return size;
 }
 
+/*
+ GDSingleType,       //单选题1
+ GDMultipleType,     //多选题2
+ GDSlideType,        //滑动题3
+ GDQuantitativeType, //定量题4
+ GDSortType,         //排序题5
+ GDSelectType,       //勾选图片题6
+ GDWriteType         //填写题7
+ */
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0) {
         return;
     }else{
         
-        if (self.model.type == GDMultipleType) {//多选题选项判断
-            
-            NSMutableArray *selectedArray = self.model.writeModel.selectedArray;
-            if (selectedArray.count>indexPath.row) {
-
-                BOOL status = [[selectedArray objectAtIndex:indexPath.row] boolValue];
-                [selectedArray replaceObjectAtIndex:indexPath.row withObject:@(!status)];
-                [collectionView reloadData];
+        switch (self.model.type) {
+            case 1:{//单选题
+                
+                [self finishAnswer];
+            }
+                
+                break;
+            case 2:{//多选题
+                NSMutableArray *selectedArray = self.model.writeModel.selectedArray;
+                if (selectedArray.count>indexPath.row) {
+                    
+                    BOOL status = [[selectedArray objectAtIndex:indexPath.row] boolValue];
+                    [selectedArray replaceObjectAtIndex:indexPath.row withObject:@(!status)];
+                    [collectionView reloadData];
+                    
+                }
 
             }
-            
+                break;
+            case 6:{//勾选图片题
+                [self finishAnswer];
+            }
+                
+                break;
+            default:
+                break;
         }
    
     }
@@ -199,7 +223,13 @@
 
 //多选选项提交
 - (void)multipleOptionSubmitButtonClicked{
+
+    for (NSNumber *obj in self.model.writeModel.selectedArray) {
+        if ([obj boolValue]) {
+            [self finishAnswer];
+            return;
+        }
+    }
     
-  //todo
 }
 @end

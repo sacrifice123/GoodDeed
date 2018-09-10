@@ -17,6 +17,14 @@
     // Drawing code
 }
 */
+- (void)finishAnswer{
+    
+    if (self.finishBlock) {
+        self.isAnswer = YES;
+        self.finishBlock(YES);
+    }
+    
+}
 
 - (void)layoutSubviews{
     

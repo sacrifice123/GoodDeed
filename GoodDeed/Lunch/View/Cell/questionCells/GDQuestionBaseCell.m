@@ -8,6 +8,7 @@
 
 #import "GDQuestionBaseCell.h"
 #import "GDQuestionScrollView.h"
+#import "GDQuestionBaseView.h"
 
 @implementation GDQuestionBaseCell
 
@@ -20,5 +21,11 @@
     
 }
 
+- (void)finishAnswer{
+    
+    GDQuestionBaseView *view = (GDQuestionBaseView *)[GDHelper getTargetView:[GDQuestionBaseView class] view:self];
+    [view finishAnswer];
+    
+}
 
 @end

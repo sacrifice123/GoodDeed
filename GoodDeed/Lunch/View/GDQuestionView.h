@@ -10,5 +10,6 @@
 
 @interface GDQuestionView : GDQuestionBaseView
 
+
 - (instancetype)initWithFrame:(CGRect)frame listModel:(GDFirstQuestionListModel *)model;
 @end

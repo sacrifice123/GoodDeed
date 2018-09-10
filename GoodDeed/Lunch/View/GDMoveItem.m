@@ -9,6 +9,7 @@
 #import "GDMoveItem.h"
 #import "GDSortModel.h"
 #import "GDQuestionScrollView.h"
+#import "GDQuestionBaseView.h"
 
 @implementation GDMoveItem
 
@@ -106,16 +107,14 @@
                // model.button.hidden = YES;
             }
            // break;
-        }else{
-
-            
-
         }
+        
+        
     }
     CGPoint center = self.center;
     self.frame = self.originFrame;
     self.center = CGPointMake(center.x, center.y);
-
+    [self checkFinishStatus];
 }
 
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -196,4 +195,15 @@
 
 }
 
+//查看排序状态
+- (void)checkFinishStatus{
+    for (GDSortModel*model in self.targetArray) {
+        if (!model.selected) {
+            return;
+        }
+    }
+    GDQuestionBaseView *view = (GDQuestionBaseView *)[GDHelper getTargetView:[GDQuestionBaseView class] view:self];
+    [view finishAnswer];
+
+}
 @end

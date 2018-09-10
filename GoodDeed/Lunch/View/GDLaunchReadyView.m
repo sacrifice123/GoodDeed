@@ -27,6 +27,7 @@
 
 - (void)setUp{
     
+    self.isAnswer = YES;
     UIImageView *imgView = [[UIImageView alloc] init];
     [self addSubview:imgView];
     imgView.image = [UIImage imageNamed:@"lunch_quesBg"];

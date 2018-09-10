@@ -96,6 +96,7 @@
     //只取整数值，固定间距
     NSString *tempStr = [self numberFormat:sender.value];
     [sender setValue:tempStr.floatValue];
+    [self finishAnswer];
     
 }
 
@@ -103,6 +104,7 @@
 {
     
     [self.slider setValue:self.slider.value];
+    [self finishAnswer];
 }
 
 - (NSString *)numberFormat:(float)num

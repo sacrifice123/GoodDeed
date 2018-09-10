@@ -23,6 +23,7 @@
 #import "GDImageSelQuestionView.h"
 #import "GDWriteQuestionView.h"
 #import "GDPGChooseViewController.h"
+#import "GDAnswerFinishViewController.h"
 
 @interface GDLaunchQuestionController ()<UIScrollViewDelegate,GDLaunchReadyViewDelegate>
 
@@ -80,8 +81,17 @@
         [_pages addObject:readyView];
 
         for (GDFirstQuestionListModel*model in [GDLunchManager sharedManager].suveryList) {
-            //GDQuestionBaseView *view = [self createSurveyView:obj.type];
+            
             GDQuestionView *view = [[GDQuestionView alloc] initWithFrame:self.view.frame listModel:model];
+            view.isAnswer = NO;
+            __weak typeof(self) weakSelf = self;
+            view.finishBlock = ^(BOOL isFinish) {
+                if ([GDLunchManager sharedManager].suveryList.count>self.pageControl.currentPage) {
+                    [weakSelf.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH*(self.pageControl.currentPage+1), 0) animated:YES];
+                }else{
+                    [weakSelf presentViewController:[GDAnswerFinishViewController new] animated:YES completion:nil];
+                }
+            };
             [_pages addObject:view];
         }
 
@@ -140,16 +150,15 @@
 
 - (void)scrollViewDidEndScroll:(UIScrollView *)scrollView{
     
-    GDQuestionBaseView *nextQuesView = self.pages[self.pageControl.currentPage+1];
-    if (self.pageControl.currentPage) {
-        [scrollView setContentOffset:scrollView.contentOffset animated:NO];
+    GDQuestionBaseView *currQuesView = self.pages[self.pageControl.currentPage];
+    if (!currQuesView.isAnswer&&(scrollView.contentOffset.x>SCREEN_WIDTH*self.pageControl.currentPage)) {
+        [scrollView setContentOffset:CGPointMake(SCREEN_WIDTH*self.pageControl.currentPage, 0) animated:NO];
         return;
     }
     CGFloat offsetX = scrollView.contentOffset.x;
     NSInteger index = offsetX/SCREEN_WIDTH;
     self.pageControl.currentPage = index;
     GDQuestionBaseView *quesView = self.pages[index];
-
     quesView.frame = CGRectMake(index*SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     if (![scrollView.subviews containsObject:quesView]) {
         [scrollView addSubview:quesView];

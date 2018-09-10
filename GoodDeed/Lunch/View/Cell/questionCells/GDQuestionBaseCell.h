@@ -14,4 +14,5 @@
 @property (nonatomic, strong) GDFirstQuestionListModel *model;
 
 - (void)enableScroll:(BOOL)isEnable;
+- (void)finishAnswer;
 @end
