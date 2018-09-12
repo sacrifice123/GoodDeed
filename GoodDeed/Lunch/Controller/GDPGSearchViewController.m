@@ -7,7 +7,6 @@
 //
 
 #import "GDPGSearchViewController.h"
-#import "GDLunchManager.h"
 #import "GDPGChooseView.h"
 
 @interface GDPGSearchViewController ()

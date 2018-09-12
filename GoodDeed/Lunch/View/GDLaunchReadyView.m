@@ -12,6 +12,7 @@
 @interface GDLaunchReadyView()
 @property (nonatomic,strong) UIButton *readyButton;
 @property (nonatomic,assign) BOOL isAnimation;
+
 @end
 
 @implementation GDLaunchReadyView
@@ -27,7 +28,6 @@
 
 - (void)setUp{
     
-    self.isAnswer = YES;
     UIImageView *imgView = [[UIImageView alloc] init];
     [self addSubview:imgView];
     imgView.image = [UIImage imageNamed:@"lunch_quesBg"];
@@ -72,20 +72,14 @@
     
     if ([self.delegate respondsToSelector:@selector(readyClickedEvent:)]) {
         [self.delegate readyClickedEvent:self.isAnimation];
-        
     }
 
-    if (!self.isAnimation) {
-        self.isAnimation = YES;
+    if (!self.isAnimation) {//首次动画进来
+        self.isAnswer = YES;
         self.readyButton.selected = YES;
         self.readyButton.backgroundColor = [UIColor colorWithHexString:@"##2E3192"];
-        GDOrgAnimationView *view = [[GDOrgAnimationView alloc] initWithFrame:self.frame];
-        view.tag = 666;
-        [self.superview addSubview:view];
-        [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self);
-        }];
-        view.animationblock();
+        GDOrgAnimationView *view = [GDOrgAnimationView sharedView];
+        [view animationStart:1 completion:nil];
         __weak typeof(self) weakSelf = self;
         view.finishBlock = ^(BOOL finish) {
             weakSelf.readyButton.selected = NO;
@@ -95,5 +89,6 @@
     }
 
 }
+
 
 @end

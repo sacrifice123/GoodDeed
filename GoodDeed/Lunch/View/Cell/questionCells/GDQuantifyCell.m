@@ -79,7 +79,8 @@
         [self.titleView addSubview:line];
         
         UILabel *label = [[UILabel alloc] init];
-        label.text = model.firstOptionList[i];
+        GDOptionModel *optionModel = model.firstOptionList[i];
+        label.text = optionModel.optionName;
         label.textColor = [UIColor colorWithHexString:@"#999999"];
         label.font = [UIFont fontWithName:@"PingFangSC-Light" size:20];
         [self.titleView addSubview:label];

@@ -203,7 +203,7 @@
         }
     }
     GDQuestionBaseView *view = (GDQuestionBaseView *)[GDHelper getTargetView:[GDQuestionBaseView class] view:self];
-    [view finishAnswer];
+    [view finishAnswer:view.model];
 
 }
 @end

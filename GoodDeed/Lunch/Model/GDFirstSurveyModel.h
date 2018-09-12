@@ -8,6 +8,7 @@
 
 #import "GDBaseModel.h"
 #import "GDFirstQuestionListModel.h"
+
 //暂时没用
 @interface GDFirstSurveyModel : GDBaseModel
 

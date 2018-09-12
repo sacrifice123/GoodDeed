@@ -8,7 +8,6 @@
 
 #import "GDPGChooseViewController.h"
 #import "GDPGChooseView.h"
-#import "GDLunchManager.h"
 
 @interface GDPGChooseViewController ()
 

@@ -10,8 +10,8 @@
 #import "GDPGChooseCell.h"
 #import "GDPGHeaderView.h"
 #import "GDPGSearchViewController.h"
-#import "GDLunchManager.h"
 #import "UIView+LXShadowPath.h"
+#import "GDOrgAnimationView.h"
 
 @interface GDPGChooseView()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -167,7 +167,10 @@ referenceSizeForHeaderInSection: (NSInteger)section{
 //选择后继续
 - (void)chooseButtonClicked{
     UIViewController *superVc = [GDHelper getSuperVc:self];
-    [superVc dismissViewControllerAnimated:YES completion:nil];
+    [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:animationStatus];
+    [superVc dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 
 }
 

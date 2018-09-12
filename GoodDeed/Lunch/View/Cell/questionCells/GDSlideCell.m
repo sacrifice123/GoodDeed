@@ -90,8 +90,10 @@
 
 - (void)setModel:(GDFirstQuestionListModel *)model{
     
-    self.leftLabel.text = model.firstOptionList.firstObject;
-    self.rightLabel.text = model.firstOptionList.lastObject;
+    GDOptionModel *leftOption = model.firstOptionList.firstObject;
+    self.leftLabel.text = leftOption.optionName;
+    GDOptionModel *rightOption = model.firstOptionList.lastObject;
+    self.rightLabel.text = rightOption.optionName;
 
 }
 
@@ -101,7 +103,7 @@
     //只取整数值，固定间距
     NSString *tempStr = [self numberFormat:sender.value];
     [sender setValue:tempStr.floatValue];
-    [self finishAnswer];
+    [self finishAnswer]; 
 }
 
 //点击

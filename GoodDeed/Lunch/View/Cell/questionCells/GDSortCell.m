@@ -64,7 +64,8 @@
         GDMoveItem *item = [[GDMoveItem alloc] initWithFrame:CGRectMake(25, i*(item_height+margin)+space, SCREEN_WIDTH-50, item_height)];
         item.targetArray = targetArray;
         item.tag = i;
-        item.text = model.firstOptionList[i];
+        GDOptionModel *optionModel = model.firstOptionList[i];
+        item.text = optionModel.optionName;
         [self.bgView addSubview:item];
         GDSortModel *model = [[GDSortModel alloc] init];
         model.button = button;

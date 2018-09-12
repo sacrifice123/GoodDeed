@@ -10,6 +10,11 @@
 
 @implementation GDFirstQuestionListModel
 
++ (nullable NSDictionary<NSString *, id> *)modelContainerPropertyGenericClass{
+    
+    return @{@"firstOptionList":[GDOptionModel class]};
+}
+
 + (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper{
     
     return @{
@@ -32,7 +37,7 @@
     return _writeModel;
 }
 
-- (NSArray *)firstOptionList{
+- (NSArray <GDOptionModel*>* )firstOptionList{
     
     if (_firstOptionList == nil) {
         _firstOptionList = [[NSArray alloc] init];

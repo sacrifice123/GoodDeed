@@ -31,30 +31,137 @@
     return self;
 }
 
-/*{
-    "data": {
-        "mail": "string",
-        "password": "string",
-        "resultReqVo": {
-            "organId": 0,
-            "writeReqVo": {
-                "surveyId": 0,
-                "uid": "string",
-                "writeReqVoList": [
-                                   {
-                                       "content": "string",
-                                       "optionId": 0,
-                                       "optionOrder": 0,
-                                       "questionId": 0,
-                                       "type": 0
-                                   }
-                                   ]
-            }
-        },
-        "type": 0
-    },
-    "token": "string"
-}*/
+/*Printing description of jsonData:
+ {
+ code = 200;
+ data =     {
+ firstQuestionList =         (
+ {
+ firstOptionList =                 (
+ {
+ id = 1;
+ optionName = "\U597d";
+ position = 0;
+ },
+ {
+ id = 2;
+ optionName = "\U4e0d\U597d";
+ position = 0;
+ }
+ );
+ id = 1;
+ imgUrl = "";
+ isSkip = 1;
+ questionName = "\U4e0a\U6d77\U6d66\U4e1c\U73af\U5883";
+ sort = 1;
+ type = 1;
+ },
+ {
+ firstOptionList =                 (
+ {
+ id = 3;
+ optionName = "\U597d";
+ position = 0;
+ },
+ {
+ id = 4;
+ optionName = "\U4e0d\U597d";
+ position = 0;
+ }
+ );
+ id = 2;
+ imgUrl = "";
+ isSkip = 1;
+ questionName = "\U4e0a\U6d77\U5468\U6d66\U73af\U5883";
+ sort = 2;
+ type = 2;
+ },
+ {
+ firstOptionList =                 (
+ {
+ id = 5;
+ optionName = "\U597d";
+ position = 0;
+ },
+ {
+ id = 6;
+ optionName = "\U4e0d\U597d";
+ position = 1;
+ }
+ );
+ id = 3;
+ imgUrl = "";
+ isSkip = 1;
+ questionName = "\U4e0a\U6d77\U5f90\U6c47\U73af\U5883";
+ sort = 3;
+ type = 3;
+ },
+ {
+ firstOptionList =                 (
+ {
+ id = 8;
+ optionName = "\U4e0d\U597d";
+ position = 0;
+ },
+ {
+ id = 9;
+ optionName = "\U8fd8\U884c";
+ position = 0;
+ },
+ {
+ id = 10;
+ optionName = "\U597d";
+ position = 0;
+ }
+ );
+ id = 4;
+ imgUrl = "";
+ isSkip = 1;
+ questionName = "\U4e0a\U6d77\U9ec4\U6d66\U73af\U5883";
+ sort = 4;
+ type = 4;
+ },
+ {
+ firstOptionList =                 (
+ {
+ id = 11;
+ optionName = "\U597d";
+ position = 0;
+ },
+ {
+ id = 12;
+ optionName = "\U4e0d\U597d";
+ position = 0;
+ }
+ );
+ id = 5;
+ imgUrl = "";
+ isSkip = 1;
+ questionName = "\U4e0a\U6d77\U6768\U6d66\U73af\U5883";
+ sort = 5;
+ type = 5;
+ },
+ {
+ firstOptionList = "<null>";
+ id = 7;
+ imgUrl = "";
+ isSkip = 1;
+ questionName = "\U4e0a\U6d77\U5d07\U660e\U73af\U5883";
+ sort = 7;
+ type = 7;
+ }
+ );
+ id = 1;
+ imgUrl = "";
+ name = "\U4e0a\U6d77\U73af\U5883";
+ personNum = 0;
+ personTypeId = 0;
+ type = 0;
+ uid = "<null>";
+ };
+ token = "";
+ }
+ (lldb) */
 /*
  
 "resultReqVo": {

@@ -24,7 +24,8 @@
 - (void)setModel:(GDFirstQuestionListModel *)model{
     
     if (model.firstOptionList.count>model.index) {
-        self.contentLabel.text = model.firstOptionList[model.index];
+        GDOptionModel *optionModel = model.firstOptionList[model.index];
+        self.contentLabel.text = optionModel.optionName;
         BOOL isSelected = [[model.writeModel.selectedArray objectAtIndex:model.index] boolValue];
         [self setOptionSelectedStatus:isSelected];
     }

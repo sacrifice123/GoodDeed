@@ -10,10 +10,9 @@
 #import "GDLaunchReadyView.h"
 #import "GDQuestionBaseView.h"
 #import "GDQuestionView.h"
-#import "GDLunchManager.h"
 #import "GDLaunchReadyView.h"
 #import "GDQuestionScrollView.h"
-
+#import "GDOrgAnimationView.h"
 //7大问题页面
 #import "GDSingleSelQuestionView.h"
 #import "GDMoreSelQuestionView.h"
@@ -74,8 +73,12 @@
 - (NSMutableArray *)pages{
     if (_pages == nil) {
         _pages = [NSMutableArray array];
-        
+      
+        __weak typeof(self) weakSelf = self;
         GDLaunchReadyView *readyView = [[GDLaunchReadyView alloc] initWithFrame:self.view.frame];
+        readyView.finishBlock = ^(NSInteger index) {
+            [weakSelf animationFinish:index];
+        };
         GDFirstQuestionListModel *model = [GDFirstQuestionListModel new];
         model.type = GDReadyType;
         [_pages addObject:readyView];
@@ -84,13 +87,8 @@
             
             GDQuestionView *view = [[GDQuestionView alloc] initWithFrame:self.view.frame listModel:model];
             view.isAnswer = NO;
-            __weak typeof(self) weakSelf = self;
-            view.finishBlock = ^(BOOL isFinish) {
-                if ([GDLunchManager sharedManager].suveryList.count>self.pageControl.currentPage) {
-                    [weakSelf.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH*(self.pageControl.currentPage+1), 0) animated:YES];
-                }else{
-                    [weakSelf presentViewController:[GDAnswerFinishViewController new] animated:YES completion:nil];
-                }
+            view.finishBlock = ^(NSInteger index) {
+                [weakSelf animationFinish:index];
             };
             [_pages addObject:view];
         }
@@ -100,6 +98,28 @@
     return _pages;
 }
 
+- (void)animationFinish:(NSInteger)index{
+    GDOrgAnimationView *view = [GDOrgAnimationView sharedView];
+    [view removeFromSuperview];
+    [self.view addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    [view animationStart:index completion:^(BOOL finished) {
+        
+        if (finished) {
+            if ([GDLunchManager sharedManager].suveryList.count>self.pageControl.currentPage) {
+                [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH*(index), 0) animated:YES];
+            }else{
+                [self presentViewController:[GDAnswerFinishViewController new] animated:YES completion:^{
+                    [GDOrgAnimationView destory];
+                }];
+            }
+            
+        }
+    }];
+}
 
 - (GDQuestionScrollView *)scrollView{
     
@@ -238,10 +258,7 @@
 - (void)readyClickedEvent:(BOOL)isAnimation{
     
     self.backButton.hidden = YES;
-    if (isAnimation) {
-        [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH, 0) animated:YES];
-
-    }
+    [self animationFinish:1];
 }
 
 @end

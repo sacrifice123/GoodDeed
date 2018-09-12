@@ -7,7 +7,6 @@
 //
 
 #import "GDLoginViewController.h"
-#import "GDLunchManager.h"
 
 @interface GDLoginViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

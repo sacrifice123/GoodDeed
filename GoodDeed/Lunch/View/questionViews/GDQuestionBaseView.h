@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GDFirstQuestionListModel.h"
 
-typedef void(^answerFinishBlock)(BOOL isFinish);
+typedef void(^answerFinishBlock)(NSInteger index);
 
 @interface GDQuestionBaseView : UIView
 
@@ -17,5 +17,5 @@ typedef void(^answerFinishBlock)(BOOL isFinish);
 @property (nonatomic, assign) BOOL isAnswer;
 @property (nonatomic, strong) answerFinishBlock finishBlock;
 
-- (void)finishAnswer;
+- (void)finishAnswer:(GDFirstQuestionListModel *)model;
 @end

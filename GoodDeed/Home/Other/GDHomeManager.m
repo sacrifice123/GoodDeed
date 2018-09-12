@@ -10,7 +10,6 @@
 #import "GDHomeViewController.h"
 #import "GDLeftViewController.h"
 #import "GDLaunchViewController.h"
-#import "GDLunchManager.h"
 #import <POP.h>
 @implementation GDHomeManager
 

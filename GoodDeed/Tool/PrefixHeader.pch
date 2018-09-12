@@ -19,6 +19,7 @@
 #import "UIView+HHLayout.h"
 #import "UIColor+HEX.h"
 #import "GDHomeManager.h"
+#import "GDLunchManager.h"
 #import <MBProgressHUD.h>
 #import "UIWindow+HUD.h"
 #import <YYModel.h>

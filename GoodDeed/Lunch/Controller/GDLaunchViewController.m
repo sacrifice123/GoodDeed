@@ -9,7 +9,6 @@
 #import "GDLaunchViewController.h"
 #import "GDKnowViewController.h"
 #import "GDLoginViewController.h"
-#import "GDLunchManager.h"
 
 @interface GDLaunchViewController ()
 @property (strong, nonatomic) IBOutlet UIView *startView;

@@ -138,6 +138,7 @@
 		E69C3FAA20CF6F6E004F5614 /* QuadrantRecognise.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3F9220CF6F6E004F5614 /* QuadrantRecognise.m */; };
 		E69C3FAE20CFA3E5004F5614 /* GDHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3FAC20CFA3E5004F5614 /* GDHomeViewController.m */; };
 		E69C3FB220CFB3C0004F5614 /* UIColor+HEX.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3FB020CFB3C0004F5614 /* UIColor+HEX.m */; };
+		E6A359BF2148A98A00BC5B64 /* GDOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A359BE2148A98A00BC5B64 /* GDOptionModel.m */; };
 		E6B39ACE211BD1000080772F /* GDBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39ACD211BD1000080772F /* GDBaseModel.m */; };
 		E6B39AD1211BD1130080772F /* GDFirstSurveyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD0211BD1130080772F /* GDFirstSurveyModel.m */; };
 		E6B39AD4211BDC300080772F /* GDFirstQuestionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD3211BDC300080772F /* GDFirstQuestionListModel.m */; };
@@ -400,6 +401,8 @@
 		E69C3FAC20CFA3E5004F5614 /* GDHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDHomeViewController.m; sourceTree = "<group>"; };
 		E69C3FB020CFB3C0004F5614 /* UIColor+HEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HEX.m"; sourceTree = "<group>"; };
 		E69C3FB120CFB3C0004F5614 /* UIColor+HEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HEX.h"; sourceTree = "<group>"; };
+		E6A359BD2148A98A00BC5B64 /* GDOptionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDOptionModel.h; sourceTree = "<group>"; };
+		E6A359BE2148A98A00BC5B64 /* GDOptionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDOptionModel.m; sourceTree = "<group>"; };
 		E6B39ACC211BD1000080772F /* GDBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseModel.h; sourceTree = "<group>"; };
 		E6B39ACD211BD1000080772F /* GDBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDBaseModel.m; sourceTree = "<group>"; };
 		E6B39ACF211BD1130080772F /* GDFirstSurveyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDFirstSurveyModel.h; sourceTree = "<group>"; };
@@ -936,6 +939,8 @@
 				E65BDC22212971C400F2D5C0 /* GDQuestionWriteModel.m */,
 				E64E381C2140BE6200BE5699 /* GDSortModel.h */,
 				E64E381D2140BE6200BE5699 /* GDSortModel.m */,
+				E6A359BD2148A98A00BC5B64 /* GDOptionModel.h */,
+				E6A359BE2148A98A00BC5B64 /* GDOptionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1203,6 +1208,7 @@
 				E6BE89D6211F231B00C3AEDC /* GDSearchOrganApi.m in Sources */,
 				E61A5F2121352DE70074D215 /* GDImageSelCell.m in Sources */,
 				E611FC1920DBA01100807E95 /* GDSlideQuestionView.m in Sources */,
+				E6A359BF2148A98A00BC5B64 /* GDOptionModel.m in Sources */,
 				E69C3FA920CF6F6E004F5614 /* AnimationScaleEnd.m in Sources */,
 				E69C3F9E20CF6F6E004F5614 /* AnimationTildEnd.m in Sources */,
 				E61A5EFC2134FCAB0074D215 /* GDSlideCell.m in Sources */,

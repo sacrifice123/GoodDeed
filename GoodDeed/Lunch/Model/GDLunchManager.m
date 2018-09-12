@@ -41,6 +41,14 @@ static GDLunchManager *manager;
     return self.surveyModel.firstQuestionList;
 }
 
+- (NSMutableArray *)writeReqVoList{
+    
+    if (_writeReqVoList == nil) {
+        _writeReqVoList = [[NSMutableArray alloc] init];
+    }
+    return _writeReqVoList;
+}
+
 /*登录
  type: 1邮箱 2手机号 3微信 4新浪 5用户名
  */
@@ -71,8 +79,18 @@ static GDLunchManager *manager;
             if ([[jsonData objectForKey:@"code"] integerValue] == 200&&[jsonData objectForKey:@"data"]) {
                 
                 GDFirstSurveyModel *surveyModel = [GDFirstSurveyModel yy_modelWithDictionary:[jsonData objectForKey:@"data"]];
+                surveyModel.firstQuestionList=[surveyModel.firstQuestionList sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+                    
+                    GDFirstQuestionListModel *model1 = (GDFirstQuestionListModel *)obj1;
+                    GDFirstQuestionListModel *model2 = (GDFirstQuestionListModel *)obj2;
+                    return model1.sort>model2.sort;
+                }];
+                for (int i=0; i<surveyModel.firstQuestionList.count; i++) {
+                    GDFirstQuestionListModel *model = surveyModel.firstQuestionList[i];
+                    model.sort = i+2;
+                }
                 [GDLunchManager sharedManager].surveyModel= surveyModel;
-                NSLog(@"%@",surveyModel.firstQuestionList);
+               // NSLog(@"%@",surveyModel.firstQuestionList);
 
             }else{
                 [GDWindow showWithString:@"请求失败"];
@@ -202,13 +220,15 @@ static GDLunchManager *manager;
     }else{
         switch (model.type) {
             case 1:{
-                height = [GDHelper calculateRectWithFont:20 Withtext:model.firstOptionList[indexPath.row] Withsize:CGSizeMake(SCREEN_WIDTH-90, MAXFLOAT)].height+43;
+                GDOptionModel *option = model.firstOptionList[indexPath.row];
+                height = [GDHelper calculateRectWithFont:20 Withtext:option.optionName Withsize:CGSizeMake(SCREEN_WIDTH-90, MAXFLOAT)].height+43;
 
             }
                 
                 break;
             case 2:{
-                height = [GDHelper calculateRectWithFont:20 Withtext:model.questionName Withsize:CGSizeMake(SCREEN_WIDTH-150, MAXFLOAT)].height;
+                GDOptionModel *option = model.firstOptionList[indexPath.row];
+                height = [GDHelper calculateRectWithFont:20 Withtext:option.optionName Withsize:CGSizeMake(SCREEN_WIDTH-150, MAXFLOAT)].height;
                 height = (height>35?height:35)+20;
                 
             }

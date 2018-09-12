@@ -13,6 +13,7 @@
 #define SCREEN_WIDTH    ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT   ([UIScreen mainScreen].bounds.size.height)
 #define Item_Space      15 //行间距
+#define animationStatus @"animationStatus"
 
 #import <UIKit/UIKit.h>
 static NSString *const GDBaseUrl = @"http://47.97.102.73/giraffe";//api基地址

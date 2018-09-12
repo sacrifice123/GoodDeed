@@ -25,7 +25,8 @@
 - (void)setModel:(GDFirstQuestionListModel *)model{
     
     if (model.firstOptionList.count>model.index) {
-        self.contentLabel.text = model.firstOptionList[model.index];
+        GDOptionModel *optionModel = model.firstOptionList[model.index];
+        self.contentLabel.text = optionModel.optionName;
     }
     if (self.isHighlighted) {
         [self.contentView setBackgroundColor:[UIColor redColor]];

@@ -7,7 +7,6 @@
 //
 
 #import "GDQuestionView.h"
-#import "GDLunchManager.h"
 #import "GDQuestionDescCell.h"
 //七个问题cell
 #import "GDSingleSelCell.h"
@@ -192,7 +191,7 @@
         switch (self.model.type) {
             case 1:{//单选题
                 
-                [self finishAnswer];
+                [self finishAnswer:self.model];
             }
                 
                 break;
@@ -209,7 +208,7 @@
             }
                 break;
             case 6:{//勾选图片题
-                [self finishAnswer];
+                [self finishAnswer:self.model];
             }
                 
                 break;
@@ -226,7 +225,7 @@
 
     for (NSNumber *obj in self.model.writeModel.selectedArray) {
         if ([obj boolValue]) {
-            [self finishAnswer];
+            [self finishAnswer:self.model];
             return;
         }
     }

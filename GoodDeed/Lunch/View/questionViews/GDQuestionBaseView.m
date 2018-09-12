@@ -10,24 +10,18 @@
 
 @implementation GDQuestionBaseView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-- (void)finishAnswer{
+
+- (void)finishAnswer:(GDFirstQuestionListModel *)model{
     
     if (self.finishBlock) {
         self.isAnswer = YES;
-        self.finishBlock(YES);
+        self.finishBlock(model.sort);
     }
     
 }
 
-- (void)layoutSubviews{
+- (BOOL)isAnimation{
     
-    
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:animationStatus] boolValue];
 }
 @end
