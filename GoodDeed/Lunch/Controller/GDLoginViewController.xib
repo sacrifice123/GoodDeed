@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GDLoginViewController">
             <connections>
+                <outlet property="backButton" destination="cgN-qm-Tb6" id="LPd-c8-2Jp"/>
                 <outlet property="checkButton" destination="JFK-si-psu" id="c15-ez-XXz"/>
                 <outlet property="loginButton" destination="I6t-Va-fx4" id="kVA-qH-Vxe"/>
                 <outlet property="mailTextField" destination="7Nt-rR-og8" id="uMB-He-yfF"/>
@@ -37,7 +38,7 @@
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Nt-rR-og8">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Nt-rR-og8">
                     <rect key="frame" x="44" y="204" width="287" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="uIq-ql-IfI"/>
@@ -46,7 +47,7 @@
                     <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="20"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qaw-sQ-olH">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qaw-sQ-olH">
                     <rect key="frame" x="44" y="264" width="287" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="2Q7-eu-d4B"/>
@@ -65,6 +66,12 @@
                     <state key="normal" title="注册">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="loginAndRegister:" destination="-1" eventType="touchUpInside" id="qeC-Fd-058"/>
                     </connections>
@@ -75,6 +82,9 @@
                         <constraint firstAttribute="height" constant="21" id="oMt-w3-HOi"/>
                     </constraints>
                     <state key="normal" title="已有账号，登录？"/>
+                    <connections>
+                        <action selector="forgetPwdOrLogin:" destination="-1" eventType="touchUpInside" id="DEi-Nz-13B"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

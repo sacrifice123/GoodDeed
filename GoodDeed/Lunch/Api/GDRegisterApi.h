@@ -10,4 +10,7 @@
 
 @interface GDRegisterApi : GDBaseApi
 
+- (instancetype)initWith:(NSString *)mail
+                password:(NSString *)password
+                    type:(NSNumber *)type;
 @end

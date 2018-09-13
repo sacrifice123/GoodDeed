@@ -112,7 +112,8 @@
             if ([GDLunchManager sharedManager].suveryList.count>self.pageControl.currentPage) {
                 [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH*(index), 0) animated:YES];
             }else{
-                [self presentViewController:[GDAnswerFinishViewController new] animated:YES completion:^{
+                GDBaseNavigationController *nav = [[GDBaseNavigationController alloc] initWithRootViewController:[GDAnswerFinishViewController new]];
+                [self presentViewController:nav animated:YES completion:^{
                     [GDOrgAnimationView destory];
                 }];
             }

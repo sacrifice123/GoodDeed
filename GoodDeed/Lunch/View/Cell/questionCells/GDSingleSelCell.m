@@ -21,9 +21,9 @@
     //
 }
 
-
-- (void)setModel:(GDFirstQuestionListModel *)model{
+- (void)refreshData:(GDFirstQuestionListModel *)model{
     
+    self.model = model;
     if (model.firstOptionList.count>model.index) {
         GDOptionModel *optionModel = model.firstOptionList[model.index];
         self.contentLabel.text = optionModel.optionName;
@@ -31,7 +31,7 @@
     if (self.isHighlighted) {
         [self.contentView setBackgroundColor:[UIColor redColor]];
     }else{
-         [self.contentView setBackgroundColor:[UIColor whiteColor]];
+        [self.contentView setBackgroundColor:[UIColor whiteColor]];
     }
 }
 

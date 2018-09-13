@@ -18,4 +18,22 @@
     return _selectedArray;
 }
 
+-(NSString *)optionOrder{
+
+    return _optionOrder?:@"";
+}
+
+- (NSString *)optionId{
+    return _optionId?:@"";
+}
+
+- (NSString *)content{
+    
+    return _content?:@"";
+}
+
+- (NSString *)questionId{
+    
+    return _questionId?:@"";
+}
 @end

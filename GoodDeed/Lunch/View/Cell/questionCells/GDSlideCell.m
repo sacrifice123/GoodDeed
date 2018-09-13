@@ -88,8 +88,9 @@
     return self;
 }
 
-- (void)setModel:(GDFirstQuestionListModel *)model{
+- (void)refreshData:(GDFirstQuestionListModel *)model{
     
+    self.model = model;
     GDOptionModel *leftOption = model.firstOptionList.firstObject;
     self.leftLabel.text = leftOption.optionName;
     GDOptionModel *rightOption = model.firstOptionList.lastObject;
@@ -103,6 +104,9 @@
     //只取整数值，固定间距
     NSString *tempStr = [self numberFormat:sender.value];
     [sender setValue:tempStr.floatValue];
+    self.model.writeModel.optionOrder = tempStr;
+    GDOptionModel *option = self.model.firstOptionList[(tempStr.floatValue<=6&&tempStr.floatValue>=1)?0:1];
+    self.model.writeModel.optionId = option.optionId;
     [self finishAnswer]; 
 }
 
@@ -110,6 +114,9 @@
 - (void)tapAction:(UITapGestureRecognizer *)sender
 {
     [self.slider setValue:self.slider.value];
+    self.model.writeModel.optionOrder = [NSString stringWithFormat:@"%f",self.slider.value];
+    GDOptionModel *option = self.model.firstOptionList[(self.slider.value<=6&&self.slider.value>=1)?0:1];
+    self.model.writeModel.optionId = option.optionId;
     [self finishAnswer];
 }
 

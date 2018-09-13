@@ -16,6 +16,7 @@
     if (self.finishBlock) {
         self.isAnswer = YES;
         self.finishBlock(model.sort);
+        [[GDLunchManager sharedManager] finishAnswerWithModel:model];
     }
     
 }

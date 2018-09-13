@@ -67,10 +67,11 @@
     return self;
 }
 
-- (void)setModel:(GDFirstQuestionListModel *)model{
+- (void)refreshData:(GDFirstQuestionListModel *)model{
     
+    self.model = model;
     [self.titleView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-
+    
     for (int i=0; i<model.firstOptionList.count; i++) {
         
         CGFloat space = (SCREEN_WIDTH-80)/(model.firstOptionList.count-1.0);
@@ -88,15 +89,21 @@
             make.top.equalTo(line.mas_bottom).offset(10);
             make.centerX.equalTo(line.mas_centerX);
         }];
-
+        
     }
 }
+
 
 - (void)valueChanged:(UISlider *)sender
 {
     //只取整数值，固定间距
     NSString *tempStr = [self numberFormat:sender.value];
     [sender setValue:tempStr.floatValue];
+    if (self.model.firstOptionList.count>tempStr.integerValue-1) {
+        GDOptionModel *option = self.model.firstOptionList[tempStr.integerValue-1];
+        self.model.writeModel.optionId = option.optionId;
+
+    }
     [self finishAnswer];
     
 }
@@ -105,6 +112,12 @@
 {
     
     [self.slider setValue:self.slider.value];
+    NSInteger index = self.slider.value-1;
+    if (self.model.firstOptionList.count>index) {
+        GDOptionModel *option = self.model.firstOptionList[index];
+        self.model.writeModel.optionId = option.optionId;
+
+    }
     [self finishAnswer];
 }
 

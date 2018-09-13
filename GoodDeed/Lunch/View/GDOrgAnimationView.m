@@ -136,6 +136,7 @@ static GDOrgAnimationView *_view;
   //  [self.bgView bringSubviewToFront:self.progressView];
     [UIView animateWithDuration:0.5 animations:^{
         if (self.isAnimation) {
+            self.imgView.image = [UIImage imageNamed:@"progress_image"];
             self.progressView.hidden = NO;
             self.progressView.progress = (self.organList.count>0?(1.0*index/(self.organList.count+1)):1.0*index/7);
 

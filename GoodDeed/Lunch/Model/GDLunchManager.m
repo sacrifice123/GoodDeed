@@ -8,6 +8,7 @@
 
 #import "GDLunchManager.h"
 #import "GDLoginApi.h"
+#import "GDRegisterApi.h"
 #import "GDGetFirstSurveyApi.h"
 #import "GDGetOrganListApi.h"
 #import "GDOrganModel.h"
@@ -47,6 +48,23 @@ static GDLunchManager *manager;
         _writeReqVoList = [[NSMutableArray alloc] init];
     }
     return _writeReqVoList;
+}
+
+/*注册
+ type: 1邮箱 2手机号 3微信 4新浪 5用户名
+ */
++ (void)registerWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type completionBlock:(void(^)(BOOL))block{
+    
+    GDRegisterApi *api = [[GDRegisterApi alloc] initWith:mail password:password type:type];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        
+        
+    } failure:^(YTKBaseRequest *request) {
+        
+        [GDWindow showWithString:@"网络异常"];
+    }];
+    
 }
 
 /*登录
@@ -334,4 +352,75 @@ static GDLunchManager *manager;
     
 }
 
+- (void)finishAnswerWithModel:(GDFirstQuestionListModel *)model{
+   
+    switch (model.type) {
+        case 1://单选题
+        case 3://滑动题
+        case 4://定量题
+        case 6://勾选图片题
+        case 7://填写题
+        {
+            for (GDQuestionWriteModel *obj in self.writeReqVoList) {
+                if ([obj.questionId isEqualToString:model.writeModel.questionId]) {
+                    obj.optionId = model.writeModel.optionId;
+                    return;
+                }
+            }
+            [self createWriteModel:model.writeModel optionId:model.writeModel.optionId];
+        }
+            
+            break;
+        case 2:{//多选题
+            NSMutableArray *array = [NSMutableArray arrayWithArray:self.writeReqVoList];
+            for (GDQuestionWriteModel *obj in array) {
+                if ([obj.questionId isEqualToString:model.writeModel.questionId]) {
+                    obj.optionId = model.writeModel.optionId;
+                    [self.writeReqVoList removeObject:obj];
+                }
+            }
+
+            for (NSNumber *obj in model.writeModel.selectedArray) {
+                if ([obj boolValue]) {
+                    NSInteger index = [model.writeModel.selectedArray indexOfObject:obj];
+                    GDOptionModel *option = model.firstOptionList[index];
+                    [self createWriteModel:model.writeModel optionId:option.optionId];
+                }
+            }
+        }
+            
+            break;
+        case 5:{//排序题
+            NSMutableArray *array = [NSMutableArray arrayWithArray:self.writeReqVoList];
+            for (GDQuestionWriteModel *obj in array) {
+                if ([obj.questionId isEqualToString:model.writeModel.questionId]) {
+                    obj.optionId = model.writeModel.optionId;
+                    [self.writeReqVoList removeObject:obj];
+                }
+            }
+
+            for (GDQuestionWriteModel *obj in model.writeModel.selectedArray) {
+                [self.writeReqVoList addObject:obj];
+            }
+            
+        }
+            break;
+        default:{
+        }
+            break;
+    }
+    
+}
+
+- (void)createWriteModel:(GDQuestionWriteModel *)model optionId:(NSString *)optionId{
+    
+    GDQuestionWriteModel *writeModel = [GDQuestionWriteModel new];
+    writeModel.content = model.content;
+    writeModel.optionId = optionId;
+    writeModel.questionId = model.questionId;
+    writeModel.type = model.type;
+    writeModel.optionOrder = model.optionOrder;
+    [self.writeReqVoList addObject:writeModel];
+
+}
 @end

@@ -32,9 +32,9 @@
     
 }
 
-- (void)setModel:(GDFirstQuestionListModel *)model{
+- (void)refreshData:(GDFirstQuestionListModel *)model{
     
-    
+    self.model = model;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -54,6 +54,7 @@
     if ([text isEqualToString:@"\n"]){ //判断输入的字是否是回车，即按下return
         if (textView.text&&textView.text.length>0) {
             self.model.writeModel.content = textView.text;
+            self.model.writeModel.optionId = @"0";
             [self finishAnswer];
             [textView resignFirstResponder];
 

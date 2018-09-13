@@ -167,6 +167,11 @@ referenceSizeForHeaderInSection: (NSInteger)section{
 //选择后继续
 - (void)chooseButtonClicked{
     UIViewController *superVc = [GDHelper getSuperVc:self];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:[GDLunchManager sharedManager].selectOrganModel.organId forKey:@"organId"];
+    [dic setObject:[GDLunchManager sharedManager].selectOrganModel.name forKey:@"name"];
+    [dic setObject:[GDLunchManager sharedManager].selectOrganModel.imgUrl  forKey:@"imgUrl"];
+    [[NSUserDefaults standardUserDefaults] setObject:dic forKey:organModelCache];
     [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:animationStatus];
     [superVc dismissViewControllerAnimated:YES completion:^{
         

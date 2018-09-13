@@ -20,11 +20,10 @@
     // Initialization code
 }
 
-
-- (void)setModel:(GDFirstQuestionListModel *)model{
+- (void)refreshData:(GDFirstQuestionListModel *)model{
     
+    self.model = model;
     self.titleLabel.text = model.questionName;
-    
 }
 
 @end

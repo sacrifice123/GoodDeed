@@ -139,6 +139,10 @@
 		E69C3FAE20CFA3E5004F5614 /* GDHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3FAC20CFA3E5004F5614 /* GDHomeViewController.m */; };
 		E69C3FB220CFB3C0004F5614 /* UIColor+HEX.m in Sources */ = {isa = PBXBuildFile; fileRef = E69C3FB020CFB3C0004F5614 /* UIColor+HEX.m */; };
 		E6A359BF2148A98A00BC5B64 /* GDOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A359BE2148A98A00BC5B64 /* GDOptionModel.m */; };
+		E6A359C3214A7F5C00BC5B64 /* GDResetPwdController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A359C1214A7F5C00BC5B64 /* GDResetPwdController.m */; };
+		E6A359C4214A7F5C00BC5B64 /* GDResetPwdController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A359C2214A7F5C00BC5B64 /* GDResetPwdController.xib */; };
+		E6A359C8214A7F8A00BC5B64 /* GDReLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A359C6214A7F8A00BC5B64 /* GDReLoginViewController.m */; };
+		E6A359C9214A7F8A00BC5B64 /* GDReLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A359C7214A7F8A00BC5B64 /* GDReLoginViewController.xib */; };
 		E6B39ACE211BD1000080772F /* GDBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39ACD211BD1000080772F /* GDBaseModel.m */; };
 		E6B39AD1211BD1130080772F /* GDFirstSurveyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD0211BD1130080772F /* GDFirstSurveyModel.m */; };
 		E6B39AD4211BDC300080772F /* GDFirstQuestionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD3211BDC300080772F /* GDFirstQuestionListModel.m */; };
@@ -403,6 +407,12 @@
 		E69C3FB120CFB3C0004F5614 /* UIColor+HEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HEX.h"; sourceTree = "<group>"; };
 		E6A359BD2148A98A00BC5B64 /* GDOptionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDOptionModel.h; sourceTree = "<group>"; };
 		E6A359BE2148A98A00BC5B64 /* GDOptionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDOptionModel.m; sourceTree = "<group>"; };
+		E6A359C0214A7F5C00BC5B64 /* GDResetPwdController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDResetPwdController.h; sourceTree = "<group>"; };
+		E6A359C1214A7F5C00BC5B64 /* GDResetPwdController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDResetPwdController.m; sourceTree = "<group>"; };
+		E6A359C2214A7F5C00BC5B64 /* GDResetPwdController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDResetPwdController.xib; sourceTree = "<group>"; };
+		E6A359C5214A7F8A00BC5B64 /* GDReLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDReLoginViewController.h; sourceTree = "<group>"; };
+		E6A359C6214A7F8A00BC5B64 /* GDReLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDReLoginViewController.m; sourceTree = "<group>"; };
+		E6A359C7214A7F8A00BC5B64 /* GDReLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDReLoginViewController.xib; sourceTree = "<group>"; };
 		E6B39ACC211BD1000080772F /* GDBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseModel.h; sourceTree = "<group>"; };
 		E6B39ACD211BD1000080772F /* GDBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDBaseModel.m; sourceTree = "<group>"; };
 		E6B39ACF211BD1130080772F /* GDFirstSurveyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDFirstSurveyModel.h; sourceTree = "<group>"; };
@@ -474,8 +484,6 @@
 		49DF7F6D2131A53100906B4C /* questionViews */ = {
 			isa = PBXGroup;
 			children = (
-				E611FC0E20DB9EF300807E95 /* GDQuestionBaseView.h */,
-				E611FC0F20DB9EF300807E95 /* GDQuestionBaseView.m */,
 				E611FC1120DB9FD100807E95 /* GDSingleSelQuestionView.h */,
 				E611FC1220DB9FD100807E95 /* GDSingleSelQuestionView.m */,
 				E611FC1420DB9FE800807E95 /* GDMoreSelQuestionView.h */,
@@ -753,6 +761,8 @@
 			children = (
 				E61A5F3A213802130074D215 /* GDQuestionScrollView.h */,
 				E61A5F3B213802130074D215 /* GDQuestionScrollView.m */,
+				E611FC0E20DB9EF300807E95 /* GDQuestionBaseView.h */,
+				E611FC0F20DB9EF300807E95 /* GDQuestionBaseView.m */,
 				E61A5EFD213519530074D215 /* GDQuestionView.h */,
 				E61A5EFE213519530074D215 /* GDQuestionView.m */,
 				E63FABE42140EB540066BDE4 /* GDMoveButton.h */,
@@ -808,6 +818,12 @@
 				49594A53212F0B0200402ADB /* GDOpenNotiViewController.xib */,
 				E612DD7D21328E4200B4B774 /* GDBaseNavigationController.h */,
 				E612DD7E21328E4200B4B774 /* GDBaseNavigationController.m */,
+				E6A359C0214A7F5C00BC5B64 /* GDResetPwdController.h */,
+				E6A359C1214A7F5C00BC5B64 /* GDResetPwdController.m */,
+				E6A359C2214A7F5C00BC5B64 /* GDResetPwdController.xib */,
+				E6A359C5214A7F8A00BC5B64 /* GDReLoginViewController.h */,
+				E6A359C6214A7F8A00BC5B64 /* GDReLoginViewController.m */,
+				E6A359C7214A7F8A00BC5B64 /* GDReLoginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1063,6 +1079,7 @@
 				E611FBF820DA42CC00807E95 /* animation_9.jpg in Resources */,
 				E611FC0920DA42CC00807E95 /* animation_3.jpg in Resources */,
 				49594A50212F01CF00402ADB /* GDAnswerFinishViewController.xib in Resources */,
+				E6A359C9214A7F8A00BC5B64 /* GDReLoginViewController.xib in Resources */,
 				E692347920E4AE5000AF1585 /* GDLoginViewController.xib in Resources */,
 				E61A5F18213529930074D215 /* GDSingleSelCell.xib in Resources */,
 				E611FC0420DA42CC00807E95 /* animation_4.jpg in Resources */,
@@ -1081,6 +1098,7 @@
 				E611FBFF20DA42CC00807E95 /* animation_11.jpg in Resources */,
 				E611FC0320DA42CC00807E95 /* animation_19.jpg in Resources */,
 				E611FBF920DA42CC00807E95 /* animation_14.jpg in Resources */,
+				E6A359C4214A7F5C00BC5B64 /* GDResetPwdController.xib in Resources */,
 				E611FBFA20DA42CC00807E95 /* animation_15.jpg in Resources */,
 				E611FBFE20DA42CC00807E95 /* animation_13.jpg in Resources */,
 				E6655CD420C51391005B46C3 /* Assets.xcassets in Resources */,
@@ -1169,6 +1187,7 @@
 				E65E68C120D0EC0F003E07CB /* GDEditViewController.m in Sources */,
 				E69C3FA720CF6F6E004F5614 /* AnimationErectEnd.m in Sources */,
 				E65BDC23212971C400F2D5C0 /* GDQuestionWriteModel.m in Sources */,
+				E6A359C8214A7F8A00BC5B64 /* GDReLoginViewController.m in Sources */,
 				E6F1435D21198EEC0038A9D6 /* GDBaseApi.m in Sources */,
 				E69C3F9C20CF6F6E004F5614 /* AnimationTiltBegin.m in Sources */,
 				49F0A78420D171B500CD06C3 /* GDEditButton.m in Sources */,
@@ -1177,6 +1196,7 @@
 				E611FC1620DB9FE800807E95 /* GDMoreSelQuestionView.m in Sources */,
 				E61F433720E22E91004D2E09 /* GDPGHeaderView.m in Sources */,
 				E69C3FA520CF6F6E004F5614 /* AnimationErectBegin.m in Sources */,
+				E6A359C3214A7F5C00BC5B64 /* GDResetPwdController.m in Sources */,
 				E65BDC2021294F4300F2D5C0 /* GDQuestionHeadView.m in Sources */,
 				49750EFE213AC73300779DDC /* GDSlider.m in Sources */,
 				E611FC1020DB9EF300807E95 /* GDQuestionBaseView.m in Sources */,

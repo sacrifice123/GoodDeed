@@ -86,7 +86,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GDQuestionBaseCell *cell = [GDLunchManager collectionView:collectionView surveyType:self.model.type cellForItemAtIndexPath:indexPath];
     self.model.index = indexPath.row;
-    cell.model = self.model;
+    [cell refreshData:self.model];
     return cell;
 }
 
@@ -189,8 +189,14 @@
     }else{
         
         switch (self.model.type) {
-            case 1:{//单选题
-                
+            case 1://单选题
+            case 6://勾选图片题
+            {
+                if (self.model.firstOptionList.count>indexPath.row) {
+                    GDOptionModel *model = self.model.firstOptionList[indexPath.row];
+                    self.model.writeModel.optionId = model.optionId;
+
+                }
                 [self finishAnswer:self.model];
             }
                 
@@ -206,11 +212,6 @@
                 }
 
             }
-                break;
-            case 6:{//勾选图片题
-                [self finishAnswer:self.model];
-            }
-                
                 break;
             default:
                 break;

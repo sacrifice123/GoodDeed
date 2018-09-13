@@ -35,8 +35,9 @@
     return _bgView;
 }
 
-- (void)setModel:(GDFirstQuestionListModel *)model{
+- (void)refreshData:(GDFirstQuestionListModel *)model{
     
+    self.model = model;
     if ([self.contentView.subviews containsObject:self.bgView]) {
         return;
     }
@@ -66,13 +67,15 @@
         item.tag = i;
         GDOptionModel *optionModel = model.firstOptionList[i];
         item.text = optionModel.optionName;
+        item.optionId = optionModel.optionId;
         [self.bgView addSubview:item];
+        
         GDSortModel *model = [[GDSortModel alloc] init];
         model.button = button;
         //model.item = item;
         [targetArray addObject:model];
-
-
+        
+        
     }
 }
 

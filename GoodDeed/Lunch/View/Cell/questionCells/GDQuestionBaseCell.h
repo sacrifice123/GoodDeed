@@ -15,4 +15,6 @@
 
 - (void)enableScroll:(BOOL)isEnable;
 - (void)finishAnswer;
+- (void)refreshData:(GDFirstQuestionListModel *)model;
+
 @end

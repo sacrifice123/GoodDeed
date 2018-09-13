@@ -7,6 +7,7 @@
 //
 
 #import "GDAnswerFinishViewController.h"
+#import "GDLoginViewController.h"
 
 @interface GDAnswerFinishViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
@@ -18,22 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.navigationController.navigationBarHidden = YES;
     self.contentLabel.text = @"请创建一个账号，这样我们就可以把\n善款捐给红十字会";
+    //NSMutableArray *array = [GDLunchManager sharedManager].writeReqVoList;
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)create:(id)sender {
+    
+    GDLoginViewController *login = [GDLoginViewController new];
+    login.isUser = NO;
+    [self.navigationController pushViewController:login animated:YES];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

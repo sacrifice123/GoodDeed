@@ -96,19 +96,20 @@
     self.alpha = 1;
     self.backgroundColor = [UIColor colorWithHexString:@"#EEEEEE"];
     self.textColor = [UIColor colorWithHexString:@"#666666"];
+    __weak typeof(self) weakself = self;
     for (GDSortModel*model in self.targetArray) {
         if (model.selected) {
-            if (model.item==nil||(model.item==self)) {
+            if (model.item==nil||(model.item==weakself)) {
                 self.backgroundColor = [UIColor colorWithHexString:@"#2E3192"];
                 self.textColor = [UIColor whiteColor];
                 [self stop];
-                model.item = self;
+                model.item = weakself;
                 self.frame = model.button.frame;
+                self.position = model.button.tag;
                // model.button.hidden = YES;
             }
            // break;
         }
-        
         
     }
     CGPoint center = self.center;
@@ -195,14 +196,25 @@
 
 }
 
-//查看排序状态
+//查看排序状态-->提交答案
 - (void)checkFinishStatus{
+    GDQuestionBaseView *view = (GDQuestionBaseView *)[GDHelper getTargetView:[GDQuestionBaseView class] view:self];
     for (GDSortModel*model in self.targetArray) {
         if (!model.selected) {
             return;
         }
     }
-    GDQuestionBaseView *view = (GDQuestionBaseView *)[GDHelper getTargetView:[GDQuestionBaseView class] view:self];
+  
+    [view.model.writeModel.selectedArray removeAllObjects];
+    for (GDSortModel*model in self.targetArray) {
+        GDQuestionWriteModel *writeModel = [GDQuestionWriteModel new];
+        writeModel.optionId = model.item.optionId;
+        writeModel.optionOrder = [NSString stringWithFormat:@"%li",model.item.position];
+        writeModel.questionId = view.model.writeModel.questionId;
+        writeModel.type = view.model.type;
+        [view.model.writeModel.selectedArray addObject:writeModel];
+    }
+
     [view finishAnswer:view.model];
 
 }

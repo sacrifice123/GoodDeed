@@ -15,4 +15,8 @@
     // Initialization code
 }
 
+- (void)refreshData:(GDFirstQuestionListModel *)model{
+    
+    self.model = model;
+}
 @end
