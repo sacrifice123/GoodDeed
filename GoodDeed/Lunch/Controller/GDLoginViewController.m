@@ -8,6 +8,7 @@
 
 #import "GDLoginViewController.h"
 #import "GDResetPwdController.h"
+#import "GDOpenNotiViewController.h"
 
 @interface GDLoginViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -17,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) UITextField *textField;
+@property (weak, nonatomic) IBOutlet UIView *textView;
+@property (weak, nonatomic) IBOutlet UIView *pwdView;
+
 @end
 
 @implementation GDLoginViewController
@@ -24,11 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.mailTextField.layer.borderWidth = 1;
-    self.mailTextField.layer.borderColor = [UIColor colorWithHexString:@"#CCCCCC"].CGColor;
+    self.textView.layer.borderWidth = 1;
+    self.textView.layer.borderColor = [UIColor colorWithHexString:@"#CCCCCC"].CGColor;
     
-    self.pwdTextField.layer.borderWidth = 1;
-    self.pwdTextField.layer.borderColor = [UIColor colorWithHexString:@"#CCCCCC"].CGColor;
+    self.pwdView.layer.borderWidth = 1;
+    self.pwdView.layer.borderColor = [UIColor colorWithHexString:@"#CCCCCC"].CGColor;
 
     if (self.isUser) {
         self.titleLabel.text = @"通过邮箱登录：";
@@ -46,15 +50,29 @@
 //登录与注册
 - (IBAction)loginAndRegister:(id)sender {
     
+    [self.view endEditing:YES];
     if (self.isUser) {//登陆
         [GDLunchManager loginWithMail:self.mailTextField.text password:self.pwdTextField.text type:@1 token:@"" completionBlock:^(BOOL result) {
+            if (result) {
+                [self dismissViewControllerAnimated:YES completion:^{
+                    GDWindow.rootViewController = [GDHomeManager getRootController:YES];
+                    
+                }];
+                
+            }
             
         }];
 
     }else{//注册
         [GDLunchManager registerWithMail:self.mailTextField.text password:self.pwdTextField.text type:@1 completionBlock:^(BOOL result) {
             
-            
+            if (result) {
+                [self dismissViewControllerAnimated:YES completion:^{
+                    GDWindow.rootViewController = [[GDBaseNavigationController alloc] initWithRootViewController:[GDOpenNotiViewController new]];
+                    
+                }];
+
+            }
             
         }];
         
@@ -73,6 +91,7 @@
     
 }
 
+//忘记密码/登录
 - (IBAction)forgetPwdOrLogin:(id)sender {
     
     if (self.isUser) {//忘记密码
@@ -108,4 +127,10 @@
     self.textField = alert.textFields.lastObject;
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    [self.view endEditing:YES];
+}
+
 @end

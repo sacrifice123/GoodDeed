@@ -11,5 +11,6 @@
 @interface GDPGChooseViewController : UIViewController
 
 @property (nonatomic, strong) NSArray *organList;
+@property (nonatomic, assign) BOOL isClose;
 
 @end

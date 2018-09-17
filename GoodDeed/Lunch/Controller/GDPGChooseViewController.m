@@ -19,6 +19,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     GDPGChooseView *chooseView = [[GDPGChooseView alloc] initWithFrame:self.view.frame];
+    chooseView.isClose = self.isClose;
     [self.view addSubview:chooseView];
     if (self.organList&&self.organList.count>0) {
         [chooseView reloadWithDatas:self.organList];

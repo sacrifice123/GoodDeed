@@ -9,6 +9,8 @@
 #import "SCAdView.h"
 #import "SCAdCollectionViewLayout.h"
 #import "GDBaseCell.h"
+#import "GDCollectionView.h"
+
 ///默认的自动轮播的时间间隔
 #define SC_BUILDER_DEFAULT_AUTO_SCROLL_CYCLE 1.0
 ///2D时自动计算linespacing的倍数
@@ -131,7 +133,7 @@
     layout.sectionInset = UIEdgeInsetsMake(0, x_inset, 0, x_inset);
     }
     layout.sectionInset = UIEdgeInsetsMake(0, Item_Space, 0, Item_Space);
-    self.collectionView = [[UICollectionView alloc]initWithFrame:(CGRect){0,0,self.frame.size} collectionViewLayout:layout];
+    self.collectionView = [[GDCollectionView alloc]initWithFrame:(CGRect){0,0,self.frame.size} collectionViewLayout:layout];
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.delegate = self;
@@ -149,10 +151,12 @@
     }
     [self addSubview:self.collectionView];
 
+
 }
 
 -(void)layoutSubviews{
     [super layoutSubviews];
+    
     if(_builder.allowedInfinite){
         CGPoint offet;
         if (_builder.autoScrollDirection<=1) {

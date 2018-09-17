@@ -154,7 +154,7 @@ static GDOrgAnimationView *_view;
                 [array addObject:image];
             }
             self.imgView.animationImages = array;
-            self.imgView.animationDuration = 2.5;
+            self.imgView.animationDuration = 2.0;
             self.imgView.animationRepeatCount = 1;
             [self.imgView startAnimating];
             self.imgView.image = [UIImage imageNamed:@"tap_image"];
@@ -187,6 +187,7 @@ static GDOrgAnimationView *_view;
     if (!view.isAnimating&&!self.isAnimation) {//轮播停止后点击选择公益组织
         UIViewController *vc = [GDHelper getSuperVc:view];
         GDPGChooseViewController *pgVc = [[GDPGChooseViewController alloc] init];
+        pgVc.isClose = YES;
         for (GDOrganModel *model in self.organList) {
             model.isSelected = NO;
         }

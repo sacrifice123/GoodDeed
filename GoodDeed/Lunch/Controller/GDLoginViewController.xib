@@ -16,6 +16,8 @@
                 <outlet property="loginButton" destination="I6t-Va-fx4" id="kVA-qH-Vxe"/>
                 <outlet property="mailTextField" destination="7Nt-rR-og8" id="uMB-He-yfF"/>
                 <outlet property="pwdTextField" destination="Qaw-sQ-olH" id="H6J-Y4-BSG"/>
+                <outlet property="pwdView" destination="ny0-Dr-WOO" id="H3s-WG-elB"/>
+                <outlet property="textView" destination="wQC-R9-CWz" id="f0I-7C-EJo"/>
                 <outlet property="titleLabel" destination="0kJ-dS-bA1" id="NpA-sP-its"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -38,8 +40,16 @@
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Nt-rR-og8">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQC-R9-CWz" userLabel="textView">
                     <rect key="frame" x="44" y="204" width="287" height="55"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ny0-Dr-WOO" userLabel="pwdView">
+                    <rect key="frame" x="44" y="264" width="287" height="55"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Nt-rR-og8">
+                    <rect key="frame" x="60" y="204" width="271" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="uIq-ql-IfI"/>
                     </constraints>
@@ -47,14 +57,14 @@
                     <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="20"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qaw-sQ-olH">
-                    <rect key="frame" x="44" y="264" width="287" height="55"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qaw-sQ-olH">
+                    <rect key="frame" x="60" y="264" width="271" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="2Q7-eu-d4B"/>
                     </constraints>
                     <color key="textColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="20"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6t-Va-fx4">
                     <rect key="frame" x="44" y="334" width="287" height="55"/>
@@ -90,20 +100,28 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Qaw-sQ-olH" firstAttribute="leading" secondItem="7Nt-rR-og8" secondAttribute="leading" id="0jF-hD-ti2"/>
+                <constraint firstItem="wQC-R9-CWz" firstAttribute="trailing" secondItem="7Nt-rR-og8" secondAttribute="trailing" id="17A-Y7-qRU"/>
                 <constraint firstItem="JFK-si-psu" firstAttribute="top" secondItem="I6t-Va-fx4" secondAttribute="bottom" constant="23" id="7A3-kt-p5h"/>
                 <constraint firstItem="I6t-Va-fx4" firstAttribute="trailing" secondItem="Qaw-sQ-olH" secondAttribute="trailing" id="8h5-91-LFh"/>
                 <constraint firstItem="Qaw-sQ-olH" firstAttribute="trailing" secondItem="7Nt-rR-og8" secondAttribute="trailing" id="98X-1B-h9V"/>
                 <constraint firstItem="I6t-Va-fx4" firstAttribute="top" secondItem="Qaw-sQ-olH" secondAttribute="bottom" constant="15" id="Fdz-fq-Wuo"/>
+                <constraint firstItem="ny0-Dr-WOO" firstAttribute="bottom" secondItem="Qaw-sQ-olH" secondAttribute="bottom" id="GFj-N6-Q1A"/>
                 <constraint firstItem="7Nt-rR-og8" firstAttribute="top" secondItem="0kJ-dS-bA1" secondAttribute="bottom" constant="25" id="Neb-H0-DQe"/>
+                <constraint firstItem="ny0-Dr-WOO" firstAttribute="top" secondItem="Qaw-sQ-olH" secondAttribute="top" id="ONJ-Uk-yU1"/>
                 <constraint firstItem="cgN-qm-Tb6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="Q2x-yN-uBT"/>
                 <constraint firstItem="0kJ-dS-bA1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="144" id="QKd-My-0Pa"/>
-                <constraint firstItem="I6t-Va-fx4" firstAttribute="leading" secondItem="Qaw-sQ-olH" secondAttribute="leading" id="QLz-e4-Rvu"/>
+                <constraint firstItem="I6t-Va-fx4" firstAttribute="leading" secondItem="Qaw-sQ-olH" secondAttribute="leading" constant="-16" id="QLz-e4-Rvu"/>
                 <constraint firstItem="0kJ-dS-bA1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Y4i-xd-ZIn"/>
+                <constraint firstItem="ny0-Dr-WOO" firstAttribute="trailing" secondItem="Qaw-sQ-olH" secondAttribute="trailing" id="Z6P-Te-Y0r"/>
+                <constraint firstItem="wQC-R9-CWz" firstAttribute="bottom" secondItem="7Nt-rR-og8" secondAttribute="bottom" id="aRc-sV-I3D"/>
+                <constraint firstItem="wQC-R9-CWz" firstAttribute="top" secondItem="7Nt-rR-og8" secondAttribute="top" id="ePO-ax-SoP"/>
                 <constraint firstItem="cgN-qm-Tb6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="k2b-PG-A61"/>
+                <constraint firstItem="ny0-Dr-WOO" firstAttribute="leading" secondItem="Qaw-sQ-olH" secondAttribute="leading" constant="-16" id="qXp-0B-rOe"/>
                 <constraint firstAttribute="trailing" secondItem="7Nt-rR-og8" secondAttribute="trailing" constant="44" id="urO-WA-iK1"/>
                 <constraint firstItem="JFK-si-psu" firstAttribute="trailing" secondItem="I6t-Va-fx4" secondAttribute="trailing" id="wHe-nO-p6g"/>
+                <constraint firstItem="wQC-R9-CWz" firstAttribute="leading" secondItem="7Nt-rR-og8" secondAttribute="leading" constant="-16" id="wYR-eb-RC0"/>
                 <constraint firstItem="Qaw-sQ-olH" firstAttribute="top" secondItem="7Nt-rR-og8" secondAttribute="bottom" constant="5" id="y7F-XF-zmH"/>
-                <constraint firstItem="7Nt-rR-og8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="44" id="yYb-8B-fzI"/>
+                <constraint firstItem="7Nt-rR-og8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="yYb-8B-fzI"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="346.5" y="-78.5"/>

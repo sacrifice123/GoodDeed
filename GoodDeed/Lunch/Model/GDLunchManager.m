@@ -58,7 +58,15 @@ static GDLunchManager *manager;
     GDRegisterApi *api = [[GDRegisterApi alloc] initWith:mail password:password type:type];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
-        
+        if (request.responseJSONObject&&[[request.responseJSONObject objectForKey:@"code"] integerValue] == 200) {
+            [self loginWithMail:mail password:password type:type token:@"" isFirst:YES completionBlock:^(BOOL result) {
+                block(result);
+            }];
+            
+        }else{
+            [GDWindow showWithString:@"服务器异常"];
+        }
+
         
     } failure:^(YTKBaseRequest *request) {
         
@@ -70,18 +78,37 @@ static GDLunchManager *manager;
 /*登录
  type: 1邮箱 2手机号 3微信 4新浪 5用户名
  */
-+ (void)loginWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token completionBlock:(void(^)(BOOL))block{
++ (void)loginWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token isFirst:(BOOL)isFirst completionBlock:(void(^)(BOOL))block{
     
     GDLoginApi *api = [[GDLoginApi alloc] initWith:mail password:password type:type token:token];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
-        
+        if (request.responseJSONObject&&[[request.responseJSONObject objectForKey:@"code"] integerValue] == 200) {
+            if (isFirst&&[request.responseJSONObject objectForKey:@"token"]) {
+                NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                NSString *time = [GDHelper getNowTimestamp];
+                [dic setObject:[request.responseJSONObject objectForKey:@"token"] forKey:@"token"];
+                [dic setObject:time forKey:@"time"];
+                [[NSUserDefaults standardUserDefaults] setObject:dic forKey:tokenCache];
+            }
+            block(YES);
+        }else{
+            [GDWindow showWithString:@"服务器异常"];
+        }
         
     } failure:^(YTKBaseRequest *request) {
         
         [GDWindow showWithString:@"网络异常"];
     }];
+
+}
+
+
++ (void)loginWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token completionBlock:(void(^)(BOOL))block{
     
+    [self loginWithMail:mail password:password type:type token:token isFirst:NO completionBlock:^(BOOL result) {
+        block(result);
+    }];
 }
 
 

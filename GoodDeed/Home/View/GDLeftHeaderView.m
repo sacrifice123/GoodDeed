@@ -8,14 +8,30 @@
 
 #import "GDLeftHeaderView.h"
 
+@interface GDLeftHeaderView()
+
+@property (weak, nonatomic) IBOutlet UIButton *imageButton;
+
+@end
 @implementation GDLeftHeaderView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib{
+    
+    [super awakeFromNib];
+    
+    __weak typeof(self) weakSelf = self;
+    self.imageBlock = ^(UIImage *image) {
+        [weakSelf.imageButton setBackgroundImage:image forState:0];
+        
+    };
 }
-*/
+
+
+- (IBAction)chooseImage:(id)sender {
+    
+    if (self.chooseBlock) {
+        self.chooseBlock();
+    }
+}
 
 @end

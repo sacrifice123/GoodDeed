@@ -62,11 +62,11 @@
             @"password":_password?:@"",
             @"resultReqVo": @{
                     @"organId": organDic?[organDic objectForKey:@"organId"]:@"",
-                @"writeReqVo": @{
+                    @"writeReqVo": @{
                             @"surveyId": [GDLunchManager sharedManager].surveyModel.surveyId?:@"",
                             @"uid": [GDLunchManager sharedManager].surveyModel.uid?:@"",
-                    @"writeReqVoList": writeReqVoList
-                }
+                            @"writeReqVoList": writeReqVoList
+                 }
             },
             @"type": _type
         },

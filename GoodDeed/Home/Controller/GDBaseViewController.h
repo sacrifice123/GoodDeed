@@ -9,4 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface GDBaseViewController : UIViewController
+
+- (void)hideItem:(BOOL)isHide;
 @end

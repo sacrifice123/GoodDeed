@@ -52,6 +52,10 @@ typedef NS_ENUM(NSInteger,SCAdViewScrollDirection) {
  *   是否允许拖拽
  */
 @property (nonatomic,assign)BOOL scrollEnabled;
+/**
+ *   collection
+ */
+@property (nonatomic,strong)UICollectionView *collectionView;
 
 #pragma mark -非必要参数，有默认值
 /**

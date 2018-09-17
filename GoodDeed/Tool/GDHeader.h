@@ -15,6 +15,8 @@
 #define Item_Space      15 //行间距
 #define animationStatus @"animationStatus"
 #define organModelCache @"organModelCache"
+#define tokenCache      @"tokenCache"//用户token，退出时清除
+
 #import <UIKit/UIKit.h>
 static NSString *const GDBaseUrl = @"http://47.97.102.73/giraffe";//api基地址
 static NSString *const GDBaseImgUrl = @"http://47.97.102.73/giraffe";//图片基地址(后面可能会变)

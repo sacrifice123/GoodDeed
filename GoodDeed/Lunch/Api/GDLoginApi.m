@@ -46,8 +46,9 @@
 - (id)requestArgument{
     return @{
              @"data":@{
-                     @"mail":_mail,
-                        @"passwork":_password
+                        @"mail":_mail,
+                        @"password":_password,
+                        @"type":_type
         
                       },
              @"token":_token

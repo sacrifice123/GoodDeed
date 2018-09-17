@@ -17,4 +17,6 @@
 + (NSDictionary *)dictionaryFromModel:(NSObject *)model;
 + (UIViewController *)getSuperVc:(UIView *)view;
 + (UIView *)getTargetView:(Class)targetClass view:(UIView *)view;
++ (NSString *)getNowTimestamp;
+
 @end

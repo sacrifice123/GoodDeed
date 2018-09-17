@@ -21,7 +21,8 @@
     
     [IQKeyboardManager sharedManager].enable = YES;
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
-    self.window.rootViewController = [GDHomeManager getRootController:NO];
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:tokenCache];
+    self.window.rootViewController = [GDHomeManager getRootController:(token?YES:NO)];
     return YES;
     
 }

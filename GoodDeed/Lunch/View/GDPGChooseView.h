@@ -11,5 +11,8 @@
 @interface GDPGChooseView : UIView
 
 @property (nonatomic,assign) BOOL isSearch;
+@property (nonatomic,assign) BOOL isClose;
+
 - (void)reloadWithDatas:(NSArray *)datas;
+
 @end

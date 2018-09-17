@@ -10,12 +10,19 @@
 #import "GDLeftCell.h"
 #import "GDLeftHeaderView.h"
 #import "GDLeftModel.h"
+#import "GDPGChooseViewController.h"
+#import "GDHomeViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface GDLeftViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@interface GDLeftViewController ()<UITableViewDelegate, UITableViewDataSource,UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *datas;
 @property (nonatomic, strong) GDLeftHeaderView *headerView;
+@property (nonatomic, strong) UIImagePickerController *imagePickerController;
 
 @end
 
@@ -24,7 +31,11 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+
+    __weak typeof(self) weakSelf = self;
+    self.headerView.chooseBlock = ^{
+        [weakSelf chooseHeadImage];
+    };
     [self.tableView registerNib:[UINib nibWithNibName:@"GDLeftCell" bundle:nil] forCellReuseIdentifier:@"GDLeftCell"];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -32,6 +43,19 @@
     }];
 }
 
+- (UIImagePickerController *)imagePickerController{
+    
+    if (_imagePickerController == nil) {
+        _imagePickerController = [[UIImagePickerController alloc] init];
+        // 设置代理
+        _imagePickerController.delegate = self;
+        // 是否显示裁剪框编辑（默认为NO），等于YES的时候，照片拍摄完成可以进行裁剪
+        _imagePickerController.allowsEditing = YES;
+
+    }
+    
+    return _imagePickerController;
+}
 
 - (UITableView *)tableView {
     
@@ -109,33 +133,36 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
    // [GDHomeManager closeDrawerWithFull];
-    [GDHomeManager closeDrawer];
+    [self showHomeView:NO];
     switch (indexPath.row) {
         case 0:{//首页
+            [GDHomeManager closeDrawer];
         }
             break;
         case 1:{//我的事业
+            GDPGChooseViewController *chooseVc = [GDPGChooseViewController new];
+            chooseVc.isClose = NO;
+            [self presentViewController:chooseVc animated:YES completion:nil];
+
         }
             
             break;
         case 2:{//我的团队
+            
         }
             
             break;
-        case 3:{//我的团队
+        case 3:{//我的调查
         }
             
             break;
-        case 4:{//我的调查
-        }
-            
-            break;
-        case 5:{//反馈与帮助
-            
+        case 4:{//反馈与帮助
+            [GDHomeManager closeDrawer];
+            [self showHomeView:YES];
         }
             break;
-        case 6:{//退出
-            
+        case 5:{//退出
+            [self showQuitAlert];
         }
             break;
 
@@ -145,5 +172,118 @@
     
 }
 
+- (void)showHomeView:(BOOL)isHelp{
+    
+    MMDrawerController *mmdc = [GDHomeManager getRootMMDVc];
+    UINavigationController *nav = (UINavigationController *)mmdc.centerViewController;
+    if (nav.viewControllers&&nav.viewControllers.count>0) {
+        for (UIViewController *obj in nav.viewControllers) {
+            if ([obj isKindOfClass:[GDHomeViewController class]]) {
+                GDHomeViewController *home = (GDHomeViewController *)obj;
+                for (UIView *view in obj.view.subviews) {
+                    if (view.tag == 1001&&isHelp) {
+                        [home showHelpView];
+                        break;
+                    }else if (view.tag == 1000){
+                        [home showAdHorizontally];
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+    }
+}
+
+- (void)chooseHeadImage {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    // Create the actions.
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        [self showCamera];
+    }];
+    
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        [self selectImageFromAlbum];
+        
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    }];
+    
+
+    // Add the actions.
+    [alertController addAction:action1];
+    [alertController addAction:action2];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)showQuitAlert {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"你确定要退出GoodDeed吗？" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    // Create the actions.
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    }];
+    
+    UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [GDHomeManager clearCache];
+        GDWindow.rootViewController = [GDHomeManager getRootController:NO];
+        
+    }];
+    [otherAction setValue:[UIColor colorWithHexString:@"#FF3B30"] forKey:@"titleTextColor"];
+    
+    // Add the actions.
+    [alertController addAction:cancelAction];
+    [alertController addAction:otherAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark 打开相机
+- (void)showCamera{
+    
+    // 设置照片来源为相机
+    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    // 设置进入相机时使用前置或后置摄像头
+    self.imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+    // 展示选取照片控制器
+    [self presentViewController:self.imagePickerController animated:YES completion:nil];
+    
+}
+
+
+#pragma mark 从相册获取图片
+- (void)selectImageFromAlbum
+{
+    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:self.imagePickerController animated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+// 完成图片的选取后调用的方法
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    // 选取完图片后跳转回原控制器
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    /* 此处参数 info 是一个字典，下面是字典中的键值 （从相机获取的图片和相册获取的图片时，两者的info值不尽相同）
+     * UIImagePickerControllerMediaType; // 媒体类型
+     * UIImagePickerControllerOriginalImage; // 原始图片
+     * UIImagePickerControllerEditedImage; // 裁剪后图片
+     * UIImagePickerControllerCropRect; // 图片裁剪区域（CGRect）
+     * UIImagePickerControllerMediaURL; // 媒体的URL
+     * UIImagePickerControllerReferenceURL // 原件的URL
+     * UIImagePickerControllerMediaMetadata // 当数据来源是相机时，此值才有效
+     */
+    // 从info中将图片取出，并加载到imageView当中
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    if (self.headerView.imageBlock) {
+        self.headerView.imageBlock(image);
+    }
+}
+
+// 取消选取调用的方法
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

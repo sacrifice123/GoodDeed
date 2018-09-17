@@ -13,14 +13,6 @@
 #import "GDLaunchReadyView.h"
 #import "GDQuestionScrollView.h"
 #import "GDOrgAnimationView.h"
-//7大问题页面
-#import "GDSingleSelQuestionView.h"
-#import "GDMoreSelQuestionView.h"
-#import "GDSlideQuestionView.h"
-#import "GDQuantifyQuestionView.h"
-#import "GDSortQuestionView.h"
-#import "GDImageSelQuestionView.h"
-#import "GDWriteQuestionView.h"
 #import "GDPGChooseViewController.h"
 #import "GDAnswerFinishViewController.h"
 
@@ -111,7 +103,7 @@
         if (finished) {
             if ([GDLunchManager sharedManager].suveryList.count>self.pageControl.currentPage) {
                 [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH*(index), 0) animated:YES];
-            }else{
+            }else{//题做完了
                 GDBaseNavigationController *nav = [[GDBaseNavigationController alloc] initWithRootViewController:[GDAnswerFinishViewController new]];
                 [self presentViewController:nav animated:YES completion:^{
                     [GDOrgAnimationView destory];
@@ -187,71 +179,6 @@
     }
 
 
-}
-
-//GDReadyType = 0,    //准备
-//GDSingleType,       //单选题
-//GDMultipleType,     //多选题
-//GDSlideType,        //滑动题
-//GDQuantitativeType, //定量题
-//GDSortType,         //排序题
-//GDSelectType,       //勾选图片题
-//GDWriteType         //填写题
-
-- (GDQuestionBaseView *)createSurveyView:(GDSurveyType)type{
-    
-    GDQuestionBaseView *surveyView;
-    switch (type) {
-        case 0:{
-            surveyView = [[GDLaunchReadyView alloc] init];
-
-        }
-            
-            break;
-        case 1:{
-            surveyView = [[GDSingleSelQuestionView alloc] init];
-
-        }
-            
-            break;
-        case 2:{
-            surveyView = [[GDMoreSelQuestionView alloc] init];
-
-        }
-            
-            break;
-        case 3:{
-            surveyView = [[GDSlideQuestionView alloc] init];
-
-        }
-            
-            break;
-        case 4:{
-            surveyView = [[GDQuantifyQuestionView alloc] init];
-        }
-            
-            break;
-        case 5:{
-            surveyView = [[GDSortQuestionView alloc] init];
-        }
-            
-            break;
-        case 6:{
-            surveyView = [[GDImageSelQuestionView alloc] init];
-        }
-            
-            break;
-        case 7:{
-            surveyView = [[GDWriteQuestionView alloc] init];
-        }
-            
-            break;
-
-        default:
-            surveyView = [[GDQuestionBaseView alloc] init];
-            break;
-    }
-    return surveyView;
 }
 
 

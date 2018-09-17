@@ -143,6 +143,7 @@
 		E6A359C4214A7F5C00BC5B64 /* GDResetPwdController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A359C2214A7F5C00BC5B64 /* GDResetPwdController.xib */; };
 		E6A359C8214A7F8A00BC5B64 /* GDReLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A359C6214A7F8A00BC5B64 /* GDReLoginViewController.m */; };
 		E6A359C9214A7F8A00BC5B64 /* GDReLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A359C7214A7F8A00BC5B64 /* GDReLoginViewController.xib */; };
+		E6A359CC214F72F000BC5B64 /* GDCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A359CB214F72F000BC5B64 /* GDCollectionView.m */; };
 		E6B39ACE211BD1000080772F /* GDBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39ACD211BD1000080772F /* GDBaseModel.m */; };
 		E6B39AD1211BD1130080772F /* GDFirstSurveyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD0211BD1130080772F /* GDFirstSurveyModel.m */; };
 		E6B39AD4211BDC300080772F /* GDFirstQuestionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD3211BDC300080772F /* GDFirstQuestionListModel.m */; };
@@ -413,6 +414,8 @@
 		E6A359C5214A7F8A00BC5B64 /* GDReLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDReLoginViewController.h; sourceTree = "<group>"; };
 		E6A359C6214A7F8A00BC5B64 /* GDReLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDReLoginViewController.m; sourceTree = "<group>"; };
 		E6A359C7214A7F8A00BC5B64 /* GDReLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDReLoginViewController.xib; sourceTree = "<group>"; };
+		E6A359CA214F72F000BC5B64 /* GDCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDCollectionView.h; sourceTree = "<group>"; };
+		E6A359CB214F72F000BC5B64 /* GDCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDCollectionView.m; sourceTree = "<group>"; };
 		E6B39ACC211BD1000080772F /* GDBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseModel.h; sourceTree = "<group>"; };
 		E6B39ACD211BD1000080772F /* GDBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDBaseModel.m; sourceTree = "<group>"; };
 		E6B39ACF211BD1130080772F /* GDFirstSurveyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDFirstSurveyModel.h; sourceTree = "<group>"; };
@@ -662,6 +665,8 @@
 				E664C96520CA174D004E81A4 /* SCAdDemoCollectionViewCell.h */,
 				E664C96A20CA174D004E81A4 /* SCAdDemoCollectionViewCell.m */,
 				E664C96D20CA174D004E81A4 /* SCAdDemoCollectionViewCell.xib */,
+				E6A359CA214F72F000BC5B64 /* GDCollectionView.h */,
+				E6A359CB214F72F000BC5B64 /* GDCollectionView.m */,
 			);
 			path = SCAdView;
 			sourceTree = "<group>";
@@ -1231,6 +1236,7 @@
 				E6A359BF2148A98A00BC5B64 /* GDOptionModel.m in Sources */,
 				E69C3FA920CF6F6E004F5614 /* AnimationScaleEnd.m in Sources */,
 				E69C3F9E20CF6F6E004F5614 /* AnimationTildEnd.m in Sources */,
+				E6A359CC214F72F000BC5B64 /* GDCollectionView.m in Sources */,
 				E61A5EFC2134FCAB0074D215 /* GDSlideCell.m in Sources */,
 				E61A5EFF213519530074D215 /* GDQuestionView.m in Sources */,
 				E6B39AD1211BD1130080772F /* GDFirstSurveyModel.m in Sources */,

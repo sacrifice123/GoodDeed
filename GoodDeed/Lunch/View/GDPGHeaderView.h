@@ -11,5 +11,7 @@
 typedef void(^clickBlock)(void);
 @interface GDPGHeaderView : UICollectionReusableView
 
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (nonatomic,assign) BOOL isClose;
 @property (nonatomic, strong) clickBlock block;;
 @end

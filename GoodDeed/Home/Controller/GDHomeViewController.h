@@ -10,4 +10,6 @@
 
 @interface GDHomeViewController : GDBaseViewController
 
+- (void)showHelpView;
+- (void)showAdHorizontally;
 @end

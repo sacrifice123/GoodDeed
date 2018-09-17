@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) SCAdView *adView;
 @property (nonatomic, strong) UIView *transitionView;
-
+@property (nonatomic, strong) UIView *helpView;
 @end
 
 @implementation GDHomeViewController
@@ -29,9 +29,70 @@
 }
 
 
+- (void)showHelpView{
+    [self hideItem:YES];
+    self.adView.hidden = YES;
+    self.helpView.hidden = NO;
+    if (self.helpView&&[self.view.subviews containsObject:self.helpView]) {
+        return;
+    }
+    self.helpView = [UIView new];
+    self.helpView.tag = 1000;
+    [self.view addSubview:self.helpView];
+    [self.helpView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(44);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.bottom.equalTo(self.view);
+    }];
+    
+    UIButton *mail = [[UIButton alloc] init];
+    mail.tag = 100;
+    [mail setBackgroundImage:[UIImage imageNamed:@"help_mail"] forState:0];
+    [mail addTarget:self action:@selector(helpButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.helpView addSubview:mail];
+    [mail mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(self.view.mas_centerY).offset(-84);
+        make.width.equalTo(@125);
+        make.height.equalTo(@125);
+    }];
+
+    UIButton *phone = [[UIButton alloc] init];
+    phone.tag = 101;
+    [phone setBackgroundImage:[UIImage imageNamed:@"help_phone"] forState:0];
+    [phone addTarget:self action:@selector(helpButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.helpView addSubview:phone];
+    [phone mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(self.view.mas_centerY).offset(84);
+        make.width.equalTo(@125);
+        make.height.equalTo(@125);
+    }];
+
+    UILabel *label = [[UILabel alloc] init];
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.numberOfLines = 0;
+    label.font = [UIFont fontWithName:@"PingFangSC-Light" size:24];
+    label.text = @"需要帮助？\n想要联系我们？";
+    [self.helpView addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.bottom.equalTo(mail.mas_top).offset(-50);
+    }];
+    
+}
 
 - (void)showAdHorizontally{
-    NSArray *testArray =@[@"刘备",@"李白",@"嬴政",@"韩信",@"韩信"];
+   
+    [self hideItem:NO];
+    self.helpView.hidden = YES;
+    self.adView.hidden = NO;
+    if (self.adView&&[self.view.subviews containsObject:self.adView]) {
+        return;
+    }
+    NSArray *testArray =@[@"",@"",@"",@"",@""];
     //模拟服务器获取到的数据
     NSMutableArray *arrayFromService  = [NSMutableArray array];
     for (NSString *text in testArray) {
@@ -50,7 +111,9 @@
         builder.secondaryItemMinAlpha = 0.6;
         builder.threeDimensionalScale = 0;
         builder.itemCellNibName = @"GDSurveyCell";
+
     }];
+    adView.tag = 1001;
     adView.backgroundColor = [UIColor clearColor];
     adView.dataArray = arrayFromService;
     adView.delegate = self;
@@ -64,9 +127,9 @@
     
 }
 
+
 #pragma mark -delegate
 - (void)sc_didClickAd:(id)adModel{
-    NSLog(@"sc_didClickAd-->%@",adModel);
     if ([adModel isKindOfClass:[HeroModel class]]) {
         NSLog(@"%@",((HeroModel*)adModel).introduction);
     }
@@ -79,12 +142,13 @@
     NSLog(@"sc_scrollToIndex-->%ld",index);
 }
 
+- (void)helpButtonClicked:(UIButton *)button{
+    
+    
+}
+
 #pragma mark GDOperationDelegate
 - (void)gotoPreVc:(UIView *)view{
-//    [UIView animateWithDuration:1 animations:^{
-//        self.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.5, 1.5);
-//    }];
-//    [self presentViewController:[GDPreviewViewController new] animated:YES completion:nil];
     self.transitionView = view;
     [self.navigationController hh_pushScaleViewController:[GDPreviewViewController new]];
 }
@@ -93,4 +157,5 @@
     
     return self.transitionView;
 }
+
 @end

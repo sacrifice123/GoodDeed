@@ -13,13 +13,21 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.closeButton.hidden = self.isClose;
 }
+
 
 - (IBAction)search:(id)sender {
     if (self.block) {
         self.block();
     }
     
+}
+
+- (IBAction)close:(id)sender {
+    
+    UIViewController *vc = [GDHelper getSuperVc:self];
+    [vc dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

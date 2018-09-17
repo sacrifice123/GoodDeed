@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^imageChooseBlock)(void);
+typedef void(^setImageBlock)(UIImage *image);
 @interface GDLeftHeaderView : UIView
+
+@property (nonatomic, copy) imageChooseBlock chooseBlock;
+@property (nonatomic, copy) setImageBlock imageBlock;
 
 @end

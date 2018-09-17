@@ -10,6 +10,9 @@
 #import "GDEditViewController.h"
 @interface GDBaseViewController ()
 
+@property (nonatomic, strong) UIButton *rightItem;
+@property (nonatomic, strong) UIImageView *titleImgView;
+
 @end
 
 @implementation GDBaseViewController
@@ -27,6 +30,7 @@
     NSLog(@"%@--WillAppear",NSStringFromClass([self class]));
     
 }
+
 - (void)setUpView{
     
     UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_bg.pic"]];
@@ -62,7 +66,8 @@
         make.centerY.equalTo(leftItem.mas_centerY);
     }];
     [rightItem addTarget:self action:@selector(rightBarButtonItemClick) forControlEvents:UIControlEventTouchUpInside];
-
+    self.rightItem = rightItem;
+    
     UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_title"]];
     imgView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:imgView];
@@ -71,8 +76,15 @@
         make.centerY.equalTo(leftItem.mas_centerY);
 
     }];
+    self.titleImgView = imgView;
     
 
+}
+
+- (void)hideItem:(BOOL)isHide{
+    
+    self.rightItem.hidden = isHide;
+    self.titleImgView.hidden = isHide;
 }
 
 - (void)rightBarButtonItemClick{

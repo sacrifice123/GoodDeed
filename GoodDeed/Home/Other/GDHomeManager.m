@@ -98,4 +98,11 @@ static CGFloat const GDSpringFactor = 10;
     UIViewController *vc = [GDHelper getSuperVc:view];
     [vc presentViewController:targetVc animated:YES completion:nil];
 }
+
++ (void)clearCache{
+     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:tokenCache];
+     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:animationStatus];
+     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:organModelCache];
+    
+}
 @end
