@@ -84,7 +84,7 @@ static GDLunchManager *manager;
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
         if (request.responseJSONObject&&[[request.responseJSONObject objectForKey:@"code"] integerValue] == 200) {
-            if (isFirst&&[request.responseJSONObject objectForKey:@"token"]) {
+            if ([request.responseJSONObject objectForKey:@"token"]) {
                 NSMutableDictionary *dic = [NSMutableDictionary dictionary];
                 NSString *time = [GDHelper getNowTimestamp];
                 [dic setObject:[request.responseJSONObject objectForKey:@"token"] forKey:@"token"];

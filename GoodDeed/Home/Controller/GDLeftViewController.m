@@ -148,9 +148,20 @@
             
             break;
         case 2:{//我的团队
-            
+            MMDrawerController *mmdc = [GDHomeManager getRootMMDVc];
+            UINavigationController *nav = (UINavigationController *)mmdc.centerViewController;
+            if (nav.viewControllers&&nav.viewControllers.count>0) {
+                for (UIViewController *obj in nav.viewControllers) {
+                    if ([obj isKindOfClass:[GDHomeViewController class]]) {
+                        GDHomeViewController *home = (GDHomeViewController *)obj;
+                        [home reloadDataWithType:GDHomeTeamType];
+                        break;
+                    }
+                }
+            }
+
         }
-            
+            [GDHomeManager closeDrawer];
             break;
         case 3:{//我的调查
         }
@@ -172,6 +183,7 @@
     
 }
 
+//反馈与帮助
 - (void)showHomeView:(BOOL)isHelp{
     
     MMDrawerController *mmdc = [GDHomeManager getRootMMDVc];
@@ -265,15 +277,6 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     // 选取完图片后跳转回原控制器
     [picker dismissViewControllerAnimated:YES completion:nil];
-    /* 此处参数 info 是一个字典，下面是字典中的键值 （从相机获取的图片和相册获取的图片时，两者的info值不尽相同）
-     * UIImagePickerControllerMediaType; // 媒体类型
-     * UIImagePickerControllerOriginalImage; // 原始图片
-     * UIImagePickerControllerEditedImage; // 裁剪后图片
-     * UIImagePickerControllerCropRect; // 图片裁剪区域（CGRect）
-     * UIImagePickerControllerMediaURL; // 媒体的URL
-     * UIImagePickerControllerReferenceURL // 原件的URL
-     * UIImagePickerControllerMediaMetadata // 当数据来源是相机时，此值才有效
-     */
     // 从info中将图片取出，并加载到imageView当中
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
     if (self.headerView.imageBlock) {

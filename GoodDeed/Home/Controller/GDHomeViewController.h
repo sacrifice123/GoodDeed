@@ -7,9 +7,12 @@
 //
 
 #import "GDBaseViewController.h"
+#import "SCAdView.h"
 
 @interface GDHomeViewController : GDBaseViewController
 
 - (void)showHelpView;
 - (void)showAdHorizontally;
+- (void)reloadDataWithType:(GDHomeCellType)type;
+
 @end

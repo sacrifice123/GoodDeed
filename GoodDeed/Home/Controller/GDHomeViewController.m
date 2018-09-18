@@ -8,17 +8,53 @@
 
 #import "GDHomeViewController.h"
 #import "GDPreviewViewController.h"
-#import "SCAdView.h"
 
 @interface GDHomeViewController ()<SCAdViewDelegate,GDOperationDelegate>
 
 @property (nonatomic, strong) SCAdView *adView;
 @property (nonatomic, strong) UIView *transitionView;
 @property (nonatomic, strong) UIView *helpView;
+@property (nonatomic, strong) NSMutableArray *homeArray;
+@property (nonatomic, strong) NSMutableArray *teamArray;
+@property (nonatomic, strong) NSMutableArray *surveyArray;
+
 @end
 
 @implementation GDHomeViewController
 
+//横向滑动的数据源
+- (NSMutableArray *)homeArray{
+    
+    if (_homeArray == nil) {
+        _homeArray = [[NSMutableArray alloc] init];
+    }
+    [_homeArray addObject:@""];
+    [_homeArray addObject:@""];
+    return _homeArray;
+}
+
+- (NSMutableArray *)teamArray{
+    
+    if (_teamArray == nil) {
+        _teamArray = [[NSMutableArray alloc] init];
+    }
+    [_teamArray addObject:@""];
+
+    return _teamArray;
+}
+
+- (NSMutableArray *)surveyArray{
+    
+    if (_surveyArray == nil) {
+        _surveyArray = [[NSMutableArray alloc] init];
+    }
+    [_surveyArray addObject:@""];
+    [_surveyArray addObject:@""];
+    [_surveyArray addObject:@""];
+    [_surveyArray addObject:@""];
+
+    return _surveyArray;
+}
 
 - (void)viewDidLoad {
     
@@ -92,30 +128,26 @@
     if (self.adView&&[self.view.subviews containsObject:self.adView]) {
         return;
     }
-    NSArray *testArray =@[@"",@"",@"",@"",@""];
-    //模拟服务器获取到的数据
-    NSMutableArray *arrayFromService  = [NSMutableArray array];
-    for (NSString *text in testArray) {
-        HeroModel *hero = [HeroModel new];
-        hero.imageName = text;
-        hero.introduction = [NSString stringWithFormat:@"我是王者农药的:---->%@",text];
-        [arrayFromService addObject:hero];
-    }
+    [self createHorizontallyView];
+}
+
+- (void)createHorizontallyView{
     
+    __weak typeof(self) weakSelf = self;
     SCAdView *adView = [[SCAdView alloc] initWithBuilder:^(SCAdViewBuilder *builder) {
-        builder.adArray = arrayFromService;
+        builder.adArray = weakSelf.surveyArray;
         builder.viewFrame = (CGRect){0,44,SCREEN_WIDTH,SCREEN_HEIGHT-54};
         builder.adItemSize = (CGSize){SCREEN_WIDTH-Item_Space*2,SCREEN_HEIGHT-54};
         builder.allowedInfinite = NO;
         builder.minimumLineSpacing = Item_Space*0.5;
         builder.secondaryItemMinAlpha = 0.6;
         builder.threeDimensionalScale = 0;
-        builder.itemCellNibName = @"GDSurveyCell";
-
+        
     }];
+    adView.type = GDHomeSurveyType;
     adView.tag = 1001;
     adView.backgroundColor = [UIColor clearColor];
-    adView.dataArray = arrayFromService;
+    adView.dataArray = self.surveyArray;
     adView.delegate = self;
     _adView = adView;
     [self.view addSubview:adView];
@@ -124,9 +156,21 @@
         make.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view).offset(-10);
     }];
-    
+
 }
 
+- (void)reloadDataWithType:(GDHomeCellType)type{
+    self.adView.type = type;
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    if (type == GDHomeType) {
+        array = self.homeArray;
+    }else if (type == GDHomeSurveyType) {
+        array = self.surveyArray;
+    }else if (type == GDHomeTeamType) {
+        array = self.teamArray;
+    }
+    [self.adView reloadWithDataArray:array];
+}
 
 #pragma mark -delegate
 - (void)sc_didClickAd:(id)adModel{
@@ -157,5 +201,6 @@
     
     return self.transitionView;
 }
+
 
 @end

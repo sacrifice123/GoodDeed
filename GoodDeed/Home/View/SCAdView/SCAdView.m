@@ -10,6 +10,8 @@
 #import "SCAdCollectionViewLayout.h"
 #import "GDBaseCell.h"
 #import "GDCollectionView.h"
+#import "GDSurveyCell.h"
+#import "GDGroupCell.h"
 
 ///默认的自动轮播的时间间隔
 #define SC_BUILDER_DEFAULT_AUTO_SCROLL_CYCLE 1.0
@@ -92,26 +94,34 @@
         }
     }
 }
-- (void)setDataArray:(NSMutableArray *)dataArray{
+
+- (NSMutableArray *)dataArray{
     
-    _dataArray = dataArray;
-    
-    NSArray *temArray = [NSArray array];
-    if (!_builder.allowedInfinite) {
-        if (_builder.adArray) {
-            _dataArray = [NSMutableArray arrayWithArray:_builder.adArray];
-        }
-    }else{//无限轮播
-        if (_builder.adArray && _builder.adArray.count>0) {
-            for (int i=0;i<2*SC_PREPARE_ITEM_TIME+1;i++) {
-                temArray = [temArray arrayByAddingObjectsFromArray:_builder.adArray];
-            }
-        }
-        _dataArray = [NSMutableArray arrayWithArray:temArray];
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray new];
     }
-    [self.collectionView reloadData];
-    
+    return _dataArray;
 }
+//- (void)setDataArray:(NSMutableArray *)dataArray{
+//
+//    _dataArray = dataArray;
+//
+//    NSArray *temArray = [NSArray array];
+//    if (!_builder.allowedInfinite) {
+//        if (_builder.adArray) {
+//            _dataArray = [NSMutableArray arrayWithArray:_builder.adArray];
+//        }
+//    }else{//无限轮播
+//        if (_builder.adArray && _builder.adArray.count>0) {
+//            for (int i=0;i<2*SC_PREPARE_ITEM_TIME+1;i++) {
+//                temArray = [temArray arrayByAddingObjectsFromArray:_builder.adArray];
+//            }
+//        }
+//        _dataArray = [NSMutableArray arrayWithArray:temArray];
+//    }
+//    [self.collectionView reloadData];
+//
+//}
 
 /**
  *  @brief 初始化
@@ -141,14 +151,17 @@
     self.collectionView.decelerationRate = 0;
     self.collectionView.scrollEnabled = builder.scrollEnabled;
     idx = 0;
-    if (builder.itemCellNibName.length>0) {
-        UINib *nib = [UINib nibWithNibName:builder.itemCellNibName bundle:nil];
-        [self.collectionView registerNib:nib forCellWithReuseIdentifier:SC_AD_CELL_IDENTIFIER];
-    }else if(builder.itemCellClassName.length>0 && NSClassFromString(builder.itemCellClassName)){
-        [self.collectionView registerClass:NSClassFromString(builder.itemCellClassName) forCellWithReuseIdentifier:SC_AD_CELL_IDENTIFIER];
-    }else{
-        SC_ERROR(@"builder必须参数缺失 : ------>必须在builder指定一个cell的类或者nib");
-    }
+    //根据需要增加
+    [self.collectionView registerNib:[UINib nibWithNibName:@"GDSurveyCell" bundle:nil] forCellWithReuseIdentifier:@"GDSurveyCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"GDGroupCell" bundle:nil] forCellWithReuseIdentifier:@"GDGroupCell"];
+
+//    if (builder.itemCellNibName.length>0) {
+//       // UINib *nib = [UINib nibWithNibName:builder.itemCellNibName bundle:nil];
+//    }else if(builder.itemCellClassName.length>0 && NSClassFromString(builder.itemCellClassName)){
+//        [self.collectionView registerClass:NSClassFromString(builder.itemCellClassName) forCellWithReuseIdentifier:SC_AD_CELL_IDENTIFIER];
+//    }else{
+//        SC_ERROR(@"builder必须参数缺失 : ------>必须在builder指定一个cell的类或者nib");
+//    }
     [self addSubview:self.collectionView];
 
 
@@ -205,8 +218,15 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     //id model = self.dataArray[indexPath.item];
-    GDBaseCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SC_AD_CELL_IDENTIFIER forIndexPath:indexPath];
-    cell.delegate = self.delegate;
+    GDBaseCell *cell;
+    if (self.type == GDHomeSurveyType||self.type == GDHomeType) {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSurveyCell" forIndexPath:indexPath];
+    }else if (self.type == GDHomeTeamType){
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDGroupCell" forIndexPath:indexPath];
+    }
+    if (cell) {
+        cell.delegate = self.delegate;
+    }
     return cell;
 }
 
@@ -334,19 +354,25 @@
 }
 
 -(void)reloadWithDataArray:(NSArray *)adArray{
-    NSArray *dataArray = @[];
-    if (!_builder.allowedInfinite) {
-        if (adArray) {
-            self.dataArray = [NSMutableArray arrayWithArray:adArray];
-        }
-    }else{//无限轮播
-        if (adArray && adArray.count>0) {
-            for (int i=0;i<2*SC_PREPARE_ITEM_TIME+1;i++) {
-                dataArray = [dataArray arrayByAddingObjectsFromArray:adArray];
-            }
-        }
-        self.dataArray = [NSMutableArray arrayWithArray:dataArray];
+//    NSArray *dataArray = @[];
+//    if (!_builder.allowedInfinite) {
+//        if (adArray) {
+//            self.dataArray = [NSMutableArray arrayWithArray:adArray];
+//        }
+//    }else{//无限轮播
+//        if (adArray && adArray.count>0) {
+//            for (int i=0;i<2*SC_PREPARE_ITEM_TIME+1;i++) {
+//                dataArray = [dataArray arrayByAddingObjectsFromArray:adArray];
+//            }
+//        }
+//        self.dataArray = [NSMutableArray arrayWithArray:dataArray];
+//    }
+    if (adArray) {
+        [self.dataArray removeAllObjects];
+        [self.dataArray addObjectsFromArray:adArray];
     }
+
+    self.collectionView.scrollEnabled = !(self.dataArray.count==1);
     [self.collectionView reloadData];
 }
 @end

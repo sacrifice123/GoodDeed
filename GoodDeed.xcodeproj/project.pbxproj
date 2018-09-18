@@ -144,6 +144,8 @@
 		E6A359C8214A7F8A00BC5B64 /* GDReLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A359C6214A7F8A00BC5B64 /* GDReLoginViewController.m */; };
 		E6A359C9214A7F8A00BC5B64 /* GDReLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A359C7214A7F8A00BC5B64 /* GDReLoginViewController.xib */; };
 		E6A359CC214F72F000BC5B64 /* GDCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A359CB214F72F000BC5B64 /* GDCollectionView.m */; };
+		E6A359D0215098FB00BC5B64 /* GDGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A359CE215098FB00BC5B64 /* GDGroupCell.m */; };
+		E6A359D1215098FB00BC5B64 /* GDGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A359CF215098FB00BC5B64 /* GDGroupCell.xib */; };
 		E6B39ACE211BD1000080772F /* GDBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39ACD211BD1000080772F /* GDBaseModel.m */; };
 		E6B39AD1211BD1130080772F /* GDFirstSurveyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD0211BD1130080772F /* GDFirstSurveyModel.m */; };
 		E6B39AD4211BDC300080772F /* GDFirstQuestionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD3211BDC300080772F /* GDFirstQuestionListModel.m */; };
@@ -416,6 +418,9 @@
 		E6A359C7214A7F8A00BC5B64 /* GDReLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDReLoginViewController.xib; sourceTree = "<group>"; };
 		E6A359CA214F72F000BC5B64 /* GDCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDCollectionView.h; sourceTree = "<group>"; };
 		E6A359CB214F72F000BC5B64 /* GDCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDCollectionView.m; sourceTree = "<group>"; };
+		E6A359CD215098FB00BC5B64 /* GDGroupCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDGroupCell.h; sourceTree = "<group>"; };
+		E6A359CE215098FB00BC5B64 /* GDGroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDGroupCell.m; sourceTree = "<group>"; };
+		E6A359CF215098FB00BC5B64 /* GDGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDGroupCell.xib; sourceTree = "<group>"; };
 		E6B39ACC211BD1000080772F /* GDBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseModel.h; sourceTree = "<group>"; };
 		E6B39ACD211BD1000080772F /* GDBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDBaseModel.m; sourceTree = "<group>"; };
 		E6B39ACF211BD1130080772F /* GDFirstSurveyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDFirstSurveyModel.h; sourceTree = "<group>"; };
@@ -685,6 +690,9 @@
 				E664C98520CA7547004E81A4 /* GDCauseCell.xib */,
 				E6C55C2820CA7EBC0034A65A /* GDBaseCell.h */,
 				E6C55C2920CA7EBC0034A65A /* GDBaseCell.m */,
+				E6A359CD215098FB00BC5B64 /* GDGroupCell.h */,
+				E6A359CE215098FB00BC5B64 /* GDGroupCell.m */,
+				E6A359CF215098FB00BC5B64 /* GDGroupCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1112,6 +1120,7 @@
 				E611FBFB20DA42CC00807E95 /* animation_17.jpg in Resources */,
 				E611FC0220DA42CC00807E95 /* animation_18.jpg in Resources */,
 				E611FC0720DA42CC00807E95 /* animation_6.jpg in Resources */,
+				E6A359D1215098FB00BC5B64 /* GDGroupCell.xib in Resources */,
 				E611FBFC20DA42CC00807E95 /* animation_16.jpg in Resources */,
 				E61A5F2E2135661C0074D215 /* GDPGChooseCell.xib in Resources */,
 				E664C98720CA7547004E81A4 /* GDCauseCell.xib in Resources */,
@@ -1200,6 +1209,7 @@
 				E611FC1F20DBA07500807E95 /* GDSortQuestionView.m in Sources */,
 				E611FC1620DB9FE800807E95 /* GDMoreSelQuestionView.m in Sources */,
 				E61F433720E22E91004D2E09 /* GDPGHeaderView.m in Sources */,
+				E6A359D0215098FB00BC5B64 /* GDGroupCell.m in Sources */,
 				E69C3FA520CF6F6E004F5614 /* AnimationErectBegin.m in Sources */,
 				E6A359C3214A7F5C00BC5B64 /* GDResetPwdController.m in Sources */,
 				E65BDC2021294F4300F2D5C0 /* GDQuestionHeadView.m in Sources */,

@@ -18,6 +18,13 @@ typedef NS_ENUM(NSInteger,SCAdViewScrollDirection) {
     SCAdViewScrollDirectionBotom,//轮播向下
     SCAdViewScrollDirectionTop,//轮播向上
 };
+
+typedef NS_ENUM(NSInteger,GDHomeCellType) {
+    GDHomeType  = 0,
+    GDHomeSurveyType,
+    GDHomeTeamType
+};
+
 @interface SCAdViewBuilder : NSObject
 #pragma mark -必要参数
 /**
@@ -96,8 +103,9 @@ typedef NS_ENUM(NSInteger,SCAdViewScrollDirection) {
 @end
 
 @interface SCAdView : UIView
-@property (nonatomic,strong)NSMutableArray *dataArray;
-@property (nonatomic,weak)id<SCAdViewDelegate>delegate;
+@property (nonatomic,strong) NSMutableArray *dataArray;
+@property (nonatomic,weak)   id<SCAdViewDelegate>delegate;
+@property (nonatomic,assign) GDHomeCellType type;
 /**
  *  @brief 构造方法
  *  @param builderBlock 通过在block中配置builder中的参数来实现对广告view的不同设置
