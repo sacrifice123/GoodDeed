@@ -61,9 +61,16 @@
     [super viewDidLoad];
    // [self setleftItem];
     [self showAdHorizontally];
-    
+    [GDHomeManager getUserInfoWithCompletionBlock:^(BOOL result) {
+        
+    }];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    
+}
 
 - (void)showHelpView{
     [self hideItem:YES];

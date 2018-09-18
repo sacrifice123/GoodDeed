@@ -18,5 +18,5 @@
 + (UIViewController *)getRootController:(BOOL)isLogin;
 + (void)presentToTargetControllerWith:(UIView *)view targetVc:(UIViewController *)targetVc;
 + (void)clearCache;
-
++ (void)getUserInfoWithCompletionBlock:(void(^)(BOOL))block;
 @end

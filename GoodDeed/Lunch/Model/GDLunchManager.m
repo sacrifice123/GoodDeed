@@ -12,6 +12,7 @@
 #import "GDGetFirstSurveyApi.h"
 #import "GDGetOrganListApi.h"
 #import "GDOrganModel.h"
+#import "GDUserModel.h"
 #import "GDSearchOrganApi.h"
 #import "GDAddOrganApi.h"
 #import "GDQuestionBaseCell.h"
@@ -90,6 +91,9 @@ static GDLunchManager *manager;
                 [dic setObject:[request.responseJSONObject objectForKey:@"token"] forKey:@"token"];
                 [dic setObject:time forKey:@"time"];
                 [[NSUserDefaults standardUserDefaults] setObject:dic forKey:tokenCache];
+                GDUserModel *model = [GDUserModel new];
+                model.uid = [request.responseJSONObject objectForKey:@"data"];
+                [GDLunchManager sharedManager].userModel = model;
             }
             block(YES);
         }else{

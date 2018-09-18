@@ -10,6 +10,8 @@
 #import "GDHomeViewController.h"
 #import "GDLeftViewController.h"
 #import "GDLaunchViewController.h"
+#import "GDGetUserInfoApi.h"
+#import "GDUserModel.h"
 #import <POP.h>
 @implementation GDHomeManager
 
@@ -90,6 +92,20 @@ static CGFloat const GDSpringFactor = 10;
     }else{
         return [[GDBaseNavigationController alloc] initWithRootViewController:[GDLaunchViewController new]];
     }
+}
+
++ (void)getUserInfoWithCompletionBlock:(void(^)(BOOL))block{
+    
+    GDGetUserInfoApi *api = [[GDGetUserInfoApi alloc] initWithUid:[GDLunchManager sharedManager].userModel.uid token:[GDLunchManager sharedManager].userModel.token];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        if (request.responseJSONObject&&[[request.responseJSONObject objectForKey:@"code"] integerValue] == 200) {
+            
+        }
+        
+    } failure:^(YTKBaseRequest *request) {
+        [GDWindow showWithString:@"网络异常"];
+    }];
 }
 
 
