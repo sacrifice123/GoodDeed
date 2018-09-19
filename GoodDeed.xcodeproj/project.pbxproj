@@ -9,6 +9,66 @@
 /* Begin PBXBuildFile section */
 		4906992C2151427F0009A4B7 /* GDUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4906992B2151427F0009A4B7 /* GDUserModel.m */; };
 		490699302151479B0009A4B7 /* GDGetUserInfoApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4906992F2151479B0009A4B7 /* GDGetUserInfoApi.m */; };
+		460BA93F21417D99008D1D2E /* GDChooseQuestionTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8C521417D98008D1D2E /* GDChooseQuestionTypeViewController.m */; };
+		460BA94021417D99008D1D2E /* GDChooseOneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8C721417D98008D1D2E /* GDChooseOneModel.m */; };
+		460BA94121417D99008D1D2E /* GDSurveyTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8CA21417D98008D1D2E /* GDSurveyTypeModel.m */; };
+		460BA94221417D99008D1D2E /* GDSurveyTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8CD21417D98008D1D2E /* GDSurveyTypeCollectionViewCell.m */; };
+		460BA94321417D99008D1D2E /* GDSurveyTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA8CE21417D98008D1D2E /* GDSurveyTypeCollectionViewCell.xib */; };
+		460BA94421417D99008D1D2E /* GDSurveyTypePopView+Selected.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8D021417D98008D1D2E /* GDSurveyTypePopView+Selected.m */; };
+		460BA94521417D99008D1D2E /* GDSurveyTypePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8D121417D98008D1D2E /* GDSurveyTypePopView.m */; };
+		460BA94621417D99008D1D2E /* GDSurveyTitleCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8D321417D98008D1D2E /* GDSurveyTitleCollectionReusableView.m */; };
+		460BA94721417D99008D1D2E /* GDSurveyTitleCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA8D521417D98008D1D2E /* GDSurveyTitleCollectionReusableView.xib */; };
+		460BA94821417D99008D1D2E /* GDEditSurveyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8D821417D98008D1D2E /* GDEditSurveyManager.m */; };
+		460BA94921417D99008D1D2E /* GDEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8DB21417D98008D1D2E /* GDEditViewController.m */; };
+		460BA94A21417D99008D1D2E /* GDEditBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8E021417D98008D1D2E /* GDEditBottomView.m */; };
+		460BA94B21417D99008D1D2E /* GDEditBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA8E121417D98008D1D2E /* GDEditBottomView.xib */; };
+		460BA94C21417D99008D1D2E /* GDEditBoundRangeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8E521417D98008D1D2E /* GDEditBoundRangeViewModel.m */; };
+		460BA94D21417D99008D1D2E /* GDEditToolViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8E721417D98008D1D2E /* GDEditToolViewModel.m */; };
+		460BA94E21417D99008D1D2E /* GDEditTextViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8E821417D98008D1D2E /* GDEditTextViewModel.m */; };
+		460BA94F21417D99008D1D2E /* GDEditImageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8E921417D98008D1D2E /* GDEditImageViewModel.m */; };
+		460BA95021417D99008D1D2E /* GDEditBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8EA21417D98008D1D2E /* GDEditBaseViewModel.m */; };
+		460BA95121417D99008D1D2E /* GDEditQuestionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8ED21417D98008D1D2E /* GDEditQuestionViewModel.m */; };
+		460BA95221417D99008D1D2E /* GDEditPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8EF21417D98008D1D2E /* GDEditPageModel.m */; };
+		460BA95321417D99008D1D2E /* GDEditRankIndexViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8F021417D98008D1D2E /* GDEditRankIndexViewModel.m */; };
+		460BA95421417D99008D1D2E /* GDEditSlidingScaleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8F421417D98008D1D2E /* GDEditSlidingScaleViewModel.m */; };
+		460BA95521417D99008D1D2E /* GDEditRankEmptyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8F921417D98008D1D2E /* GDEditRankEmptyViewModel.m */; };
+		460BA95621417D99008D1D2E /* GDCreateServeyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8FA21417D98008D1D2E /* GDCreateServeyFactory.m */; };
+		460BA95721417D99008D1D2E /* GDEditListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA8FC21417D98008D1D2E /* GDEditListViewController.m */; };
+		460BA95821417D99008D1D2E /* GDEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA90021417D98008D1D2E /* GDEditTableViewController.m */; };
+		460BA95921417D99008D1D2E /* GDEditCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA90121417D98008D1D2E /* GDEditCollectionViewController.m */; };
+		460BA95A21417D99008D1D2E /* GDBoundRangeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA90521417D98008D1D2E /* GDBoundRangeCollectionViewCell.m */; };
+		460BA95B21417D99008D1D2E /* GDBoundRangeAnswerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA90621417D98008D1D2E /* GDBoundRangeAnswerTableViewCell.m */; };
+		460BA95C21417D99008D1D2E /* Untitled.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 460BA90821417D98008D1D2E /* Untitled.xcworkspace */; };
+		460BA95D21417D99008D1D2E /* GDChooseMultipleAnswerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA90A21417D98008D1D2E /* GDChooseMultipleAnswerTableViewCell.m */; };
+		460BA95E21417D99008D1D2E /* GDChooseMultipleAddOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA90C21417D98008D1D2E /* GDChooseMultipleAddOptionTableViewCell.xib */; };
+		460BA95F21417D99008D1D2E /* GDChooseMultipleAddOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA90D21417D98008D1D2E /* GDChooseMultipleAddOptionTableViewCell.m */; };
+		460BA96021417D99008D1D2E /* GDSlidingScaleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA91021417D98008D1D2E /* GDSlidingScaleTableViewCell.m */; };
+		460BA96121417D99008D1D2E /* GDStackRankAddOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA91321417D98008D1D2E /* GDStackRankAddOptionTableViewCell.m */; };
+		460BA96221417D99008D1D2E /* GDStackRankIndexTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA91421417D98008D1D2E /* GDStackRankIndexTableViewCell.xib */; };
+		460BA96321417D99008D1D2E /* GDStackRankAddOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA91721417D98008D1D2E /* GDStackRankAddOptionTableViewCell.xib */; };
+		460BA96421417D99008D1D2E /* GDStackRankEditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA91921417D98008D1D2E /* GDStackRankEditTableViewCell.xib */; };
+		460BA96521417D99008D1D2E /* GDStackRankIndexTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA91A21417D98008D1D2E /* GDStackRankIndexTableViewCell.m */; };
+		460BA96621417D99008D1D2E /* GDStackRankEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA91B21417D98008D1D2E /* GDStackRankEditTableViewCell.m */; };
+		460BA96721417D99008D1D2E /* GDEditBottomSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA91E21417D98008D1D2E /* GDEditBottomSettingView.xib */; };
+		460BA96821417D99008D1D2E /* GDEditQuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA92121417D98008D1D2E /* GDEditQuestionTableViewCell.xib */; };
+		460BA96921417D99008D1D2E /* GDEditBottomSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA92221417D98008D1D2E /* GDEditBottomSettingView.m */; };
+		460BA96A21417D99008D1D2E /* GDEditQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA92321417D98008D1D2E /* GDEditQuestionTableViewCell.m */; };
+		460BA96B21417D99008D1D2E /* GDEditImageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA92421417D98008D1D2E /* GDEditImageHeaderView.m */; };
+		460BA96C21417D99008D1D2E /* GDEditImageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA92621417D98008D1D2E /* GDEditImageHeaderView.xib */; };
+		460BA96D21417D99008D1D2E /* GDImageVoteAddOptionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA92C21417D98008D1D2E /* GDImageVoteAddOptionCollectionViewCell.xib */; };
+		460BA96E21417D99008D1D2E /* GDImageVoteAddOptionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA92D21417D98008D1D2E /* GDImageVoteAddOptionCollectionViewCell.m */; };
+		460BA96F21417D99008D1D2E /* GDImageVoteAnswerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA92E21417D98008D1D2E /* GDImageVoteAnswerCollectionViewCell.m */; };
+		460BA97021417D99008D1D2E /* GDEditQuestionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA92F21417D98008D1D2E /* GDEditQuestionCollectionViewCell.m */; };
+		460BA97121417D99008D1D2E /* GDImageVoteAnswerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA93021417D98008D1D2E /* GDImageVoteAnswerCollectionViewCell.xib */; };
+		460BA97221417D99008D1D2E /* GDTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA93121417D98008D1D2E /* GDTextView.m */; };
+		460BA97321417D99008D1D2E /* GDTextAnswerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA93321417D98008D1D2E /* GDTextAnswerTableViewCell.m */; };
+		460BA97421417D99008D1D2E /* GDTextAnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA93421417D98008D1D2E /* GDTextAnswerTableViewCell.xib */; };
+		460BA97521417D99008D1D2E /* GDChooseOneAnswerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA93721417D98008D1D2E /* GDChooseOneAnswerTableViewCell.m */; };
+		460BA97621417D99008D1D2E /* GDChooseOneAddOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460BA93921417D98008D1D2E /* GDChooseOneAddOptionTableViewCell.xib */; };
+		460BA97721417D99008D1D2E /* GDChooseOneAddOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA93A21417D98008D1D2E /* GDChooseOneAddOptionTableViewCell.m */; };
+		460BA97821417D99008D1D2E /* GDEditCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA93D21417D98008D1D2E /* GDEditCoverViewController.m */; };
+		460BA97D21417EA9008D1D2E /* LZImageCropping+GDCrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA97921417E97008D1D2E /* LZImageCropping+GDCrop.m */; };
+		460BA97E21417EA9008D1D2E /* LZImageCropping.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BA97A21417EA9008D1D2E /* LZImageCropping.m */; };
 		49120BF92119DDF600EA263C /* UIWindow+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 49120BF82119DDF600EA263C /* UIWindow+HUD.m */; };
 		49120BFC2119E43E00EA263C /* GDRegisterApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 49120BFB2119E43E00EA263C /* GDRegisterApi.m */; };
 		4928F636213B83E500F9E4CE /* GDMoveLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4928F635213B83E500F9E4CE /* GDMoveLabel.m */; };
@@ -19,7 +79,6 @@
 		496026DA20D95A1000C3DD15 /* GDKnowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496026D820D95A1000C3DD15 /* GDKnowViewController.m */; };
 		496026DB20D95A1000C3DD15 /* GDKnowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496026D920D95A1000C3DD15 /* GDKnowViewController.xib */; };
 		49750EFE213AC73300779DDC /* GDSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 49750EFD213AC73300779DDC /* GDSlider.m */; };
-		49F0A78120D1715300CD06C3 /* GDEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F0A78020D1715300CD06C3 /* GDEditViewController.xib */; };
 		49F0A78420D171B500CD06C3 /* GDEditButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F0A78320D171B500CD06C3 /* GDEditButton.m */; };
 		E6115CC02152412C00E57470 /* GDChangeHeadApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6115CBF2152412C00E57470 /* GDChangeHeadApi.m */; };
 		E6115CC32152477400E57470 /* GDUploadImageApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6115CC22152477400E57470 /* GDUploadImageApi.m */; };
@@ -85,8 +144,6 @@
 		E64E381E2140BE6200BE5699 /* GDSortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64E381D2140BE6200BE5699 /* GDSortModel.m */; };
 		E65BDC2021294F4300F2D5C0 /* GDQuestionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = E65BDC1F21294F4300F2D5C0 /* GDQuestionHeadView.m */; };
 		E65BDC23212971C400F2D5C0 /* GDQuestionWriteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E65BDC22212971C400F2D5C0 /* GDQuestionWriteModel.m */; };
-		E65E68BD20D0E60B003E07CB /* GDEditBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E65E68BC20D0E60B003E07CB /* GDEditBaseViewController.m */; };
-		E65E68C120D0EC0F003E07CB /* GDEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E65E68BF20D0EC0F003E07CB /* GDEditViewController.m */; };
 		E66043E911AC64879784645F /* libPods-GoodDeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EDE6627E679C36DA5BE5B6 /* libPods-GoodDeed.a */; };
 		E664C95120C925A5004E81A4 /* GDBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E664C94920C925A5004E81A4 /* GDBaseViewController.m */; };
 		E664C95220C925A5004E81A4 /* GDLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E664C94A20C925A5004E81A4 /* GDLeftViewController.m */; };
@@ -189,6 +246,114 @@
 
 /* Begin PBXFileReference section */
 		22D5E47E039051D8DA31CC88 /* Pods-GoodDeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodDeed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoodDeed/Pods-GoodDeed.debug.xcconfig"; sourceTree = "<group>"; };
+		460BA8C421417D98008D1D2E /* GDChooseQuestionTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDChooseQuestionTypeViewController.h; sourceTree = "<group>"; };
+		460BA8C521417D98008D1D2E /* GDChooseQuestionTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDChooseQuestionTypeViewController.m; sourceTree = "<group>"; };
+		460BA8C721417D98008D1D2E /* GDChooseOneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDChooseOneModel.m; sourceTree = "<group>"; };
+		460BA8C821417D98008D1D2E /* GDSurveyTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSurveyTypeModel.h; sourceTree = "<group>"; };
+		460BA8C921417D98008D1D2E /* GDChooseOneModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDChooseOneModel.h; sourceTree = "<group>"; };
+		460BA8CA21417D98008D1D2E /* GDSurveyTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDSurveyTypeModel.m; sourceTree = "<group>"; };
+		460BA8CC21417D98008D1D2E /* GDSurveyTypePopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSurveyTypePopView.h; sourceTree = "<group>"; };
+		460BA8CD21417D98008D1D2E /* GDSurveyTypeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDSurveyTypeCollectionViewCell.m; sourceTree = "<group>"; };
+		460BA8CE21417D98008D1D2E /* GDSurveyTypeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDSurveyTypeCollectionViewCell.xib; sourceTree = "<group>"; };
+		460BA8CF21417D98008D1D2E /* GDSurveyTitleCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSurveyTitleCollectionReusableView.h; sourceTree = "<group>"; };
+		460BA8D021417D98008D1D2E /* GDSurveyTypePopView+Selected.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDSurveyTypePopView+Selected.m"; sourceTree = "<group>"; };
+		460BA8D121417D98008D1D2E /* GDSurveyTypePopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDSurveyTypePopView.m; sourceTree = "<group>"; };
+		460BA8D221417D98008D1D2E /* GDSurveyTypePopView+Selected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDSurveyTypePopView+Selected.h"; sourceTree = "<group>"; };
+		460BA8D321417D98008D1D2E /* GDSurveyTitleCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDSurveyTitleCollectionReusableView.m; sourceTree = "<group>"; };
+		460BA8D421417D98008D1D2E /* GDSurveyTypeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSurveyTypeCollectionViewCell.h; sourceTree = "<group>"; };
+		460BA8D521417D98008D1D2E /* GDSurveyTitleCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDSurveyTitleCollectionReusableView.xib; sourceTree = "<group>"; };
+		460BA8D821417D98008D1D2E /* GDEditSurveyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditSurveyManager.m; sourceTree = "<group>"; };
+		460BA8D921417D98008D1D2E /* GDEditSurveyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditSurveyManager.h; sourceTree = "<group>"; };
+		460BA8DB21417D98008D1D2E /* GDEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditViewController.m; sourceTree = "<group>"; };
+		460BA8DC21417D98008D1D2E /* GDEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditViewController.h; sourceTree = "<group>"; };
+		460BA8DD21417D98008D1D2E /* GDSurveyDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSurveyDefine.h; sourceTree = "<group>"; };
+		460BA8DF21417D98008D1D2E /* GDEditBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditBottomView.h; sourceTree = "<group>"; };
+		460BA8E021417D98008D1D2E /* GDEditBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditBottomView.m; sourceTree = "<group>"; };
+		460BA8E121417D98008D1D2E /* GDEditBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDEditBottomView.xib; sourceTree = "<group>"; };
+		460BA8E321417D98008D1D2E /* GDSurveyPageProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSurveyPageProtocol.h; sourceTree = "<group>"; };
+		460BA8E521417D98008D1D2E /* GDEditBoundRangeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditBoundRangeViewModel.m; sourceTree = "<group>"; };
+		460BA8E621417D98008D1D2E /* GDEditRankIndexViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditRankIndexViewModel.h; sourceTree = "<group>"; };
+		460BA8E721417D98008D1D2E /* GDEditToolViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditToolViewModel.m; sourceTree = "<group>"; };
+		460BA8E821417D98008D1D2E /* GDEditTextViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditTextViewModel.m; sourceTree = "<group>"; };
+		460BA8E921417D98008D1D2E /* GDEditImageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditImageViewModel.m; sourceTree = "<group>"; };
+		460BA8EA21417D98008D1D2E /* GDEditBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditBaseViewModel.m; sourceTree = "<group>"; };
+		460BA8EB21417D98008D1D2E /* GDEditSlidingScaleViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditSlidingScaleViewModel.h; sourceTree = "<group>"; };
+		460BA8EC21417D98008D1D2E /* GDCreateServeyFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDCreateServeyFactory.h; sourceTree = "<group>"; };
+		460BA8ED21417D98008D1D2E /* GDEditQuestionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditQuestionViewModel.m; sourceTree = "<group>"; };
+		460BA8EE21417D98008D1D2E /* GDEditRankEmptyViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditRankEmptyViewModel.h; sourceTree = "<group>"; };
+		460BA8EF21417D98008D1D2E /* GDEditPageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditPageModel.m; sourceTree = "<group>"; };
+		460BA8F021417D98008D1D2E /* GDEditRankIndexViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditRankIndexViewModel.m; sourceTree = "<group>"; };
+		460BA8F121417D98008D1D2E /* GDEditBoundRangeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditBoundRangeViewModel.h; sourceTree = "<group>"; };
+		460BA8F221417D98008D1D2E /* GDEditTextViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditTextViewModel.h; sourceTree = "<group>"; };
+		460BA8F321417D98008D1D2E /* GDEditToolViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditToolViewModel.h; sourceTree = "<group>"; };
+		460BA8F421417D98008D1D2E /* GDEditSlidingScaleViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditSlidingScaleViewModel.m; sourceTree = "<group>"; };
+		460BA8F521417D98008D1D2E /* GDEditBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditBaseViewModel.h; sourceTree = "<group>"; };
+		460BA8F621417D98008D1D2E /* GDEditImageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditImageViewModel.h; sourceTree = "<group>"; };
+		460BA8F721417D98008D1D2E /* GDEditPageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditPageModel.h; sourceTree = "<group>"; };
+		460BA8F821417D98008D1D2E /* GDEditQuestionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditQuestionViewModel.h; sourceTree = "<group>"; };
+		460BA8F921417D98008D1D2E /* GDEditRankEmptyViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditRankEmptyViewModel.m; sourceTree = "<group>"; };
+		460BA8FA21417D98008D1D2E /* GDCreateServeyFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDCreateServeyFactory.m; sourceTree = "<group>"; };
+		460BA8FC21417D98008D1D2E /* GDEditListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditListViewController.m; sourceTree = "<group>"; };
+		460BA8FD21417D98008D1D2E /* GDEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditTableViewController.h; sourceTree = "<group>"; };
+		460BA8FE21417D98008D1D2E /* GDEditCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditCollectionViewController.h; sourceTree = "<group>"; };
+		460BA8FF21417D98008D1D2E /* GDEditListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditListViewController.h; sourceTree = "<group>"; };
+		460BA90021417D98008D1D2E /* GDEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditTableViewController.m; sourceTree = "<group>"; };
+		460BA90121417D98008D1D2E /* GDEditCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditCollectionViewController.m; sourceTree = "<group>"; };
+		460BA90421417D98008D1D2E /* GDBoundRangeAnswerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDBoundRangeAnswerTableViewCell.h; sourceTree = "<group>"; };
+		460BA90521417D98008D1D2E /* GDBoundRangeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDBoundRangeCollectionViewCell.m; sourceTree = "<group>"; };
+		460BA90621417D98008D1D2E /* GDBoundRangeAnswerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDBoundRangeAnswerTableViewCell.m; sourceTree = "<group>"; };
+		460BA90721417D98008D1D2E /* GDBoundRangeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDBoundRangeCollectionViewCell.h; sourceTree = "<group>"; };
+		460BA90821417D98008D1D2E /* Untitled.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Untitled.xcworkspace; sourceTree = "<group>"; };
+		460BA90A21417D98008D1D2E /* GDChooseMultipleAnswerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDChooseMultipleAnswerTableViewCell.m; sourceTree = "<group>"; };
+		460BA90B21417D98008D1D2E /* GDChooseMultipleAddOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDChooseMultipleAddOptionTableViewCell.h; sourceTree = "<group>"; };
+		460BA90C21417D98008D1D2E /* GDChooseMultipleAddOptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDChooseMultipleAddOptionTableViewCell.xib; sourceTree = "<group>"; };
+		460BA90D21417D98008D1D2E /* GDChooseMultipleAddOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDChooseMultipleAddOptionTableViewCell.m; sourceTree = "<group>"; };
+		460BA90E21417D98008D1D2E /* GDChooseMultipleAnswerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDChooseMultipleAnswerTableViewCell.h; sourceTree = "<group>"; };
+		460BA91021417D98008D1D2E /* GDSlidingScaleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDSlidingScaleTableViewCell.m; sourceTree = "<group>"; };
+		460BA91121417D98008D1D2E /* GDSlidingScaleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSlidingScaleTableViewCell.h; sourceTree = "<group>"; };
+		460BA91321417D98008D1D2E /* GDStackRankAddOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDStackRankAddOptionTableViewCell.m; sourceTree = "<group>"; };
+		460BA91421417D98008D1D2E /* GDStackRankIndexTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDStackRankIndexTableViewCell.xib; sourceTree = "<group>"; };
+		460BA91521417D98008D1D2E /* GDStackRankIndexTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDStackRankIndexTableViewCell.h; sourceTree = "<group>"; };
+		460BA91621417D98008D1D2E /* GDStackRankEditTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDStackRankEditTableViewCell.h; sourceTree = "<group>"; };
+		460BA91721417D98008D1D2E /* GDStackRankAddOptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDStackRankAddOptionTableViewCell.xib; sourceTree = "<group>"; };
+		460BA91821417D98008D1D2E /* GDStackRankAddOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDStackRankAddOptionTableViewCell.h; sourceTree = "<group>"; };
+		460BA91921417D98008D1D2E /* GDStackRankEditTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDStackRankEditTableViewCell.xib; sourceTree = "<group>"; };
+		460BA91A21417D98008D1D2E /* GDStackRankIndexTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDStackRankIndexTableViewCell.m; sourceTree = "<group>"; };
+		460BA91B21417D98008D1D2E /* GDStackRankEditTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDStackRankEditTableViewCell.m; sourceTree = "<group>"; };
+		460BA91C21417D98008D1D2E /* GDTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTextView.h; sourceTree = "<group>"; };
+		460BA91E21417D98008D1D2E /* GDEditBottomSettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDEditBottomSettingView.xib; sourceTree = "<group>"; };
+		460BA91F21417D98008D1D2E /* GDEditQuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditQuestionTableViewCell.h; sourceTree = "<group>"; };
+		460BA92021417D98008D1D2E /* GDEditImageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditImageHeaderView.h; sourceTree = "<group>"; };
+		460BA92121417D98008D1D2E /* GDEditQuestionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDEditQuestionTableViewCell.xib; sourceTree = "<group>"; };
+		460BA92221417D98008D1D2E /* GDEditBottomSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditBottomSettingView.m; sourceTree = "<group>"; };
+		460BA92321417D98008D1D2E /* GDEditQuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditQuestionTableViewCell.m; sourceTree = "<group>"; };
+		460BA92421417D98008D1D2E /* GDEditImageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditImageHeaderView.m; sourceTree = "<group>"; };
+		460BA92521417D98008D1D2E /* GDEditBottomSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditBottomSettingView.h; sourceTree = "<group>"; };
+		460BA92621417D98008D1D2E /* GDEditImageHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDEditImageHeaderView.xib; sourceTree = "<group>"; };
+		460BA92721417D98008D1D2E /* GDEditTextTypeCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditTextTypeCellProtocol.h; sourceTree = "<group>"; };
+		460BA92921417D98008D1D2E /* GDImageVoteAnswerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDImageVoteAnswerCollectionViewCell.h; sourceTree = "<group>"; };
+		460BA92A21417D98008D1D2E /* GDImageVoteAddOptionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDImageVoteAddOptionCollectionViewCell.h; sourceTree = "<group>"; };
+		460BA92B21417D98008D1D2E /* GDEditQuestionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditQuestionCollectionViewCell.h; sourceTree = "<group>"; };
+		460BA92C21417D98008D1D2E /* GDImageVoteAddOptionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDImageVoteAddOptionCollectionViewCell.xib; sourceTree = "<group>"; };
+		460BA92D21417D98008D1D2E /* GDImageVoteAddOptionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDImageVoteAddOptionCollectionViewCell.m; sourceTree = "<group>"; };
+		460BA92E21417D98008D1D2E /* GDImageVoteAnswerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDImageVoteAnswerCollectionViewCell.m; sourceTree = "<group>"; };
+		460BA92F21417D98008D1D2E /* GDEditQuestionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditQuestionCollectionViewCell.m; sourceTree = "<group>"; };
+		460BA93021417D98008D1D2E /* GDImageVoteAnswerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDImageVoteAnswerCollectionViewCell.xib; sourceTree = "<group>"; };
+		460BA93121417D98008D1D2E /* GDTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDTextView.m; sourceTree = "<group>"; };
+		460BA93321417D98008D1D2E /* GDTextAnswerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDTextAnswerTableViewCell.m; sourceTree = "<group>"; };
+		460BA93421417D98008D1D2E /* GDTextAnswerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDTextAnswerTableViewCell.xib; sourceTree = "<group>"; };
+		460BA93521417D98008D1D2E /* GDTextAnswerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTextAnswerTableViewCell.h; sourceTree = "<group>"; };
+		460BA93721417D98008D1D2E /* GDChooseOneAnswerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDChooseOneAnswerTableViewCell.m; sourceTree = "<group>"; };
+		460BA93821417D98008D1D2E /* GDChooseOneAddOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDChooseOneAddOptionTableViewCell.h; sourceTree = "<group>"; };
+		460BA93921417D98008D1D2E /* GDChooseOneAddOptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDChooseOneAddOptionTableViewCell.xib; sourceTree = "<group>"; };
+		460BA93A21417D98008D1D2E /* GDChooseOneAddOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDChooseOneAddOptionTableViewCell.m; sourceTree = "<group>"; };
+		460BA93B21417D98008D1D2E /* GDChooseOneAnswerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDChooseOneAnswerTableViewCell.h; sourceTree = "<group>"; };
+		460BA93D21417D98008D1D2E /* GDEditCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDEditCoverViewController.m; sourceTree = "<group>"; };
+		460BA93E21417D98008D1D2E /* GDEditCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDEditCoverViewController.h; sourceTree = "<group>"; };
+		460BA97921417E97008D1D2E /* LZImageCropping+GDCrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LZImageCropping+GDCrop.m"; sourceTree = "<group>"; };
+		460BA97A21417EA9008D1D2E /* LZImageCropping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZImageCropping.m; sourceTree = "<group>"; };
+		460BA97B21417EA9008D1D2E /* LZImageCropping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZImageCropping.h; sourceTree = "<group>"; };
+		460BA97C21417EA9008D1D2E /* LZImageCropping+GDCrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LZImageCropping+GDCrop.h"; sourceTree = "<group>"; };
 		46932CB3211C7A1D00573682 /* QuestionsModule.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = QuestionsModule.md; sourceTree = "<group>"; };
 		4906992A2151427F0009A4B7 /* GDUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDUserModel.h; sourceTree = "<group>"; };
 		4906992B2151427F0009A4B7 /* GDUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDUserModel.m; sourceTree = "<group>"; };
@@ -211,7 +376,6 @@
 		496026D920D95A1000C3DD15 /* GDKnowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDKnowViewController.xib; sourceTree = "<group>"; };
 		49750EFC213AC73300779DDC /* GDSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSlider.h; sourceTree = "<group>"; };
 		49750EFD213AC73300779DDC /* GDSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSlider.m; sourceTree = "<group>"; };
-		49F0A78020D1715300CD06C3 /* GDEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDEditViewController.xib; sourceTree = "<group>"; };
 		49F0A78220D171B500CD06C3 /* GDEditButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDEditButton.h; sourceTree = "<group>"; };
 		49F0A78320D171B500CD06C3 /* GDEditButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDEditButton.m; sourceTree = "<group>"; };
 		52EDE6627E679C36DA5BE5B6 /* libPods-GoodDeed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoodDeed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -316,10 +480,6 @@
 		E65BDC1F21294F4300F2D5C0 /* GDQuestionHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDQuestionHeadView.m; sourceTree = "<group>"; };
 		E65BDC21212971C400F2D5C0 /* GDQuestionWriteModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDQuestionWriteModel.h; sourceTree = "<group>"; };
 		E65BDC22212971C400F2D5C0 /* GDQuestionWriteModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDQuestionWriteModel.m; sourceTree = "<group>"; };
-		E65E68BB20D0E60B003E07CB /* GDEditBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDEditBaseViewController.h; sourceTree = "<group>"; };
-		E65E68BC20D0E60B003E07CB /* GDEditBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDEditBaseViewController.m; sourceTree = "<group>"; };
-		E65E68BE20D0EC0F003E07CB /* GDEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDEditViewController.h; sourceTree = "<group>"; };
-		E65E68BF20D0EC0F003E07CB /* GDEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDEditViewController.m; sourceTree = "<group>"; };
 		E664C94720C925A5004E81A4 /* GDLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDLeftViewController.h; sourceTree = "<group>"; };
 		E664C94920C925A5004E81A4 /* GDBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDBaseViewController.m; sourceTree = "<group>"; };
 		E664C94A20C925A5004E81A4 /* GDLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDLeftViewController.m; sourceTree = "<group>"; };
@@ -499,6 +659,285 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		460BA8C121417D98008D1D2E /* Survey */ = {
+			isa = PBXGroup;
+			children = (
+				460BA8C221417D98008D1D2E /* ChooseQuestionType */,
+				460BA8D621417D98008D1D2E /* SurveyBase */,
+				460BA8E221417D98008D1D2E /* EditQuestion */,
+				460BA93C21417D98008D1D2E /* SurveyCover */,
+			);
+			path = Survey;
+			sourceTree = "<group>";
+		};
+		460BA8C221417D98008D1D2E /* ChooseQuestionType */ = {
+			isa = PBXGroup;
+			children = (
+				460BA8C321417D98008D1D2E /* Controller */,
+				460BA8C621417D98008D1D2E /* Model */,
+				460BA8CB21417D98008D1D2E /* View */,
+			);
+			path = ChooseQuestionType;
+			sourceTree = "<group>";
+		};
+		460BA8C321417D98008D1D2E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				460BA8C421417D98008D1D2E /* GDChooseQuestionTypeViewController.h */,
+				460BA8C521417D98008D1D2E /* GDChooseQuestionTypeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		460BA8C621417D98008D1D2E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				460BA8C721417D98008D1D2E /* GDChooseOneModel.m */,
+				460BA8C821417D98008D1D2E /* GDSurveyTypeModel.h */,
+				460BA8C921417D98008D1D2E /* GDChooseOneModel.h */,
+				460BA8CA21417D98008D1D2E /* GDSurveyTypeModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		460BA8CB21417D98008D1D2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				460BA8CC21417D98008D1D2E /* GDSurveyTypePopView.h */,
+				460BA8CD21417D98008D1D2E /* GDSurveyTypeCollectionViewCell.m */,
+				460BA8CE21417D98008D1D2E /* GDSurveyTypeCollectionViewCell.xib */,
+				460BA8CF21417D98008D1D2E /* GDSurveyTitleCollectionReusableView.h */,
+				460BA8D021417D98008D1D2E /* GDSurveyTypePopView+Selected.m */,
+				460BA8D121417D98008D1D2E /* GDSurveyTypePopView.m */,
+				460BA8D221417D98008D1D2E /* GDSurveyTypePopView+Selected.h */,
+				460BA8D321417D98008D1D2E /* GDSurveyTitleCollectionReusableView.m */,
+				460BA8D421417D98008D1D2E /* GDSurveyTypeCollectionViewCell.h */,
+				460BA8D521417D98008D1D2E /* GDSurveyTitleCollectionReusableView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		460BA8D621417D98008D1D2E /* SurveyBase */ = {
+			isa = PBXGroup;
+			children = (
+				460BA8D721417D98008D1D2E /* Models */,
+				460BA8DA21417D98008D1D2E /* Controller */,
+				460BA8DD21417D98008D1D2E /* GDSurveyDefine.h */,
+				460BA8DE21417D98008D1D2E /* Views */,
+			);
+			path = SurveyBase;
+			sourceTree = "<group>";
+		};
+		460BA8D721417D98008D1D2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				460BA8D821417D98008D1D2E /* GDEditSurveyManager.m */,
+				460BA8D921417D98008D1D2E /* GDEditSurveyManager.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		460BA8DA21417D98008D1D2E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				460BA8DB21417D98008D1D2E /* GDEditViewController.m */,
+				460BA8DC21417D98008D1D2E /* GDEditViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		460BA8DE21417D98008D1D2E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				460BA8DF21417D98008D1D2E /* GDEditBottomView.h */,
+				460BA8E021417D98008D1D2E /* GDEditBottomView.m */,
+				460BA8E121417D98008D1D2E /* GDEditBottomView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		460BA8E221417D98008D1D2E /* EditQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				460BA8E321417D98008D1D2E /* GDSurveyPageProtocol.h */,
+				460BA8E421417D98008D1D2E /* Models */,
+				460BA8FB21417D98008D1D2E /* Controllers */,
+				460BA90221417D98008D1D2E /* Views */,
+			);
+			path = EditQuestion;
+			sourceTree = "<group>";
+		};
+		460BA8E421417D98008D1D2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				460BA8E521417D98008D1D2E /* GDEditBoundRangeViewModel.m */,
+				460BA8E621417D98008D1D2E /* GDEditRankIndexViewModel.h */,
+				460BA8E721417D98008D1D2E /* GDEditToolViewModel.m */,
+				460BA8E821417D98008D1D2E /* GDEditTextViewModel.m */,
+				460BA8E921417D98008D1D2E /* GDEditImageViewModel.m */,
+				460BA8EA21417D98008D1D2E /* GDEditBaseViewModel.m */,
+				460BA8EB21417D98008D1D2E /* GDEditSlidingScaleViewModel.h */,
+				460BA8EC21417D98008D1D2E /* GDCreateServeyFactory.h */,
+				460BA8ED21417D98008D1D2E /* GDEditQuestionViewModel.m */,
+				460BA8EE21417D98008D1D2E /* GDEditRankEmptyViewModel.h */,
+				460BA8EF21417D98008D1D2E /* GDEditPageModel.m */,
+				460BA8F021417D98008D1D2E /* GDEditRankIndexViewModel.m */,
+				460BA8F121417D98008D1D2E /* GDEditBoundRangeViewModel.h */,
+				460BA8F221417D98008D1D2E /* GDEditTextViewModel.h */,
+				460BA8F321417D98008D1D2E /* GDEditToolViewModel.h */,
+				460BA8F421417D98008D1D2E /* GDEditSlidingScaleViewModel.m */,
+				460BA8F521417D98008D1D2E /* GDEditBaseViewModel.h */,
+				460BA8F621417D98008D1D2E /* GDEditImageViewModel.h */,
+				460BA8F721417D98008D1D2E /* GDEditPageModel.h */,
+				460BA8F821417D98008D1D2E /* GDEditQuestionViewModel.h */,
+				460BA8F921417D98008D1D2E /* GDEditRankEmptyViewModel.m */,
+				460BA8FA21417D98008D1D2E /* GDCreateServeyFactory.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		460BA8FB21417D98008D1D2E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				460BA8FC21417D98008D1D2E /* GDEditListViewController.m */,
+				460BA8FD21417D98008D1D2E /* GDEditTableViewController.h */,
+				460BA8FE21417D98008D1D2E /* GDEditCollectionViewController.h */,
+				460BA8FF21417D98008D1D2E /* GDEditListViewController.h */,
+				460BA90021417D98008D1D2E /* GDEditTableViewController.m */,
+				460BA90121417D98008D1D2E /* GDEditCollectionViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		460BA90221417D98008D1D2E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				460BA90321417D98008D1D2E /* BoundRange */,
+				460BA90921417D98008D1D2E /* ChooseMultiple */,
+				460BA90F21417D98008D1D2E /* SlidingScale */,
+				460BA91221417D98008D1D2E /* StackRank */,
+				460BA91C21417D98008D1D2E /* GDTextView.h */,
+				460BA91D21417D98008D1D2E /* Common */,
+				460BA92721417D98008D1D2E /* GDEditTextTypeCellProtocol.h */,
+				460BA92821417D98008D1D2E /* ImageVote */,
+				460BA93121417D98008D1D2E /* GDTextView.m */,
+				460BA93221417D98008D1D2E /* Text */,
+				460BA93621417D98008D1D2E /* ChooseOne */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		460BA90321417D98008D1D2E /* BoundRange */ = {
+			isa = PBXGroup;
+			children = (
+				460BA90421417D98008D1D2E /* GDBoundRangeAnswerTableViewCell.h */,
+				460BA90521417D98008D1D2E /* GDBoundRangeCollectionViewCell.m */,
+				460BA90621417D98008D1D2E /* GDBoundRangeAnswerTableViewCell.m */,
+				460BA90721417D98008D1D2E /* GDBoundRangeCollectionViewCell.h */,
+				460BA90821417D98008D1D2E /* Untitled.xcworkspace */,
+			);
+			path = BoundRange;
+			sourceTree = "<group>";
+		};
+		460BA90921417D98008D1D2E /* ChooseMultiple */ = {
+			isa = PBXGroup;
+			children = (
+				460BA90A21417D98008D1D2E /* GDChooseMultipleAnswerTableViewCell.m */,
+				460BA90B21417D98008D1D2E /* GDChooseMultipleAddOptionTableViewCell.h */,
+				460BA90C21417D98008D1D2E /* GDChooseMultipleAddOptionTableViewCell.xib */,
+				460BA90D21417D98008D1D2E /* GDChooseMultipleAddOptionTableViewCell.m */,
+				460BA90E21417D98008D1D2E /* GDChooseMultipleAnswerTableViewCell.h */,
+			);
+			path = ChooseMultiple;
+			sourceTree = "<group>";
+		};
+		460BA90F21417D98008D1D2E /* SlidingScale */ = {
+			isa = PBXGroup;
+			children = (
+				460BA91021417D98008D1D2E /* GDSlidingScaleTableViewCell.m */,
+				460BA91121417D98008D1D2E /* GDSlidingScaleTableViewCell.h */,
+			);
+			path = SlidingScale;
+			sourceTree = "<group>";
+		};
+		460BA91221417D98008D1D2E /* StackRank */ = {
+			isa = PBXGroup;
+			children = (
+				460BA91321417D98008D1D2E /* GDStackRankAddOptionTableViewCell.m */,
+				460BA91421417D98008D1D2E /* GDStackRankIndexTableViewCell.xib */,
+				460BA91521417D98008D1D2E /* GDStackRankIndexTableViewCell.h */,
+				460BA91621417D98008D1D2E /* GDStackRankEditTableViewCell.h */,
+				460BA91721417D98008D1D2E /* GDStackRankAddOptionTableViewCell.xib */,
+				460BA91821417D98008D1D2E /* GDStackRankAddOptionTableViewCell.h */,
+				460BA91921417D98008D1D2E /* GDStackRankEditTableViewCell.xib */,
+				460BA91A21417D98008D1D2E /* GDStackRankIndexTableViewCell.m */,
+				460BA91B21417D98008D1D2E /* GDStackRankEditTableViewCell.m */,
+			);
+			path = StackRank;
+			sourceTree = "<group>";
+		};
+		460BA91D21417D98008D1D2E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				460BA91E21417D98008D1D2E /* GDEditBottomSettingView.xib */,
+				460BA91F21417D98008D1D2E /* GDEditQuestionTableViewCell.h */,
+				460BA92021417D98008D1D2E /* GDEditImageHeaderView.h */,
+				460BA92121417D98008D1D2E /* GDEditQuestionTableViewCell.xib */,
+				460BA92221417D98008D1D2E /* GDEditBottomSettingView.m */,
+				460BA92321417D98008D1D2E /* GDEditQuestionTableViewCell.m */,
+				460BA92421417D98008D1D2E /* GDEditImageHeaderView.m */,
+				460BA92521417D98008D1D2E /* GDEditBottomSettingView.h */,
+				460BA92621417D98008D1D2E /* GDEditImageHeaderView.xib */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		460BA92821417D98008D1D2E /* ImageVote */ = {
+			isa = PBXGroup;
+			children = (
+				460BA92921417D98008D1D2E /* GDImageVoteAnswerCollectionViewCell.h */,
+				460BA92A21417D98008D1D2E /* GDImageVoteAddOptionCollectionViewCell.h */,
+				460BA92B21417D98008D1D2E /* GDEditQuestionCollectionViewCell.h */,
+				460BA92C21417D98008D1D2E /* GDImageVoteAddOptionCollectionViewCell.xib */,
+				460BA92D21417D98008D1D2E /* GDImageVoteAddOptionCollectionViewCell.m */,
+				460BA92E21417D98008D1D2E /* GDImageVoteAnswerCollectionViewCell.m */,
+				460BA92F21417D98008D1D2E /* GDEditQuestionCollectionViewCell.m */,
+				460BA93021417D98008D1D2E /* GDImageVoteAnswerCollectionViewCell.xib */,
+			);
+			path = ImageVote;
+			sourceTree = "<group>";
+		};
+		460BA93221417D98008D1D2E /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				460BA93321417D98008D1D2E /* GDTextAnswerTableViewCell.m */,
+				460BA93421417D98008D1D2E /* GDTextAnswerTableViewCell.xib */,
+				460BA93521417D98008D1D2E /* GDTextAnswerTableViewCell.h */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		460BA93621417D98008D1D2E /* ChooseOne */ = {
+			isa = PBXGroup;
+			children = (
+				460BA93721417D98008D1D2E /* GDChooseOneAnswerTableViewCell.m */,
+				460BA93821417D98008D1D2E /* GDChooseOneAddOptionTableViewCell.h */,
+				460BA93921417D98008D1D2E /* GDChooseOneAddOptionTableViewCell.xib */,
+				460BA93A21417D98008D1D2E /* GDChooseOneAddOptionTableViewCell.m */,
+				460BA93B21417D98008D1D2E /* GDChooseOneAnswerTableViewCell.h */,
+			);
+			path = ChooseOne;
+			sourceTree = "<group>";
+		};
+		460BA93C21417D98008D1D2E /* SurveyCover */ = {
+			isa = PBXGroup;
+			children = (
+				460BA93D21417D98008D1D2E /* GDEditCoverViewController.m */,
+				460BA93E21417D98008D1D2E /* GDEditCoverViewController.h */,
+			);
+			path = SurveyCover;
+			sourceTree = "<group>";
+		};
 		46932CB2211C797400573682 /* Questions */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,7 +1196,7 @@
 			children = (
 				46932CB2211C797400573682 /* Questions */,
 				E66875A020D9009E0038307F /* Lunch */,
-				E69C3FB720CFBE47004F5614 /* Survey */,
+				460BA8C121417D98008D1D2E /* Survey */,
 				E69C3FB320CFB4DB004F5614 /* Tool */,
 				E664C94420C92595004E81A4 /* Home */,
 				E6655CCA20C5138F005B46C3 /* AppDelegate.h */,
@@ -923,6 +1362,10 @@
 		E69C3FB320CFB4DB004F5614 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				460BA97B21417EA9008D1D2E /* LZImageCropping.h */,
+				460BA97A21417EA9008D1D2E /* LZImageCropping.m */,
+				460BA97C21417EA9008D1D2E /* LZImageCropping+GDCrop.h */,
+				460BA97921417E97008D1D2E /* LZImageCropping+GDCrop.m */,
 				E6BE89E52120062C00C3AEDC /* UIView+LXShadowPath.h */,
 				E6BE89E42120062C00C3AEDC /* UIView+LXShadowPath.m */,
 				49F0A78220D171B500CD06C3 /* GDEditButton.h */,
@@ -943,26 +1386,6 @@
 				E6B4C5512151E2B7003129AD /* GDDataBaseManager.m */,
 			);
 			path = Tool;
-			sourceTree = "<group>";
-		};
-		E69C3FB720CFBE47004F5614 /* Survey */ = {
-			isa = PBXGroup;
-			children = (
-				E69C3FB820CFBE8F004F5614 /* Controller */,
-			);
-			path = Survey;
-			sourceTree = "<group>";
-		};
-		E69C3FB820CFBE8F004F5614 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E65E68BB20D0E60B003E07CB /* GDEditBaseViewController.h */,
-				E65E68BC20D0E60B003E07CB /* GDEditBaseViewController.m */,
-				E65E68BE20D0EC0F003E07CB /* GDEditViewController.h */,
-				E65E68BF20D0EC0F003E07CB /* GDEditViewController.m */,
-				49F0A78020D1715300CD06C3 /* GDEditViewController.xib */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		E6F1435721198AF50038A9D6 /* Api */ = {
@@ -1117,11 +1540,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				460BA96821417D99008D1D2E /* GDEditQuestionTableViewCell.xib in Resources */,
 				496026DB20D95A1000C3DD15 /* GDKnowViewController.xib in Resources */,
+				460BA94B21417D99008D1D2E /* GDEditBottomView.xib in Resources */,
+				460BA95E21417D99008D1D2E /* GDChooseMultipleAddOptionTableViewCell.xib in Resources */,
 				49594A55212F0B0200402ADB /* GDOpenNotiViewController.xib in Resources */,
 				E611FC0A20DA42CC00807E95 /* animation_1.jpg in Resources */,
 				E611FBFD20DA42CC00807E95 /* animation_12.jpg in Resources */,
 				E664C97220CA174D004E81A4 /* SCAdDemoCollectionViewCell.xib in Resources */,
+				460BA96D21417D99008D1D2E /* GDImageVoteAddOptionCollectionViewCell.xib in Resources */,
+				460BA97421417D99008D1D2E /* GDTextAnswerTableViewCell.xib in Resources */,
 				E611FC0820DA42CC00807E95 /* animation_2.jpg in Resources */,
 				E6655CD720C51391005B46C3 /* LaunchScreen.storyboard in Resources */,
 				E664C98220CA7522004E81A4 /* GDSurveyCell.xib in Resources */,
@@ -1130,21 +1558,25 @@
 				E611FC0920DA42CC00807E95 /* animation_3.jpg in Resources */,
 				49594A50212F01CF00402ADB /* GDAnswerFinishViewController.xib in Resources */,
 				E6A359C9214A7F8A00BC5B64 /* GDReLoginViewController.xib in Resources */,
+				460BA96221417D99008D1D2E /* GDStackRankIndexTableViewCell.xib in Resources */,
 				E692347920E4AE5000AF1585 /* GDLoginViewController.xib in Resources */,
+				460BA96321417D99008D1D2E /* GDStackRankAddOptionTableViewCell.xib in Resources */,
 				E61A5F18213529930074D215 /* GDSingleSelCell.xib in Resources */,
 				E611FC0420DA42CC00807E95 /* animation_4.jpg in Resources */,
 				E61A5F0D213524AB0074D215 /* GDQuestionDescCell.xib in Resources */,
+				460BA96C21417D99008D1D2E /* GDEditImageHeaderView.xib in Resources */,
 				E664C97D20CA7502004E81A4 /* GDHomeCell.xib in Resources */,
 				E61F433820E22E91004D2E09 /* GDPGHeaderView.xib in Resources */,
 				E611FC0620DA42CC00807E95 /* animation_7.jpg in Resources */,
 				E664C98920CA7AE7004E81A4 /* pic.png in Resources */,
-				49F0A78120D1715300CD06C3 /* GDEditViewController.xib in Resources */,
 				E611FBF720DA42CC00807E95 /* animation_8.jpg in Resources */,
+				460BA96721417D99008D1D2E /* GDEditBottomSettingView.xib in Resources */,
 				E61F433D20E237A9004D2E09 /* GDPGSearchViewController.xib in Resources */,
 				E664C95720C92F24004E81A4 /* GDLeftCell.xib in Resources */,
 				E664C95F20C93B7B004E81A4 /* GDLeftHeaderView.xib in Resources */,
 				E61A5F1D21352D830074D215 /* GDMoreSelCell.xib in Resources */,
 				E61A5F34213567F10074D215 /* GDWriteCell.xib in Resources */,
+				460BA96421417D99008D1D2E /* GDStackRankEditTableViewCell.xib in Resources */,
 				E611FBFF20DA42CC00807E95 /* animation_11.jpg in Resources */,
 				E611FC0320DA42CC00807E95 /* animation_19.jpg in Resources */,
 				E611FBF920DA42CC00807E95 /* animation_14.jpg in Resources */,
@@ -1153,15 +1585,20 @@
 				E611FBFE20DA42CC00807E95 /* animation_13.jpg in Resources */,
 				E6655CD420C51391005B46C3 /* Assets.xcassets in Resources */,
 				E6C55C2F20CA85970034A65A /* GDPreviewViewController.xib in Resources */,
+				460BA94721417D99008D1D2E /* GDSurveyTitleCollectionReusableView.xib in Resources */,
 				E66875AD20D903CD0038307F /* GDLaunchViewController.xib in Resources */,
 				E611FBFB20DA42CC00807E95 /* animation_17.jpg in Resources */,
+				460BA95C21417D99008D1D2E /* Untitled.xcworkspace in Resources */,
 				E611FC0220DA42CC00807E95 /* animation_18.jpg in Resources */,
+				460BA97621417D99008D1D2E /* GDChooseOneAddOptionTableViewCell.xib in Resources */,
+				460BA97121417D99008D1D2E /* GDImageVoteAnswerCollectionViewCell.xib in Resources */,
 				E611FC0720DA42CC00807E95 /* animation_6.jpg in Resources */,
 				E6A359D1215098FB00BC5B64 /* GDGroupCell.xib in Resources */,
 				E611FBFC20DA42CC00807E95 /* animation_16.jpg in Resources */,
 				E61A5F2E2135661C0074D215 /* GDPGChooseCell.xib in Resources */,
 				E664C98720CA7547004E81A4 /* GDCauseCell.xib in Resources */,
 				E611FC0520DA42CC00807E95 /* animation_5.jpg in Resources */,
+				460BA94321417D99008D1D2E /* GDSurveyTypeCollectionViewCell.xib in Resources */,
 				E6655CD220C5138F005B46C3 /* Main.storyboard in Resources */,
 				E611FC0120DA42CC00807E95 /* animation_20.jpg in Resources */,
 				E61A5F2221352DE70074D215 /* GDImageSelCell.xib in Resources */,
@@ -1231,16 +1668,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6115CC32152477400E57470 /* GDUploadImageApi.m in Sources */,
+				460BA94C21417D99008D1D2E /* GDEditBoundRangeViewModel.m in Sources */,
+				460BA95521417D99008D1D2E /* GDEditRankEmptyViewModel.m in Sources */,
 				E61F433C20E237A9004D2E09 /* GDPGSearchViewController.m in Sources */,
 				E61A5F0C213524AB0074D215 /* GDQuestionDescCell.m in Sources */,
 				E611FC1C20DBA04600807E95 /* GDQuantifyQuestionView.m in Sources */,
 				E664C95A20C9327B004E81A4 /* GDHelper.m in Sources */,
 				E612DD7F21328E4200B4B774 /* GDBaseNavigationController.m in Sources */,
-				E65E68C120D0EC0F003E07CB /* GDEditViewController.m in Sources */,
 				E69C3FA720CF6F6E004F5614 /* AnimationErectEnd.m in Sources */,
 				E65BDC23212971C400F2D5C0 /* GDQuestionWriteModel.m in Sources */,
 				E6A359C8214A7F8A00BC5B64 /* GDReLoginViewController.m in Sources */,
 				E6115CC02152412C00E57470 /* GDChangeHeadApi.m in Sources */,
+				460BA96A21417D99008D1D2E /* GDEditQuestionTableViewCell.m in Sources */,
 				E6F1435D21198EEC0038A9D6 /* GDBaseApi.m in Sources */,
 				E69C3F9C20CF6F6E004F5614 /* AnimationTiltBegin.m in Sources */,
 				49F0A78420D171B500CD06C3 /* GDEditButton.m in Sources */,
@@ -1252,46 +1691,70 @@
 				E69C3FA520CF6F6E004F5614 /* AnimationErectBegin.m in Sources */,
 				E6A359C3214A7F5C00BC5B64 /* GDResetPwdController.m in Sources */,
 				E65BDC2021294F4300F2D5C0 /* GDQuestionHeadView.m in Sources */,
+				460BA95121417D99008D1D2E /* GDEditQuestionViewModel.m in Sources */,
 				49750EFE213AC73300779DDC /* GDSlider.m in Sources */,
 				E611FC1020DB9EF300807E95 /* GDQuestionBaseView.m in Sources */,
 				E6B4C5522151E2B7003129AD /* GDDataBaseManager.m in Sources */,
+				460BA95321417D99008D1D2E /* GDEditRankIndexViewModel.m in Sources */,
+				460BA94F21417D99008D1D2E /* GDEditImageViewModel.m in Sources */,
 				E6BE89D9211F41A700C3AEDC /* GDAddOrganApi.m in Sources */,
+				460BA95721417D99008D1D2E /* GDEditListViewController.m in Sources */,
 				E664C95D20C93B17004E81A4 /* GDLeftHeaderView.m in Sources */,
 				E69C3FAE20CFA3E5004F5614 /* GDHomeViewController.m in Sources */,
 				E6B39AD4211BDC300080772F /* GDFirstQuestionListModel.m in Sources */,
+				460BA95021417D99008D1D2E /* GDEditBaseViewModel.m in Sources */,
 				E664C98120CA7522004E81A4 /* GDSurveyCell.m in Sources */,
 				E611FBC920DA070900807E95 /* GDLaunchReadyView.m in Sources */,
 				E611FBE120DA3DDE00807E95 /* GDOrgAnimationView.m in Sources */,
+				460BA95621417D99008D1D2E /* GDCreateServeyFactory.m in Sources */,
 				E69C3F9820CF6F6E004F5614 /* AnimationWaveEnd.m in Sources */,
 				E6655CCF20C5138F005B46C3 /* ViewController.m in Sources */,
 				49594A54212F0B0200402ADB /* GDOpenNotiViewController.m in Sources */,
+				460BA94821417D99008D1D2E /* GDEditSurveyManager.m in Sources */,
 				E66875AC20D903CD0038307F /* GDLaunchViewController.m in Sources */,
 				E61A5F80213E361F0074D215 /* GDMoveItem.m in Sources */,
+				460BA93F21417D99008D1D2E /* GDChooseQuestionTypeViewController.m in Sources */,
 				49120BFC2119E43E00EA263C /* GDRegisterApi.m in Sources */,
 				49594A4F212F01CF00402ADB /* GDAnswerFinishViewController.m in Sources */,
 				E69C3FA420CF6F6E004F5614 /* AnimationWaveBegin.m in Sources */,
 				E664C96E20CA174D004E81A4 /* SCAdCollectionViewLayout.m in Sources */,
 				E69C3F9B20CF6F6E004F5614 /* VCTransitionDelegate.m in Sources */,
 				E664C97020CA174D004E81A4 /* SCAdDemoCollectionViewCell.m in Sources */,
+				460BA95821417D99008D1D2E /* GDEditTableViewController.m in Sources */,
 				E69C3FA820CF6F6E004F5614 /* AnimationTransitionBegin.m in Sources */,
 				E6B39C0B211C4F3F0080772F /* GDGetOrganListApi.m in Sources */,
+				460BA94521417D99008D1D2E /* GDSurveyTypePopView.m in Sources */,
 				E664C98620CA7547004E81A4 /* GDCauseCell.m in Sources */,
+				460BA94D21417D99008D1D2E /* GDEditToolViewModel.m in Sources */,
+				460BA97021417D99008D1D2E /* GDEditQuestionCollectionViewCell.m in Sources */,
 				E6655CDA20C51391005B46C3 /* main.m in Sources */,
 				E69C3F9920CF6F6E004F5614 /* AnimationBackEnd.m in Sources */,
+				460BA94021417D99008D1D2E /* GDChooseOneModel.m in Sources */,
 				E61F432C20E219D2004D2E09 /* GDPGChooseViewController.m in Sources */,
 				496026DA20D95A1000C3DD15 /* GDKnowViewController.m in Sources */,
 				E6BE89D6211F231B00C3AEDC /* GDSearchOrganApi.m in Sources */,
+				460BA95221417D99008D1D2E /* GDEditPageModel.m in Sources */,
+				460BA95421417D99008D1D2E /* GDEditSlidingScaleViewModel.m in Sources */,
 				E61A5F2121352DE70074D215 /* GDImageSelCell.m in Sources */,
 				E611FC1920DBA01100807E95 /* GDSlideQuestionView.m in Sources */,
 				E6A359BF2148A98A00BC5B64 /* GDOptionModel.m in Sources */,
+				460BA96F21417D99008D1D2E /* GDImageVoteAnswerCollectionViewCell.m in Sources */,
 				E69C3FA920CF6F6E004F5614 /* AnimationScaleEnd.m in Sources */,
+				460BA94921417D99008D1D2E /* GDEditViewController.m in Sources */,
 				E69C3F9E20CF6F6E004F5614 /* AnimationTildEnd.m in Sources */,
 				E6A359CC214F72F000BC5B64 /* GDCollectionView.m in Sources */,
+				460BA97721417D99008D1D2E /* GDChooseOneAddOptionTableViewCell.m in Sources */,
 				E61A5EFC2134FCAB0074D215 /* GDSlideCell.m in Sources */,
+				460BA96521417D99008D1D2E /* GDStackRankIndexTableViewCell.m in Sources */,
+				460BA97521417D99008D1D2E /* GDChooseOneAnswerTableViewCell.m in Sources */,
 				E61A5EFF213519530074D215 /* GDQuestionView.m in Sources */,
+				460BA94221417D99008D1D2E /* GDSurveyTypeCollectionViewCell.m in Sources */,
+				460BA96B21417D99008D1D2E /* GDEditImageHeaderView.m in Sources */,
 				E6B39AD1211BD1130080772F /* GDFirstSurveyModel.m in Sources */,
+				460BA94421417D99008D1D2E /* GDSurveyTypePopView+Selected.m in Sources */,
 				E664C97120CA174D004E81A4 /* SCAdView.m in Sources */,
 				E664C95620C92F24004E81A4 /* GDLeftCell.m in Sources */,
+				460BA95921417D99008D1D2E /* GDEditCollectionViewController.m in Sources */,
 				E6655CCC20C5138F005B46C3 /* AppDelegate.m in Sources */,
 				49120BF92119DDF600EA263C /* UIWindow+HUD.m in Sources */,
 				E63FABE62140EB540066BDE4 /* GDMoveButton.m in Sources */,
@@ -1302,19 +1765,30 @@
 				E6DF79DC211D514600ED8951 /* UIImageView+URL.m in Sources */,
 				E69C3FA020CF6F6E004F5614 /* AnimationFadeBegin.m in Sources */,
 				E664C97C20CA7502004E81A4 /* GDHomeCell.m in Sources */,
+				460BA95D21417D99008D1D2E /* GDChooseMultipleAnswerTableViewCell.m in Sources */,
 				E611FC2220DBA0F000807E95 /* GDImageSelQuestionView.m in Sources */,
+				460BA94621417D99008D1D2E /* GDSurveyTitleCollectionReusableView.m in Sources */,
+				460BA96E21417D99008D1D2E /* GDImageVoteAddOptionCollectionViewCell.m in Sources */,
+				460BA95F21417D99008D1D2E /* GDChooseMultipleAddOptionTableViewCell.m in Sources */,
+				460BA97D21417EA9008D1D2E /* LZImageCropping+GDCrop.m in Sources */,
 				E61A5F17213529930074D215 /* GDSingleSelCell.m in Sources */,
+				460BA96021417D99008D1D2E /* GDSlidingScaleTableViewCell.m in Sources */,
+				460BA95A21417D99008D1D2E /* GDBoundRangeCollectionViewCell.m in Sources */,
 				E61A5F082135246F0074D215 /* GDQuestionBaseCell.m in Sources */,
+				460BA96121417D99008D1D2E /* GDStackRankAddOptionTableViewCell.m in Sources */,
 				E611FC2820DBA16600807E95 /* GDWriteQuestionView.m in Sources */,
+				460BA97821417D99008D1D2E /* GDEditCoverViewController.m in Sources */,
 				E6C55C2E20CA85970034A65A /* GDPreviewViewController.m in Sources */,
 				E61A5F33213567F10074D215 /* GDWriteCell.m in Sources */,
 				E69C3FA320CF6F6E004F5614 /* VCInteractionDelegate.m in Sources */,
 				4906992C2151427F0009A4B7 /* GDUserModel.m in Sources */,
 				E6F1435A21198B290038A9D6 /* GDLoginApi.m in Sources */,
 				E664C96F20CA174D004E81A4 /* HeroModel.m in Sources */,
-				E65E68BD20D0E60B003E07CB /* GDEditBaseViewController.m in Sources */,
+				460BA94A21417D99008D1D2E /* GDEditBottomView.m in Sources */,
+				460BA97E21417EA9008D1D2E /* LZImageCropping.m in Sources */,
 				E6BE89E62120062D00C3AEDC /* UIView+LXShadowPath.m in Sources */,
 				E668759F20D8B1FD0038307F /* GDHomeManager.m in Sources */,
+				460BA96621417D99008D1D2E /* GDStackRankEditTableViewCell.m in Sources */,
 				4928F636213B83E500F9E4CE /* GDMoveLabel.m in Sources */,
 				E664C95120C925A5004E81A4 /* GDBaseViewController.m in Sources */,
 				E6F143622119BB850038A9D6 /* GDLunchManager.m in Sources */,
@@ -1322,6 +1796,7 @@
 				E61F434020E245CD004D2E09 /* GDPGChooseView.m in Sources */,
 				E61A5EF42134F8E00074D215 /* GDRuler.m in Sources */,
 				E692347820E4AE5000AF1585 /* GDLoginViewController.m in Sources */,
+				460BA95B21417D99008D1D2E /* GDBoundRangeAnswerTableViewCell.m in Sources */,
 				E69C3FA120CF6F6E004F5614 /* AnimationScaleBegin.m in Sources */,
 				E6B39C0E211C58210080772F /* GDOrganModel.m in Sources */,
 				E64E381E2140BE6200BE5699 /* GDSortModel.m in Sources */,
@@ -1330,14 +1805,19 @@
 				E664C96220C93D33004E81A4 /* GDLeftModel.m in Sources */,
 				490699302151479B0009A4B7 /* GDGetUserInfoApi.m in Sources */,
 				E61A5F13213529340074D215 /* GDSortCell.m in Sources */,
+				460BA94121417D99008D1D2E /* GDSurveyTypeModel.m in Sources */,
+				460BA96921417D99008D1D2E /* GDEditBottomSettingView.m in Sources */,
 				E69C3F9D20CF6F6E004F5614 /* AnimationBackBegin.m in Sources */,
 				E6F1436B211A81600038A9D6 /* GDGetFirstSurveyApi.m in Sources */,
 				E69C3FB220CFB3C0004F5614 /* UIColor+HEX.m in Sources */,
 				E611FBC620D9FE7A00807E95 /* GDLaunchQuestionController.m in Sources */,
 				E61A5F10213528320074D215 /* GDQuantifyCell.m in Sources */,
+				460BA97221417D99008D1D2E /* GDTextView.m in Sources */,
 				E61A5F1C21352D830074D215 /* GDMoreSelCell.m in Sources */,
+				460BA97321417D99008D1D2E /* GDTextAnswerTableViewCell.m in Sources */,
 				E611FC1320DB9FD100807E95 /* GDSingleSelQuestionView.m in Sources */,
 				E69C3F9F20CF6F6E004F5614 /* AnimationFadeEnd.m in Sources */,
+				460BA94E21417D99008D1D2E /* GDEditTextViewModel.m in Sources */,
 				E6B39ACE211BD1000080772F /* GDBaseModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

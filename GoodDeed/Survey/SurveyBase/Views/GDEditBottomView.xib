@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GDEditBottomView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rf4-tU-Xtc">
+                    <rect key="frame" x="152.5" y="-8" width="70" height="58"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="58" id="qFc-fX-aQf"/>
+                        <constraint firstAttribute="width" constant="70" id="sSP-Sh-jxQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="35" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="下一步" backgroundImage="survey_next">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="next:" destination="iN0-l3-epB" eventType="touchUpInside" id="Mxk-5i-iBR"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ap3-OM-bE8">
+                    <rect key="frame" x="265.5" y="0.0" width="69" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="69" id="XM4-rg-Y0r"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <inset key="titleEdgeInsets" minX="-20" minY="28" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="20" minY="-20" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="整理" image="suvery_org">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="manage:" destination="iN0-l3-epB" eventType="touchUpInside" id="gdx-vK-dMz"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoh-IF-X05">
+                    <rect key="frame" x="37" y="0.0" width="69" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="69" id="FqE-hA-Ip8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <inset key="titleEdgeInsets" minX="-18" minY="28" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="14" minY="-20" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="保存草稿" image="suvery_save">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="save:" destination="iN0-l3-epB" eventType="touchUpInside" id="3hd-ME-BBK"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="zoh-IF-X05" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.38" id="0OP-Xy-qVO"/>
+                <constraint firstItem="ap3-OM-bE8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3Ac-QZ-06B"/>
+                <constraint firstAttribute="bottom" secondItem="ap3-OM-bE8" secondAttribute="bottom" id="5nf-IM-IvD"/>
+                <constraint firstItem="zoh-IF-X05" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OKj-Tp-cIn"/>
+                <constraint firstAttribute="bottom" secondItem="zoh-IF-X05" secondAttribute="bottom" id="RG5-Aq-HoH"/>
+                <constraint firstItem="ap3-OM-bE8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.6" id="Uj4-eO-mTM"/>
+                <constraint firstItem="Rf4-tU-Xtc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="blj-L8-6ZL"/>
+                <constraint firstAttribute="bottom" secondItem="Rf4-tU-Xtc" secondAttribute="bottom" id="gbo-u6-oV9"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-11" y="-419.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="survey_next" width="70" height="58"/>
+        <image name="suvery_org" width="19" height="19"/>
+        <image name="suvery_save" width="19" height="19"/>
+    </resources>
+</document>

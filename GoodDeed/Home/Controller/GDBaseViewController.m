@@ -89,7 +89,10 @@
 
 - (void)rightBarButtonItemClick{
     
-    [self presentViewController:[GDEditViewController new] animated:YES completion:nil];
+    [self showViewController:[GDEditViewController editViewController] sender:nil];
+//    [self showDetailViewController:[GDEditViewController editViewController] sender:nil];
+//    [self showDetailViewController:[GDEditViewController new] sender:YES];
+//    [self presentViewController:[GDEditViewController editViewController] animated:YES completion:nil];
 }
 
 - (void)leftBarButtonItemClick{
