@@ -39,7 +39,7 @@
     
     [self setUpSubViews];
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 18, 25)];
-    [backButton setImage:[UIImage imageNamed:@"nav_back"] forState:0];
+    [backButton setImage:[UIImage imageNamed:@"nav_back_blue"] forState:0];
     [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
     [self.view bringSubviewToFront:backButton];

@@ -42,7 +42,7 @@
 
     }else{
         [self.backButton setTitle:@"返回" forState:0];
-        [self.backButton setImage:[UIImage imageNamed:@"nav_back"] forState:0];
+        [self.backButton setImage:[UIImage imageNamed:@"nav_back_blue"] forState:0];
     }
     
 }

@@ -25,7 +25,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create_group_bg" translatesAutoresizingMaskIntoConstraints="NO" id="ifn-Wi-BjW">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="625"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUt-Ai-Ogd">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUt-Ai-Ogd">
                                 <rect key="frame" x="25" y="540" width="250" height="70"/>
                                 <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -44,7 +44,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="invite:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Tnq-4s-zTB"/>
+                                    <action selector="createOrInvite:" destination="gTV-IL-0wX" eventType="touchUpInside" id="9Vu-MT-pd4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJA-zu-bHM">
@@ -66,7 +66,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="createGroup:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Jvj-m2-2oC"/>
+                                    <action selector="createOrInvite:" destination="gTV-IL-0wX" eventType="touchUpInside" id="R6b-N5-j74"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63g-Ae-EhU">
@@ -104,7 +104,7 @@
                                     <constraint firstAttribute="width" constant="55" id="Elp-RL-5SP"/>
                                 </constraints>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="取消" image="nav_back">
+                                <state key="normal" title="取消" image="nav_back_blue">
                                     <color key="titleColor" red="0.098039215686274508" green="0.4823529411764706" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -204,7 +204,7 @@
                                     <constraint firstAttribute="width" constant="55" id="eKp-4e-ABQ"/>
                                 </constraints>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="取消" image="nav_back">
+                                <state key="normal" title="取消" image="nav_back_blue">
                                     <color key="titleColor" red="0.098039215686274508" green="0.48627450980392156" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -217,6 +217,14 @@
                                 <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="31"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wD9-BZ-XAr">
+                                <rect key="frame" x="84.5" y="160.5" width="132" height="34"/>
+                                <string key="text">请填写你的资料
+方便朋友在团队中认识你</string>
+                                <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="12"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -226,11 +234,13 @@
                             <constraint firstItem="HAK-6M-bjc" firstAttribute="centerX" secondItem="GhN-ds-o1s" secondAttribute="centerX" id="M0k-VU-8yu"/>
                             <constraint firstItem="oWx-I0-U7E" firstAttribute="centerX" secondItem="GhN-ds-o1s" secondAttribute="centerX" id="bqz-Ku-lDa"/>
                             <constraint firstItem="Zge-Ry-plQ" firstAttribute="top" secondItem="oWx-I0-U7E" secondAttribute="bottom" constant="66" id="drc-f0-ULW"/>
+                            <constraint firstItem="Zge-Ry-plQ" firstAttribute="top" secondItem="wD9-BZ-XAr" secondAttribute="bottom" constant="50" id="fmS-zY-ohF"/>
                             <constraint firstAttribute="trailing" secondItem="KdS-aT-8Ow" secondAttribute="trailing" constant="20" id="h0u-LI-b0L"/>
                             <constraint firstItem="Zge-Ry-plQ" firstAttribute="centerX" secondItem="GhN-ds-o1s" secondAttribute="centerX" id="mss-6d-IKT"/>
                             <constraint firstItem="Zge-Ry-plQ" firstAttribute="centerY" secondItem="GhN-ds-o1s" secondAttribute="centerY" id="ooM-s0-j4r"/>
                             <constraint firstItem="gG3-0H-cek" firstAttribute="leading" secondItem="GhN-ds-o1s" secondAttribute="leading" constant="10" id="pOf-ao-4MU"/>
                             <constraint firstAttribute="bottom" secondItem="HAK-6M-bjc" secondAttribute="bottom" constant="53" id="tuc-hg-kYu"/>
+                            <constraint firstItem="wD9-BZ-XAr" firstAttribute="centerX" secondItem="GhN-ds-o1s" secondAttribute="centerX" id="wCN-XO-Qxz"/>
                             <constraint firstItem="KdS-aT-8Ow" firstAttribute="top" secondItem="Zge-Ry-plQ" secondAttribute="bottom" constant="30" id="ydM-BE-OBV"/>
                         </constraints>
                     </view>
@@ -255,10 +265,15 @@
             <size key="customSize" width="1261" height="625"/>
             <connections>
                 <outlet property="imageButton" destination="Zge-Ry-plQ" id="9YQ-kE-KZG"/>
-                <outlet property="textField" destination="NQZ-SZ-529" id="guv-b6-Bcb"/>
                 <outlet property="view1LeftConstraint" destination="VQ5-II-qXA" id="OXe-LF-ohi"/>
+                <outlet property="view1NextButton" destination="zdg-in-z5K" id="QHj-GL-mIj"/>
+                <outlet property="view1Textfield" destination="NQZ-SZ-529" id="nTi-Oj-LE8"/>
+                <outlet property="view1TitleLabel" destination="31q-Bm-bk2" id="39C-9F-8wZ"/>
                 <outlet property="view1WidthConstraint" destination="4qs-hd-6yF" id="zjH-Kq-TFG"/>
+                <outlet property="view2EditLabel" destination="wD9-BZ-XAr" id="Z7Z-Xg-viW"/>
                 <outlet property="view2LeftConstraint" destination="D3m-co-Mb8" id="9lB-3L-wcF"/>
+                <outlet property="view2NextButton" destination="HAK-6M-bjc" id="cNN-fO-73g"/>
+                <outlet property="view2TitleLabel" destination="oWx-I0-U7E" id="Vlm-5J-lPf"/>
                 <outlet property="view3LeftConstraint" destination="2qF-8v-Len" id="Pt4-7q-6kc"/>
             </connections>
             <point key="canvasLocation" x="429" y="80.5"/>
@@ -268,7 +283,7 @@
         <image name="choose_arrow" width="11" height="12"/>
         <image name="create_group_bg" width="345" height="558"/>
         <image name="home_head_default" width="134" height="132"/>
-        <image name="nav_back" width="8" height="15"/>
+        <image name="nav_back_blue" width="8" height="14"/>
         <image name="next_arrow" width="12" height="13"/>
     </resources>
 </document>

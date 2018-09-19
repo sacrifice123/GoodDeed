@@ -7,9 +7,8 @@
 //
 
 #import "GDGroupCell.h"
-#import <MediaPlayer/MediaPlayer.h>
 #import <MobileCoreServices/MobileCoreServices.h>
-#import <AVFoundation/AVFoundation.h>
+
 
 @interface GDGroupCell()<UITextFieldDelegate,UIImagePickerControllerDelegate>
 
@@ -20,6 +19,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
+@property (weak, nonatomic) IBOutlet UILabel *view1TitleLabel;
+
+@property (weak, nonatomic) IBOutlet UITextField *view1Textfield;
+@property (weak, nonatomic) IBOutlet UIButton *view1NextButton;
+@property (weak, nonatomic) IBOutlet UILabel *view2TitleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *view2NextButton;
+@property (weak, nonatomic) IBOutlet UILabel *view2EditLabel;
 
 @end
 
@@ -52,9 +58,19 @@
     self.imageButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.view1WidthConstraint.constant = SCREEN_WIDTH-30;
     [self.contentView layoutIfNeeded];
-}
-- (IBAction)createGroup:(id)sender {
     
+}
+
+- (IBAction)createOrInvite:(UIButton *)sender {
+    
+    if (sender.tag == 0) {//创建团队
+        
+        self.view2EditLabel.hidden = YES;
+        
+    }else if (sender.tag == 1){//邀请码邀请
+        
+        self.view2EditLabel.hidden = NO;
+    }
     [UIView animateWithDuration:0.3 animations:^{
         
         self.view1LeftConstraint.constant = -(SCREEN_WIDTH-30);
@@ -73,6 +89,10 @@
         if (!self.textField||self.textField.text.length==0) {
             [self.textField becomeFirstResponder];
             return;
+        }else if (self.textField&&self.textField.text.length<2){
+            [self showAlert];
+            return;
+
         }
         [UIView animateWithDuration:0.3 animations:^{
             
@@ -172,5 +192,16 @@
     [vc dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+-(void)showAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"名字过短" message:@"请输入2到16个字符" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"重新输入" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.textField becomeFirstResponder];
+    }];
+    [alert addAction:action1];
+    UIViewController *vc = [GDHelper getSuperVc:self];
+    [vc presentViewController:alert animated:YES completion:nil];
+}
 
 @end

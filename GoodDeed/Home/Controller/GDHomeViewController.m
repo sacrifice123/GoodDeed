@@ -27,9 +27,10 @@
     
     if (_homeArray == nil) {
         _homeArray = [[NSMutableArray alloc] init];
+        [_homeArray addObject:@""];
+        [_homeArray addObject:@""];
+
     }
-    [_homeArray addObject:@""];
-    [_homeArray addObject:@""];
     return _homeArray;
 }
 
@@ -37,8 +38,9 @@
     
     if (_teamArray == nil) {
         _teamArray = [[NSMutableArray alloc] init];
+        [_teamArray addObject:@""];
+
     }
-    [_teamArray addObject:@""];
 
     return _teamArray;
 }
@@ -47,11 +49,12 @@
     
     if (_surveyArray == nil) {
         _surveyArray = [[NSMutableArray alloc] init];
+        [_surveyArray addObject:@""];
+        [_surveyArray addObject:@""];
+        [_surveyArray addObject:@""];
+        [_surveyArray addObject:@""];
+
     }
-    [_surveyArray addObject:@""];
-    [_surveyArray addObject:@""];
-    [_surveyArray addObject:@""];
-    [_surveyArray addObject:@""];
 
     return _surveyArray;
 }
