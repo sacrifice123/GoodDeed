@@ -1,18 +1,26 @@
 //
-//  GDGetUserInfoApi.m
+//  GDChangeHeadApi.m
 //  GoodDeed
 //
-//  Created by 张涛 on 2018/9/18.
+//  Created by xiaozhan on 2018/9/19.
 //  Copyright © 2018年 GoodDeed. All rights reserved.
 //
 
-#import "GDGetUserInfoApi.h"
+#import "GDChangeHeadApi.h"
 
-@implementation GDGetUserInfoApi
+@implementation GDChangeHeadApi{
+    NSString *_url;
+}
 
+- (id)initWithImageUrl:(NSString *)url {
+    if (self = [super init]) {
+        _url = url;
+    }
+    return self;
+}
 - (NSString *)requestUrl{
     
-    return @"/login/getUserInfo";
+    return @"/user/changeHead";
 }
 
 - (YTKRequestMethod)requestMethod {
@@ -22,10 +30,12 @@
 - (id)requestArgument{
     return @{
              @"data":@{
+                     @"headUrl":_url?:@"",
                      @"uid":[GDLunchManager sharedManager].userModel.uid?:@""
                      },
              @"token":[GDLunchManager sharedManager].userModel.token?:@""
              };
     
 }
+
 @end

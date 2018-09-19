@@ -19,4 +19,5 @@
 + (void)presentToTargetControllerWith:(UIView *)view targetVc:(UIViewController *)targetVc;
 + (void)clearCache;
 + (void)getUserInfoWithCompletionBlock:(void(^)(BOOL))block;
++ (void)uploadImage:(UIImage *)image;
 @end

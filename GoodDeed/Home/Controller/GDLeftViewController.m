@@ -279,6 +279,7 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     // 从info中将图片取出，并加载到imageView当中
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    [GDHomeManager uploadImage:image];
     if (self.headerView.imageBlock) {
         self.headerView.imageBlock(image);
     }

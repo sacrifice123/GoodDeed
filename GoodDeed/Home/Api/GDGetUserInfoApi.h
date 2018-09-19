@@ -10,5 +10,4 @@
 
 @interface GDGetUserInfoApi : GDBaseApi
 
-- (instancetype)initWithUid:(NSString *)uid token:(NSString *)token;
 @end

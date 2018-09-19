@@ -12,7 +12,6 @@
 #import "GDGetFirstSurveyApi.h"
 #import "GDGetOrganListApi.h"
 #import "GDOrganModel.h"
-#import "GDUserModel.h"
 #import "GDSearchOrganApi.h"
 #import "GDAddOrganApi.h"
 #import "GDQuestionBaseCell.h"
@@ -65,7 +64,7 @@ static GDLunchManager *manager;
             }];
             
         }else{
-            [GDWindow showWithString:@"服务器异常"];
+            [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
         }
 
         
@@ -92,12 +91,12 @@ static GDLunchManager *manager;
                 [dic setObject:time forKey:@"time"];
                 [[NSUserDefaults standardUserDefaults] setObject:dic forKey:tokenCache];
                 GDUserModel *model = [GDUserModel new];
-                model.uid = [request.responseJSONObject objectForKey:@"data"];
+                [[NSUserDefaults standardUserDefaults] setObject:[[request.responseJSONObject objectForKey:@"data"] objectForKey:@"uid"] forKey:uidCache];
                 [GDLunchManager sharedManager].userModel = model;
             }
             block(YES);
         }else{
-            [GDWindow showWithString:@"服务器异常"];
+            [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
         }
         
     } failure:^(YTKBaseRequest *request) {
@@ -142,7 +141,7 @@ static GDLunchManager *manager;
                // NSLog(@"%@",surveyModel.firstQuestionList);
 
             }else{
-                [GDWindow showWithString:@"请求失败"];
+                [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
             }
 
         }
@@ -178,7 +177,7 @@ static GDLunchManager *manager;
                    // NSLog(@"%@",organList);
                 }
             }else{
-                [GDWindow showWithString:@"请求失败"];
+               [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
             }
 
         }
@@ -213,7 +212,7 @@ static GDLunchManager *manager;
                    // NSLog(@"%@",organList);
                 }
             }else{
-                 [GDWindow showWithString:@"请求失败"];
+                 [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
             }
 
         }else{
@@ -241,7 +240,8 @@ static GDLunchManager *manager;
                 block(YES);
 
             }else{
-                block(NO);;
+                block(NO);
+                [GDWindow showWithString:[jsonData objectForKey:@"message"]];
             }
             
         }else{

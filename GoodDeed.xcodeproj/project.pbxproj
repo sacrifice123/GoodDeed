@@ -21,6 +21,8 @@
 		49750EFE213AC73300779DDC /* GDSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 49750EFD213AC73300779DDC /* GDSlider.m */; };
 		49F0A78120D1715300CD06C3 /* GDEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F0A78020D1715300CD06C3 /* GDEditViewController.xib */; };
 		49F0A78420D171B500CD06C3 /* GDEditButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F0A78320D171B500CD06C3 /* GDEditButton.m */; };
+		E6115CC02152412C00E57470 /* GDChangeHeadApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6115CBF2152412C00E57470 /* GDChangeHeadApi.m */; };
+		E6115CC32152477400E57470 /* GDUploadImageApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6115CC22152477400E57470 /* GDUploadImageApi.m */; };
 		E611FBC620D9FE7A00807E95 /* GDLaunchQuestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FBC520D9FE7A00807E95 /* GDLaunchQuestionController.m */; };
 		E611FBC920DA070900807E95 /* GDLaunchReadyView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FBC820DA070900807E95 /* GDLaunchReadyView.m */; };
 		E611FBE120DA3DDE00807E95 /* GDOrgAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FBE020DA3DDE00807E95 /* GDOrgAnimationView.m */; };
@@ -153,6 +155,8 @@
 		E6B39AD4211BDC300080772F /* GDFirstQuestionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD3211BDC300080772F /* GDFirstQuestionListModel.m */; };
 		E6B39C0B211C4F3F0080772F /* GDGetOrganListApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39C0A211C4F3F0080772F /* GDGetOrganListApi.m */; };
 		E6B39C0E211C58210080772F /* GDOrganModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39C0D211C58210080772F /* GDOrganModel.m */; };
+		E6B4C54F2151D8F4003129AD /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B4C54E2151D8F4003129AD /* libsqlite3.0.tbd */; };
+		E6B4C5522151E2B7003129AD /* GDDataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B4C5512151E2B7003129AD /* GDDataBaseManager.m */; };
 		E6BE89D6211F231B00C3AEDC /* GDSearchOrganApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BE89D5211F231B00C3AEDC /* GDSearchOrganApi.m */; };
 		E6BE89D9211F41A700C3AEDC /* GDAddOrganApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BE89D8211F41A700C3AEDC /* GDAddOrganApi.m */; };
 		E6BE89E62120062D00C3AEDC /* UIView+LXShadowPath.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BE89E42120062C00C3AEDC /* UIView+LXShadowPath.m */; };
@@ -212,6 +216,10 @@
 		49F0A78320D171B500CD06C3 /* GDEditButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDEditButton.m; sourceTree = "<group>"; };
 		52EDE6627E679C36DA5BE5B6 /* libPods-GoodDeed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoodDeed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63ACA7DF26CA804978045942 /* Pods-GoodDeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodDeed.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoodDeed/Pods-GoodDeed.release.xcconfig"; sourceTree = "<group>"; };
+		E6115CBE2152412C00E57470 /* GDChangeHeadApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDChangeHeadApi.h; sourceTree = "<group>"; };
+		E6115CBF2152412C00E57470 /* GDChangeHeadApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDChangeHeadApi.m; sourceTree = "<group>"; };
+		E6115CC12152477400E57470 /* GDUploadImageApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDUploadImageApi.h; sourceTree = "<group>"; };
+		E6115CC22152477400E57470 /* GDUploadImageApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDUploadImageApi.m; sourceTree = "<group>"; };
 		E611FBC420D9FE7A00807E95 /* GDLaunchQuestionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLaunchQuestionController.h; sourceTree = "<group>"; };
 		E611FBC520D9FE7A00807E95 /* GDLaunchQuestionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLaunchQuestionController.m; sourceTree = "<group>"; };
 		E611FBC720DA070900807E95 /* GDLaunchReadyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLaunchReadyView.h; sourceTree = "<group>"; };
@@ -437,6 +445,9 @@
 		E6B39C0A211C4F3F0080772F /* GDGetOrganListApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDGetOrganListApi.m; sourceTree = "<group>"; };
 		E6B39C0C211C58200080772F /* GDOrganModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDOrganModel.h; sourceTree = "<group>"; };
 		E6B39C0D211C58210080772F /* GDOrganModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDOrganModel.m; sourceTree = "<group>"; };
+		E6B4C54E2151D8F4003129AD /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		E6B4C5502151E2B7003129AD /* GDDataBaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDDataBaseManager.h; sourceTree = "<group>"; };
+		E6B4C5512151E2B7003129AD /* GDDataBaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDDataBaseManager.m; sourceTree = "<group>"; };
 		E6BE89D4211F231B00C3AEDC /* GDSearchOrganApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSearchOrganApi.h; sourceTree = "<group>"; };
 		E6BE89D5211F231B00C3AEDC /* GDSearchOrganApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSearchOrganApi.m; sourceTree = "<group>"; };
 		E6BE89D7211F41A700C3AEDC /* GDAddOrganApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDAddOrganApi.h; sourceTree = "<group>"; };
@@ -466,6 +477,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6B4C54F2151D8F4003129AD /* libsqlite3.0.tbd in Frameworks */,
 				E66043E911AC64879784645F /* libPods-GoodDeed.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +512,10 @@
 			children = (
 				4906992E2151479B0009A4B7 /* GDGetUserInfoApi.h */,
 				4906992F2151479B0009A4B7 /* GDGetUserInfoApi.m */,
+				E6115CBE2152412C00E57470 /* GDChangeHeadApi.h */,
+				E6115CBF2152412C00E57470 /* GDChangeHeadApi.m */,
+				E6115CC12152477400E57470 /* GDUploadImageApi.h */,
+				E6115CC22152477400E57470 /* GDUploadImageApi.m */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -537,6 +553,7 @@
 		8C67CC21E632F4664075565F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E6B4C54E2151D8F4003129AD /* libsqlite3.0.tbd */,
 				52EDE6627E679C36DA5BE5B6 /* libPods-GoodDeed.a */,
 			);
 			name = Frameworks;
@@ -922,6 +939,8 @@
 				E6DF79DB211D514600ED8951 /* UIImageView+URL.m */,
 				E61A5EF22134F8E00074D215 /* GDRuler.h */,
 				E61A5EF32134F8E00074D215 /* GDRuler.m */,
+				E6B4C5502151E2B7003129AD /* GDDataBaseManager.h */,
+				E6B4C5512151E2B7003129AD /* GDDataBaseManager.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1211,6 +1230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6115CC32152477400E57470 /* GDUploadImageApi.m in Sources */,
 				E61F433C20E237A9004D2E09 /* GDPGSearchViewController.m in Sources */,
 				E61A5F0C213524AB0074D215 /* GDQuestionDescCell.m in Sources */,
 				E611FC1C20DBA04600807E95 /* GDQuantifyQuestionView.m in Sources */,
@@ -1220,6 +1240,7 @@
 				E69C3FA720CF6F6E004F5614 /* AnimationErectEnd.m in Sources */,
 				E65BDC23212971C400F2D5C0 /* GDQuestionWriteModel.m in Sources */,
 				E6A359C8214A7F8A00BC5B64 /* GDReLoginViewController.m in Sources */,
+				E6115CC02152412C00E57470 /* GDChangeHeadApi.m in Sources */,
 				E6F1435D21198EEC0038A9D6 /* GDBaseApi.m in Sources */,
 				E69C3F9C20CF6F6E004F5614 /* AnimationTiltBegin.m in Sources */,
 				49F0A78420D171B500CD06C3 /* GDEditButton.m in Sources */,
@@ -1233,6 +1254,7 @@
 				E65BDC2021294F4300F2D5C0 /* GDQuestionHeadView.m in Sources */,
 				49750EFE213AC73300779DDC /* GDSlider.m in Sources */,
 				E611FC1020DB9EF300807E95 /* GDQuestionBaseView.m in Sources */,
+				E6B4C5522151E2B7003129AD /* GDDataBaseManager.m in Sources */,
 				E6BE89D9211F41A700C3AEDC /* GDAddOrganApi.m in Sources */,
 				E664C95D20C93B17004E81A4 /* GDLeftHeaderView.m in Sources */,
 				E69C3FAE20CFA3E5004F5614 /* GDHomeViewController.m in Sources */,

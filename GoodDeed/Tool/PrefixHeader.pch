@@ -26,4 +26,5 @@
 #import <UIImageView+WebCache.h>
 #import "UIImageView+URL.h"
 #import "GDBaseNavigationController.h"
+#import <FMDB.h>
 #endif

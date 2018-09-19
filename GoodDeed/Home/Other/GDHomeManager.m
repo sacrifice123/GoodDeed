@@ -12,7 +12,10 @@
 #import "GDLaunchViewController.h"
 #import "GDGetUserInfoApi.h"
 #import "GDUserModel.h"
+#import "GDUploadImageApi.h"
+#import "GDChangeHeadApi.h"
 #import <POP.h>
+
 @implementation GDHomeManager
 
 static CGFloat const GDAnimationDelay = 0.1;
@@ -94,13 +97,26 @@ static CGFloat const GDSpringFactor = 10;
     }
 }
 
+//获取用户信息
 + (void)getUserInfoWithCompletionBlock:(void(^)(BOOL))block{
     
-    GDGetUserInfoApi *api = [[GDGetUserInfoApi alloc] initWithUid:[GDLunchManager sharedManager].userModel.uid token:[GDLunchManager sharedManager].userModel.token];
+    GDGetUserInfoApi *api = [[GDGetUserInfoApi alloc] init];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
         if (request.responseJSONObject&&[[request.responseJSONObject objectForKey:@"code"] integerValue] == 200) {
-            
+            NSDictionary *data = [request.responseJSONObject objectForKey:@"data"];
+            if (data) {
+                [GDLunchManager sharedManager].userModel.headPortrait = [data objectForKey:@"headPortrait"];
+                [GDLunchManager sharedManager].userModel.money = [data objectForKey:@"money"];
+                [GDLunchManager sharedManager].userModel.mySurveyNum = [data objectForKey:@"mySurveyNum"];
+                [GDLunchManager sharedManager].userModel.uid = [data objectForKey:@"uid"];
+                NSDictionary *dic = [data objectForKey:@"organizationRespVo"];
+                if (dic&&[dic isKindOfClass:[NSDictionary class]]) {
+                    [GDLunchManager sharedManager].userModel.organId = [dic objectForKey:@"id"];
+                    [GDLunchManager sharedManager].userModel.imgUrl = [dic objectForKey:@"imgUrl"];
+                    [GDLunchManager sharedManager].userModel.name = [dic objectForKey:@"name"];
+                }
+            }
         }
         
     } failure:^(YTKBaseRequest *request) {
@@ -108,6 +124,58 @@ static CGFloat const GDSpringFactor = 10;
     }];
 }
 
+//上传图片
++ (void)uploadImage:(UIImage *)image {
+
+    GDUploadImageApi *api = [[GDUploadImageApi alloc] initWithImage:image];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+
+
+    } failure:^(YTKBaseRequest *request) {
+        [GDWindow showWithString:@"网络异常"];
+    }];
+}
+
+//+ (void)uploadImage:(UIImage *)image {
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    manager.requestSerializer.timeoutInterval = 20;
+//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", @"text/html", @"text/json", nil];
+//    NSString *urlStr = [NSString stringWithFormat:@"%@/%@", GDBaseUrl , @"/image/uploadImage"];
+//    NSDictionary *dic = @{@"id":@"0"};
+//    //根据当前系统时间生成图片名称
+//    [manager POST:urlStr parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//
+//        NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+//        float size = imageData.length/1024.0/1024.0;
+//        if (size>=1) {
+//            imageData = UIImageJPEGRepresentation(image, 0.3);
+//        }else{
+//            imageData = UIImageJPEGRepresentation(image, 0.5);
+//        }
+//
+//        [formData appendPartWithFileData:imageData name:@"image" fileName:@"image" mimeType:@"image/jpeg"];
+//
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+//
+//        NSLog(@"上传成功");
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//
+//        NSLog(@"上传失败");
+//    }];
+//
+//}
+
+//更换头像
++ (void)changeHeadImage:(NSString *)url{
+    
+    GDChangeHeadApi*api = [[GDChangeHeadApi alloc] initWithImageUrl:url];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        
+    } failure:^(YTKBaseRequest *request) {
+        [GDWindow showWithString:@"网络异常"];
+    }];
+}
 
 + (void)presentToTargetControllerWith:(UIView *)view targetVc:(UIViewController *)targetVc{
     
@@ -119,6 +187,7 @@ static CGFloat const GDSpringFactor = 10;
      [[NSUserDefaults standardUserDefaults] setObject:nil forKey:tokenCache];
      [[NSUserDefaults standardUserDefaults] setObject:nil forKey:animationStatus];
      [[NSUserDefaults standardUserDefaults] setObject:nil forKey:organModelCache];
+     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:uidCache];
     
 }
 @end

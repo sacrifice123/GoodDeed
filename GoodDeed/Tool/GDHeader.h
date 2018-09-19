@@ -16,6 +16,7 @@
 #define animationStatus @"animationStatus"
 #define organModelCache @"organModelCache"
 #define tokenCache      @"tokenCache"//用户token，退出时清除
+#define uidCache        @"uidCache"
 
 #import <UIKit/UIKit.h>
 static NSString *const GDBaseUrl = @"http://47.97.102.73/giraffe";//api基地址

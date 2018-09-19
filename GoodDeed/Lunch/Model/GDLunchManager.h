@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "GDFirstSurveyModel.h"
+#import "GDUserModel.h"
 
-@class GDOrganModel,GDFirstSurveyModel,GDUserModel,GDFirstQuestionListModel,GDQuestionBaseCell;
+@class GDOrganModel,GDFirstSurveyModel,GDFirstQuestionListModel,GDQuestionBaseCell;
 @interface GDLunchManager : NSObject
 
 @property (nonatomic, strong) NSArray <GDFirstQuestionListModel *> *suveryList;
