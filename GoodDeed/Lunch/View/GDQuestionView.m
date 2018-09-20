@@ -103,7 +103,8 @@
         [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(view);
         }];
-    }else{
+        imgView.backgroundColor = [UIColor redColor];
+    }else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
         view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"footerView" forIndexPath:indexPath];
         [view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         UIButton *button = [[UIButton alloc] init];
@@ -123,17 +124,6 @@
     }
     return view;
 }
-
-//////是否允许移动Item
-//- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
-//
-//    return YES;
-//}
-//
-////移动Item时触发的方法
-//- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath {
-//
-//}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
 
@@ -157,7 +147,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     CGSize size = CGSizeZero;
-    if (self.model.imgUrl&&[self.model.imgUrl isKindOfClass:[NSString class]]&&self.model.imgUrl.length>0) {
+    if (section==0&&self.model.imgUrl&&[self.model.imgUrl isKindOfClass:[NSString class]]&&self.model.imgUrl.length>0) {
         size = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT*0.52);
     }
     return size;
@@ -166,7 +156,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
     
     CGSize size = CGSizeZero;
-    if (self.model.type == GDMultipleType&&section == 1) {
+    if (section==1&&self.model.type == GDMultipleType&&section == 1) {
         size = CGSizeMake(SCREEN_WIDTH, 100);
     }
 

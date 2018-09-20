@@ -50,6 +50,14 @@ static GDLunchManager *manager;
     return _writeReqVoList;
 }
 
+//- (GDOrganModel *)selectOrganModel{
+//    
+//    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:organModelCache];
+//    _selectOrganModel.imgUrl = [dic objectForKey:@"imgUrl"];
+//    _selectOrganModel.name = [dic objectForKey:@"name"];
+//    _selectOrganModel.organId = [dic objectForKey:@"organId"];
+//    return _selectOrganModel;
+//}
 /*注册
  type: 1邮箱 2手机号 3微信 4新浪 5用户名
  */
@@ -264,7 +272,7 @@ static GDLunchManager *manager;
     CGFloat width = SCREEN_WIDTH;
     CGFloat height = 0.0;
     if (indexPath.section == 0) {//问题描述cell
-        height = [GDHelper calculateRectWithFont:20 Withtext:model.questionName Withsize:CGSizeMake(SCREEN_WIDTH-150, MAXFLOAT)].height+90;
+        height = [GDHelper calculateRectWithFont:20 Withtext:model.questionName Withsize:CGSizeMake(SCREEN_WIDTH-150, MAXFLOAT)].height+90-((model.imgUrl&&[model.imgUrl isKindOfClass:[NSString class]])?30:0);
         
     }else{
         switch (model.type) {

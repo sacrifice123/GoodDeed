@@ -22,7 +22,10 @@
              };
 }
 
-
+- (NSString *)imgUrl{
+    
+    return @"/images/2018-03-31/20180331164823039.jpg";
+}
 - (GDQuestionWriteModel *)writeModel{
     
     if (_writeModel == nil) {

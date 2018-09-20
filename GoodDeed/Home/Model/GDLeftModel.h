@@ -10,5 +10,5 @@
 
 @interface GDLeftModel : NSObject
 @property (nonatomic, copy) NSString *title;
-
+@property (nonatomic, strong) NSIndexPath *index;
 @end

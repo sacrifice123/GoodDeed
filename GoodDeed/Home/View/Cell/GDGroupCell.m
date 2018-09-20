@@ -17,15 +17,21 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *view2LeftConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *view3LeftConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+//@property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
+
 @property (weak, nonatomic) IBOutlet UILabel *view1TitleLabel;
 
-@property (weak, nonatomic) IBOutlet UITextField *view1Textfield;
-@property (weak, nonatomic) IBOutlet UIButton *view1NextButton;
 @property (weak, nonatomic) IBOutlet UILabel *view2TitleLabel;
+@property (weak, nonatomic) IBOutlet UITextField *view2Textfield;
 @property (weak, nonatomic) IBOutlet UIButton *view2NextButton;
-@property (weak, nonatomic) IBOutlet UILabel *view2EditLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *view3TitleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *view3NextButton;
+@property (weak, nonatomic) IBOutlet UILabel *view3EditLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *view3TitleLabelBottomConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *inviteButton;
+
 
 @end
 
@@ -50,27 +56,33 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.textField.delegate = self;
+    self.view2Textfield.delegate = self;
     self.layer.masksToBounds = YES;
     self.layer.cornerRadius = 5;
 
+    self.view1TitleLabel.text = @"与好友组队，扩大你的公益影响力。\n团队贡献每满￥1000，团队冠军\n额外奖励￥100。";
     self.imageButton.titleLabel.numberOfLines = 0;
     self.imageButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.view1WidthConstraint.constant = SCREEN_WIDTH-30;
     [self.contentView layoutIfNeeded];
-    
+    self.inviteButton.layer.borderWidth = 0.5;
+    self.inviteButton.layer.borderColor = [UIColor colorWithHexString:@"#D7D7D7"].CGColor;
 }
 
+//创建与邀请
 - (IBAction)createOrInvite:(UIButton *)sender {
     
-    if (sender.tag == 0) {//创建团队
-        
-        self.view2EditLabel.hidden = YES;
-        
-    }else if (sender.tag == 1){//邀请码邀请
-        
-        self.view2EditLabel.hidden = NO;
-    }
+    [self.view2NextButton setTitle:(sender.tag==0)?@"继续":@"下一步" forState:0];
+    self.view2NextButton.tag = sender.tag;
+    self.view2TitleLabel.text = (sender.tag==0)?@"第1步：给你的团队取一个\n难忘的名字。\n":@"请输入你的邀请码";
+    self.view2Textfield.text = nil;
+    self.view2Textfield.placeholder = (sender.tag==0)?@"输入团队名称":@"ABCDE";
+
+    self.view3TitleLabelBottomConstraint.constant = (sender.tag==0)?66:92;
+    self.view3TitleLabel.text = (sender.tag==0)?@"第2步：完成你的个人资料，让\n你的队友认识他们的队长。":@"成功！欢迎来到此处为用户团队\n的名称团队的名称";
+    self.view3EditLabel.hidden = !sender.tag;
+    [self.view3NextButton setTitle:(sender.tag==0)?@"继续":@"下一步" forState:0];
+
     [UIView animateWithDuration:0.3 animations:^{
         
         self.view1LeftConstraint.constant = -(SCREEN_WIDTH-30);
@@ -78,20 +90,16 @@
     }];
 }
 
-//邀请
-- (IBAction)invite:(id)sender {
-    
-    
-}
-
 - (IBAction)next:(UIButton *)sender {
-    if (sender.tag==1) {
-        if (!self.textField||self.textField.text.length==0) {
-            [self.textField becomeFirstResponder];
+    if (sender.tag<=1) {
+        if (!self.view2Textfield||self.view2Textfield.text.length==0) {
+            [self.view2Textfield becomeFirstResponder];
             return;
-        }else if (self.textField&&self.textField.text.length<2){
-            [self showAlert];
-            return;
+        }else{
+            if (sender.tag==0&&self.view2Textfield&&self.view2Textfield.text.length<2) {
+                [self showAlert];
+                return;
+            }
 
         }
         [UIView animateWithDuration:0.3 animations:^{
@@ -121,7 +129,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     
-    [self.textField resignFirstResponder];
+    [self.view2Textfield resignFirstResponder];
     return YES;
 }
 
@@ -197,7 +205,7 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"名字过短" message:@"请输入2到16个字符" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"重新输入" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self.textField becomeFirstResponder];
+        [self.view2Textfield becomeFirstResponder];
     }];
     [alert addAction:action1];
     UIViewController *vc = [GDHelper getSuperVc:self];

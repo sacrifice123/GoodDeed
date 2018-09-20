@@ -121,6 +121,7 @@
         _scrollView.delegate = self;
         _scrollView.pagingEnabled = YES;
         _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH*self.pages.count, SCREEN_HEIGHT);
+        _scrollView.showsHorizontalScrollIndicator = NO;
     }
     return _scrollView;
 }

@@ -110,7 +110,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     GDLeftCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GDLeftCell" forIndexPath:indexPath];
-    cell.model = self.datas[indexPath.row];
+    GDLeftModel *model = self.datas[indexPath.row];
+    model.index = indexPath;
+    cell.model = model;
     return cell;
     
 }

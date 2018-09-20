@@ -26,10 +26,10 @@
     return YTKRequestMethodPost;
 }
 
-- (YTKRequestSerializerType)requestSerializerType{
-    
-    return YTKRequestSerializerTypeJSON;
-}
+//- (YTKRequestSerializerType)requestSerializerType{
+//
+//    return YTKRequestSerializerTypeJSON;
+//}
 
 - (NSString *)requestUrl {
     
@@ -39,8 +39,8 @@
 - (AFConstructingBlock)constructingBodyBlock{
     __weak typeof(self) weakSelf = self;
     return ^(id<AFMultipartFormData> formData){
-        NSData *data = UIImageJPEGRepresentation(weakSelf.image, 0.9);
-        NSString *name = @"image";
+        NSData *data = UIImageJPEGRepresentation(weakSelf.image, 0.1);
+        NSString *name = @"image.jpeg";
         NSString *formKey = @"image";
         NSString *type = @"image/jpeg";
         [formData appendPartWithFileData:data name:formKey fileName:name mimeType:type];
