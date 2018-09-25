@@ -23,6 +23,6 @@
 
 - (BOOL)isAnimation{
     
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:animationStatus] boolValue];
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:GDAnimationStatus] boolValue];
 }
 @end

@@ -19,10 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    [IQKeyboardManager sharedManager].enable = YES;
-//    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
-    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:tokenCache];
-    self.window.rootViewController = [GDHomeManager getRootController:(token?YES:NO)];
+    [IQKeyboardManager sharedManager].enable = YES;
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
+    GDUserModel *model = [[GDDataBaseManager sharedManager] queryUserData];
+    self.window.rootViewController = [GDHomeManager getRootController:((model.uid&&model.uid.length>0)?YES:NO)];
     return YES;
     
 }

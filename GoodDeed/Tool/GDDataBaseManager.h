@@ -10,4 +10,11 @@
 
 @interface GDDataBaseManager : NSObject
 
++ (GDDataBaseManager *)sharedManager;
+- (void)createDatabase;
+- (void)insert:(GDUserModel *)model;
+- (void)update:(GDUserModel *)model;
+- (GDUserModel *)query:(NSString *)uid;
+- (void)deleteData;
+- (GDUserModel *)queryUserData;
 @end

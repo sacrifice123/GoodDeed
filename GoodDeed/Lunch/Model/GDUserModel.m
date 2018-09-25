@@ -11,47 +11,81 @@
 @implementation GDUserModel
 
 - (NSString *)token{
-    
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:tokenCache] objectForKey:@"token"];
+
+    if (_token&&![_token isKindOfClass:[NSNull class]]) {
+        return _token;
+    }else{
+        return @"";
+    }
 }
 
 - (NSString *)uid{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:uidCache];
+    if (_uid&&![_uid isKindOfClass:[NSNull class]]) {
+        return _uid;
+    }else{
+        return @"";
+    }
 }
 
 - (NSString *)headPortrait{
     
-    if (_headPortrait&&[_headPortrait isKindOfClass:[NSString class]]) {
+    if (_headPortrait&&![_headPortrait isKindOfClass:[NSNull class]]) {
         return _headPortrait;
     }else{
-        return nil;
+        return @"";
     }
 }
 
 - (NSString *)imgUrl{
     
-    if (_imgUrl&&[_imgUrl isKindOfClass:[NSString class]]) {
+    if (_imgUrl&&![_imgUrl isKindOfClass:[NSNull class]]) {
         return _imgUrl;
     }else{
-        return nil;
+        return @"";
+    }
+}
+
+- (NSString *)money{
+    
+    if (_money&&![_money isKindOfClass:[NSNull class]]) {
+        return _money;
+    }else{
+        return @"";
+    }
+}
+- (NSString *)mySurveyNum{
+    
+    if (_mySurveyNum&&![_mySurveyNum isKindOfClass:[NSNull class]]) {
+        return _mySurveyNum;
+    }else{
+        return @"";
+    }
+}
+
+- (NSString *)nowTime{
+    
+    if (_nowTime&&![_nowTime isKindOfClass:[NSNull class]]) {
+        return _nowTime;
+    }else{
+        return @"";
     }
 }
 
 - (NSString *)name{
     
-    if (_name&&[_name isKindOfClass:[NSString class]]) {
+    if (_name&&![_name isKindOfClass:[NSNull class]]) {
         return _name;
     }else{
-        return nil;
+        return @"";
     }
 }
 
 - (NSString *)organId{
     
-    if (_organId&&[_organId isKindOfClass:[NSString class]]) {
+    if (_organId&&![_organId isKindOfClass:[NSNull class]]) {
         return _organId;
     }else{
-        return nil;
+        return @"";
     }
 }
 

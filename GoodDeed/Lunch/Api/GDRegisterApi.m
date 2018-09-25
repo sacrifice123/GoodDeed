@@ -55,13 +55,13 @@
         [dic setObject:@(obj.type) forKey:@"type"];
         [writeReqVoList addObject:dic];
     }
-    NSMutableDictionary *organDic = [[NSUserDefaults standardUserDefaults] objectForKey:organModelCache];
+    GDUserModel *model = [[GDDataBaseManager sharedManager] query:GDOrgaUid];
     return @{
         @"data": @{
             @"mail": _mail?:@"",
             @"password":_password?:@"",
             @"resultReqVo": @{
-                    @"organId": organDic?[organDic objectForKey:@"organId"]:@"",
+                    @"organId": model.organId?:@"",
                     @"writeReqVo": @{
                             @"surveyId": [GDLunchManager sharedManager].surveyModel.surveyId?:@"",
                             @"uid": [GDLunchManager sharedManager].surveyModel.uid?:@"",

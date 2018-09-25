@@ -44,7 +44,7 @@ static GDOrgAnimationView *_view;
 
 - (BOOL)isAnimation{
     
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:animationStatus] boolValue];
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:GDAnimationStatus] boolValue];
 }
 
 - (NSArray *)organList {
@@ -58,7 +58,6 @@ static GDOrgAnimationView *_view;
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         
-      //  [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:animationStatus];
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
         [self addSubview:self.bgView];
         self.bgView.frame = CGRectMake(SCREEN_WIDTH-169, -bgHeight, 164, bgHeight);

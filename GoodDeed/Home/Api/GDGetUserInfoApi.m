@@ -20,11 +20,12 @@
 }
 
 - (id)requestArgument{
+    GDUserModel *model = [[GDDataBaseManager sharedManager] queryUserData];
     return @{
              @"data":@{
-                     @"uid":[GDLunchManager sharedManager].userModel.uid?:@""
+                     @"uid":model.uid?:@""
                      },
-             @"token":[GDLunchManager sharedManager].userModel.token?:@""
+             @"token":model.token?:@""
              };
     
 }

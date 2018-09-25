@@ -18,6 +18,7 @@
 @property (nonatomic, strong) GDOrganModel *selectOrganModel;
 @property (nonatomic, strong) GDFirstSurveyModel *surveyModel;
 @property (nonatomic, strong) GDUserModel *userModel;
+
 + (GDLunchManager *)sharedManager;
 + (void)registerWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type completionBlock:(void(^)(BOOL))block;
 + (void)loginWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token completionBlock:(void(^)(BOOL))block;

@@ -184,10 +184,8 @@ static CGFloat const GDSpringFactor = 10;
 }
 
 + (void)clearCache{
-     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:tokenCache];
-     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:animationStatus];
-     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:organModelCache];
-     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:uidCache];
+    [[GDDataBaseManager sharedManager] deleteData];
+    [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:GDAnimationStatus];
     
 }
 @end

@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *datas;
 @property (nonatomic, strong) UIView *selectView;
+@property (nonatomic, strong) GDOrganModel *selectOrganModel;
 
 @end
 @implementation GDPGChooseView
@@ -28,7 +29,6 @@ static NSString * const headerReuseIdentifier = @"GDPGHeaderView";
 - (instancetype)initWithFrame:(CGRect)frame{
     
     if (self = [super initWithFrame:frame]) {
-        [GDLunchManager sharedManager].selectOrganModel = nil;
         self.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.collectionView];
         [self addSubview:self.selectView];
@@ -43,6 +43,14 @@ static NSString * const headerReuseIdentifier = @"GDPGHeaderView";
         [self.collectionView reloadData];
     }
     
+}
+
+- (GDOrganModel *)selectOrganModel{
+    
+    if (_selectOrganModel == nil) {
+        _selectOrganModel = [[GDOrganModel alloc] init];
+    }
+    return _selectOrganModel;
 }
 
 - (UIView *)selectView{
@@ -123,20 +131,17 @@ static NSString * const headerReuseIdentifier = @"GDPGHeaderView";
 #pragma mark <UICollectionViewDelegate>
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    //UIViewController *vc = [GDHomeManager getSuperVc:self];
-    //[vc dismissViewControllerAnimated:YES completion:nil];
-//     [GDLunchManager sharedManager].selectOrganModel = self.datas[indexPath.row];
     GDOrganModel *model = self.datas[indexPath.row];
-    if ([GDLunchManager sharedManager].selectOrganModel) {
-        if (model != [GDLunchManager sharedManager].selectOrganModel) {
-            [GDLunchManager sharedManager].selectOrganModel.isSelected = NO;
+    if (self.selectOrganModel) {
+        if (model != self.selectOrganModel) {
+            self.selectOrganModel.isSelected = NO;
         }
         model.isSelected = !model.isSelected;
     }else{
         model.isSelected = YES;
     }
    
-    [GDLunchManager sharedManager].selectOrganModel = model;
+    self.selectOrganModel = model;
     [self.collectionView reloadData];
     
     [UIView animateWithDuration:0.5 animations:^{
@@ -167,12 +172,18 @@ referenceSizeForHeaderInSection: (NSInteger)section{
 //选择后继续
 - (void)chooseButtonClicked{
     UIViewController *superVc = [GDHelper getSuperVc:self];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:[GDLunchManager sharedManager].selectOrganModel.organId forKey:@"organId"];
-    [dic setObject:[GDLunchManager sharedManager].selectOrganModel.name forKey:@"name"];
-    [dic setObject:[GDLunchManager sharedManager].selectOrganModel.imgUrl  forKey:@"imgUrl"];
-    [[NSUserDefaults standardUserDefaults] setObject:dic forKey:organModelCache];
-    [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:animationStatus];
+//    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//    [dic setObject:self.selectOrganModel.organId forKey:@"organId"];
+//    [dic setObject:self.selectOrganModel.name forKey:@"name"];
+//    [dic setObject:self.selectOrganModel.imgUrl  forKey:@"imgUrl"];
+//    [[NSUserDefaults standardUserDefaults] setObject:dic forKey:organModelCache];
+    GDUserModel *model = [[GDUserModel alloc] init];
+    model.organId = self.selectOrganModel.organId;
+    model.name = self.selectOrganModel.name;
+    model.imgUrl = self.selectOrganModel.imgUrl;
+    model.uid = GDOrgaUid;//自定义uid为主件
+    [[GDDataBaseManager sharedManager] insert:model];
+    [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:GDAnimationStatus];
     [superVc dismissViewControllerAnimated:YES completion:^{
         
     }];

@@ -50,14 +50,22 @@ static GDLunchManager *manager;
     return _writeReqVoList;
 }
 
-//- (GDOrganModel *)selectOrganModel{
-//    
-//    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:organModelCache];
-//    _selectOrganModel.imgUrl = [dic objectForKey:@"imgUrl"];
-//    _selectOrganModel.name = [dic objectForKey:@"name"];
-//    _selectOrganModel.organId = [dic objectForKey:@"organId"];
-//    return _selectOrganModel;
-//}
+- (GDOrganModel *)selectOrganModel{
+    
+    if (_selectOrganModel == nil) {
+        _selectOrganModel = [[GDOrganModel alloc] init];
+    }
+    return _selectOrganModel;
+}
+
+- (GDUserModel *)userModel{
+    
+    if (_userModel == nil) {
+        _userModel = [[GDUserModel alloc] init];
+    }
+    return _userModel;
+    //return [[GDDataBaseManager sharedManager] query:@""];
+}
 /*注册
  type: 1邮箱 2手机号 3微信 4新浪 5用户名
  */
@@ -92,16 +100,13 @@ static GDLunchManager *manager;
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
         if (request.responseJSONObject&&[[request.responseJSONObject objectForKey:@"code"] integerValue] == 200) {
-            if ([request.responseJSONObject objectForKey:@"token"]) {
-                NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-                NSString *time = [GDHelper getNowTimestamp];
-                [dic setObject:[request.responseJSONObject objectForKey:@"token"] forKey:@"token"];
-                [dic setObject:time forKey:@"time"];
-                [[NSUserDefaults standardUserDefaults] setObject:dic forKey:tokenCache];
-                GDUserModel *model = [GDUserModel new];
-                [[NSUserDefaults standardUserDefaults] setObject:[[request.responseJSONObject objectForKey:@"data"] objectForKey:@"uid"] forKey:uidCache];
-                [GDLunchManager sharedManager].userModel = model;
-            }
+            GDUserModel *model = [GDUserModel new];
+            model.token = [request.responseJSONObject objectForKey:@"token"];
+            model.nowTime = [[request.responseJSONObject objectForKey:@"data"] objectForKey:@"expireTime"];
+            model.uid = [[request.responseJSONObject objectForKey:@"data"] objectForKey:@"uid"];
+            [[GDDataBaseManager sharedManager] insert:model];
+            [GDLunchManager sharedManager].userModel = model;//备用
+
             block(YES);
         }else{
             [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];

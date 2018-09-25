@@ -194,6 +194,10 @@
         scrollView.scrollEnabled = isEnable;
     }
 
+    UICollectionView *collectionView = (UICollectionView *)[GDHelper getTargetView:[UICollectionView class] view:self];
+    if (collectionView) {
+        collectionView. scrollEnabled = isEnable;
+    }
 }
 
 //查看排序状态-->提交答案

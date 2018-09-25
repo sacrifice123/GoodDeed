@@ -28,8 +28,8 @@
     self.titleLabel.text = model.title;
     if (model.index.row == 1) {
         self.orgnImageView.hidden = NO;
-        NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:organModelCache];
-        [self.orgnImageView gd_setImageWithUrlStr:[dic objectForKey:@"imgUrl"]];
+        GDUserModel *model = [[GDDataBaseManager sharedManager] query:GDOrgaUid];
+        [self.orgnImageView gd_setImageWithUrlStr:model.imgUrl];
     }else{
         self.orgnImageView.hidden = YES;
     }
