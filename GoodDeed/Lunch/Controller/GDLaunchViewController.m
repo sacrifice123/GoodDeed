@@ -9,6 +9,7 @@
 #import "GDLaunchViewController.h"
 #import "GDKnowViewController.h"
 #import "GDLoginViewController.h"
+#import "GDGuideTestView.h"
 
 @interface GDLaunchViewController ()
 @property (strong, nonatomic) IBOutlet UIView *startView;
@@ -24,15 +25,15 @@
 
 }
 
-
+//从这里开始
 - (IBAction)startHere:(id)sender {
 
-    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    [self.view addSubview:self.startView];
-    [self.startView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-    
+//    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+//    [self.view addSubview:self.startView];
+//    [self.startView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.view);
+//    }];
+    [self showTestView];
 }
 
 //去答题首页
@@ -45,6 +46,16 @@
     }];
 
     
+}
+
+
+- (void)showTestView{
+    
+    GDGuideTestView *testView = [[NSBundle mainBundle] loadNibNamed:@"GDGuideTestView" owner:nil options:nil].lastObject;
+    [self.view addSubview:testView];
+    [testView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 //登录

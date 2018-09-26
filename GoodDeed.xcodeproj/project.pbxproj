@@ -88,6 +88,8 @@
 		E6115D0D2153859400E57470 /* GDGroupListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6115D0B2153859400E57470 /* GDGroupListItemCell.m */; };
 		E6115D0E2153859400E57470 /* GDGroupListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6115D0C2153859400E57470 /* GDGroupListItemCell.xib */; };
 		E6115D11215394AE00E57470 /* GDGroupListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6115D10215394AE00E57470 /* GDGroupListModel.m */; };
+		E6115D14215A2ECB00E57470 /* GDGuideTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6115D13215A2ECB00E57470 /* GDGuideTestView.m */; };
+		E6115D16215B25FD00E57470 /* GDGuideTestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6115D15215B25FD00E57470 /* GDGuideTestView.xib */; };
 		E611FBC620D9FE7A00807E95 /* GDLaunchQuestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FBC520D9FE7A00807E95 /* GDLaunchQuestionController.m */; };
 		E611FBC920DA070900807E95 /* GDLaunchReadyView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FBC820DA070900807E95 /* GDLaunchReadyView.m */; };
 		E611FBE120DA3DDE00807E95 /* GDOrgAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E611FBE020DA3DDE00807E95 /* GDOrgAnimationView.m */; };
@@ -400,6 +402,9 @@
 		E6115D0C2153859400E57470 /* GDGroupListItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDGroupListItemCell.xib; sourceTree = "<group>"; };
 		E6115D0F215394AE00E57470 /* GDGroupListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDGroupListModel.h; sourceTree = "<group>"; };
 		E6115D10215394AE00E57470 /* GDGroupListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDGroupListModel.m; sourceTree = "<group>"; };
+		E6115D12215A2ECB00E57470 /* GDGuideTestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDGuideTestView.h; sourceTree = "<group>"; };
+		E6115D13215A2ECB00E57470 /* GDGuideTestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDGuideTestView.m; sourceTree = "<group>"; };
+		E6115D15215B25FD00E57470 /* GDGuideTestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDGuideTestView.xib; sourceTree = "<group>"; };
 		E611FBC420D9FE7A00807E95 /* GDLaunchQuestionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLaunchQuestionController.h; sourceTree = "<group>"; };
 		E611FBC520D9FE7A00807E95 /* GDLaunchQuestionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLaunchQuestionController.m; sourceTree = "<group>"; };
 		E611FBC720DA070900807E95 /* GDLaunchReadyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLaunchReadyView.h; sourceTree = "<group>"; };
@@ -1298,6 +1303,9 @@
 				E61F433620E22E91004D2E09 /* GDPGHeaderView.xib */,
 				E61F433E20E245CD004D2E09 /* GDPGChooseView.h */,
 				E61F433F20E245CD004D2E09 /* GDPGChooseView.m */,
+				E6115D12215A2ECB00E57470 /* GDGuideTestView.h */,
+				E6115D13215A2ECB00E57470 /* GDGuideTestView.m */,
+				E6115D15215B25FD00E57470 /* GDGuideTestView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1604,6 +1612,7 @@
 				E664C95F20C93B7B004E81A4 /* GDLeftHeaderView.xib in Resources */,
 				E61A5F1D21352D830074D215 /* GDMoreSelCell.xib in Resources */,
 				E61A5F34213567F10074D215 /* GDWriteCell.xib in Resources */,
+				E6115D16215B25FD00E57470 /* GDGuideTestView.xib in Resources */,
 				460BA96421417D99008D1D2E /* GDStackRankEditTableViewCell.xib in Resources */,
 				E611FBFF20DA42CC00807E95 /* animation_11.jpg in Resources */,
 				E611FC0320DA42CC00807E95 /* animation_19.jpg in Resources */,
@@ -1760,6 +1769,7 @@
 				E6655CDA20C51391005B46C3 /* main.m in Sources */,
 				E69C3F9920CF6F6E004F5614 /* AnimationBackEnd.m in Sources */,
 				460BA94021417D99008D1D2E /* GDChooseOneModel.m in Sources */,
+				E6115D14215A2ECB00E57470 /* GDGuideTestView.m in Sources */,
 				E61F432C20E219D2004D2E09 /* GDPGChooseViewController.m in Sources */,
 				496026DA20D95A1000C3DD15 /* GDKnowViewController.m in Sources */,
 				E6BE89D6211F231B00C3AEDC /* GDSearchOrganApi.m in Sources */,

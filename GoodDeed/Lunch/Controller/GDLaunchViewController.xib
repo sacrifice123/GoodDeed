@@ -142,7 +142,6 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="Go:" destination="-1" eventType="touchUpInside" id="gn2-hs-vol"/>
-                        <action selector="startHere:" destination="-1" eventType="touchUpInside" id="pF4-Gj-bGO"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZ5-hl-te5">

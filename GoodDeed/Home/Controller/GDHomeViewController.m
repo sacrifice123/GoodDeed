@@ -75,6 +75,7 @@
     
 }
 
+//反馈与帮助页面
 - (void)showHelpView{
     [self hideItem:YES];
     self.adView.hidden = YES;
