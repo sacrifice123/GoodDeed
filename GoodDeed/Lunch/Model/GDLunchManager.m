@@ -277,7 +277,7 @@ static GDLunchManager *manager;
     CGFloat width = SCREEN_WIDTH;
     CGFloat height = 0.0;
     if (indexPath.section == 0) {//问题描述cell
-        height = [GDHelper calculateRectWithFont:20 Withtext:model.questionName Withsize:CGSizeMake(SCREEN_WIDTH-150, MAXFLOAT)].height+90-((model.imgUrl&&[model.imgUrl isKindOfClass:[NSString class]])?30:0);
+        height = [GDHelper calculateRectWithFont:20 Withtext:model.questionName Withsize:CGSizeMake(SCREEN_WIDTH-150, MAXFLOAT)].height+90-((model.imgUrl&&[model.imgUrl isKindOfClass:[NSString class]]&&model.imgUrl.length>0)?30:0);
         
     }else{
         switch (model.type) {

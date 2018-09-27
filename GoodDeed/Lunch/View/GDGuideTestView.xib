@@ -20,10 +20,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nX-Nu-Mu7" userLabel="topView">
                     <rect key="frame" x="0.0" y="0.0" width="444" height="467"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ExR-y4-eZG" userLabel="BGView">
-                            <rect key="frame" x="77" y="72" width="290" height="425"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_testBg" translatesAutoresizingMaskIntoConstraints="NO" id="gSx-yt-Xur">
                             <rect key="frame" x="77" y="72" width="290" height="425"/>
                         </imageView>
@@ -31,7 +27,7 @@
                             <rect key="frame" x="0.0" y="71" width="444" height="396"/>
                         </scrollView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_test_heart" translatesAutoresizingMaskIntoConstraints="NO" id="e71-r6-DDH">
-                            <rect key="frame" x="269" y="-110" width="95" height="135"/>
+                            <rect key="frame" x="270" y="-110" width="95" height="135"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="135" id="0Hu-cC-4Iv"/>
                                 <constraint firstAttribute="width" constant="95" id="ndI-bi-U2j"/>
@@ -40,6 +36,19 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_test_edge" translatesAutoresizingMaskIntoConstraints="NO" id="nIR-w9-qqT">
                             <rect key="frame" x="67" y="25" width="310" height="482"/>
                         </imageView>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ExR-y4-eZG" userLabel="BGView">
+                            <rect key="frame" x="77" y="72" width="290" height="425"/>
+                            <subviews>
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_test_pop" translatesAutoresizingMaskIntoConstraints="NO" id="MrA-Ec-hb1">
+                                    <rect key="frame" x="51.5" y="154" width="187" height="117"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="MrA-Ec-hb1" firstAttribute="centerX" secondItem="ExR-y4-eZG" secondAttribute="centerX" id="GQA-e0-vff"/>
+                                <constraint firstItem="MrA-Ec-hb1" firstAttribute="centerY" secondItem="ExR-y4-eZG" secondAttribute="centerY" id="Xlg-x9-6vs"/>
+                            </constraints>
+                        </view>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXl-eH-kEd">
                             <rect key="frame" x="17" y="17" width="9" height="17"/>
                             <constraints>
@@ -78,7 +87,7 @@
                         <constraint firstItem="e71-r6-DDH" firstAttribute="top" secondItem="nIR-w9-qqT" secondAttribute="top" constant="-135" id="PHH-XJ-OtD"/>
                         <constraint firstItem="iXl-eH-kEd" firstAttribute="leading" secondItem="6nX-Nu-Mu7" secondAttribute="leading" constant="17" id="Qvv-Sn-lmk"/>
                         <constraint firstItem="1jr-8E-HdL" firstAttribute="top" secondItem="6nX-Nu-Mu7" secondAttribute="top" id="S3i-cI-Ert"/>
-                        <constraint firstItem="e71-r6-DDH" firstAttribute="trailing" secondItem="nIR-w9-qqT" secondAttribute="trailing" constant="-13" id="SLt-4T-J0g"/>
+                        <constraint firstItem="e71-r6-DDH" firstAttribute="trailing" secondItem="nIR-w9-qqT" secondAttribute="trailing" constant="-12" id="SLt-4T-J0g"/>
                         <constraint firstItem="gSx-yt-Xur" firstAttribute="top" secondItem="nIR-w9-qqT" secondAttribute="top" constant="47" id="T1o-C0-Qu6"/>
                         <constraint firstItem="gSx-yt-Xur" firstAttribute="bottom" secondItem="nIR-w9-qqT" secondAttribute="bottom" constant="-10" id="VDe-dc-rr6"/>
                         <constraint firstItem="gSx-yt-Xur" firstAttribute="trailing" secondItem="nIR-w9-qqT" secondAttribute="trailing" constant="-10" id="WPt-B4-bUk"/>
@@ -109,8 +118,9 @@
                                 <constraint firstAttribute="width" constant="94" id="9si-tn-W0H"/>
                                 <constraint firstAttribute="height" constant="45" id="eMN-6W-ZlH"/>
                             </constraints>
-                            <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="65" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="15"/>
+                            <inset key="titleEdgeInsets" minX="-12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="58" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="继续" image="next_arrow">
                                 <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -151,8 +161,9 @@
                                 <constraint firstAttribute="height" constant="45" id="Rgz-Sv-MSD"/>
                                 <constraint firstAttribute="width" constant="94" id="iiR-gZ-Tgl"/>
                             </constraints>
-                            <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="65" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="15"/>
+                            <inset key="titleEdgeInsets" minX="-12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="58" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="继续" image="next_arrow">
                                 <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -193,8 +204,9 @@
                                 <constraint firstAttribute="height" constant="45" id="9Y4-IC-5eI"/>
                                 <constraint firstAttribute="width" constant="94" id="dap-mh-DMJ"/>
                             </constraints>
-                            <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="65" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="15"/>
+                            <inset key="titleEdgeInsets" minX="-12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="58" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="继续" image="next_arrow">
                                 <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -246,6 +258,7 @@
                 <outlet property="bgImgView" destination="gSx-yt-Xur" id="HGE-dT-KbY"/>
                 <outlet property="bottomViewLeftConstraint" destination="ULg-cN-gmt" id="9bd-et-hwO"/>
                 <outlet property="maskView" destination="1jr-8E-HdL" id="8m1-fw-Wle"/>
+                <outlet property="popImgView" destination="MrA-Ec-hb1" id="R55-vr-dVC"/>
                 <outlet property="scrollView" destination="Fcz-6D-dNv" id="Hwb-jH-X5Q"/>
                 <outlet property="topView" destination="6nX-Nu-Mu7" id="TYA-5a-1qP"/>
             </connections>
@@ -256,7 +269,8 @@
         <image name="launch_testBg" width="219" height="409"/>
         <image name="launch_test_edge" width="241" height="485"/>
         <image name="launch_test_heart" width="107" height="148"/>
+        <image name="launch_test_pop" width="187" height="117"/>
         <image name="nav_back" width="8" height="15"/>
-        <image name="next_arrow" width="12" height="13"/>
+        <image name="next_arrow" width="7" height="8"/>
     </resources>
 </document>

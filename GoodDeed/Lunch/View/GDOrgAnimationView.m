@@ -9,7 +9,7 @@
 #import "GDOrgAnimationView.h"
 #import "GDPGChooseViewController.h"
 #import "GDOrganModel.h"
-
+#import "UIView+LXShadowPath.h"
 #define bgHeight 233
 @interface GDOrgAnimationView()
 
@@ -61,7 +61,7 @@ static GDOrgAnimationView *_view;
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
         [self addSubview:self.bgView];
         self.bgView.frame = CGRectMake(SCREEN_WIDTH-169, -bgHeight, 164, bgHeight);
-       
+        
         [self.bgView addSubview:self.imgView];
         [self bringSubviewToFront:self.bgView];
         [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -71,6 +71,9 @@ static GDOrgAnimationView *_view;
             make.centerX.equalTo(self.bgView);
             
         }];
+        //[GDHelper addShadowToView:self.bgView withColor:[UIColor colorWithRed:10.0/255 green:0 blue:0 alpha:0.14]];
+        [self.bgView  LX_SetShadowPathWith:[UIColor colorWithHexString:@"#777777"] shadowOpacity:0.5 shadowRadius:1.5 shadowSide:LXShadowPathAllSide shadowPathWidth:1.5];
+
         [self.bgView addSubview:self.progressView];
         [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.bgView).offset(10);
@@ -123,8 +126,8 @@ static GDOrgAnimationView *_view;
         _progressView.layer.cornerRadius = 2;
         _progressView.layer.masksToBounds = YES;
         _progressView.progress = 1/6.0;
-        _progressView.trackTintColor = [UIColor blackColor];
-        _progressView.progressTintColor = [UIColor greenColor];
+        _progressView.trackTintColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1];
+        _progressView.progressTintColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1];
 
     }
     return _progressView;

@@ -18,5 +18,5 @@
 + (UIViewController *)getSuperVc:(UIView *)view;
 + (UIView *)getTargetView:(Class)targetClass view:(UIView *)view;
 + (NSString *)getNowTimestamp;
-
++ (void)addShadowToView:(UIView *)theView withColor:(UIColor *)theColor;
 @end

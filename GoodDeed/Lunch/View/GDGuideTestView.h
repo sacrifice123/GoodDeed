@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^finishBlcok)(BOOL);
 @interface GDGuideTestView : UIView
+
+@property (nonatomic, copy) finishBlcok block;
 
 @end

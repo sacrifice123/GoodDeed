@@ -41,6 +41,7 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableView) name:GDReloadHome object:nil];
 }
 
 - (UIImagePickerController *)imagePickerController{
@@ -145,7 +146,6 @@
             GDPGChooseViewController *chooseVc = [GDPGChooseViewController new];
             chooseVc.isClose = NO;
             [self presentViewController:chooseVc animated:YES completion:nil];
-
         }
             
             break;
@@ -292,4 +292,14 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+//刷新列表
+- (void)reloadTableView{
+    [self.tableView reloadData];
+    
+}
+
+- (void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

@@ -116,6 +116,8 @@ static CGFloat const GDSpringFactor = 10;
                     [GDLunchManager sharedManager].userModel.imgUrl = [dic objectForKey:@"imgUrl"];
                     [GDLunchManager sharedManager].userModel.name = [dic objectForKey:@"name"];
                 }
+                
+                block(YES);
             }
         }
         

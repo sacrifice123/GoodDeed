@@ -28,11 +28,6 @@
 //从这里开始
 - (IBAction)startHere:(id)sender {
 
-//    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-//    [self.view addSubview:self.startView];
-//    [self.startView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.view);
-//    }];
     [self showTestView];
 }
 
@@ -51,7 +46,19 @@
 
 - (void)showTestView{
     
+    __weak typeof(self) weakSelf = self;
     GDGuideTestView *testView = [[NSBundle mainBundle] loadNibNamed:@"GDGuideTestView" owner:nil options:nil].lastObject;
+    testView.block = ^(BOOL result) {
+        if (result) {
+       
+            [weakSelf.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            [weakSelf.view addSubview:weakSelf.startView];
+            [weakSelf.startView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(weakSelf.view);
+            }];
+
+        }
+    };
     [self.view addSubview:testView];
     [testView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);

@@ -66,6 +66,9 @@
     [self showAdHorizontally];
     [GDHomeManager getUserInfoWithCompletionBlock:^(BOOL result) {
         
+        GDUserModel *model = [GDLunchManager sharedManager].userModel;
+        
+        
     }];
 }
 

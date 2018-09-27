@@ -172,20 +172,21 @@ referenceSizeForHeaderInSection: (NSInteger)section{
 //选择后继续
 - (void)chooseButtonClicked{
     UIViewController *superVc = [GDHelper getSuperVc:self];
-//    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-//    [dic setObject:self.selectOrganModel.organId forKey:@"organId"];
-//    [dic setObject:self.selectOrganModel.name forKey:@"name"];
-//    [dic setObject:self.selectOrganModel.imgUrl  forKey:@"imgUrl"];
-//    [[NSUserDefaults standardUserDefaults] setObject:dic forKey:organModelCache];
     GDUserModel *model = [[GDUserModel alloc] init];
     model.organId = self.selectOrganModel.organId;
     model.name = self.selectOrganModel.name;
     model.imgUrl = self.selectOrganModel.imgUrl;
     model.uid = GDOrgaUid;//自定义uid为主件
-    [[GDDataBaseManager sharedManager] insert:model];
+    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:GDAnimationStatus] boolValue]) {
+        [[GDDataBaseManager sharedManager] update:model];
+    }else{
+        [[GDDataBaseManager sharedManager] insert:model];
+    }
     [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:GDAnimationStatus];
     [superVc dismissViewControllerAnimated:YES completion:^{
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:GDReloadHome object:nil];
     }];
 
 }

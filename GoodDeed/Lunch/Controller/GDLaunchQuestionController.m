@@ -92,6 +92,7 @@
 
 - (void)animationFinish:(NSInteger)index{
     GDOrgAnimationView *view = [GDOrgAnimationView sharedView];
+
     [view removeFromSuperview];
     [self.view addSubview:view];
     [view mas_makeConstraints:^(MASConstraintMaker *make) {

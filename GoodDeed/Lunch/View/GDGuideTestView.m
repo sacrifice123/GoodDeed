@@ -8,6 +8,8 @@
 
 #import "GDGuideTestView.h"
 #import "SCAdView.h"
+#import <POP.h>
+#import "UIView+LXShadowPath.h"
 
 @interface GDGuideTestView()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *topView;
@@ -20,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *animationImgView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *animationTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewLeftConstraint;
+@property (weak, nonatomic) IBOutlet UIImageView *popImgView;
 
 @end
 @implementation GDGuideTestView
@@ -32,7 +35,7 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     
-    [self addShadowToView:self.animationImgView withColor:[UIColor colorWithRed:10.0/255 green:0 blue:0 alpha:0.14]];
+    [self.animationImgView  LX_SetShadowPathWith:[UIColor colorWithHexString:@"#E6E6E6"] shadowOpacity:0.001 shadowRadius:0.01 shadowSide:LXShadowPathAllSide shadowPathWidth:0.01];
     self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH *4, SCREEN_HEIGHT*0.7-95);
     self.scrollView.pagingEnabled = YES;
     self.scrollView.delegate = self;
@@ -80,15 +83,16 @@
     [timer fire];
 }
 
+static int margin = 78;
 - (void)createUI{
     
     [self layoutSubviews];
     [self layoutIfNeeded];
     for (int i=0; i<4; i++) {
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(78+i*(SCREEN_WIDTH-156), ((i==0)?0: 22),SCREEN_WIDTH-156, self.scrollView.height)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(margin+i*(SCREEN_WIDTH-margin*2), ((i==0)?0: 22),SCREEN_WIDTH-margin*2, self.scrollView.height)];
         [self.scrollView addSubview:view];
         CGFloat x = (i==0)?0:5;
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(x, 0, SCREEN_WIDTH-156-3*x, self.scrollView.height-((i==0)?0:25))];
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(x, 0, SCREEN_WIDTH-margin*2-3*x, self.scrollView.height-((i==0)?0:25))];
         imgView.hidden = (i!=0);
         imgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"launch_test%i",i+1]];
         [view addSubview:imgView];
@@ -103,7 +107,7 @@
 - (void)updateAnimationTopConstraint{
     
     [UIView animateWithDuration:0.8 animations:^{
-        self.animationTopConstraint.constant = 40;
+        self.animationTopConstraint.constant = 41;
         [self layoutIfNeeded];
     }];
 
@@ -120,13 +124,30 @@
         [self animationStart];
         self.topView.backgroundColor = [UIColor colorWithHexString:@"#3BA2CD"];
 
-
     }else if (sender.tag == 1) {
         self.topView.backgroundColor = [UIColor colorWithHexString:@"#FDCF44"];
+        self.BGView.hidden = NO;
 
-    }else if (sender.tag == 2){//GO
+        [UIView animateWithDuration:0.6 animations:^{
+            
+            [self.scrollView setContentOffset:CGPointMake(218*4+SCREEN_WIDTH, self.scrollView.contentOffset.y) animated:NO];
+
+        } completion:^(BOOL finished) {
+            
+            self.popImgView.hidden = NO;
+            POPSpringAnimation *springAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+            springAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+            springAnimation.velocity = [NSValue valueWithCGPoint:CGPointMake(12, 12)];
+            springAnimation.springBounciness = 12.f;
+            [self.popImgView pop_addAnimation:springAnimation forKey:@"springAnimation"];
+
+        }];
         
+    }else if (sender.tag == 2){//GO
 
+        if (self.block) {
+            self.block(YES);
+        }
     }
     self.maskView.backgroundColor = self.topView.backgroundColor;
 
@@ -138,15 +159,6 @@
 
 }
 
-- (void)addShadowToView:(UIView *)theView withColor:(UIColor *)theColor {
-    // 阴影颜色
-    theView.layer.shadowColor = theColor.CGColor;
-    // 阴影偏移，默认(0, -3)
-    theView.layer.shadowOffset = CGSizeMake(0,0);    // 阴影透明度，默认0
-    theView.layer.shadowOpacity = 0.01;    // 阴影半径，默认3
-    theView.layer.shadowRadius = 2;
-    
-}
     
 
 @end
