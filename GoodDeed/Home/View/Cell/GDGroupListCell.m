@@ -24,9 +24,18 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = 5;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     [self.collectionView registerNib:[UINib nibWithNibName:@"GDGroupListItemCell" bundle:nil] forCellWithReuseIdentifier:@"GDGroupListItemCell"];
+    [GDHomeManager getGroupInfoWithCompletionBlock:^(NSMutableArray *array) {
+        
+        if (array) {
+            [self.dataArray addObjectsFromArray:array];
+            [self.collectionView reloadData];
+        }
+    }];
 }
 
 
@@ -40,32 +49,36 @@
 
 - (IBAction)invite:(id)sender {
     
-    
+    self.inviteView.hidden = NO;
 }
 
-
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+  
     return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 4;
+   
+    return self.dataArray.count>4?4:self.dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GDGroupListItemCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"GDGroupListItemCell" forIndexPath:indexPath];
-    GDGroupListModel *model = self.dataArray[indexPath.row];
-    model.index = indexPath;
-    cell.model = model;
+    cell.isMore = (self.dataArray.count>4);
+    if (self.dataArray.count>indexPath.row) {
+        GDGroupListModel *model = self.dataArray[indexPath.row];
+        model.index = indexPath;
+        cell.model = model;
+
+    }
     return cell;
 }
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return CGSizeMake((SCREEN_WIDTH-65)*0.5, (SCREEN_WIDTH-65)*0.5+30);
+    return CGSizeMake((SCREEN_WIDTH-65-30)*0.5, (SCREEN_WIDTH-65-30)*0.5+30);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
@@ -73,7 +86,7 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return 0;
+    return 5;
     
 }
 
@@ -88,6 +101,7 @@
         self.inviteView.hidden = NO;
     }
 }
+
 //完成
 - (IBAction)finish:(id)sender {
     

@@ -154,6 +154,8 @@
     //根据需要增加
     [self.collectionView registerNib:[UINib nibWithNibName:@"GDSurveyCell" bundle:nil] forCellWithReuseIdentifier:@"GDSurveyCell"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"GDGroupCell" bundle:nil] forCellWithReuseIdentifier:@"GDGroupCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"GDGroupListCell" bundle:nil] forCellWithReuseIdentifier:@"GDGroupListCell"];
+
 
 //    if (builder.itemCellNibName.length>0) {
 //       // UINib *nib = [UINib nibWithNibName:builder.itemCellNibName bundle:nil];
@@ -223,6 +225,8 @@
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSurveyCell" forIndexPath:indexPath];
     }else if (self.type == GDHomeTeamType){
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDGroupCell" forIndexPath:indexPath];
+    }else if (self.type == GDHomeTeamFinishType){//创建团队完成
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDGroupListCell" forIndexPath:indexPath];
     }
     if (cell) {
         cell.delegate = self.delegate;

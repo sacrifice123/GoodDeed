@@ -27,8 +27,12 @@
     _model = model;
     self.nickLabel.text = model.uidName;
     [self.imageView gd_setImageWithUrlStr:model.imgUrl];
+    self.totalMoneyLabel.text = model.money;
+    self.totalMoneySubLabel.text = model.money;
+    if (self.isMore) {
+        self.watchView.hidden = !(model.index.row == 3);
+        self.nickLabel.hidden = (model.index.row == 3);
 
-    self.watchView.hidden = !(model.index.row == 3);
-    self.nickLabel.hidden = (model.index.row == 3);
+    }
 }
 @end

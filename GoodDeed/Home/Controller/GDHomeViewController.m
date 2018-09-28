@@ -66,7 +66,9 @@
     [self showAdHorizontally];
     [GDHomeManager getUserInfoWithCompletionBlock:^(BOOL result) {
         
-        GDUserModel *model = [GDLunchManager sharedManager].userModel;
+        if (result) {
+            [self reloadDataWithType:GDHomeType];
+        }
         
         
     }];
@@ -145,6 +147,7 @@
     [self createHorizontallyView];
 }
 
+//
 - (void)createHorizontallyView{
     
     __weak typeof(self) weakSelf = self;
@@ -180,7 +183,7 @@
         array = self.homeArray;
     }else if (type == GDHomeSurveyType) {
         array = self.surveyArray;
-    }else if (type == GDHomeTeamType) {
+    }else if (type == GDHomeTeamType||type == GDHomeTeamFinishType) {
         array = self.teamArray;
     }
     [self.adView reloadWithDataArray:array];

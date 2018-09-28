@@ -111,7 +111,7 @@
                                     <action selector="cancel:" destination="gTV-IL-0wX" eventType="touchUpInside" id="niF-5L-EJl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdg-in-z5K">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdg-in-z5K">
                                 <rect key="frame" x="89" y="507" width="123" height="65"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -244,10 +244,87 @@
                             <constraint firstItem="KdS-aT-8Ow" firstAttribute="top" secondItem="Zge-Ry-plQ" secondAttribute="bottom" constant="30" id="ydM-BE-OBV"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yac-Mh-YvP">
+                        <rect key="frame" x="900" y="0.0" width="300" height="625"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYd-JQ-D8c">
+                                <rect key="frame" x="103" y="265.5" width="94" height="94"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="3Wf-un-Oh5"/>
+                                    <constraint firstAttribute="height" constant="94" id="b8q-qQ-cvS"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="invite_wechat"/>
+                                <connections>
+                                    <action selector="invite_wechat:" destination="gTV-IL-0wX" eventType="touchUpInside" id="cN7-bi-0Dc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvG-Qj-h2n">
+                                <rect key="frame" x="103" y="394.5" width="94" height="94"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="94" id="7Vt-Vt-ENt"/>
+                                    <constraint firstAttribute="width" constant="94" id="LSN-La-Nd6"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="invite_weibo"/>
+                                <connections>
+                                    <action selector="invite_weibo:" destination="gTV-IL-0wX" eventType="touchUpInside" id="fPV-PW-zqr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfj-r7-BEM">
+                                <rect key="frame" x="30" y="15" width="240" height="56"/>
+                                <string key="text">邀请好友加入团队，
+共同做一点有意义的小事。</string>
+                                <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="20"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRM-gH-QFG">
+                                <rect key="frame" x="89" y="523.5" width="123" height="65"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="G6l-d7-sdB"/>
+                                    <constraint firstAttribute="width" constant="123" id="uSh-pf-Azc"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="-18" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="75" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="完成" image="next_arrow">
+                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="finish:" destination="gTV-IL-0wX" eventType="touchUpInside" id="coc-Uf-lYy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxA-6u-qS6">
+                                <rect key="frame" x="103" y="136.5" width="94" height="94"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="CGw-bn-f7I"/>
+                                    <constraint firstAttribute="height" constant="94" id="t3p-Fn-l2E"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="invite_mail"/>
+                                <connections>
+                                    <action selector="invite_mail:" destination="gTV-IL-0wX" eventType="touchUpInside" id="0GH-GU-H8l"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hfj-r7-BEM" firstAttribute="top" secondItem="Yac-Mh-YvP" secondAttribute="top" constant="15" id="JhZ-wr-ypC"/>
+                            <constraint firstItem="KvG-Qj-h2n" firstAttribute="centerX" secondItem="Yac-Mh-YvP" secondAttribute="centerX" id="M7y-sp-e5T"/>
+                            <constraint firstItem="sxA-6u-qS6" firstAttribute="centerX" secondItem="Yac-Mh-YvP" secondAttribute="centerX" id="PwT-Kw-QQo"/>
+                            <constraint firstItem="qRM-gH-QFG" firstAttribute="top" secondItem="KvG-Qj-h2n" secondAttribute="bottom" constant="35" id="R8o-U7-PUi"/>
+                            <constraint firstItem="NYd-JQ-D8c" firstAttribute="centerX" secondItem="Yac-Mh-YvP" secondAttribute="centerX" id="ZDg-4Z-6VV"/>
+                            <constraint firstItem="KvG-Qj-h2n" firstAttribute="top" secondItem="NYd-JQ-D8c" secondAttribute="bottom" constant="35" id="gZH-n1-0L4"/>
+                            <constraint firstItem="hfj-r7-BEM" firstAttribute="centerX" secondItem="Yac-Mh-YvP" secondAttribute="centerX" id="ne0-lp-E8t"/>
+                            <constraint firstItem="NYd-JQ-D8c" firstAttribute="centerY" secondItem="Yac-Mh-YvP" secondAttribute="centerY" id="neL-t2-n5k"/>
+                            <constraint firstItem="NYd-JQ-D8c" firstAttribute="top" secondItem="sxA-6u-qS6" secondAttribute="bottom" constant="35" id="tPR-NW-BoN"/>
+                            <constraint firstItem="qRM-gH-QFG" firstAttribute="centerX" secondItem="Yac-Mh-YvP" secondAttribute="centerX" id="w8d-W6-QbZ"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="Yac-Mh-YvP" secondAttribute="bottom" id="0dW-cI-hxc"/>
                 <constraint firstItem="GhN-ds-o1s" firstAttribute="leading" secondItem="Ew4-fP-lyF" secondAttribute="trailing" id="2qF-8v-Len"/>
+                <constraint firstItem="Yac-Mh-YvP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="85X-8E-EBO"/>
                 <constraint firstAttribute="bottom" secondItem="Ew4-fP-lyF" secondAttribute="bottom" id="CWd-r3-uyl"/>
                 <constraint firstItem="Ew4-fP-lyF" firstAttribute="leading" secondItem="wxI-v9-i1o" secondAttribute="trailing" id="D3m-co-Mb8"/>
                 <constraint firstItem="GhN-ds-o1s" firstAttribute="height" secondItem="Ew4-fP-lyF" secondAttribute="height" id="EOI-Uv-mdu"/>
@@ -256,7 +333,9 @@
                 <constraint firstItem="Ew4-fP-lyF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="I9a-Yt-kjz"/>
                 <constraint firstItem="GhN-ds-o1s" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="KoH-xW-UPj"/>
                 <constraint firstItem="Ew4-fP-lyF" firstAttribute="height" secondItem="wxI-v9-i1o" secondAttribute="height" id="Lae-JZ-vT2"/>
+                <constraint firstItem="Yac-Mh-YvP" firstAttribute="leading" secondItem="GhN-ds-o1s" secondAttribute="trailing" id="Ls9-2L-Aou"/>
                 <constraint firstAttribute="bottom" secondItem="wxI-v9-i1o" secondAttribute="bottom" id="P59-5F-M0s"/>
+                <constraint firstItem="Yac-Mh-YvP" firstAttribute="width" secondItem="GhN-ds-o1s" secondAttribute="width" id="Pms-r1-agv"/>
                 <constraint firstItem="wxI-v9-i1o" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="VQ5-II-qXA"/>
                 <constraint firstItem="GhN-ds-o1s" firstAttribute="width" secondItem="Ew4-fP-lyF" secondAttribute="width" id="bDa-hq-Qny"/>
                 <constraint firstAttribute="bottom" secondItem="GhN-ds-o1s" secondAttribute="bottom" id="lhl-EE-O83"/>
@@ -276,6 +355,7 @@
                 <outlet property="view3EditLabel" destination="wD9-BZ-XAr" id="2zo-Fw-MWF"/>
                 <outlet property="view3LeftConstraint" destination="2qF-8v-Len" id="Pt4-7q-6kc"/>
                 <outlet property="view3NextButton" destination="HAK-6M-bjc" id="4cI-VC-30j"/>
+                <outlet property="view3Textfield" destination="KdS-aT-8Ow" id="ihI-Nq-VL7"/>
                 <outlet property="view3TitleLabel" destination="oWx-I0-U7E" id="qfj-Zl-P40"/>
                 <outlet property="view3TitleLabelBottomConstraint" destination="drc-f0-ULW" id="ZaF-8b-iyf"/>
             </connections>
@@ -286,7 +366,10 @@
         <image name="choose_arrow" width="11" height="12"/>
         <image name="create_group_bg" width="345" height="558"/>
         <image name="home_head_default" width="134" height="132"/>
+        <image name="invite_mail" width="94" height="94"/>
+        <image name="invite_wechat" width="94" height="94"/>
+        <image name="invite_weibo" width="94" height="94"/>
         <image name="nav_back_blue" width="8" height="14"/>
-        <image name="next_arrow" width="12" height="13"/>
+        <image name="next_arrow" width="7" height="8"/>
     </resources>
 </document>

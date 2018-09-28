@@ -11,6 +11,8 @@
 @interface GDLeftHeaderView()
 
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
+@property (weak, nonatomic) IBOutlet UILabel *totalMoneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalMoneySubLabel;
 
 @end
 @implementation GDLeftHeaderView
@@ -24,6 +26,9 @@
         [weakSelf.imageButton setBackgroundImage:image forState:0];
         
     };
+    GDUserModel *model = [[GDDataBaseManager sharedManager] queryUserData];
+    self.totalMoneyLabel.text = model.money;
+    self.totalMoneySubLabel.text = model.money;
 }
 
 

@@ -48,9 +48,10 @@
 - (NSString *)money{
     
     if (_money&&![_money isKindOfClass:[NSNull class]]) {
-        return _money;
+        _money = [NSString stringWithFormat:@"%@",_money];
+        return (_money.length>0?_money:@"0");
     }else{
-        return @"";
+        return @"0";
     }
 }
 - (NSString *)mySurveyNum{

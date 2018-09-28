@@ -18,4 +18,11 @@
 //}
 //
 
+- (NSString *)money{
+    
+    if (_money) {
+        return [NSString stringWithFormat:@"%@",_money];
+    }
+    return @"0";
+}
 @end

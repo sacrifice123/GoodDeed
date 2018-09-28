@@ -10,4 +10,6 @@
 
 @interface GDCreateGroupApi : GDBaseApi
 
+- (id)initWithHeadUrl:(NSString *)url uidName:(NSString *)uidName name:(NSString *)name;
+
 @end

@@ -8,7 +8,8 @@
 
 #import "GDGroupCell.h"
 #import <MobileCoreServices/MobileCoreServices.h>
-
+#import "GDGroupListCell.h"
+#import "GDHomeViewController.h"
 
 @interface GDGroupCell()<UITextFieldDelegate,UIImagePickerControllerDelegate>
 
@@ -17,20 +18,19 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *view2LeftConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *view3LeftConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
-//@property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
 
 @property (weak, nonatomic) IBOutlet UILabel *view1TitleLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *view2TitleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *view2Textfield;
 @property (weak, nonatomic) IBOutlet UIButton *view2NextButton;
-
 @property (weak, nonatomic) IBOutlet UILabel *view3TitleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *view3NextButton;
 @property (weak, nonatomic) IBOutlet UILabel *view3EditLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *view3TitleLabelBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *inviteButton;
+@property (weak, nonatomic) IBOutlet UITextField *view3Textfield;
+
 
 
 @end
@@ -73,7 +73,7 @@
 - (IBAction)createOrInvite:(UIButton *)sender {
     
     [self.view2NextButton setTitle:(sender.tag==0)?@"继续":@"下一步" forState:0];
-    self.view2NextButton.tag = sender.tag;
+    self.view2NextButton.tag = sender.tag;//
     self.view2TitleLabel.text = (sender.tag==0)?@"第1步：给你的团队取一个\n难忘的名字。\n":@"请输入你的邀请码";
     self.view2Textfield.text = nil;
     self.view2Textfield.placeholder = (sender.tag==0)?@"输入团队名称":@"ABCDE";
@@ -91,13 +91,14 @@
 }
 
 - (IBAction)next:(UIButton *)sender {
+    
     if (sender.tag<=1) {
-        if (!self.view2Textfield||self.view2Textfield.text.length==0) {
+        if (!self.view2Textfield.text||self.view2Textfield.text.length==0) {
             [self.view2Textfield becomeFirstResponder];
             return;
         }else{
-            if (sender.tag==0&&self.view2Textfield&&self.view2Textfield.text.length<2) {
-                [self showAlert];
+            if (sender.tag==0&&self.view2Textfield.text&&self.view2Textfield.text.length<2) {
+                [self showAlert:1];
                 return;
             }
 
@@ -108,9 +109,38 @@
             [self.contentView layoutIfNeeded];
         }];
 
+    }else if (sender.tag == 2){//创建
+        
+        if (!self.view3Textfield.text) {
+            [self showAlert:2];
+            return;
+        }
+        [UIView animateWithDuration:0.3 animations:^{
+            
+            self.view1LeftConstraint.constant = -(SCREEN_WIDTH-30)*3;
+            [self.contentView layoutIfNeeded];
+            
+        }];
+
+//        [GDHomeManager createGroupWithHeadUrl:@"" uidName:self.view3Textfield.text name:self.view2Textfield.text completionBlock:^(GDGroupListModel *model) {
+//
+//            if (model) {
+//                [UIView animateWithDuration:0.3 animations:^{
+//
+//                    self.view1LeftConstraint.constant = -(SCREEN_WIDTH-30)*3;
+//                    [self.contentView layoutIfNeeded];
+//
+//                }];
+//
+//            }
+//
+//
+//        }];
     }
 
 }
+
+//取消
 - (IBAction)cancel:(UIButton *)sender {
     [UIView animateWithDuration:0.3 animations:^{
         
@@ -124,6 +154,24 @@
 //编辑头像
 - (IBAction)editPhoto:(UIButton *)sender {
     [self chooseImage];
+    
+}
+
+//完成
+- (IBAction)finish:(id)sender {
+    
+    GDHomeViewController *homeVc = (GDHomeViewController *)[GDHelper getSuperVc:self];
+    [homeVc reloadDataWithType:GDHomeTeamFinishType];
+}
+
+//邀请你的朋友
+- (IBAction)invite_mail:(id)sender {
+    
+}
+- (IBAction)invite_wechat:(id)sender {
+    
+}
+- (IBAction)invite_weibo:(id)sender {
     
 }
 
@@ -201,11 +249,17 @@
 }
 
 
--(void)showAlert {
+-(void)showAlert:(NSInteger)index {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"名字过短" message:@"请输入2到16个字符" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"重新输入" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self.view2Textfield becomeFirstResponder];
+        if (index==1) {
+            [self.view2Textfield becomeFirstResponder];
+
+        }else if (index==2){
+            [self.view3Textfield becomeFirstResponder];
+
+        }
     }];
     [alert addAction:action1];
     UIViewController *vc = [GDHelper getSuperVc:self];

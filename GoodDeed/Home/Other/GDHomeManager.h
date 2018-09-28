@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GDGroupListModel.h"
 
 @interface GDHomeManager : NSObject
 
@@ -20,4 +21,7 @@
 + (void)clearCache;
 + (void)getUserInfoWithCompletionBlock:(void(^)(BOOL))block;
 + (void)uploadImage:(UIImage *)image;
++ (void)createGroupWithHeadUrl:(NSString *)url uidName:(NSString *)uidName name:(NSString *)name completionBlock:(void(^)(GDGroupListModel *))block;
++ (void)getGroupInfoWithCompletionBlock:(void(^)(NSMutableArray *))block;
+
 @end

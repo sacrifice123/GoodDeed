@@ -14,6 +14,8 @@
 #import "GDUserModel.h"
 #import "GDUploadImageApi.h"
 #import "GDChangeHeadApi.h"
+#import "GDCreateGroupApi.h"
+#import "GDGetGroupInfoApi.h"
 #import <POP.h>
 
 @implementation GDHomeManager
@@ -119,6 +121,9 @@ static CGFloat const GDSpringFactor = 10;
                 
                 block(YES);
             }
+        }else{
+            [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
+            
         }
         
     } failure:^(YTKBaseRequest *request) {
@@ -133,6 +138,41 @@ static CGFloat const GDSpringFactor = 10;
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
 
 
+    } failure:^(YTKBaseRequest *request) {
+        [GDWindow showWithString:@"网络异常"];
+    }];
+}
+
+//创建团队
++ (void)createGroupWithHeadUrl:(NSString *)url uidName:(NSString *)uidName name:(NSString *)name completionBlock:(void(^)(GDGroupListModel *))block{
+    
+    GDCreateGroupApi *api = [[GDCreateGroupApi alloc] initWithHeadUrl:url uidName:uidName name:name];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        if ([[request.responseJSONObject objectForKey:@"code"] integerValue]==200) {
+            NSDictionary *data = [request.responseJSONObject objectForKey:@"data"];
+            if (data&&[data isKindOfClass:[NSDictionary class]]) {
+                NSArray *memberList = [data objectForKey:@"memberList"];
+                NSDictionary *dic = memberList.firstObject;
+                GDGroupListModel *model = [[GDGroupListModel alloc] init];
+                model.groupId = [data objectForKey:@"id"];
+                model.name = [data objectForKey:@"name"];
+                if ((dic&&[dic isKindOfClass:[NSDictionary class]])) {
+                    model.imgUrl = [dic objectForKey:@"imgUrl"];
+                    model.money = [dic objectForKey:@"money"];
+                    model.uid = [dic objectForKey:@"uid"];
+                    model.uidName = [dic objectForKey:@"uidName"];
+
+                }
+                block(model);
+            }
+       
+        }else{
+//            [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
+            [GDWindow showWithString:@"请求失败"];
+
+        }
+        
     } failure:^(YTKBaseRequest *request) {
         [GDWindow showWithString:@"网络异常"];
     }];
@@ -177,6 +217,62 @@ static CGFloat const GDSpringFactor = 10;
     } failure:^(YTKBaseRequest *request) {
         [GDWindow showWithString:@"网络异常"];
     }];
+}
+
++ (void)getGroupInfoWithCompletionBlock:(void(^)(NSMutableArray *))block{
+    
+    GDGetGroupInfoApi*api = [[GDGetGroupInfoApi alloc] init];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        if ([[request.responseJSONObject objectForKey:@"code"] integerValue]==200) {
+            NSDictionary *data = [request.responseJSONObject objectForKey:@"data"];
+            if (data&&[data isKindOfClass:[NSDictionary class]]) {
+                NSMutableArray *array = [NSMutableArray array];
+               
+                NSDictionary *myCreateGroup = [data objectForKey:@"myCreateGroup"];
+                if (myCreateGroup&&[myCreateGroup isKindOfClass:[NSDictionary class]]) {
+                    NSArray *createList = [myCreateGroup objectForKey:@"memberList"];
+                    if (createList&&[createList isKindOfClass:[NSArray class]]) {
+                        for (NSDictionary *obj in createList) {
+                            GDGroupListModel *model = [[GDGroupListModel alloc] init];
+                            model.groupId = [myCreateGroup objectForKey:@"id"];
+                            model.name = [myCreateGroup objectForKey:@"name"];
+                            model.imgUrl = [obj objectForKey:@"imgUrl"];
+                            model.money = [obj objectForKey:@"money"];
+                            model.uid = [obj objectForKey:@"uid"];
+                            model.uidName = [obj objectForKey:@"uidName"];
+                            [array addObject:model];
+                        }
+                    }
+                }
+                
+                NSDictionary *myJoinGList = [data objectForKey:@"myJoinGList"];
+                if (myJoinGList&&[myJoinGList isKindOfClass:[NSDictionary class]]) {
+                    NSArray *joinList = [myJoinGList objectForKey:@"memberList"];
+                    if (joinList&&[joinList isKindOfClass:[NSArray class]]) {
+                        for (NSDictionary *obj in joinList) {
+                            GDGroupListModel *model = [[GDGroupListModel alloc] init];
+                            model.groupId = [myCreateGroup objectForKey:@"id"];
+                            model.imgUrl = [obj objectForKey:@"imgUrl"];
+                            model.money = [obj objectForKey:@"money"];
+                            model.uid = [obj objectForKey:@"uid"];
+                            model.uidName = [obj objectForKey:@"uidName"];
+                            [array addObject:model];
+                        }
+
+                    }
+               
+                }
+
+                block(array);
+            }
+        }
+        
+    } failure:^(YTKBaseRequest *request) {
+        [GDWindow showWithString:@"网络异常"];
+    }];
+
+    
 }
 
 + (void)presentToTargetControllerWith:(UIView *)view targetVc:(UIViewController *)targetVc{

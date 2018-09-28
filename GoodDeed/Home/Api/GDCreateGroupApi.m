@@ -15,6 +15,7 @@
     NSString *_name;
 }
 
+//创建团队
 - (id)initWithHeadUrl:(NSString *)url uidName:(NSString *)uidName name:(NSString *)name{
     if (self = [super init]) {
         _url = url;
@@ -33,14 +34,16 @@
 }
 
 - (id)requestArgument{
+
+    GDUserModel *model = [[GDDataBaseManager sharedManager] queryUserData];
     return @{
              @"data":@{
                      @"headUrl":_url?:@"",
-                     @"uid":[GDLunchManager sharedManager].userModel.uid?:@"",
+                     @"uid":model.uid,
                      @"uidName":_uidName?:@"",
                      @"name":_name?:@""
                      },
-             @"token":[GDLunchManager sharedManager].userModel.token?:@""
+             @"token":model.token
              };
     
 }

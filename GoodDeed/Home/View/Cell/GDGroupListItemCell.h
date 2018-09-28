@@ -12,4 +12,6 @@
 @interface GDGroupListItemCell : GDBaseCell
 
 @property (nonatomic, strong) GDGroupListModel *model;
+@property (nonatomic, assign) BOOL isMore;
+
 @end

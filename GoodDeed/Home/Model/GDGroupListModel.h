@@ -17,6 +17,6 @@
 @property (nonatomic, copy) NSString *money;//筹集到的善款
 @property (nonatomic, copy) NSString *uid;//成员uid
 @property (nonatomic, copy) NSString *uidName;//成员的名称
-@property (nonatomic, assign) NSIndexPath *index;
+@property (nonatomic, assign) NSIndexPath *index;//定位
 
 @end

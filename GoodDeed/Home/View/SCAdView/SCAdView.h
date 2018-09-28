@@ -22,7 +22,8 @@ typedef NS_ENUM(NSInteger,SCAdViewScrollDirection) {
 typedef NS_ENUM(NSInteger,GDHomeCellType) {
     GDHomeType  = 0,
     GDHomeSurveyType,
-    GDHomeTeamType
+    GDHomeTeamType,
+    GDHomeTeamFinishType
 };
 
 @interface SCAdViewBuilder : NSObject

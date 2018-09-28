@@ -181,6 +181,7 @@
 		E6655CDA20C51391005B46C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CD920C51391005B46C3 /* main.m */; };
 		E6655CE420C51391005B46C3 /* GoodDeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CE320C51391005B46C3 /* GoodDeedTests.m */; };
 		E6655CEF20C51391005B46C3 /* GoodDeedUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6655CEE20C51391005B46C3 /* GoodDeedUITests.m */; };
+		E6682B94215E24F5003CE4C0 /* GDGetGroupInfoApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6682B93215E24F5003CE4C0 /* GDGetGroupInfoApi.m */; };
 		E668759F20D8B1FD0038307F /* GDHomeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E668759E20D8B1FD0038307F /* GDHomeManager.m */; };
 		E66875AC20D903CD0038307F /* GDLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E66875AA20D903CD0038307F /* GDLaunchViewController.m */; };
 		E66875AD20D903CD0038307F /* GDLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E66875AB20D903CD0038307F /* GDLaunchViewController.xib */; };
@@ -552,6 +553,8 @@
 		E6655CEA20C51391005B46C3 /* GoodDeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodDeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6655CEE20C51391005B46C3 /* GoodDeedUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodDeedUITests.m; sourceTree = "<group>"; };
 		E6655CF020C51391005B46C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6682B92215E24F5003CE4C0 /* GDGetGroupInfoApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDGetGroupInfoApi.h; sourceTree = "<group>"; };
+		E6682B93215E24F5003CE4C0 /* GDGetGroupInfoApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDGetGroupInfoApi.m; sourceTree = "<group>"; };
 		E668759D20D8B1FD0038307F /* GDHomeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDHomeManager.h; sourceTree = "<group>"; };
 		E668759E20D8B1FD0038307F /* GDHomeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDHomeManager.m; sourceTree = "<group>"; };
 		E66875A920D903CD0038307F /* GDLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLaunchViewController.h; sourceTree = "<group>"; };
@@ -978,6 +981,8 @@
 				E6115CC22152477400E57470 /* GDUploadImageApi.m */,
 				E6115CC4215335E500E57470 /* GDCreateGroupApi.h */,
 				E6115CC5215335E500E57470 /* GDCreateGroupApi.m */,
+				E6682B92215E24F5003CE4C0 /* GDGetGroupInfoApi.h */,
+				E6682B93215E24F5003CE4C0 /* GDGetGroupInfoApi.m */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -1806,6 +1811,7 @@
 				E69C3FA020CF6F6E004F5614 /* AnimationFadeBegin.m in Sources */,
 				E664C97C20CA7502004E81A4 /* GDHomeCell.m in Sources */,
 				460BA95D21417D99008D1D2E /* GDChooseMultipleAnswerTableViewCell.m in Sources */,
+				E6682B94215E24F5003CE4C0 /* GDGetGroupInfoApi.m in Sources */,
 				E611FC2220DBA0F000807E95 /* GDImageSelQuestionView.m in Sources */,
 				460BA94621417D99008D1D2E /* GDSurveyTitleCollectionReusableView.m in Sources */,
 				460BA96E21417D99008D1D2E /* GDImageVoteAddOptionCollectionViewCell.m in Sources */,
