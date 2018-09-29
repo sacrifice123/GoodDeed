@@ -32,6 +32,17 @@
     [GDHomeManager getGroupInfoWithCompletionBlock:^(NSMutableArray *array) {
         
         if (array) {
+            CGFloat sum = 0.0;
+            for (GDGroupListModel *obj in array) {
+                self.groupTitleLabel.text = obj.name;
+                if (obj&&![obj.money isKindOfClass:[NSNull class]]) {
+                    sum += obj.money.floatValue;
+                }
+            }
+            NSString *strValue=[NSString stringWithFormat:@"%0.2f", sum];
+            NSArray *values = [strValue componentsSeparatedByString:@"."];
+            self.totalMoneyLabel.text = values.firstObject;
+            self.totalMoneySubLabel.text = values.lastObject;
             [self.dataArray addObjectsFromArray:array];
             [self.collectionView reloadData];
         }

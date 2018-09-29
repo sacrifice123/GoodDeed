@@ -156,7 +156,12 @@
                 for (UIViewController *obj in nav.viewControllers) {
                     if ([obj isKindOfClass:[GDHomeViewController class]]) {
                         GDHomeViewController *home = (GDHomeViewController *)obj;
-                        [home reloadDataWithType:GDHomeTeamType];
+                        GDUserModel *model = [GDLunchManager sharedManager].userModel;
+                        GDHomeCellType type = GDHomeTeamType;
+                        if (model.isCreatedGroup) {
+                            type = GDHomeTeamFinishType;
+                        }
+                        [home reloadDataWithType:type];
                         break;
                     }
                 }

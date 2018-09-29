@@ -110,6 +110,7 @@ static CGFloat const GDSpringFactor = 10;
             if (data) {
                 [GDLunchManager sharedManager].userModel.headPortrait = [data objectForKey:@"headPortrait"];
                 [GDLunchManager sharedManager].userModel.money = [data objectForKey:@"money"];
+                [GDLunchManager sharedManager].userModel.isCreatedGroup = [data objectForKey:@"isCreatedGroup"];
                 [GDLunchManager sharedManager].userModel.mySurveyNum = [data objectForKey:@"mySurveyNum"];
                 [GDLunchManager sharedManager].userModel.uid = [data objectForKey:@"uid"];
                 NSDictionary *dic = [data objectForKey:@"organizationRespVo"];

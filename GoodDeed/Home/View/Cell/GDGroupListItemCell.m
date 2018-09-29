@@ -27,8 +27,15 @@
     _model = model;
     self.nickLabel.text = model.uidName;
     [self.imageView gd_setImageWithUrlStr:model.imgUrl];
-    self.totalMoneyLabel.text = model.money;
-    self.totalMoneySubLabel.text = model.money;
+
+    if (model.money&&![model.money isKindOfClass:[NSNull class]]) {
+        NSString *strValue=[NSString stringWithFormat:@"%0.2f", model.money.floatValue];
+        NSArray *values = [strValue componentsSeparatedByString:@"."];
+        self.totalMoneyLabel.text = values.firstObject;
+        self.totalMoneySubLabel.text = values.lastObject;
+
+    }
+
     if (self.isMore) {
         self.watchView.hidden = !(model.index.row == 3);
         self.nickLabel.hidden = (model.index.row == 3);
