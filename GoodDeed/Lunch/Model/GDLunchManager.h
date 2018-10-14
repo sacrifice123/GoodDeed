@@ -31,4 +31,6 @@
 + (GDQuestionBaseCell *)collectionView:(UICollectionView *)collectionView surveyType:(GDSurveyType)type cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)finishAnswerWithModel:(GDFirstQuestionListModel *)model;
+
++ (void)forgetWithMail:(NSString *)mail  completionBlock:(void(^)(BOOL))block;
 @end

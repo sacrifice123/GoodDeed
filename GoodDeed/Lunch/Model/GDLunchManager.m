@@ -15,6 +15,7 @@
 #import "GDSearchOrganApi.h"
 #import "GDAddOrganApi.h"
 #import "GDQuestionBaseCell.h"
+#import "GDForgetPwdApi.h"
 //七个问题cell
 #import "GDSingleSelCell.h"
 #import "GDMoreSelCell.h"
@@ -127,6 +128,18 @@ static GDLunchManager *manager;
     }];
 }
 
++ (void)forgetWithMail:(NSString *)mail  completionBlock:(void(^)(BOOL))block{
+    
+    GDForgetPwdApi *api = [[GDForgetPwdApi alloc] initWithEmail:mail];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        
+        
+    } failure:^(YTKBaseRequest *request) {
+        
+        [GDWindow showWithString:@"网络异常"];
+    }];
+}
 
 /*
  启动时获取首套问卷

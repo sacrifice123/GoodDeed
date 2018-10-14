@@ -109,10 +109,16 @@
         textField.placeholder = @"邮箱";
     }];
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"重置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+       
         if (self.textField&&self.textField.text&&self.textField.text.length>0) {
-            GDResetPwdController *resetVc = [GDResetPwdController new];
-            resetVc.mailText = self.textField.text;
-           [self presentViewController:resetVc animated:YES completion:nil];
+//            GDResetPwdController *resetVc = [GDResetPwdController new];
+//            resetVc.mailText = self.textField.text;
+//            [self presentViewController:resetVc animated:YES completion:nil];
+
+            [GDLunchManager forgetWithMail:self.textField.text completionBlock:^(BOOL result) {
+                
+                
+            }];
         }else{
              [GDWindow showWithString:@"请输入邮箱"];
         }
