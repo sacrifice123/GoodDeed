@@ -71,6 +71,9 @@
 		490699302151479B0009A4B7 /* GDGetUserInfoApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4906992F2151479B0009A4B7 /* GDGetUserInfoApi.m */; };
 		49120BF92119DDF600EA263C /* UIWindow+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 49120BF82119DDF600EA263C /* UIWindow+HUD.m */; };
 		49120BFC2119E43E00EA263C /* GDRegisterApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 49120BFB2119E43E00EA263C /* GDRegisterApi.m */; };
+		4925FC2B21762B57004BD587 /* GDGetRegisterCardApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925FC2A21762B57004BD587 /* GDGetRegisterCardApi.m */; };
+		4925FC2E21762C24004BD587 /* GDCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925FC2D21762C24004BD587 /* GDCardModel.m */; };
+		4925FC3121762DAA004BD587 /* GDGetCardByIdApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925FC3021762DAA004BD587 /* GDGetCardByIdApi.m */; };
 		4928F636213B83E500F9E4CE /* GDMoveLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4928F635213B83E500F9E4CE /* GDMoveLabel.m */; };
 		49594A4F212F01CF00402ADB /* GDAnswerFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49594A4D212F01CF00402ADB /* GDAnswerFinishViewController.m */; };
 		49594A50212F01CF00402ADB /* GDAnswerFinishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49594A4E212F01CF00402ADB /* GDAnswerFinishViewController.xib */; };
@@ -374,6 +377,12 @@
 		49120BF82119DDF600EA263C /* UIWindow+HUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+HUD.m"; sourceTree = "<group>"; };
 		49120BFA2119E43E00EA263C /* GDRegisterApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDRegisterApi.h; sourceTree = "<group>"; };
 		49120BFB2119E43E00EA263C /* GDRegisterApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDRegisterApi.m; sourceTree = "<group>"; };
+		4925FC2921762B57004BD587 /* GDGetRegisterCardApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDGetRegisterCardApi.h; sourceTree = "<group>"; };
+		4925FC2A21762B57004BD587 /* GDGetRegisterCardApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDGetRegisterCardApi.m; sourceTree = "<group>"; };
+		4925FC2C21762C24004BD587 /* GDCardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDCardModel.h; sourceTree = "<group>"; };
+		4925FC2D21762C24004BD587 /* GDCardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDCardModel.m; sourceTree = "<group>"; };
+		4925FC2F21762DAA004BD587 /* GDGetCardByIdApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDGetCardByIdApi.h; sourceTree = "<group>"; };
+		4925FC3021762DAA004BD587 /* GDGetCardByIdApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDGetCardByIdApi.m; sourceTree = "<group>"; };
 		4928F634213B83E500F9E4CE /* GDMoveLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDMoveLabel.h; sourceTree = "<group>"; };
 		4928F635213B83E500F9E4CE /* GDMoveLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDMoveLabel.m; sourceTree = "<group>"; };
 		49594A4C212F01CF00402ADB /* GDAnswerFinishViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDAnswerFinishViewController.h; sourceTree = "<group>"; };
@@ -1454,6 +1463,10 @@
 				496BBEF72172E67A004CFD62 /* GDForgetPwdApi.m */,
 				496BBEF92172F5B9004CFD62 /* GDModifyPwdApi.h */,
 				496BBEFA2172F5B9004CFD62 /* GDModifyPwdApi.m */,
+				4925FC2921762B57004BD587 /* GDGetRegisterCardApi.h */,
+				4925FC2A21762B57004BD587 /* GDGetRegisterCardApi.m */,
+				4925FC2F21762DAA004BD587 /* GDGetCardByIdApi.h */,
+				4925FC3021762DAA004BD587 /* GDGetCardByIdApi.m */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -1479,6 +1492,8 @@
 				E6A359BE2148A98A00BC5B64 /* GDOptionModel.m */,
 				4906992A2151427F0009A4B7 /* GDUserModel.h */,
 				4906992B2151427F0009A4B7 /* GDUserModel.m */,
+				4925FC2C21762C24004BD587 /* GDCardModel.h */,
+				4925FC2D21762C24004BD587 /* GDCardModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1812,6 +1827,7 @@
 				460BA95921417D99008D1D2E /* GDEditCollectionViewController.m in Sources */,
 				E6655CCC20C5138F005B46C3 /* AppDelegate.m in Sources */,
 				49120BF92119DDF600EA263C /* UIWindow+HUD.m in Sources */,
+				4925FC3121762DAA004BD587 /* GDGetCardByIdApi.m in Sources */,
 				E63FABE62140EB540066BDE4 /* GDMoveButton.m in Sources */,
 				E664C95220C925A5004E81A4 /* GDLeftViewController.m in Sources */,
 				E69C3F9A20CF6F6E004F5614 /* AnimationTransitionEnd.m in Sources */,
@@ -1832,6 +1848,7 @@
 				460BA95A21417D99008D1D2E /* GDBoundRangeCollectionViewCell.m in Sources */,
 				E6115CCA215369D200E57470 /* GDGroupListCell.m in Sources */,
 				E61A5F082135246F0074D215 /* GDQuestionBaseCell.m in Sources */,
+				4925FC2B21762B57004BD587 /* GDGetRegisterCardApi.m in Sources */,
 				460BA96121417D99008D1D2E /* GDStackRankAddOptionTableViewCell.m in Sources */,
 				E611FC2820DBA16600807E95 /* GDWriteQuestionView.m in Sources */,
 				460BA97821417D99008D1D2E /* GDEditCoverViewController.m in Sources */,
@@ -1854,6 +1871,7 @@
 				496BBEFB2172F5B9004CFD62 /* GDModifyPwdApi.m in Sources */,
 				E61A5EF42134F8E00074D215 /* GDRuler.m in Sources */,
 				E692347820E4AE5000AF1585 /* GDLoginViewController.m in Sources */,
+				4925FC2E21762C24004BD587 /* GDCardModel.m in Sources */,
 				460BA95B21417D99008D1D2E /* GDBoundRangeAnswerTableViewCell.m in Sources */,
 				E69C3FA120CF6F6E004F5614 /* AnimationScaleBegin.m in Sources */,
 				E6B39C0E211C58210080772F /* GDOrganModel.m in Sources */,

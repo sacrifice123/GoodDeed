@@ -133,16 +133,83 @@ static CGFloat const GDSpringFactor = 10;
 }
 
 //上传图片
-+ (void)uploadImage:(UIImage *)image {
+//+ (void)uploadImage:(UIImage *)image {
+//
+//    GDUploadImageApi *api = [[GDUploadImageApi alloc] initWithImage:image];
+//    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+//
+//
+//    } failure:^(YTKBaseRequest *request) {
+//        [GDWindow showWithString:@"网络异常"];
+//    }];
+//}
 
-    GDUploadImageApi *api = [[GDUploadImageApi alloc] initWithImage:image];
-    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
++ (void)uploadImage:(UIImage *)image{
+    
+    NSMutableString *url = [[NSMutableString alloc] init];
+    [url appendString:[NSString stringWithFormat:@"%@%@",GDBaseUrl,@"/image/uploadImage"]];
+    
+    NSString *TWITTERFON_FORM_BOUNDARY = @"AaB03x";
+    //分界线 --AaB03x
+    NSString *MPboundary=[[NSString alloc]initWithFormat:@"--%@",TWITTERFON_FORM_BOUNDARY];
+    //结束符 AaB03x--
+    NSString *endMPboundary=[[NSString alloc]initWithFormat:@"%@--",MPboundary];
+    
+    NSMutableString *body = [[NSMutableString alloc] init];
+    
+    
+    [body appendFormat:@"%@\r\n",MPboundary];
+    
+    //请求参数
+    [body appendFormat:@"Content-Disposition: form-data;name=\"%@\"\r\n\r\n",@"token"];
+    
+    //参数值
+    [body appendFormat:@"%@\r\n", @""];
+    
+   // NSData *imageData = UIImagePNGRepresentation([UtilTool changeImg:image max:1136]);
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.1);
+    //声明myRequestData，用来放入http body
+    NSMutableData *myRequestData;
+    //将body字符串转化为UTF8格式的二进制
+    myRequestData=[NSMutableData data];
+    
+    
+    //上传文件
+    [body appendFormat:@"%@\r\n",MPboundary];
+    [body appendFormat:@"Content-Disposition: form-data; name=\"uploadFile\"; filename=\"%@\"\r\n",@"temp.png"];
+    [body appendFormat:@"Content-Type: image/png\r\n\r\n"];
+    [myRequestData appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [myRequestData appendData:imageData];
+    
+    //声明结束符：--AaB03x--
+    NSString *end=[[NSString alloc]initWithFormat:@"\r\n%@",endMPboundary];
+    //加入结束符--AaB03x--
+    [myRequestData appendData:[end dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString:url]];
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    //    [request setTimeoutInterval:[DataStore getHttpTimeout]];
+    [request setHTTPMethod:@"POST"];
+    //设置HTTPHeader中Content-Type的值
+    NSString *cttype=[[NSString alloc]initWithFormat:@"multipart/form-data; boundary=%@",TWITTERFON_FORM_BOUNDARY];
+    //设置HTTPHeader
+    [request setValue:cttype forHTTPHeaderField:@"Content-Type"];
+    //设置Content-Length
+    [request setValue:[NSString stringWithFormat:@"%ld", [myRequestData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody:myRequestData];
 
-
-    } failure:^(YTKBaseRequest *request) {
-        [GDWindow showWithString:@"网络异常"];
+    NSURLSession * session = [NSURLSession sharedSession];
+    //创建任务
+    NSURLSessionDataTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        NSLog(@"response==%@",response);
     }];
+    //开启网络任务
+    [task resume];
+
 }
+
 
 //创建团队
 + (void)createGroupWithHeadUrl:(NSString *)url uidName:(NSString *)uidName name:(NSString *)name completionBlock:(void(^)(GDGroupListModel *))block{

@@ -10,7 +10,7 @@
 #import "GDFirstSurveyModel.h"
 #import "GDUserModel.h"
 
-@class GDOrganModel,GDFirstSurveyModel,GDFirstQuestionListModel,GDQuestionBaseCell;
+@class GDOrganModel,GDFirstSurveyModel,GDFirstQuestionListModel,GDQuestionBaseCell,GDCardModel;
 @interface GDLunchManager : NSObject
 
 @property (nonatomic, strong) NSArray <GDFirstQuestionListModel *> *suveryList;
@@ -31,6 +31,8 @@
 + (GDQuestionBaseCell *)collectionView:(UICollectionView *)collectionView surveyType:(GDSurveyType)type cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)finishAnswerWithModel:(GDFirstQuestionListModel *)model;
-
 + (void)forgetWithMail:(NSString *)mail  completionBlock:(void(^)(BOOL))block;
++ (void)getCardById:(NSString *)cardId completionBlock:(void(^)(GDCardModel *))block;
++ (void)getRegisterCardWithCompletionBlock:(void(^)(GDCardModel *))block;
+
 @end

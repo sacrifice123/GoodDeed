@@ -24,6 +24,9 @@
 #import "GDQuantifyCell.h"
 #import "GDImageSelCell.h"
 #import "GDWriteCell.h"
+#import "GDGetRegisterCardApi.h"
+#import "GDGetCardByIdApi.h"
+#import "GDCardModel.h"
 
 @implementation GDLunchManager
 
@@ -121,10 +124,15 @@ static GDLunchManager *manager;
 }
 
 
+
 + (void)loginWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token completionBlock:(void(^)(BOOL))block{
     
     [self loginWithMail:mail password:password type:type token:token isFirst:NO completionBlock:^(BOOL result) {
         block(result);
+        [self getRegisterCardWithCompletionBlock:^(GDCardModel *model) {
+            
+            
+        }];
     }];
 }
 
@@ -280,6 +288,61 @@ static GDLunchManager *manager;
         [GDWindow showWithString:@"网络异常"];
     }];
 
+}
+
++ (void)getCardById:(NSString *)cardId completionBlock:(void(^)(GDCardModel *))block{
+    
+    GDGetCardByIdApi *api = [[GDGetCardByIdApi alloc] initWithCardId:cardId];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        NSDictionary *jsonData = request.responseJSONObject;
+        if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
+            if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
+                
+                NSDictionary *dic = [jsonData objectForKey:@"data"];
+                if (dic&&[dic isKindOfClass:[NSDictionary class]]) {
+                    GDCardModel *model = [GDCardModel yy_modelWithDictionary:dic];
+                    block(model);
+                }
+            }else{
+                [GDWindow showWithString:[jsonData objectForKey:@"message"]];
+            }
+            
+        }else{
+            
+        }
+    } failure:^(YTKBaseRequest *request) {
+        
+    }];
+
+}
+
++ (void)getRegisterCardWithCompletionBlock:(void(^)(GDCardModel *))block{
+    
+    GDGetRegisterCardApi *api = [[GDGetRegisterCardApi alloc] init];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        NSDictionary *jsonData = request.responseJSONObject;
+        if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
+            if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
+                
+                NSDictionary *dic = [jsonData objectForKey:@"data"];
+                if (dic&&[dic isKindOfClass:[NSDictionary class]]) {
+                    GDCardModel *model = [GDCardModel yy_modelWithDictionary:dic];
+                    block(model);
+                }
+                
+            }else{
+                [GDWindow showWithString:[jsonData objectForKey:@"message"]];
+            }
+            
+        }else{
+            
+        }
+    } failure:^(YTKBaseRequest *request) {
+        
+    }];
+    
 }
 
 /*
