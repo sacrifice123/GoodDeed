@@ -21,4 +21,6 @@
 @property (copy, nonatomic) NSString *name;//公益组织名称
 @property (copy, nonatomic) NSString *organId;//公益组织id
 
+
+
 @end

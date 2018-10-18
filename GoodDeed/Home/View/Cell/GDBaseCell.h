@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "GDOperationDelegate.h"
+#import "GDHomeModel.h"
 
 @interface GDBaseCell : UICollectionViewCell
+
 @property (nonatomic, weak) id<GDOperationDelegate>delegate;
+@property (nonatomic, strong) GDHomeModel *cardModel;
 
 @end

@@ -17,6 +17,9 @@
 #import "GDCreateGroupApi.h"
 #import "GDGetGroupInfoApi.h"
 #import <POP.h>
+#import "GDGetRegisterCardApi.h"
+#import "GDGetCardByIdApi.h"
+#import "GDFindMyTaskApi.h"
 
 @implementation GDHomeManager
 
@@ -340,6 +343,90 @@ static CGFloat const GDSpringFactor = 10;
         [GDWindow showWithString:@"网络异常"];
     }];
 
+    
+}
+
+//根据cardId获取card
++ (void)getCardById:(NSString *)cardId completionBlock:(void(^)(GDCardModel *))block{
+    
+    GDGetCardByIdApi *api = [[GDGetCardByIdApi alloc] initWithCardId:cardId];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        NSDictionary *jsonData = request.responseJSONObject;
+        if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
+            if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
+                
+                NSDictionary *dic = [jsonData objectForKey:@"data"];
+                if (dic&&[dic isKindOfClass:[NSDictionary class]]) {
+                    GDCardModel *model = [GDCardModel yy_modelWithDictionary:dic];
+                    block(model);
+                }
+            }else{
+                [GDWindow showWithString:[jsonData objectForKey:@"message"]];
+            }
+            
+        }else{
+            
+        }
+    } failure:^(YTKBaseRequest *request) {
+        
+    }];
+    
+}
+
+//获取注册后的card（不针对用户，每个用户一样的）
++ (void)getRegisterCardWithCompletionBlock:(void(^)(GDCardModel *))block{
+    
+    GDGetRegisterCardApi *api = [[GDGetRegisterCardApi alloc] init];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        NSDictionary *jsonData = request.responseJSONObject;
+        if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
+            if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
+                
+                NSDictionary *dic = [jsonData objectForKey:@"data"];
+                if (dic&&[dic isKindOfClass:[NSDictionary class]]) {
+                    GDCardModel *model = [GDCardModel yy_modelWithDictionary:dic];
+                    block(model);
+                }
+                
+            }else{
+                [GDWindow showWithString:[jsonData objectForKey:@"message"]];
+            }
+            
+        }else{
+            
+        }
+    } failure:^(YTKBaseRequest *request) {
+        
+    }];
+    
+}
+
+//查询我是否有可回答的问卷
++ (void)findMySurveyTaskWithCompletionBlock:(void(^)(NSArray *))block{
+    GDFindMyTaskApi *api = [[GDFindMyTaskApi alloc] init];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        NSDictionary *jsonData = request.responseJSONObject;
+        if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
+            if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
+                
+                NSArray *data = [jsonData objectForKey:@"data"];
+                if (data&&[data isKindOfClass:[NSArray class]]) {
+                    block(data);
+                    
+                }
+         
+            }else{
+                [GDWindow showWithString:[jsonData objectForKey:@"message"]];
+            }
+
+        }
+        
+    } failure:^(YTKBaseRequest *request) {
+        
+    }];
     
 }
 
