@@ -13,6 +13,6 @@
 
 - (void)showHelpView;
 - (void)showAdHorizontally;
-- (void)reloadDataWithType:(GDHomeCellType)type;
+- (void)reloadDataWithIndex:(NSInteger)index;
 
 @end

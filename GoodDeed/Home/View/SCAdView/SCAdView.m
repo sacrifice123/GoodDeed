@@ -155,6 +155,10 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"GDSurveyCell" bundle:nil] forCellWithReuseIdentifier:@"GDSurveyCell"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"GDGroupCell" bundle:nil] forCellWithReuseIdentifier:@"GDGroupCell"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"GDGroupListCell" bundle:nil] forCellWithReuseIdentifier:@"GDGroupListCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"GDCardCell" bundle:nil] forCellWithReuseIdentifier:@"GDCardCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"GDWelcomeCell" bundle:nil] forCellWithReuseIdentifier:@"GDWelcomeCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"GDHomeKnowCell" bundle:nil] forCellWithReuseIdentifier:@"GDHomeKnowCell"];
+
 
 
 //    if (builder.itemCellNibName.length>0) {
@@ -219,17 +223,26 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //id model = self.dataArray[indexPath.item];
+    GDHomeModel *model = self.dataArray[indexPath.item];
     GDBaseCell *cell;
-    if (self.type == GDHomeSurveyType||self.type == GDHomeType) {
+    if (model.type == GDHomeWelcomeType) {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDWelcomeCell" forIndexPath:indexPath];
+
+    }else if (model.type == GDHomeCardType){
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDCardCell" forIndexPath:indexPath];
+
+    }else if (model.type == GDHomeSurveyType||self.type == GDHomeType) {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDSurveyCell" forIndexPath:indexPath];
-    }else if (self.type == GDHomeTeamType){
+    }else if (model.type == GDHomeTeamType){
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDGroupCell" forIndexPath:indexPath];
-    }else if (self.type == GDHomeTeamFinishType){//创建团队完成
+    }else if (model.type == GDHomeTeamFinishType){//创建团队完成
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDGroupListCell" forIndexPath:indexPath];
+    }else if (model.type == GDHomeKnowType){//互相了解下（没有可以回答的问卷）
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GDHomeKnowCell" forIndexPath:indexPath];
     }
     if (cell) {
         cell.delegate = self.delegate;
+        cell.cardModel = model;
     }
     return cell;
 }

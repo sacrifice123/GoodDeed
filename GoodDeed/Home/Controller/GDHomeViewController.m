@@ -23,36 +23,41 @@
 @implementation GDHomeViewController
 
 //横向滑动的数据源
+//首页
 - (NSMutableArray *)homeArray{
     
-    if (_homeArray == nil) {
+    if (_homeArray == nil) {/*
+                             1.是不是有card
+                             2.有没有创建团队
+                             3.有没有可回答的问卷
+                             */
         _homeArray = [[NSMutableArray alloc] init];
-        [_homeArray addObject:@""];
-        [_homeArray addObject:@""];
 
     }
     return _homeArray;
 }
-
+//团队
 - (NSMutableArray *)teamArray{
     
     if (_teamArray == nil) {
         _teamArray = [[NSMutableArray alloc] init];
-        [_teamArray addObject:@""];
+//        GDHomeModel *model = [GDHomeModel new];
+//        model.type = GDHomeTeamType;
+//        [_teamArray addObject:model];
+
 
     }
 
     return _teamArray;
 }
-
+//问卷
 - (NSMutableArray *)surveyArray{
     
     if (_surveyArray == nil) {
         _surveyArray = [[NSMutableArray alloc] init];
-        [_surveyArray addObject:@""];
-        [_surveyArray addObject:@""];
-        [_surveyArray addObject:@""];
-        [_surveyArray addObject:@""];
+//        GDHomeModel *model = [GDHomeModel new];
+//        model.type = GDHomeSurveyType;
+//        [_surveyArray addObject:model];
 
     }
 
@@ -64,15 +69,161 @@
     [super viewDidLoad];
    // [self setleftItem];
     [self showAdHorizontally];
-    [GDHomeManager getUserInfoWithCompletionBlock:^(BOOL result) {
+   /* [GDHomeManager getUserInfoWithCompletionBlock:^(BOOL result) {
         
         if (result) {
-            [self reloadDataWithType:GDHomeType];
+            GDUserModel *model =  [GDLunchManager sharedManager].userModel;
+            if (model.isCreatedGroup) {
+                GDHomeModel *model = [GDHomeModel new];
+                model.type = GDHomeTeamFinishType;//创建团队结束
+                @synchronized (self.homeArray){
+                    [self.homeArray addObject:model];
+                }
+            }else{
+              GDHomeModel *model = [GDHomeModel new];
+              model.type = GDHomeTeamType;//创建团队
+              @synchronized (self.homeArray){
+                    [self.teamArray addObject:model];
+                    
+                }
+            }
+            [self.adView reloadWithDataArray:self.homeArray];
         }
         
+    }];
+    //获取card
+    [GDHomeManager getRegisterCardWithCompletionBlock:^(GDCardModel *model) {
+        if (model) {
+            GDHomeModel *model = [GDHomeModel new];
+            model.type = GDHomeCardType;
+            @synchronized (self.homeArray){
+                [self.homeArray addObject:model];
+
+            }
+            [self.adView reloadWithDataArray:self.homeArray];
+        }
         
     }];
+    
+    //查询可回答的问卷
+    [GDHomeManager findMySurveyTaskWithCompletionBlock:^(NSArray *array) {
+        
+
+        if (array.count==0) {//没有可回答问卷
+            GDHomeModel *model = [GDHomeModel new];
+            model.type = GDHomeKnowType;
+            @synchronized (self.homeArray){
+                [self.homeArray insertObject:model atIndex:0];
+                
+            }
+
+        }
+        [self.adView reloadWithDataArray:self.homeArray];
+    }];*/
+    [self group];
 }
+
+
+- (void)group{
+    
+    //1.创建队列
+    
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    
+    //2.创建队列组
+    
+    dispatch_group_t group =dispatch_group_create();
+    
+    //3.异步函数
+    dispatch_group_enter(group);
+    dispatch_group_async(group, queue, ^{
+        
+        [GDHomeManager getUserInfoWithCompletionBlock:^(BOOL result) {
+            
+            if (result) {
+                GDUserModel *model =  [GDLunchManager sharedManager].userModel;
+                if (model.isCreatedGroup) {
+                    GDHomeModel *model = [GDHomeModel new];
+                    model.type = GDHomeTeamFinishType;//创建团队结束
+                    @synchronized (self.homeArray){
+                        [self.homeArray addObject:model];
+                    }
+                }else{
+                    GDHomeModel *model = [GDHomeModel new];
+                    model.type = GDHomeTeamType;//创建团队
+                    @synchronized (self.homeArray){
+                        [self.teamArray addObject:model];
+                        
+                    }
+                }
+                [self.adView reloadWithDataArray:self.homeArray];
+            }
+            dispatch_group_leave(group);
+            NSLog(@"1----%@",[NSThread currentThread]);
+
+            
+        }];
+
+        
+    });
+    
+    dispatch_group_enter(group);
+    dispatch_group_async(group, queue, ^{
+        
+        //获取card
+        [GDHomeManager getRegisterCardWithCompletionBlock:^(GDCardModel *model) {
+            if (model) {
+                GDHomeModel *model = [GDHomeModel new];
+                model.type = GDHomeCardType;
+                @synchronized (self.homeArray){
+                    [self.homeArray addObject:model];
+                    
+                }
+                [self.adView reloadWithDataArray:self.homeArray];
+            }
+            dispatch_group_leave(group);
+            NSLog(@"2----%@",[NSThread currentThread]);
+
+        }];
+
+        
+    });
+    
+    dispatch_group_enter(group);
+    dispatch_group_async(group, queue, ^{
+        
+        //查询可回答的问卷
+        [GDHomeManager findMySurveyTaskWithCompletionBlock:^(NSArray *array) {
+            
+            
+            if (array.count==0) {//没有可回答问卷
+                GDHomeModel *model = [GDHomeModel new];
+                model.type = GDHomeKnowType;
+                @synchronized (self.homeArray){
+                    [self.homeArray insertObject:model atIndex:0];
+                    
+                }
+                
+            }
+            [self.adView reloadWithDataArray:self.homeArray];
+            dispatch_group_leave(group);
+            NSLog(@"3----%@",[NSThread currentThread]);
+
+        }];
+
+        
+    });
+    
+    //拦截通知,当队列组中所有的任务都执行完毕的时候回进入到下面的方法
+    
+    dispatch_group_notify(group, queue, ^{
+        
+        NSLog(@"-------dispatch_group_notify-------");
+        
+    });
+    
+}
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -176,31 +327,50 @@
 
 }
 
-- (void)reloadDataWithType:(GDHomeCellType)type{
-    self.adView.type = type;
+//刷新页面
+- (void)reloadDataWithIndex:(NSInteger)index{
+
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    if (type == GDHomeType) {
-        array = self.homeArray;
-    }else if (type == GDHomeSurveyType) {
-        array = self.surveyArray;
-    }else if (type == GDHomeTeamType||type == GDHomeTeamFinishType) {
-        array = self.teamArray;
+    switch (index) {
+        case 0:{//首页
+            array = self.homeArray;
+        }
+            break;
+        case 2:{//我的团队
+            
+            GDUserModel *model = [GDLunchManager sharedManager].userModel;
+            GDHomeCellType type = GDHomeTeamType;
+            if (model.isCreatedGroup) {
+                type = GDHomeTeamFinishType;
+            }
+            GDHomeModel *homeModel = [GDHomeModel new];
+            homeModel.type = type;
+            [array addObject:homeModel];
+                
+            
+        }
+            break;
+        case 3:{//我的调查
+            
+        }
+            
+            break;
+        case 4:{//反馈与帮助
+        }
+            break;
+            
+        default:
+            break;
     }
+    
     [self.adView reloadWithDataArray:array];
 }
 
 #pragma mark -delegate
 - (void)sc_didClickAd:(id)adModel{
-    if ([adModel isKindOfClass:[HeroModel class]]) {
-        NSLog(@"%@",((HeroModel*)adModel).introduction);
-    }
 }
 
 - (void)sc_scrollToIndex:(NSInteger)index{
-    if (index == 8) {
-        return;
-    }
-    NSLog(@"sc_scrollToIndex-->%ld",index);
 }
 
 - (void)helpButtonClicked:(UIButton *)button{

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GDGroupListModel.h"
+#import "GDCardModel.h"
 
 @interface GDHomeManager : NSObject
 
@@ -23,5 +24,7 @@
 + (void)uploadImage:(UIImage *)image;
 + (void)createGroupWithHeadUrl:(NSString *)url uidName:(NSString *)uidName name:(NSString *)name completionBlock:(void(^)(GDGroupListModel *))block;
 + (void)getGroupInfoWithCompletionBlock:(void(^)(NSMutableArray *))block;
-
++ (void)getCardById:(NSString *)cardId completionBlock:(void(^)(GDCardModel *))block;
++ (void)getRegisterCardWithCompletionBlock:(void(^)(GDCardModel *))block;
++ (void)findMySurveyTaskWithCompletionBlock:(void(^)(NSArray *))block;
 @end

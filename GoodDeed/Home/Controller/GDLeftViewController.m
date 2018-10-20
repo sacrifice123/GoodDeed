@@ -138,39 +138,20 @@
    // [GDHomeManager closeDrawerWithFull];
     [self showHomeView:NO];
     switch (indexPath.row) {
-        case 0:{//首页
+        case 0://首页
+        case 2://我的团队
+        case 3://我的调查
+        {
+            GDHomeViewController *home = [self getHomeVc];
+            [home reloadDataWithIndex:indexPath.row];
             [GDHomeManager closeDrawer];
         }
             break;
+
         case 1:{//我的事业
             GDPGChooseViewController *chooseVc = [GDPGChooseViewController new];
             chooseVc.isClose = NO;
             [self presentViewController:chooseVc animated:YES completion:nil];
-        }
-            
-            break;
-        case 2:{//我的团队
-            MMDrawerController *mmdc = [GDHomeManager getRootMMDVc];
-            UINavigationController *nav = (UINavigationController *)mmdc.centerViewController;
-            if (nav.viewControllers&&nav.viewControllers.count>0) {
-                for (UIViewController *obj in nav.viewControllers) {
-                    if ([obj isKindOfClass:[GDHomeViewController class]]) {
-                        GDHomeViewController *home = (GDHomeViewController *)obj;
-                        GDUserModel *model = [GDLunchManager sharedManager].userModel;
-                        GDHomeCellType type = GDHomeTeamType;
-                        if (model.isCreatedGroup) {
-                            type = GDHomeTeamFinishType;
-                        }
-                        [home reloadDataWithType:type];
-                        break;
-                    }
-                }
-            }
-
-        }
-            [GDHomeManager closeDrawer];
-            break;
-        case 3:{//我的调查
         }
             
             break;
@@ -193,25 +174,31 @@
 //反馈与帮助
 - (void)showHomeView:(BOOL)isHelp{
     
+    GDHomeViewController *home = [self getHomeVc];
+    if (home) {
+        for (UIView *view in home.view.subviews) {
+            if (view.tag == 1001&&isHelp) {
+                [home showHelpView];
+                break;
+            }else if (view.tag == 1000){
+                [home showAdHorizontally];
+                break;
+            }
+        }
+    }
+}
+
+- (GDHomeViewController *)getHomeVc{
     MMDrawerController *mmdc = [GDHomeManager getRootMMDVc];
     UINavigationController *nav = (UINavigationController *)mmdc.centerViewController;
     if (nav.viewControllers&&nav.viewControllers.count>0) {
         for (UIViewController *obj in nav.viewControllers) {
             if ([obj isKindOfClass:[GDHomeViewController class]]) {
-                GDHomeViewController *home = (GDHomeViewController *)obj;
-                for (UIView *view in obj.view.subviews) {
-                    if (view.tag == 1001&&isHelp) {
-                        [home showHelpView];
-                        break;
-                    }else if (view.tag == 1000){
-                        [home showAdHorizontally];
-                        break;
-                    }
-                }
-                break;
+                return (GDHomeViewController *)obj;
             }
         }
     }
+    return nil;
 }
 
 - (void)chooseHeadImage {

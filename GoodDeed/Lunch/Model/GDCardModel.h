@@ -17,5 +17,5 @@
 @property (nonatomic, copy) NSString *hrefName;
 @property (nonatomic, copy) NSString *hrefUrl;
 @property (nonatomic, copy) NSString *title;
-
+@property (nonatomic, assign) BOOL isHome;
 @end

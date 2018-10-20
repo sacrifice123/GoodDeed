@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GDOperationDelegate.h"
-#import "HeroModel.h"
+#import "GDHomeModel.h"
 
 ///将builder的LINE_SPACING设置为该值则会自动计算合适的间距
 #define SC_BUILDER_LINE_SPACING_AUTO -10001
@@ -19,12 +19,6 @@ typedef NS_ENUM(NSInteger,SCAdViewScrollDirection) {
     SCAdViewScrollDirectionTop,//轮播向上
 };
 
-typedef NS_ENUM(NSInteger,GDHomeCellType) {
-    GDHomeType  = 0,
-    GDHomeSurveyType,
-    GDHomeTeamType,
-    GDHomeTeamFinishType
-};
 
 @interface SCAdViewBuilder : NSObject
 #pragma mark -必要参数

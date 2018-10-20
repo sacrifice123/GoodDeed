@@ -51,7 +51,7 @@ static GDDataBaseManager *manager;
         // 每次执行完对应SQL之后，要关闭数据库
         [self.database close];
     }
-
+    
 }
 
 - (void)insert:(GDUserModel *)model{

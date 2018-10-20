@@ -161,7 +161,9 @@
 - (IBAction)finish:(id)sender {
     
     GDHomeViewController *homeVc = (GDHomeViewController *)[GDHelper getSuperVc:self];
-    [homeVc reloadDataWithType:GDHomeTeamFinishType];
+    GDUserModel *model = [GDLunchManager sharedManager].userModel;
+    model.isCreatedGroup = YES;
+    [homeVc reloadDataWithIndex:2];
 }
 
 //邀请你的朋友
