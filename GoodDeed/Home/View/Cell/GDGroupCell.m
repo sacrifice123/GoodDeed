@@ -115,27 +115,27 @@
             [self showAlert:2];
             return;
         }
-        [UIView animateWithDuration:0.3 animations:^{
-            
-            self.view1LeftConstraint.constant = -(SCREEN_WIDTH-30)*3;
-            [self.contentView layoutIfNeeded];
-            
-        }];
-
-//        [GDHomeManager createGroupWithHeadUrl:@"" uidName:self.view3Textfield.text name:self.view2Textfield.text completionBlock:^(GDGroupListModel *model) {
+//        [UIView animateWithDuration:0.3 animations:^{
 //
-//            if (model) {
-//                [UIView animateWithDuration:0.3 animations:^{
-//
-//                    self.view1LeftConstraint.constant = -(SCREEN_WIDTH-30)*3;
-//                    [self.contentView layoutIfNeeded];
-//
-//                }];
-//
-//            }
-//
+//            self.view1LeftConstraint.constant = -(SCREEN_WIDTH-30)*3;
+//            [self.contentView layoutIfNeeded];
 //
 //        }];
+
+        [GDHomeManager createGroupWithHeadUrl:@"" uidName:self.view3Textfield.text name:self.view2Textfield.text completionBlock:^(GDGroupListModel *model) {
+
+            if (model) {
+                [UIView animateWithDuration:0.3 animations:^{
+
+                    self.view1LeftConstraint.constant = -(SCREEN_WIDTH-30)*3;
+                    [self.contentView layoutIfNeeded];
+
+                }];
+
+            }
+
+
+        }];
     }
 
 }

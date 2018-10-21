@@ -11,12 +11,12 @@
 
 typedef NS_ENUM(NSInteger,GDHomeCellType) {
     GDHomeType  = 0,
-    GDHomeSurveyType,
+    GDHomeWelcomeType,
+    GDHomeKnowType,
     GDHomeTeamType,
     GDHomeTeamFinishType,
-    GDHomeWelcomeType,
     GDHomeCardType,
-    GDHomeKnowType
+    GDHomeSurveyType
 };
 
 @interface GDHomeModel : NSObject

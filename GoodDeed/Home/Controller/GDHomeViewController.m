@@ -34,6 +34,13 @@
         _homeArray = [[NSMutableArray alloc] init];
 
     }
+    if (_homeArray.count>1) {
+       NSArray *array = [_homeArray sortedArrayUsingComparator:^NSComparisonResult(GDHomeModel *obj1, GDHomeModel *obj2) {
+           return obj1.type>obj2.type;
+        }];
+        [_homeArray removeAllObjects];
+        [_homeArray addObjectsFromArray:array];
+    }
     return _homeArray;
 }
 //团队
@@ -156,7 +163,7 @@
                         
                     }
                 }
-                [self.adView reloadWithDataArray:self.homeArray];
+               // [self.adView reloadWithDataArray:self.homeArray];
             }
             dispatch_group_leave(group);
             NSLog(@"1----%@",[NSThread currentThread]);
@@ -179,7 +186,7 @@
                     [self.homeArray addObject:model];
                     
                 }
-                [self.adView reloadWithDataArray:self.homeArray];
+                //[self.adView reloadWithDataArray:self.homeArray];
             }
             dispatch_group_leave(group);
             NSLog(@"2----%@",[NSThread currentThread]);
@@ -200,12 +207,12 @@
                 GDHomeModel *model = [GDHomeModel new];
                 model.type = GDHomeKnowType;
                 @synchronized (self.homeArray){
-                    [self.homeArray insertObject:model atIndex:0];
+                    [self.homeArray addObject:model];
                     
                 }
                 
             }
-            [self.adView reloadWithDataArray:self.homeArray];
+           // [self.adView reloadWithDataArray:self.homeArray];
             dispatch_group_leave(group);
             NSLog(@"3----%@",[NSThread currentThread]);
 
@@ -218,6 +225,7 @@
     
     dispatch_group_notify(group, queue, ^{
         
+        [self.adView reloadWithDataArray:self.homeArray];
         NSLog(@"-------dispatch_group_notify-------");
         
     });
@@ -333,6 +341,23 @@
     NSMutableArray *array = [[NSMutableArray alloc] init];
     switch (index) {
         case 0:{//首页
+            BOOL isFinish = NO;
+            for (GDHomeModel *model in self.homeArray) {
+                if (model.type==GDHomeTeamFinishType) {
+                    isFinish = YES;
+                    break;
+                }
+            }
+            if (!isFinish) {
+                GDUserModel *homeModel = [GDLunchManager sharedManager].userModel;
+                if (homeModel.isCreatedGroup) {
+                    GDHomeModel *homeModel = [GDHomeModel new];
+                    homeModel.type = GDHomeTeamFinishType;
+                    [self.homeArray addObject:homeModel];
+                    
+                }
+
+            }
             array = self.homeArray;
         }
             break;

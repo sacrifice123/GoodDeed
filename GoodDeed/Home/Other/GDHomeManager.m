@@ -113,7 +113,8 @@ static CGFloat const GDSpringFactor = 10;
             if (data) {
                 [GDLunchManager sharedManager].userModel.headPortrait = [data objectForKey:@"headPortrait"];
                 [GDLunchManager sharedManager].userModel.money = [data objectForKey:@"money"];
-                [GDLunchManager sharedManager].userModel.isCreatedGroup = [data objectForKey:@"isCreatedGroup"];
+                BOOL isCreatedGroup = [[data objectForKey:@"isCreatedGroup"] boolValue];
+                [GDLunchManager sharedManager].userModel.isCreatedGroup = isCreatedGroup;
                 [GDLunchManager sharedManager].userModel.mySurveyNum = [data objectForKey:@"mySurveyNum"];
                 [GDLunchManager sharedManager].userModel.uid = [data objectForKey:@"uid"];
                 NSDictionary *dic = [data objectForKey:@"organizationRespVo"];
@@ -122,7 +123,9 @@ static CGFloat const GDSpringFactor = 10;
                     [GDLunchManager sharedManager].userModel.imgUrl = [dic objectForKey:@"imgUrl"];
                     [GDLunchManager sharedManager].userModel.name = [dic objectForKey:@"name"];
                 }
-                
+                if (isCreatedGroup) {
+                    
+                }
                 block(YES);
             }
         }else{
@@ -217,12 +220,15 @@ static CGFloat const GDSpringFactor = 10;
 //创建团队
 + (void)createGroupWithHeadUrl:(NSString *)url uidName:(NSString *)uidName name:(NSString *)name completionBlock:(void(^)(GDGroupListModel *))block{
     
+    [GDWindow showHudWithString:@""];
     GDCreateGroupApi *api = [[GDCreateGroupApi alloc] initWithHeadUrl:url uidName:uidName name:name];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
+        [GDWindow hideHud];
         if ([[request.responseJSONObject objectForKey:@"code"] integerValue]==200) {
             NSDictionary *data = [request.responseJSONObject objectForKey:@"data"];
             if (data&&[data isKindOfClass:[NSDictionary class]]) {
+                [GDLunchManager sharedManager].userModel.isCreatedGroup = YES;;
                 NSArray *memberList = [data objectForKey:@"memberList"];
                 NSDictionary *dic = memberList.firstObject;
                 GDGroupListModel *model = [[GDGroupListModel alloc] init];
@@ -246,6 +252,7 @@ static CGFloat const GDSpringFactor = 10;
         
     } failure:^(YTKBaseRequest *request) {
         [GDWindow showWithString:@"网络异常"];
+        [GDWindow hideHud];
     }];
 }
 

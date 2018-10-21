@@ -29,6 +29,7 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     [self.collectionView registerNib:[UINib nibWithNibName:@"GDGroupListItemCell" bundle:nil] forCellWithReuseIdentifier:@"GDGroupListItemCell"];
+    //请求我的团队的列表数据
     [GDHomeManager getGroupInfoWithCompletionBlock:^(NSMutableArray *array) {
         
         if (array) {
