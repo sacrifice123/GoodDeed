@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "GDCardModel.h"
+#import "GDSurveyTaskModel.h"
 
 typedef NS_ENUM(NSInteger,GDHomeCellType) {
     GDHomeType  = 0,
     GDHomeWelcomeType,
-    GDHomeKnowType,
+    GDHomeSuveryStatusType,
     GDHomeTeamType,
     GDHomeTeamFinishType,
     GDHomeCardType,
@@ -23,5 +24,6 @@ typedef NS_ENUM(NSInteger,GDHomeCellType) {
 
 @property (nonatomic, assign) GDHomeCellType type;
 @property (nonatomic,strong) GDCardModel *cardModel;//card使用
-
+@property (nonatomic,strong) GDSurveyTaskModel *taskModel;
+@property (nonatomic, assign) BOOL isHasSurvery;//是否含有问卷
 @end

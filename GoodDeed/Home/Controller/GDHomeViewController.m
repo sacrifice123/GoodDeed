@@ -48,10 +48,6 @@
     
     if (_teamArray == nil) {
         _teamArray = [[NSMutableArray alloc] init];
-//        GDHomeModel *model = [GDHomeModel new];
-//        model.type = GDHomeTeamType;
-//        [_teamArray addObject:model];
-
 
     }
 
@@ -62,9 +58,6 @@
     
     if (_surveyArray == nil) {
         _surveyArray = [[NSMutableArray alloc] init];
-//        GDHomeModel *model = [GDHomeModel new];
-//        model.type = GDHomeSurveyType;
-//        [_surveyArray addObject:model];
 
     }
 
@@ -76,62 +69,11 @@
     [super viewDidLoad];
    // [self setleftItem];
     [self showAdHorizontally];
-   /* [GDHomeManager getUserInfoWithCompletionBlock:^(BOOL result) {
-        
-        if (result) {
-            GDUserModel *model =  [GDLunchManager sharedManager].userModel;
-            if (model.isCreatedGroup) {
-                GDHomeModel *model = [GDHomeModel new];
-                model.type = GDHomeTeamFinishType;//创建团队结束
-                @synchronized (self.homeArray){
-                    [self.homeArray addObject:model];
-                }
-            }else{
-              GDHomeModel *model = [GDHomeModel new];
-              model.type = GDHomeTeamType;//创建团队
-              @synchronized (self.homeArray){
-                    [self.teamArray addObject:model];
-                    
-                }
-            }
-            [self.adView reloadWithDataArray:self.homeArray];
-        }
-        
-    }];
-    //获取card
-    [GDHomeManager getRegisterCardWithCompletionBlock:^(GDCardModel *model) {
-        if (model) {
-            GDHomeModel *model = [GDHomeModel new];
-            model.type = GDHomeCardType;
-            @synchronized (self.homeArray){
-                [self.homeArray addObject:model];
-
-            }
-            [self.adView reloadWithDataArray:self.homeArray];
-        }
-        
-    }];
-    
-    //查询可回答的问卷
-    [GDHomeManager findMySurveyTaskWithCompletionBlock:^(NSArray *array) {
-        
-
-        if (array.count==0) {//没有可回答问卷
-            GDHomeModel *model = [GDHomeModel new];
-            model.type = GDHomeKnowType;
-            @synchronized (self.homeArray){
-                [self.homeArray insertObject:model atIndex:0];
-                
-            }
-
-        }
-        [self.adView reloadWithDataArray:self.homeArray];
-    }];*/
-    [self group];
+    [self groupRequest];
 }
 
 
-- (void)group{
+- (void)groupRequest{
     
     //1.创建队列
     
@@ -163,10 +105,9 @@
                         
                     }
                 }
-               // [self.adView reloadWithDataArray:self.homeArray];
             }
-            dispatch_group_leave(group);
             NSLog(@"1----%@",[NSThread currentThread]);
+            dispatch_group_leave(group);
 
             
         }];
@@ -186,10 +127,9 @@
                     [self.homeArray addObject:model];
                     
                 }
-                //[self.adView reloadWithDataArray:self.homeArray];
             }
-            dispatch_group_leave(group);
             NSLog(@"2----%@",[NSThread currentThread]);
+            dispatch_group_leave(group);
 
         }];
 
@@ -200,21 +140,33 @@
     dispatch_group_async(group, queue, ^{
         
         //查询可回答的问卷
-        [GDHomeManager findMySurveyTaskWithCompletionBlock:^(NSArray *array) {
+        [GDHomeManager findMySurveyTaskWithCompletionBlock:^(GDSurveyTaskModel *taskModel) {
             
-            
-            if (array.count==0) {//没有可回答问卷
-                GDHomeModel *model = [GDHomeModel new];
-                model.type = GDHomeKnowType;
+            GDHomeModel *model = [GDHomeModel new];
+            model.type = GDHomeSuveryStatusType;
+            if (!taskModel ) {//没有可回答问卷
+                model.isHasSurvery = NO;
+                model.taskModel.status = @"";
+                @synchronized (self.homeArray){
+                    [self.homeArray addObject:model];
+                    
+                }
+            }else{
+                model.isHasSurvery = YES;;
+                model.taskModel = taskModel;
                 @synchronized (self.homeArray){
                     [self.homeArray addObject:model];
                     
                 }
                 
+                [GDHomeManager getSurveyListWithSurveyId:model.taskModel.surveyId completionBlock:^(NSArray *array) {
+                    
+                    
+                }];
+
             }
-           // [self.adView reloadWithDataArray:self.homeArray];
-            dispatch_group_leave(group);
             NSLog(@"3----%@",[NSThread currentThread]);
+            dispatch_group_leave(group);
 
         }];
 
@@ -225,9 +177,8 @@
     
     dispatch_group_notify(group, queue, ^{
         
-        [self.adView reloadWithDataArray:self.homeArray];
         NSLog(@"-------dispatch_group_notify-------");
-        
+         [self.adView reloadWithDataArray:self.homeArray];
     });
     
 }

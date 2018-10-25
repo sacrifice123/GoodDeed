@@ -10,4 +10,14 @@
 
 @implementation GDHomeModel
 
+
+- (GDSurveyTaskModel *)taskModel{
+    
+    if (_taskModel == nil) {
+        _taskModel = [[GDSurveyTaskModel alloc] init];
+    }
+    
+    return _taskModel;
+}
+
 @end

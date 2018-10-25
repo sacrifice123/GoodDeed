@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GDGroupListModel.h"
 #import "GDCardModel.h"
+#import "GDSurveyTaskModel.h"
 
 @interface GDHomeManager : NSObject
 
@@ -26,5 +27,7 @@
 + (void)getGroupInfoWithCompletionBlock:(void(^)(NSMutableArray *))block;
 + (void)getCardById:(NSString *)cardId completionBlock:(void(^)(GDCardModel *))block;
 + (void)getRegisterCardWithCompletionBlock:(void(^)(GDCardModel *))block;
-+ (void)findMySurveyTaskWithCompletionBlock:(void(^)(NSArray *))block;
++ (void)findMySurveyTaskWithCompletionBlock:(void(^)(GDSurveyTaskModel *))block;
++ (void)getSurveyListWithSurveyId:(NSString *)surveyId completionBlock:(void(^)(NSArray *))block;
+
 @end

@@ -20,6 +20,8 @@
 #import "GDGetRegisterCardApi.h"
 #import "GDGetCardByIdApi.h"
 #import "GDFindMyTaskApi.h"
+#import "GDSurveyTaskModel.h"
+#import "GDFindSurveyApi.h"
 
 @implementation GDHomeManager
 
@@ -376,7 +378,7 @@ static CGFloat const GDSpringFactor = 10;
             
         }
     } failure:^(YTKBaseRequest *request) {
-        
+        [GDWindow showWithString:@"网络异常"];
     }];
     
 }
@@ -405,13 +407,13 @@ static CGFloat const GDSpringFactor = 10;
             
         }
     } failure:^(YTKBaseRequest *request) {
-        
+        [GDWindow showWithString:@"网络异常"];
     }];
     
 }
 
 //查询我是否有可回答的问卷
-+ (void)findMySurveyTaskWithCompletionBlock:(void(^)(NSArray *))block{
++ (void)findMySurveyTaskWithCompletionBlock:(void(^)(GDSurveyTaskModel *))block{
     GDFindMyTaskApi *api = [[GDFindMyTaskApi alloc] init];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
@@ -421,21 +423,46 @@ static CGFloat const GDSpringFactor = 10;
                 
                 NSArray *data = [jsonData objectForKey:@"data"];
                 if (data&&[data isKindOfClass:[NSArray class]]) {
-                    block(data);
+                    GDSurveyTaskModel *model = nil;
+                    for (NSDictionary *obj in data) {
+                        if ([obj objectForKey:@"status"]&&![[obj objectForKey:@"status"] boolValue]) {
+                            model = [GDSurveyTaskModel yy_modelWithDictionary:obj];
+                            break;
+                        }
+                    }
+                    block(model);
                     
                 }
          
             }else{
+
                 [GDWindow showWithString:[jsonData objectForKey:@"message"]];
+                block(nil);
             }
 
         }
         
     } failure:^(YTKBaseRequest *request) {
         
+        [GDWindow showWithString:@"网络异常"];
+        block(nil);
     }];
     
 }
+
+//根绝surveryId查询问卷
++ (void)getSurveyListWithSurveyId:(NSString *)surveyId completionBlock:(void(^)(NSArray *))block{
+    
+    GDFindSurveyApi *api = [[GDFindSurveyApi alloc] initWithSurveyId:(NSString *)surveyId];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        
+    } failure:^(YTKBaseRequest *request) {
+      [GDWindow showWithString:@"网络异常"];
+    }];
+
+}
+
 
 + (void)presentToTargetControllerWith:(UIView *)view targetVc:(UIViewController *)targetVc{
     
