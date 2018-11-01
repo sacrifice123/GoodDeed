@@ -136,11 +136,13 @@ static GDOrgAnimationView *_view;
 - (void)animationStart:(NSInteger)index completion:(void (^)(BOOL))block{
 
   //  [self.bgView bringSubviewToFront:self.progressView];
+    GDFirstSurveyModel *model = [GDLunchManager sharedManager].surveyModel;
+    NSArray *suveryList = [GDLunchManager sharedManager].suveryList;
     [UIView animateWithDuration:0.5 animations:^{
-        if (self.isAnimation) {
+        if (self.isAnimation||model.isHome) {
             self.imgView.image = [UIImage imageNamed:@"progress_image"];
             self.progressView.hidden = NO;
-            self.progressView.progress = (self.organList.count>0?(1.0*index/(self.organList.count+1)):1.0*index/7);
+            self.progressView.progress = (1.0*index/(suveryList.count+!model.isHome));//(suveryList.count>0?(1.0*index/(suveryList.count+1)):1.0*index/suveryList.count);
 
         }else{
              self.progressView.hidden = YES;
@@ -149,7 +151,7 @@ static GDOrgAnimationView *_view;
         [self layoutIfNeeded];
         
     } completion:^(BOOL finished) {
-        if (!self.isAnimation&&!self.imgView.isAnimating) {
+        if (!self.isAnimation&&!self.imgView.isAnimating&&!model.isHome) {//轮播公益机构图片
             NSMutableArray <UIImage *> *array = [[NSMutableArray alloc] init];
             for (int i=1; i<18; i++) {
                 UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"animation_%i.jpg",i+1]];
@@ -161,8 +163,8 @@ static GDOrgAnimationView *_view;
             [self.imgView startAnimating];
             self.imgView.image = [UIImage imageNamed:@"tap_image"];
 
-        }else{
-            if (block&&self.isAnimation) {
+        }else{//答题模式
+            if ((block&&self.isAnimation)||model.isHome) {
                 sleep(1.5);
                 [UIView animateWithDuration:0.5 animations:^{
                     
@@ -177,6 +179,7 @@ static GDOrgAnimationView *_view;
         }
 
     }];
+
 }
 
 - (void)removeAnimationView{

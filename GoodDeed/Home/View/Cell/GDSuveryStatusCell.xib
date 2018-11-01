@@ -132,6 +132,9 @@
                                         <real key="value" value="67.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="GoAndAnswerQuestion:" destination="gTV-IL-0wX" eventType="touchUpInside" id="30U-Tj-gHk"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="让我们互相了解一下吧?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAQ-cw-Q4V">
                                 <rect key="frame" x="61" y="120.5" width="253" height="34"/>
@@ -162,11 +165,25 @@
                                     <constraint firstAttribute="width" constant="1" id="hXx-hy-tXR"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="konw_finish" translatesAutoresizingMaskIntoConstraints="NO" id="bmd-ye-NsS">
+                                <rect key="frame" x="97.5" y="243.5" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="6Qk-S0-yuZ"/>
+                                    <constraint firstAttribute="height" constant="180" id="V3h-wA-GPF"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbw-u9-Ka7">
+                                <rect key="frame" x="157.5" y="159.5" width="60" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="24"/>
+                                <color key="textColor" red="0.54901960780000003" green="0.76470588240000004" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="yT0-m4-ibl" firstAttribute="leading" secondItem="yCH-96-khN" secondAttribute="trailing" id="4qt-sw-eCb"/>
                             <constraint firstItem="kh2-aT-1e4" firstAttribute="leading" secondItem="sgI-u6-F82" secondAttribute="leading" id="6UZ-5p-V96"/>
                             <constraint firstItem="Lz2-kB-QY2" firstAttribute="top" secondItem="yT0-m4-ibl" secondAttribute="top" constant="-18" id="BUv-0K-IsO"/>
+                            <constraint firstItem="tbw-u9-Ka7" firstAttribute="top" secondItem="fAQ-cw-Q4V" secondAttribute="bottom" constant="5" id="CjC-ZM-uJS"/>
                             <constraint firstItem="lJv-kM-F3c" firstAttribute="centerX" secondItem="yCH-96-khN" secondAttribute="centerX" id="E9X-HM-ExB"/>
                             <constraint firstItem="Gij-Pz-uuE" firstAttribute="leading" secondItem="5sV-LM-XcY" secondAttribute="leading" id="Eb6-Tg-k6J"/>
                             <constraint firstItem="y2U-52-fJw" firstAttribute="centerX" secondItem="Lz2-kB-QY2" secondAttribute="centerX" id="G6M-gV-Wpp"/>
@@ -175,8 +192,10 @@
                             <constraint firstItem="yCH-96-khN" firstAttribute="leading" secondItem="hD3-78-f4v" secondAttribute="leading" id="Lzf-gh-L0W"/>
                             <constraint firstItem="hD3-78-f4v" firstAttribute="bottom" secondItem="yT0-m4-ibl" secondAttribute="bottom" constant="70" id="P1T-rh-0wv"/>
                             <constraint firstItem="Gij-Pz-uuE" firstAttribute="top" secondItem="5sV-LM-XcY" secondAttribute="top" id="Pg5-fv-1WL"/>
+                            <constraint firstItem="bmd-ye-NsS" firstAttribute="centerY" secondItem="sgI-u6-F82" secondAttribute="centerY" id="T26-7F-7eU"/>
                             <constraint firstItem="5sV-LM-XcY" firstAttribute="centerX" secondItem="sgI-u6-F82" secondAttribute="centerX" id="Vrl-fe-r6C"/>
                             <constraint firstItem="5sV-LM-XcY" firstAttribute="centerY" secondItem="sgI-u6-F82" secondAttribute="centerY" id="XGa-f0-ssd"/>
+                            <constraint firstItem="tbw-u9-Ka7" firstAttribute="centerX" secondItem="sgI-u6-F82" secondAttribute="centerX" id="YNE-ye-b0e"/>
                             <constraint firstItem="Lz2-kB-QY2" firstAttribute="leading" secondItem="yT0-m4-ibl" secondAttribute="trailing" id="eVo-fp-QEU"/>
                             <constraint firstItem="yCH-96-khN" firstAttribute="top" secondItem="Lz2-kB-QY2" secondAttribute="top" id="eli-1M-Msc"/>
                             <constraint firstItem="yT0-m4-ibl" firstAttribute="centerX" secondItem="sgI-u6-F82" secondAttribute="centerX" id="g85-Jo-WYy"/>
@@ -188,6 +207,7 @@
                             <constraint firstAttribute="trailing" secondItem="kh2-aT-1e4" secondAttribute="trailing" id="r0O-B2-cxR"/>
                             <constraint firstItem="y2U-52-fJw" firstAttribute="top" secondItem="Lz2-kB-QY2" secondAttribute="bottom" id="tbx-eh-BX4"/>
                             <constraint firstItem="kh2-aT-1e4" firstAttribute="top" secondItem="sgI-u6-F82" secondAttribute="top" id="uhG-d4-CoO"/>
+                            <constraint firstItem="bmd-ye-NsS" firstAttribute="centerX" secondItem="sgI-u6-F82" secondAttribute="centerX" id="xe6-0s-33k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hD3-78-f4v"/>
                         <userDefinedRuntimeAttributes>
@@ -216,7 +236,11 @@
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="219" height="363"/>
             <connections>
+                <outlet property="GoButton" destination="5sV-LM-XcY" id="FnN-Kp-L8t"/>
                 <outlet property="answerNumLabel" destination="yCH-96-khN" id="zCL-25-MOF"/>
+                <outlet property="contentLabel" destination="fAQ-cw-Q4V" id="GqA-eG-oKy"/>
+                <outlet property="earnLabel" destination="tbw-u9-Ka7" id="ClL-kC-4hT"/>
+                <outlet property="finishImgView" destination="bmd-ye-NsS" id="Nmd-lO-vYi"/>
                 <outlet property="finishTimeLabel" destination="Lz2-kB-QY2" id="27n-uD-IGG"/>
                 <outlet property="knowView" destination="Y4A-NW-Rc6" id="eRa-m2-QQ0"/>
                 <outlet property="suveryView" destination="sgI-u6-F82" id="zsC-EF-zko"/>

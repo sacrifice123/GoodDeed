@@ -70,8 +70,8 @@
    // [self setleftItem];
     [self showAdHorizontally];
     [self groupRequest];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(answerFinish:) name:GDAnswerFinishNoti object:nil];
 }
-
 
 - (void)groupRequest{
     
@@ -156,8 +156,7 @@
                 model.taskModel = taskModel;
                 @synchronized (self.homeArray){
                     [self.homeArray addObject:model];
-                    
-                }
+                                    }
                 
                 [GDHomeManager getSurveyListWithSurveyId:model.taskModel.surveyId completionBlock:^(NSArray *array) {
                     
@@ -323,7 +322,6 @@
             homeModel.type = type;
             [array addObject:homeModel];
                 
-            
         }
             break;
         case 3:{//我的调查
@@ -365,5 +363,24 @@
     return self.transitionView;
 }
 
+- (void)answerFinish:(NSNotification *)noti{
+    
+    if (noti.object) {
+
+        GDSurveyTaskModel *model = (GDSurveyTaskModel *)noti.object;
+        for (GDHomeModel *obj in self.homeArray) {
+            if (obj.type == GDHomeSuveryStatusType) {
+                GDHomeModel *homeModel = [GDHomeModel new];
+                homeModel.type = GDHomeSuveryStatusType;
+                homeModel.taskModel = model;
+                homeModel.isHasSurvery = YES;
+                homeModel.isFinishAnswer = YES;
+                NSInteger index = [self.homeArray indexOfObject:obj];
+                [self.homeArray replaceObjectAtIndex:index withObject:homeModel];
+                [self.adView reloadWithDataArray:self.homeArray];
+            }
+        }
+    }
+}
 
 @end

@@ -20,6 +20,7 @@ static NSString *const GDBaseImgUrl = @"http://47.97.102.73/giraffe";//图片基
 static NSString *const GDAnimationStatus = @"animationStatus";
 static NSString *const GDOrgaUid = @"820380768";
 static NSString *const GDReloadHome = @"GDReloadHome";
+static NSString *const GDAnswerFinishNoti = @"GDAnswerFinishNoti";
 
 #define GDScaleValue(value) (MIN([UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height) * (value) / 375.f)
 

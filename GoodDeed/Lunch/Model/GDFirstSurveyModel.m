@@ -13,7 +13,8 @@
 + (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper{
     
     return @{
-             @"surveyId":@"id"
+             @"surveyId":@"id",
+             @"firstQuestionList":@"questionRespVos"
              };
 }
 
@@ -22,10 +23,10 @@
     return @{@"firstQuestionList":[GDFirstQuestionListModel class]};
 }
 
-- (NSArray<GDFirstQuestionListModel *> *)firstQuestionList{
+- (NSMutableArray<GDFirstQuestionListModel *> *)firstQuestionList{
     
     if (_firstQuestionList == nil) {
-        _firstQuestionList = [[NSArray alloc] init];
+        _firstQuestionList = [[NSMutableArray alloc] init];
     }
     return _firstQuestionList;
 }

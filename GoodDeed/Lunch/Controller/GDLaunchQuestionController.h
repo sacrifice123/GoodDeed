@@ -10,5 +10,5 @@
 
 @interface GDLaunchQuestionController : UIViewController
 
-
+@property (nonatomic, assign) BOOL isHome;
 @end

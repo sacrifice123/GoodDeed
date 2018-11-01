@@ -20,7 +20,7 @@
     }
     
 }
-
+//每题答题结束
 - (void)finishAnswer{
     
     GDQuestionBaseView *view = (GDQuestionBaseView *)[GDHelper getTargetView:[GDQuestionBaseView class] view:self];

@@ -54,7 +54,23 @@
         [view removeFromSuperview];
         [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH, 0) animated:YES];
     }
-    
+    UIViewController *rootVc = GDWindow.rootViewController;
+    if ([rootVc isKindOfClass:[MMDrawerController class]]) {
+        MMDrawerController *mmdc = (MMDrawerController *)rootVc;
+        [mmdc setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+    }
+    NSArray *array = [GDLunchManager sharedManager].writeReqVoList;
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    UIViewController *rootVc = GDWindow.rootViewController;
+    if ([rootVc isKindOfClass:[MMDrawerController class]]) {
+        MMDrawerController *mmdc = (MMDrawerController *)rootVc;
+        [mmdc setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    }
+
 }
 
 - (void)back{
@@ -67,13 +83,17 @@
         _pages = [NSMutableArray array];
       
         __weak typeof(self) weakSelf = self;
-        GDLaunchReadyView *readyView = [[GDLaunchReadyView alloc] initWithFrame:self.view.frame];
-        readyView.finishBlock = ^(NSInteger index) {
-            [weakSelf animationFinish:index];
-        };
-        GDFirstQuestionListModel *model = [GDFirstQuestionListModel new];
-        model.type = GDReadyType;
-        [_pages addObject:readyView];
+
+        if (!self.isHome) {
+            GDLaunchReadyView *readyView = [[GDLaunchReadyView alloc] initWithFrame:self.view.frame];
+            readyView.finishBlock = ^(NSInteger index) {
+                [weakSelf animationFinish:index];
+            };
+            GDFirstQuestionListModel *model = [GDFirstQuestionListModel new];
+            model.type = GDReadyType;
+            [_pages addObject:readyView];
+
+        }
 
         for (GDFirstQuestionListModel*model in [GDLunchManager sharedManager].suveryList) {
             
@@ -102,17 +122,31 @@
     [view animationStart:index completion:^(BOOL finished) {
         
         if (finished) {
-            if ([GDLunchManager sharedManager].suveryList.count>self.pageControl.currentPage) {
+            if ([GDLunchManager sharedManager].suveryList.count>(self.pageControl.currentPage+self.isHome)) {
                 [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH*(index), 0) animated:YES];
             }else{//题做完了
                 GDBaseNavigationController *nav = [[GDBaseNavigationController alloc] initWithRootViewController:[GDAnswerFinishViewController new]];
-                [self presentViewController:nav animated:YES completion:^{
-                    [GDOrgAnimationView destory];
-                }];
+                if (self.isHome) {//在主页答题
+                    //NSArray *array = [GDLunchManager sharedManager].writeReqVoList;
+                    [GDHomeManager finishAnswerSurveyWithCompletionBlock:^(GDSurveyTaskModel *model) {
+                      
+                        [[NSNotificationCenter defaultCenter] postNotificationName:GDAnswerFinishNoti object:model];
+                        [self.navigationController popViewControllerAnimated:YES];
+
+                    }];
+                }else{
+                    [self presentViewController:nav animated:YES completion:^{
+                        [GDOrgAnimationView destory];
+                    }];
+
+                }
+           
             }
             
         }
+  
     }];
+
 }
 
 - (GDQuestionScrollView *)scrollView{
@@ -142,10 +176,14 @@
     pageControl.currentPageIndicatorTintColor = [UIColor colorWithHexString:@"#555555"];
     [self.view addSubview:pageControl];
     self.pageControl = pageControl;
-    
-    GDLaunchReadyView *readyView = self.pages.firstObject;
-    readyView.delegate = self;
-    [self.scrollView addSubview:readyView];
+    if (!self.isHome) {//初始化首页
+        GDLaunchReadyView *readyView = self.pages.firstObject;
+        readyView.delegate = self;
+        [self.scrollView addSubview:readyView];
+
+    }else{
+        [self.scrollView addSubview:self.pages.firstObject];
+    }
 }
 
 - (UIView *)hh_transitionAnimationView{
@@ -155,10 +193,6 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-//    if (scrollView.contentOffset.x>0) {//禁止左滑
-//        [scrollView setContentOffset:CGPointMake(0, scrollView.contentOffset.y) animated:NO];
-//
-//    }
     [self scrollViewDidEndScroll:scrollView];
 }
 
@@ -191,4 +225,8 @@
     [self animationFinish:1];
 }
 
+- (void)dealloc{
+    
+    
+}
 @end

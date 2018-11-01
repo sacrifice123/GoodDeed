@@ -22,6 +22,7 @@
 #import "GDFindMyTaskApi.h"
 #import "GDSurveyTaskModel.h"
 #import "GDFindSurveyApi.h"
+#import "GDWriteSurveyApi.h"
 
 @implementation GDHomeManager
 
@@ -85,8 +86,8 @@ static CGFloat const GDSpringFactor = 10;
     
     GDHomeViewController *home = [[GDHomeViewController alloc] init];
     GDLeftViewController *leftVC = [[GDLeftViewController alloc] init];
-    UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:home];
-    UINavigationController *leftNav = [[UINavigationController alloc] initWithRootViewController:leftVC];
+    GDBaseNavigationController *homeNav = [[GDBaseNavigationController alloc] initWithRootViewController:home];
+    GDBaseNavigationController *leftNav = [[GDBaseNavigationController alloc] initWithRootViewController:leftVC];
     MMDrawerController *mmdc = [[MMDrawerController alloc] initWithCenterViewController:homeNav leftDrawerViewController:leftNav];
     [mmdc setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [mmdc setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
@@ -450,17 +451,69 @@ static CGFloat const GDSpringFactor = 10;
     
 }
 
-//根绝surveryId查询问卷
+//根据surveryId查询问卷
 + (void)getSurveyListWithSurveyId:(NSString *)surveyId completionBlock:(void(^)(NSArray *))block{
     
     GDFindSurveyApi *api = [[GDFindSurveyApi alloc] initWithSurveyId:(NSString *)surveyId];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
+        NSDictionary *jsonData = request.responseJSONObject;
+        if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
+            if ([[jsonData objectForKey:@"code"] integerValue] == 200&&[jsonData objectForKey:@"data"]) {
+                
+                GDFirstSurveyModel *surveyModel = [GDFirstSurveyModel yy_modelWithDictionary:[jsonData objectForKey:@"data"]];
+                surveyModel.isHome = YES;
+                surveyModel.surveyId = surveyId;
+                NSArray *list = [surveyModel.firstQuestionList sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+                    
+                    GDFirstQuestionListModel *model1 = (GDFirstQuestionListModel *)obj1;
+                    GDFirstQuestionListModel *model2 = (GDFirstQuestionListModel *)obj2;
+                    return model1.sort>model2.sort;
+                }];
+                [surveyModel.firstQuestionList removeAllObjects];
+                [surveyModel.firstQuestionList addObjectsFromArray:list];
+                for (int i=0; i<surveyModel.firstQuestionList.count; i++) {
+                    GDFirstQuestionListModel *model = surveyModel.firstQuestionList[i];
+                    model.sort = i+1;
+                }
+                [GDLunchManager sharedManager].surveyModel= surveyModel;
+                 NSLog(@"home==%@",surveyModel.firstQuestionList);
+                
+            }else{
+                [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
+            }
+            
+        }
+        block([GDLunchManager sharedManager].suveryList);
         
     } failure:^(YTKBaseRequest *request) {
-      [GDWindow showWithString:@"网络异常"];
+        
+        block([GDLunchManager sharedManager].suveryList);
+        [GDWindow showWithString:@"网络异常"];
     }];
 
+}
+
+//首页回答问卷结束
++ (void)finishAnswerSurveyWithCompletionBlock:(void(^)(GDSurveyTaskModel *))block{
+    
+    GDWriteSurveyApi *api = [[GDWriteSurveyApi alloc] init];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+       
+        if (request.responseJSONObject&&[[request.responseJSONObject objectForKey:@"code"] integerValue] == 200) {
+            NSDictionary *data = [request.responseJSONObject objectForKey:@"data"];
+            if (data&&[data isKindOfClass:[NSDictionary class]]) {
+                GDSurveyTaskModel *model = [GDSurveyTaskModel yy_modelWithDictionary:data];
+                block(model);
+            }
+        }else{
+            block(nil);
+        }
+        
+    } failure:^(YTKBaseRequest *request) {
+        [GDWindow showWithString:@"网络异常"];
+        block(nil);
+    }];
 }
 
 

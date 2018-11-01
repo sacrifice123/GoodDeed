@@ -13,7 +13,7 @@
 @class GDOrganModel,GDFirstSurveyModel,GDFirstQuestionListModel,GDQuestionBaseCell;
 @interface GDLunchManager : NSObject
 
-@property (nonatomic, strong) NSArray <GDFirstQuestionListModel *> *suveryList;
+@property (nonatomic, strong) NSMutableArray <GDFirstQuestionListModel *> *suveryList;
 @property (nonatomic, strong) NSMutableArray *writeReqVoList;
 @property (nonatomic, strong) GDOrganModel *selectOrganModel;
 @property (nonatomic, strong) GDFirstSurveyModel *surveyModel;

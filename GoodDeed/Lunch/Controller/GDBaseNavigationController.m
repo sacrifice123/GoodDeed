@@ -64,5 +64,16 @@
 }
 
 
+//#pragma mark -- UIGestureRecognizerDelegate
+////触发之后是否响应手势事件
+////处理侧滑返回与UISlider的拖动手势冲突
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+//    //如果手势是触摸的UISlider滑块触发的，侧滑返回手势就不响应
+//    if ([touch.view isKindOfClass:[UISlider class]]) {
+//        
+//        return NO;
+//    }
+//    return YES;
+//}
 
 @end

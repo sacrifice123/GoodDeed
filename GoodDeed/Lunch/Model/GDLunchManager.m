@@ -38,7 +38,7 @@ static GDLunchManager *manager;
     return manager;
 }
 
-- (NSArray *)suveryList{
+- (NSMutableArray *)suveryList{
 
     return self.surveyModel.firstQuestionList;
 }
@@ -154,17 +154,19 @@ static GDLunchManager *manager;
             if ([[jsonData objectForKey:@"code"] integerValue] == 200&&[jsonData objectForKey:@"data"]) {
                 
                 GDFirstSurveyModel *surveyModel = [GDFirstSurveyModel yy_modelWithDictionary:[jsonData objectForKey:@"data"]];
-                surveyModel.firstQuestionList=[surveyModel.firstQuestionList sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+                NSArray *list = [surveyModel.firstQuestionList sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
                     
                     GDFirstQuestionListModel *model1 = (GDFirstQuestionListModel *)obj1;
                     GDFirstQuestionListModel *model2 = (GDFirstQuestionListModel *)obj2;
                     return model1.sort>model2.sort;
                 }];
+                [surveyModel.firstQuestionList removeAllObjects];
+                [surveyModel.firstQuestionList addObjectsFromArray:list];
                 for (int i=0; i<surveyModel.firstQuestionList.count; i++) {
                     GDFirstQuestionListModel *model = surveyModel.firstQuestionList[i];
-                    model.sort = i+2;
+                    model.sort = (surveyModel.isHome?i+1:i+2);
                 }
-                [GDLunchManager sharedManager].surveyModel= surveyModel;
+                [GDLunchManager sharedManager].surveyModel = surveyModel;
                // NSLog(@"%@",surveyModel.firstQuestionList);
 
             }else{

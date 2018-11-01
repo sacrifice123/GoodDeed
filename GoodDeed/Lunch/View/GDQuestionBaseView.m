@@ -19,7 +19,7 @@
         [[GDLunchManager sharedManager] finishAnswerWithModel:model];
     }
     
-}
+}   
 
 - (BOOL)isAnimation{
     

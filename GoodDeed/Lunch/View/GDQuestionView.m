@@ -222,4 +222,13 @@
     }
     
 }
+
+- (void)dealloc{
+    
+    [[GDLunchManager sharedManager].writeReqVoList removeAllObjects];
+    for (GDFirstQuestionListModel *model in [GDLunchManager sharedManager].suveryList) {
+        model.writeModel = nil;
+    }
+    
+}
 @end

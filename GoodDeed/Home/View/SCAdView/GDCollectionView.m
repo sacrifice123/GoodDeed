@@ -44,11 +44,7 @@
             if (point.x >0 && XX < location_X) {
                 return YES;
             }
-            //下面的是只允许在第一张时滑动返回生效
-            //            if (point.x > 0 && location.x < location_X && self.contentOffset.x <= 0) {
-            //                return YES;
-            //            }
-        }
+         }
     }
     return NO;
     

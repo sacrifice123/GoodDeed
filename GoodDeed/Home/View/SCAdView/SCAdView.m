@@ -46,7 +46,7 @@
 /**
  *   collection
  */
-@property (nonatomic,strong)UICollectionView *collectionView;
+@property (nonatomic,strong)GDCollectionView *collectionView;
 /**
  *   data
  */

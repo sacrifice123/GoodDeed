@@ -18,7 +18,8 @@
 + (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper{
     
     return @{
-             @"questionId":@"id"
+             @"questionId":@"id",
+             @"firstOptionList":@"optionList"
              };
 }
 
