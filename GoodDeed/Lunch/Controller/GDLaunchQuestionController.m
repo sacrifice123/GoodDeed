@@ -134,7 +134,7 @@
                         [self.navigationController popViewControllerAnimated:YES];
 
                     }];
-                }else{
+                }else{ 
                     [self presentViewController:nav animated:YES completion:^{
                         [GDOrgAnimationView destory];
                     }];

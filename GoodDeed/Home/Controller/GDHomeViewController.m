@@ -368,6 +368,7 @@
     if (noti.object) {
 
         GDSurveyTaskModel *model = (GDSurveyTaskModel *)noti.object;
+        GDHomeModel *tempModel;
         for (GDHomeModel *obj in self.homeArray) {
             if (obj.type == GDHomeSuveryStatusType) {
                 GDHomeModel *homeModel = [GDHomeModel new];
@@ -375,12 +376,22 @@
                 homeModel.taskModel = model;
                 homeModel.isHasSurvery = YES;
                 homeModel.isFinishAnswer = YES;
-                NSInteger index = [self.homeArray indexOfObject:obj];
-                [self.homeArray replaceObjectAtIndex:index withObject:homeModel];
+                tempModel = obj;
+            }
+        }
+        if (tempModel) {
+            NSInteger index = [self.homeArray indexOfObject:tempModel];
+            if (self.homeArray.count>index) {
+                [self.homeArray replaceObjectAtIndex:index withObject:tempModel];
                 [self.adView reloadWithDataArray:self.homeArray];
+
             }
         }
     }
 }
 
+- (void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end
