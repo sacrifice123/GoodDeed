@@ -497,6 +497,8 @@ static CGFloat const GDSpringFactor = 10;
 //首页回答问卷结束
 + (void)finishAnswerSurveyWithCompletionBlock:(void(^)(GDSurveyTaskModel *))block{
     
+//    [self getSurveyOptionCard];
+//    return;
     GDWriteSurveyApi *api = [[GDWriteSurveyApi alloc] init];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
        
@@ -516,6 +518,25 @@ static CGFloat const GDSpringFactor = 10;
     }];
 }
 
++ (void)getSurveyOptionCard{
+    NSMutableArray *surveyList = [GDLunchManager sharedManager].suveryList;
+    NSMutableArray *array = [NSMutableArray new];
+    for (GDFirstQuestionListModel*obj in surveyList) {
+        NSArray *optionList = obj.firstOptionList;
+        for (GDOptionModel *model in optionList) {
+            if (model.cardId) {
+                [self getCardById:model.cardId completionBlock:^(GDCardModel *cardModel) {
+                    [array addObject:cardModel];
+                    NSLog(@"%@",array);
+                }];
+           
+            }
+     
+        }
+   
+    }
+    
+}
 
 + (void)presentToTargetControllerWith:(UIView *)view targetVc:(UIViewController *)targetVc{
     

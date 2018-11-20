@@ -31,12 +31,14 @@
 }
 
 - (id)requestArgument{
+    
+    GDUserModel *model = [[GDDataBaseManager sharedManager] queryUserData];
     return @{
              @"data":@{
                      @"id":_cardId?:@"",
-                     @"uid":@""
+                     @"uid":model.uid?:@""
                      },
-             @"token":@""
+             @"token":model.token?:@""
              };
     
 }
