@@ -8,7 +8,20 @@
 
 #import "GDFindMyTaskApi.h"
 
-@implementation GDFindMyTaskApi
+@implementation GDFindMyTaskApi{
+    
+    NSInteger _pageNum;
+    NSInteger _pageSize;
+}
+
+- (id)initWithPageNum:(NSInteger )pageNum pageSize:(NSInteger)pageSize{
+    if (self = [super init]) {
+        _pageNum = pageNum;
+        _pageSize = pageSize;
+    }
+    return self;
+}
+
 - (NSString *)requestUrl{
     
     return @"/survey/findMyTask";
@@ -22,7 +35,9 @@
     GDUserModel *model = [[GDDataBaseManager sharedManager] queryUserData];
     return @{
              @"data":@{
-                     @"uid":model.uid?:@""
+                     @"uid":model.uid?:@"",
+                     @"pageNum":@(_pageNum),
+                     @"pageSize":@(_pageSize)
                      },
              @"token":model.token?:@""
              };

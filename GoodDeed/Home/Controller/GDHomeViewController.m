@@ -121,10 +121,11 @@
         //获取card
         [GDHomeManager getRegisterCardWithCompletionBlock:^(GDCardModel *model) {
             if (model) {
-                GDHomeModel *model = [GDHomeModel new];
-                model.type = GDHomeCardType;
+                GDHomeModel *homeModel = [GDHomeModel new];
+                homeModel.type = GDHomeCardType;
+                homeModel.cardModel = model;
                 @synchronized (self.homeArray){
-                    [self.homeArray addObject:model];
+                    [self.homeArray addObject:homeModel];
                     
                 }
             }
@@ -140,28 +141,35 @@
     dispatch_group_async(group, queue, ^{
         
         //查询可回答的问卷
-        [GDHomeManager findMySurveyTaskWithCompletionBlock:^(GDSurveyTaskModel *taskModel) {
+        [GDHomeManager findMySurveyTaskWithCompletionBlock:^(NSArray *array) {
             
-            GDHomeModel *model = [GDHomeModel new];
-            model.type = GDHomeSuveryStatusType;
-            if (!taskModel ) {//没有可回答问卷
+            if (!array||(array&&array.count == 0)) {//没有可回答问卷
+                GDHomeModel *model = [GDHomeModel new];
+                model.type = GDHomeSuveryStatusType;
                 model.isHasSurvery = NO;
-                model.taskModel.status = @"";
+                model.taskModel.status = NO;
                 @synchronized (self.homeArray){
                     [self.homeArray addObject:model];
                     
                 }
             }else{
-                model.isHasSurvery = YES;;
-                model.taskModel = taskModel;
+
+                NSMutableArray *taskArray = [[NSMutableArray alloc] init];
+                for (GDSurveyTaskModel *obj in array) {
+                    if (!obj.status) {//有未回答完的问卷
+                        [GDHomeManager getSurveyListWithSurveyId:obj.surveyId completionBlock:^(NSArray *array) {}];
+                    }
+                    GDHomeModel *homeModel = [GDHomeModel new];
+                    homeModel.type = GDHomeSuveryStatusType;
+                    homeModel.isHasSurvery = YES;
+                    homeModel.taskModel = obj;
+                    [taskArray addObject:homeModel];
+                }
                 @synchronized (self.homeArray){
-                    [self.homeArray addObject:model];
-                                    }
+                    [self.homeArray addObjectsFromArray:taskArray];
+                    
+                }
                 
-                [GDHomeManager getSurveyListWithSurveyId:model.taskModel.surveyId completionBlock:^(NSArray *array) {
-                    
-                    
-                }];
 
             }
             NSLog(@"3----%@",[NSThread currentThread]);
@@ -363,30 +371,39 @@
     return self.transitionView;
 }
 
+//问卷回答结束
 - (void)answerFinish:(NSNotification *)noti{
     
-    if (noti.object) {
+    if (noti.userInfo) {
+        NSDictionary *dic = noti.userInfo;
+        GDCardModel *cardModel = [dic objectForKey:@"card"];
+        cardModel.isHome = YES;
+        GDSurveyTaskModel *taskModel = [dic objectForKey:@"task"];
+        if (cardModel) {//有card
+//            GDHomeModel *model = [GDHomeModel new];
+//            model.type = GDHomeCardType;
+//            model.cardModel = cardModel;
+            for (GDHomeModel *obj in self.homeArray) {
+                if (obj.type == GDHomeSuveryStatusType&&
+                    [cardModel.surveyId isEqualToString:obj.taskModel.surveyId]) {
+                    obj.cardModel = cardModel;
+                    obj.type = GDHomeCardType;
+                    break;
+                }
+            }
 
-        GDSurveyTaskModel *model = (GDSurveyTaskModel *)noti.object;
-        GDHomeModel *tempModel;
-        for (GDHomeModel *obj in self.homeArray) {
-            if (obj.type == GDHomeSuveryStatusType) {
-                GDHomeModel *homeModel = [GDHomeModel new];
-                homeModel.type = GDHomeSuveryStatusType;
-                homeModel.taskModel = model;
-                homeModel.isHasSurvery = YES;
-                homeModel.isFinishAnswer = YES;
-                tempModel = obj;
+            
+        }else if (taskModel){
+            for (GDHomeModel *obj in self.homeArray) {
+                if (obj.type == GDHomeSuveryStatusType&&
+                    [taskModel.surveyId isEqualToString:obj.taskModel.surveyId]) {
+                    obj.taskModel = taskModel;
+                    break;
+                }
             }
         }
-        if (tempModel) {
-            NSInteger index = [self.homeArray indexOfObject:tempModel];
-            if (self.homeArray.count>index) {
-                [self.homeArray replaceObjectAtIndex:index withObject:tempModel];
-                [self.adView reloadWithDataArray:self.homeArray];
+        [self.adView reloadWithDataArray:_homeArray];
 
-            }
-        }
     }
 }
 

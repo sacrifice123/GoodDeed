@@ -12,16 +12,16 @@
 
 - (void)gd_setImageWithUrlStr:(nullable NSString *)url {
     if (url&&[url isKindOfClass:[NSString class]]) {
-        NSString *baseUrl = [url hasPrefix:@"http"]?@"":GDBaseImgUrl;
-        [self sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseUrl,url]] placeholderImage:nil options:0 progress:nil completed:nil];
+        //NSString *baseUrl = [url hasPrefix:@"http"]?@"":GDBaseImgUrl;
+        [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil options:0 progress:nil completed:nil];
 
     }
 }
 
 - (void)gd_setImageWithUrlStr:(nullable NSString *)url placeholderImage:(nullable UIImage *)placeholder {
     if (url&&[url isKindOfClass:[NSString class]]) {
-        NSString *baseUrl = [url hasPrefix:@"http"]?@"":GDBaseImgUrl;
-        [self sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseUrl,url]] placeholderImage:placeholder options:0 progress:nil completed:nil];
+        //NSString *baseUrl = [url hasPrefix:@"http"]?@"":GDBaseImgUrl;
+        [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:placeholder options:0 progress:nil completed:nil];
 
     }
 }

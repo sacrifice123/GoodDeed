@@ -13,24 +13,70 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GDImageSelCell">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="93" height="84"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="93" height="84"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zRe-VT-dbX">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="93" height="84"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yf6-r9-F9e">
+                        <rect key="frame" x="38" y="29" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="TS0-KP-fdh"/>
+                            <constraint firstAttribute="height" constant="40" id="qMY-av-jK7"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="launch_image_select"/>
+                        <connections>
+                            <action selector="buttonClickToMagnify:" destination="gTV-IL-0wX" eventType="touchUpInside" id="E0H-8f-JSS"/>
+                        </connections>
+                    </button>
+                    <view hidden="YES" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aau-o0-Tkg">
+                        <rect key="frame" x="0.0" y="0.0" width="93" height="84"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageSelect_finished" translatesAutoresizingMaskIntoConstraints="NO" id="fNo-Oe-LP5">
+                                <rect key="frame" x="8.5" y="14.5" width="75" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="8x1-na-JqA"/>
+                                    <constraint firstAttribute="width" constant="75" id="dl7-Fq-rXU"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fNo-Oe-LP5" firstAttribute="centerX" secondItem="Aau-o0-Tkg" secondAttribute="centerX" id="OoB-0S-zqv"/>
+                            <constraint firstItem="fNo-Oe-LP5" firstAttribute="centerY" secondItem="Aau-o0-Tkg" secondAttribute="centerY" id="VKm-KR-qHX"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="zRe-VT-dbX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1us-ZK-WEw"/>
+                <constraint firstAttribute="bottom" secondItem="Aau-o0-Tkg" secondAttribute="bottom" id="55i-oW-NvF"/>
+                <constraint firstAttribute="trailing" secondItem="Aau-o0-Tkg" secondAttribute="trailing" id="Iz8-4f-bN5"/>
+                <constraint firstItem="Aau-o0-Tkg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ld2-V6-AlJ"/>
                 <constraint firstAttribute="trailing" secondItem="zRe-VT-dbX" secondAttribute="trailing" id="YBO-5P-3gX"/>
                 <constraint firstAttribute="bottom" secondItem="zRe-VT-dbX" secondAttribute="bottom" id="aBH-hU-Rd6"/>
+                <constraint firstAttribute="trailing" secondItem="yf6-r9-F9e" secondAttribute="trailing" constant="15" id="o64-RC-DVn"/>
+                <constraint firstItem="Aau-o0-Tkg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="u6K-wi-Aie"/>
+                <constraint firstAttribute="bottom" secondItem="yf6-r9-F9e" secondAttribute="bottom" constant="15" id="v6x-fW-38b"/>
                 <constraint firstItem="zRe-VT-dbX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yEH-hK-2kS"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="93" height="84"/>
+            <connections>
+                <outlet property="blurView" destination="Aau-o0-Tkg" id="tyC-Tt-iSb"/>
+                <outlet property="finishImageView" destination="fNo-Oe-LP5" id="spS-J5-dLs"/>
+                <outlet property="selectImageView" destination="zRe-VT-dbX" id="nDZ-tP-zvb"/>
+            </connections>
+            <point key="canvasLocation" x="-208.5" y="44"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="imageSelect_finished" width="88" height="57"/>
+        <image name="launch_image_select" width="40" height="40"/>
+    </resources>
 </document>

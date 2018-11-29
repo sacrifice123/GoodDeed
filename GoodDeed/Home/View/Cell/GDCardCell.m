@@ -7,13 +7,16 @@
 //
 
 #import "GDCardCell.h"
+#import "WkwebViewController.h"
 
 @interface GDCardCell()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *headBgImgView;
 @property (weak, nonatomic) IBOutlet UIImageView *organImgView;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIButton *button;
 
+@property (strong, nonatomic) GDCardModel *model;
 @end
 @implementation GDCardCell
 
@@ -26,16 +29,45 @@
     
 }
 
+- (void)setCardModel:(GDHomeModel *)cardModel{
+    
+    self.model = cardModel.cardModel;
+    
+}
+
+- (void)setModel:(GDCardModel *)model{
+    _model = model;
+    self.titleLabel.text = model.title;
+    [self.organImgView gd_setImageWithUrlStr:model.backgroundImgUrl];
+    [self.button setTitle:model.buttonName forState:0];
+    self.button.backgroundColor = [UIColor colorWithHexString:model.buttonColor];;
+
+    
+}
+
 //点击跳转外链
 - (IBAction)learnMore:(id)sender {
     
-    
+    WkwebViewController *webVc = [[WkwebViewController alloc] init];
+    webVc.url = self.model.hrefUrl;
+    UIViewController *vc = [GDHelper getSuperVc:self];
+    [vc.navigationController pushViewController:webVc animated:YES];
     
 }
 
 //1.如果是注册登录后推送的card，点击切换组织机构 2.如果是回答问卷里推送的card，点击跳转外链
 - (IBAction)switchToCause:(id)sender {
     
+    if (self.model.isHome) {
+        WkwebViewController *webVc = [[WkwebViewController alloc] init];
+        webVc.url = self.model.buttonHref;
+        UIViewController *vc = [GDHelper getSuperVc:self];        
+        [vc.navigationController pushViewController:webVc animated:YES];
+
+    }else{
+        
+        ////
+    }
     
     
 }

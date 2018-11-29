@@ -225,6 +225,14 @@
 		E6A359CC214F72F000BC5B64 /* GDCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A359CB214F72F000BC5B64 /* GDCollectionView.m */; };
 		E6A359D0215098FB00BC5B64 /* GDGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A359CE215098FB00BC5B64 /* GDGroupCell.m */; };
 		E6A359D1215098FB00BC5B64 /* GDGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A359CF215098FB00BC5B64 /* GDGroupCell.xib */; };
+		E6A7A26A21AE7B2800931E5C /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7A26421AE7B2700931E5C /* SDPhotoBrowser.m */; };
+		E6A7A26B21AE7B2800931E5C /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7A26521AE7B2700931E5C /* SDWaitingView.m */; };
+		E6A7A26C21AE7B2800931E5C /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7A26621AE7B2700931E5C /* SDBrowserImageView.m */; };
+		E6A7A27621AFE77D00931E5C /* WkwebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7A27021AFE77B00931E5C /* WkwebViewController.m */; };
+		E6A7A28221AFF42800931E5C /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7A27B21AFF42800931E5C /* UIView+Frame.m */; };
+		E6A7A28321AFF42800931E5C /* WLWebProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7A27C21AFF42800931E5C /* WLWebProgressLayer.m */; };
+		E6A7A28421AFF42800931E5C /* NSTimer+addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7A27E21AFF42800931E5C /* NSTimer+addition.m */; };
+		E6A7A28521AFF42800931E5C /* WYWebProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7A28121AFF42800931E5C /* WYWebProgressLayer.m */; };
 		E6B39ACE211BD1000080772F /* GDBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39ACD211BD1000080772F /* GDBaseModel.m */; };
 		E6B39AD1211BD1130080772F /* GDFirstSurveyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD0211BD1130080772F /* GDFirstSurveyModel.m */; };
 		E6B39AD4211BDC300080772F /* GDFirstQuestionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B39AD3211BDC300080772F /* GDFirstQuestionListModel.m */; };
@@ -651,6 +659,23 @@
 		E6A359CD215098FB00BC5B64 /* GDGroupCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDGroupCell.h; sourceTree = "<group>"; };
 		E6A359CE215098FB00BC5B64 /* GDGroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDGroupCell.m; sourceTree = "<group>"; };
 		E6A359CF215098FB00BC5B64 /* GDGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDGroupCell.xib; sourceTree = "<group>"; };
+		E6A7A26321AE7B2700931E5C /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		E6A7A26421AE7B2700931E5C /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		E6A7A26521AE7B2700931E5C /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		E6A7A26621AE7B2700931E5C /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		E6A7A26721AE7B2700931E5C /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		E6A7A26821AE7B2700931E5C /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		E6A7A26921AE7B2700931E5C /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		E6A7A27021AFE77B00931E5C /* WkwebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WkwebViewController.m; sourceTree = "<group>"; };
+		E6A7A27421AFE77D00931E5C /* WkwebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WkwebViewController.h; sourceTree = "<group>"; };
+		E6A7A27A21AFF42800931E5C /* NSTimer+addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+addition.h"; sourceTree = "<group>"; };
+		E6A7A27B21AFF42800931E5C /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		E6A7A27C21AFF42800931E5C /* WLWebProgressLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLWebProgressLayer.m; sourceTree = "<group>"; };
+		E6A7A27D21AFF42800931E5C /* WYWebProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYWebProgressLayer.h; sourceTree = "<group>"; };
+		E6A7A27E21AFF42800931E5C /* NSTimer+addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+addition.m"; sourceTree = "<group>"; };
+		E6A7A27F21AFF42800931E5C /* WLWebProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWebProgressLayer.h; sourceTree = "<group>"; };
+		E6A7A28021AFF42800931E5C /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		E6A7A28121AFF42800931E5C /* WYWebProgressLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYWebProgressLayer.m; sourceTree = "<group>"; };
 		E6B39ACC211BD1000080772F /* GDBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseModel.h; sourceTree = "<group>"; };
 		E6B39ACD211BD1000080772F /* GDBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDBaseModel.m; sourceTree = "<group>"; };
 		E6B39ACF211BD1130080772F /* GDFirstSurveyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDFirstSurveyModel.h; sourceTree = "<group>"; };
@@ -1172,6 +1197,7 @@
 		E664C94620C925A5004E81A4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E6A7A26D21AFE75400931E5C /* webView */,
 				E664C94C20C925A5004E81A4 /* GDBaseViewController.h */,
 				E664C94920C925A5004E81A4 /* GDBaseViewController.m */,
 				E664C94720C925A5004E81A4 /* GDLeftViewController.h */,
@@ -1457,6 +1483,8 @@
 		E69C3FB320CFB4DB004F5614 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				E6A7A27921AFF42800931E5C /* webViewProgress */,
+				E6A7A26221AE7B2700931E5C /* SDPhotoBrowser */,
 				E6D6F1B52179763F005982BB /* Foundation+Log.m */,
 				460BA97B21417EA9008D1D2E /* LZImageCropping.h */,
 				460BA97A21417EA9008D1D2E /* LZImageCropping.m */,
@@ -1482,6 +1510,44 @@
 				E6B4C5512151E2B7003129AD /* GDDataBaseManager.m */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		E6A7A26221AE7B2700931E5C /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				E6A7A26321AE7B2700931E5C /* SDPhotoBrowserConfig.h */,
+				E6A7A26421AE7B2700931E5C /* SDPhotoBrowser.m */,
+				E6A7A26521AE7B2700931E5C /* SDWaitingView.m */,
+				E6A7A26621AE7B2700931E5C /* SDBrowserImageView.m */,
+				E6A7A26721AE7B2700931E5C /* SDWaitingView.h */,
+				E6A7A26821AE7B2700931E5C /* SDPhotoBrowser.h */,
+				E6A7A26921AE7B2700931E5C /* SDBrowserImageView.h */,
+			);
+			path = SDPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		E6A7A26D21AFE75400931E5C /* webView */ = {
+			isa = PBXGroup;
+			children = (
+				E6A7A27421AFE77D00931E5C /* WkwebViewController.h */,
+				E6A7A27021AFE77B00931E5C /* WkwebViewController.m */,
+			);
+			path = webView;
+			sourceTree = "<group>";
+		};
+		E6A7A27921AFF42800931E5C /* webViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				E6A7A27A21AFF42800931E5C /* NSTimer+addition.h */,
+				E6A7A27B21AFF42800931E5C /* UIView+Frame.m */,
+				E6A7A27C21AFF42800931E5C /* WLWebProgressLayer.m */,
+				E6A7A27D21AFF42800931E5C /* WYWebProgressLayer.h */,
+				E6A7A27E21AFF42800931E5C /* NSTimer+addition.m */,
+				E6A7A27F21AFF42800931E5C /* WLWebProgressLayer.h */,
+				E6A7A28021AFF42800931E5C /* UIView+Frame.h */,
+				E6A7A28121AFF42800931E5C /* WYWebProgressLayer.m */,
+			);
+			path = webViewProgress;
 			sourceTree = "<group>";
 		};
 		E6F1435721198AF50038A9D6 /* Api */ = {
@@ -1759,7 +1825,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GoodDeed/Pods-GoodDeed-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-GoodDeed/Pods-GoodDeed-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
@@ -1770,7 +1836,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoodDeed/Pods-GoodDeed-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GoodDeed/Pods-GoodDeed-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1780,6 +1846,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6A7A28421AFF42800931E5C /* NSTimer+addition.m in Sources */,
 				E6115CC32152477400E57470 /* GDUploadImageApi.m in Sources */,
 				460BA94C21417D99008D1D2E /* GDEditBoundRangeViewModel.m in Sources */,
 				460BA95521417D99008D1D2E /* GDEditRankEmptyViewModel.m in Sources */,
@@ -1827,6 +1894,7 @@
 				E611FBE120DA3DDE00807E95 /* GDOrgAnimationView.m in Sources */,
 				460BA95621417D99008D1D2E /* GDCreateServeyFactory.m in Sources */,
 				E69C3F9820CF6F6E004F5614 /* AnimationWaveEnd.m in Sources */,
+				E6A7A26B21AE7B2800931E5C /* SDWaitingView.m in Sources */,
 				E6655CCF20C5138F005B46C3 /* ViewController.m in Sources */,
 				49594A54212F0B0200402ADB /* GDOpenNotiViewController.m in Sources */,
 				460BA94821417D99008D1D2E /* GDEditSurveyManager.m in Sources */,
@@ -1839,11 +1907,14 @@
 				E664C96E20CA174D004E81A4 /* SCAdCollectionViewLayout.m in Sources */,
 				E69C3F9B20CF6F6E004F5614 /* VCTransitionDelegate.m in Sources */,
 				460BA95821417D99008D1D2E /* GDEditTableViewController.m in Sources */,
+				E6A7A28321AFF42800931E5C /* WLWebProgressLayer.m in Sources */,
 				E69C3FA820CF6F6E004F5614 /* AnimationTransitionBegin.m in Sources */,
 				E6B39C0B211C4F3F0080772F /* GDGetOrganListApi.m in Sources */,
+				E6A7A27621AFE77D00931E5C /* WkwebViewController.m in Sources */,
 				460BA94521417D99008D1D2E /* GDSurveyTypePopView.m in Sources */,
 				E664C98620CA7547004E81A4 /* GDCauseCell.m in Sources */,
 				460BA94D21417D99008D1D2E /* GDEditToolViewModel.m in Sources */,
+				E6A7A26A21AE7B2800931E5C /* SDPhotoBrowser.m in Sources */,
 				460BA97021417D99008D1D2E /* GDEditQuestionCollectionViewCell.m in Sources */,
 				E6655CDA20C51391005B46C3 /* main.m in Sources */,
 				E69C3F9920CF6F6E004F5614 /* AnimationBackEnd.m in Sources */,
@@ -1897,6 +1968,7 @@
 				460BA95F21417D99008D1D2E /* GDChooseMultipleAddOptionTableViewCell.m in Sources */,
 				460BA97D21417EA9008D1D2E /* LZImageCropping+GDCrop.m in Sources */,
 				E61A5F17213529930074D215 /* GDSingleSelCell.m in Sources */,
+				E6A7A28221AFF42800931E5C /* UIView+Frame.m in Sources */,
 				460BA96021417D99008D1D2E /* GDSlidingScaleTableViewCell.m in Sources */,
 				460BA95A21417D99008D1D2E /* GDBoundRangeCollectionViewCell.m in Sources */,
 				E6115CCA215369D200E57470 /* GDGroupListCell.m in Sources */,
@@ -1928,6 +2000,8 @@
 				4925FC2E21762C24004BD587 /* GDCardModel.m in Sources */,
 				460BA95B21417D99008D1D2E /* GDBoundRangeAnswerTableViewCell.m in Sources */,
 				E69C3FA120CF6F6E004F5614 /* AnimationScaleBegin.m in Sources */,
+				E6A7A28521AFF42800931E5C /* WYWebProgressLayer.m in Sources */,
+				E6A7A26C21AE7B2800931E5C /* SDBrowserImageView.m in Sources */,
 				E6B39C0E211C58210080772F /* GDOrganModel.m in Sources */,
 				E64E381E2140BE6200BE5699 /* GDSortModel.m in Sources */,
 				E69C3FA620CF6F6E004F5614 /* UIView+HHLayout.m in Sources */,

@@ -39,9 +39,9 @@
     self.finishTimeLabel.text = cardModel.taskModel.preFinishTime;
     self.knowView.hidden = cardModel.isHasSurvery;
     self.suveryView.hidden = !cardModel.isHasSurvery;
-    self.finishImgView.hidden = !cardModel.isFinishAnswer;
-    self.GoButton.hidden = cardModel.isFinishAnswer;
-    self.earnLabel.hidden = !cardModel.isFinishAnswer;
+    self.finishImgView.hidden = !cardModel.taskModel.status;
+    self.GoButton.hidden = cardModel.taskModel.status;
+    self.earnLabel.hidden = !cardModel.taskModel.status;
     if (cardModel.isHasSurvery) {
         self.contentLabel.text = cardModel.taskModel.surveyName;
         self.earnLabel.text = cardModel.taskModel.money;

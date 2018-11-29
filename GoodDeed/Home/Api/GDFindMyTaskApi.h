@@ -10,4 +10,5 @@
 
 @interface GDFindMyTaskApi : GDBaseApi
 
+- (id)initWithPageNum:(NSInteger )pageNum pageSize:(NSInteger)pageSize;
 @end

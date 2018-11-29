@@ -13,9 +13,13 @@
 @property (nonatomic, copy) NSString *backgroundImgUrl;
 @property (nonatomic, copy) NSString *buttonColor;
 @property (nonatomic, copy) NSString *buttonName;
+@property (nonatomic, copy) NSString *buttonHref;
 @property (nonatomic, copy) NSString *cardNote;
 @property (nonatomic, copy) NSString *hrefName;
 @property (nonatomic, copy) NSString *hrefUrl;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, assign) BOOL isHome;
+
+@property (nonatomic, copy) NSString *surveyId;//所属调查问卷的id
+
 @end

@@ -59,7 +59,7 @@
         MMDrawerController *mmdc = (MMDrawerController *)rootVc;
         [mmdc setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
     }
-    NSArray *array = [GDLunchManager sharedManager].writeReqVoList;
+   // NSArray *array = [GDLunchManager sharedManager].writeReqVoList;
 
 }
 
@@ -128,9 +128,17 @@
                 GDBaseNavigationController *nav = [[GDBaseNavigationController alloc] initWithRootViewController:[GDAnswerFinishViewController new]];
                 if (self.isHome) {//在主页答题
                     //NSArray *array = [GDLunchManager sharedManager].writeReqVoList;
-                    [GDHomeManager finishAnswerSurveyWithCompletionBlock:^(GDSurveyTaskModel *model) {
+                    //问卷回答结束--在首页刷新页面显示
+                    [GDHomeManager finishAnswerSurveyWithCompletionBlock:^(GDSurveyTaskModel *model,GDCardModel *cardModel) {
                       
-                        [[NSNotificationCenter defaultCenter] postNotificationName:GDAnswerFinishNoti object:model];
+                        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                        if (model) {
+                            [dic setObject:model forKey:@"task"];
+                        }
+                        if (cardModel) {//有card
+                            [dic setObject:cardModel forKey:@"card"];
+                        }
+                        [[NSNotificationCenter defaultCenter] postNotificationName:GDAnswerFinishNoti object:nil userInfo:dic];
                         [self.navigationController popViewControllerAnimated:YES];
 
                     }];

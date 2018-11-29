@@ -99,6 +99,7 @@
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="202" height="350"/>
             <connections>
+                <outlet property="button" destination="xP5-jR-JVn" id="pcH-iH-sd9"/>
                 <outlet property="contentLabel" destination="gho-Zb-VxH" id="YE1-IY-gzb"/>
                 <outlet property="headBgImgView" destination="CTB-5L-aK5" id="OZK-qk-5Wu"/>
                 <outlet property="organImgView" destination="y7G-uN-H65" id="ckz-QX-Kn6"/>

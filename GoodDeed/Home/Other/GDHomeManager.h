@@ -27,9 +27,9 @@
 + (void)getGroupInfoWithCompletionBlock:(void(^)(NSMutableArray *))block;
 + (void)getCardById:(NSString *)cardId completionBlock:(void(^)(GDCardModel *))block;
 + (void)getRegisterCardWithCompletionBlock:(void(^)(GDCardModel *))block;
-+ (void)findMySurveyTaskWithCompletionBlock:(void(^)(GDSurveyTaskModel *))block;
++ (void)findMySurveyTaskWithCompletionBlock:(void(^)(NSArray *))block;
 + (void)getSurveyListWithSurveyId:(NSString *)surveyId completionBlock:(void(^)(NSArray *))block;
-+ (void)finishAnswerSurveyWithCompletionBlock:(void(^)(GDSurveyTaskModel *))block;
++ (void)finishAnswerSurveyWithCompletionBlock:(void(^)(GDSurveyTaskModel *,GDCardModel *))block;
 + (void)getSurveyOptionCard;
 
 @end

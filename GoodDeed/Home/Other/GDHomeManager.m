@@ -358,7 +358,7 @@ static CGFloat const GDSpringFactor = 10;
 
 //根据cardId获取card
 + (void)getCardById:(NSString *)cardId completionBlock:(void(^)(GDCardModel *))block{
-    
+
     GDGetCardByIdApi *api = [[GDGetCardByIdApi alloc] initWithCardId:cardId];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
@@ -372,6 +372,7 @@ static CGFloat const GDSpringFactor = 10;
                     block(model);
                 }
             }else{
+                block(nil);
                 [GDWindow showWithString:[jsonData objectForKey:@"message"]];
             }
             
@@ -379,6 +380,7 @@ static CGFloat const GDSpringFactor = 10;
             
         }
     } failure:^(YTKBaseRequest *request) {
+        block(nil);
         [GDWindow showWithString:@"网络异常"];
     }];
     
@@ -414,24 +416,24 @@ static CGFloat const GDSpringFactor = 10;
 }
 
 //查询我是否有可回答的问卷
-+ (void)findMySurveyTaskWithCompletionBlock:(void(^)(GDSurveyTaskModel *))block{
-    GDFindMyTaskApi *api = [[GDFindMyTaskApi alloc] init];
++ (void)findMySurveyTaskWithCompletionBlock:(void(^)(NSArray *))block{
+ 
+    GDFindMyTaskApi *api = [[GDFindMyTaskApi alloc] initWithPageNum:1 pageSize:10];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
         NSDictionary *jsonData = request.responseJSONObject;
         if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
             if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
                 
+                NSMutableArray *array = [[NSMutableArray alloc] init];
                 NSArray *data = [jsonData objectForKey:@"data"];
                 if (data&&[data isKindOfClass:[NSArray class]]) {
-                    GDSurveyTaskModel *model = nil;
                     for (NSDictionary *obj in data) {
-                        if ([obj objectForKey:@"status"]&&![[obj objectForKey:@"status"] boolValue]) {
-                            model = [GDSurveyTaskModel yy_modelWithDictionary:obj];
-                            break;
-                        }
+                        GDSurveyTaskModel *model = [GDSurveyTaskModel yy_modelWithDictionary:obj];
+                        [array addObject:model];
+
                     }
-                    block(model);
+                    block(array);
                     
                 }
          
@@ -495,10 +497,8 @@ static CGFloat const GDSpringFactor = 10;
 }
 
 //首页回答问卷结束
-+ (void)finishAnswerSurveyWithCompletionBlock:(void(^)(GDSurveyTaskModel *))block{
++ (void)finishAnswerSurveyWithCompletionBlock:(void(^)(GDSurveyTaskModel *,GDCardModel *))block{
     
-//    [self getSurveyOptionCard];
-//    return;
     GDWriteSurveyApi *api = [[GDWriteSurveyApi alloc] init];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
        
@@ -506,29 +506,51 @@ static CGFloat const GDSpringFactor = 10;
             NSDictionary *data = [request.responseJSONObject objectForKey:@"data"];
             if (data&&[data isKindOfClass:[NSDictionary class]]) {
                 GDSurveyTaskModel *model = [GDSurveyTaskModel yy_modelWithDictionary:data];
-                block(model);
+                [self getSurveyOptionCardWithCompletionBlock:^(GDCardModel *cardModel) {
+                    cardModel.surveyId = model.surveyId;//标示哪个问卷下的得到的card
+                    block(model,cardModel);
+
+                }];
             }
         }else{
-            block(nil);
+            block(nil,nil);
         }
         
     } failure:^(YTKBaseRequest *request) {
         [GDWindow showWithString:@"网络异常"];
-        block(nil);
+        block(nil,nil);
     }];
 }
 
-+ (void)getSurveyOptionCard{
+
+//只会有card
++ (void)getSurveyOptionCardWithCompletionBlock:(void(^)(GDCardModel *))block{
     NSMutableArray *surveyList = [GDLunchManager sharedManager].suveryList;
     NSMutableArray *array = [NSMutableArray new];
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    dispatch_group_t group =dispatch_group_create();
+
     for (GDFirstQuestionListModel*obj in surveyList) {
         NSArray *optionList = obj.firstOptionList;
         for (GDOptionModel *model in optionList) {
             if (model.cardId) {
-                [self getCardById:model.cardId completionBlock:^(GDCardModel *cardModel) {
-                    [array addObject:cardModel];
-                    NSLog(@"%@",array);
-                }];
+                #warning 测试用
+                if (obj == surveyList.firstObject&&model == optionList.firstObject) {
+                    model.cardId = @"1";
+                }
+                dispatch_group_enter(group);
+                dispatch_group_async(group, queue, ^{
+                    
+                    [self getCardById:model.cardId completionBlock:^(GDCardModel *cardModel) {
+                        if (cardModel) {
+                            [array addObject:cardModel];
+
+                        }
+                        dispatch_group_leave(group);
+                    }];
+
+                });
+
            
             }
      
@@ -536,6 +558,14 @@ static CGFloat const GDSpringFactor = 10;
    
     }
     
+    dispatch_group_notify(group, queue, ^{
+        
+        if (array.count>0) {
+            block(array.firstObject);
+        }
+        
+    });
+
 }
 
 + (void)presentToTargetControllerWith:(UIView *)view targetVc:(UIViewController *)targetVc{

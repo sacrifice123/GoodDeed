@@ -103,7 +103,7 @@
         [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(view);
         }];
-        imgView.backgroundColor = [UIColor redColor];
+        
     }else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
         view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"footerView" forIndexPath:indexPath];
         [view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
@@ -131,7 +131,11 @@
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsZero;
+    UIEdgeInsets inset = UIEdgeInsetsZero;
+    if (self.model.type == GDSelectType) {
+        inset = UIEdgeInsetsMake(-24, 24, 24, 24);
+    }
+    return inset;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
