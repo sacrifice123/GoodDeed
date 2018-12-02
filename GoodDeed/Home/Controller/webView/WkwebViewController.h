@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^notiBlcok)(NSDictionary *);
 @interface WkwebViewController : UIViewController
 
 @property (copy,nonatomic) NSString *url;
+@property (strong,nonatomic) NSDictionary *taskData;
+    
 @end

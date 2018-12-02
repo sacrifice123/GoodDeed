@@ -6,9 +6,9 @@
 //  Copyright © 2018年 GoodDeed. All rights reserved.
 //
 
-#import "YTKRequest.h"
+#import "GDBaseApi.h"
 
-@interface GDUploadImageApi : YTKRequest
+@interface GDUploadImageApi : GDBaseApi
 
 - (id)initWithImage:(UIImage *)image;
 

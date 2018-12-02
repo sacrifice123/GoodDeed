@@ -106,7 +106,6 @@
                     }
                 }
             }
-            NSLog(@"1----%@",[NSThread currentThread]);
             dispatch_group_leave(group);
 
             
@@ -129,7 +128,6 @@
                     
                 }
             }
-            NSLog(@"2----%@",[NSThread currentThread]);
             dispatch_group_leave(group);
 
         }];
@@ -172,7 +170,6 @@
                 
 
             }
-            NSLog(@"3----%@",[NSThread currentThread]);
             dispatch_group_leave(group);
 
         }];
@@ -184,7 +181,6 @@
     
     dispatch_group_notify(group, queue, ^{
         
-        NSLog(@"-------dispatch_group_notify-------");
          [self.adView reloadWithDataArray:self.homeArray];
     });
     
@@ -371,33 +367,30 @@
     return self.transitionView;
 }
 
-//问卷回答结束
+//问卷回答结束(或点击card到完成页)
 - (void)answerFinish:(NSNotification *)noti{
     
-    if (noti.userInfo) {
+    if (noti.userInfo&&_homeArray) {
         NSDictionary *dic = noti.userInfo;
         GDCardModel *cardModel = [dic objectForKey:@"card"];
         cardModel.isHome = YES;
         GDSurveyTaskModel *taskModel = [dic objectForKey:@"task"];
         if (cardModel) {//有card
-//            GDHomeModel *model = [GDHomeModel new];
-//            model.type = GDHomeCardType;
-//            model.cardModel = cardModel;
-            for (GDHomeModel *obj in self.homeArray) {
-                if (obj.type == GDHomeSuveryStatusType&&
-                    [cardModel.surveyId isEqualToString:obj.taskModel.surveyId]) {
+            for (GDHomeModel *obj in _homeArray) {
+                if ([cardModel.surveyId isEqualToString:obj.taskModel.surveyId]) {
                     obj.cardModel = cardModel;
+                    obj.taskModel = taskModel;//备用
                     obj.type = GDHomeCardType;
                     break;
                 }
             }
-
             
         }else if (taskModel){
-            for (GDHomeModel *obj in self.homeArray) {
-                if (obj.type == GDHomeSuveryStatusType&&
-                    [taskModel.surveyId isEqualToString:obj.taskModel.surveyId]) {
+            for (GDHomeModel *obj in _homeArray) {
+                if ([taskModel.surveyId isEqualToString:obj.taskModel.surveyId]) {//obj.type == GDHomeSuveryStatusType&&
                     obj.taskModel = taskModel;
+                    obj.cardModel = nil;
+                    obj.type = GDHomeSuveryStatusType;
                     break;
                 }
             }

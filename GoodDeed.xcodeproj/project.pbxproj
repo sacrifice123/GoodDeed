@@ -81,6 +81,8 @@
 		49594A55212F0B0200402ADB /* GDOpenNotiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49594A53212F0B0200402ADB /* GDOpenNotiViewController.xib */; };
 		496026DA20D95A1000C3DD15 /* GDKnowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496026D820D95A1000C3DD15 /* GDKnowViewController.m */; };
 		496026DB20D95A1000C3DD15 /* GDKnowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496026D920D95A1000C3DD15 /* GDKnowViewController.xib */; };
+		49626CEA21B400E300EE0BE5 /* GDQuestionSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49626CE821B400E300EE0BE5 /* GDQuestionSetController.m */; };
+		49626CEB21B400E300EE0BE5 /* GDQuestionSetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49626CE921B400E300EE0BE5 /* GDQuestionSetController.xib */; };
 		496BBEF82172E67A004CFD62 /* GDForgetPwdApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 496BBEF72172E67A004CFD62 /* GDForgetPwdApi.m */; };
 		496BBEFB2172F5B9004CFD62 /* GDModifyPwdApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 496BBEFA2172F5B9004CFD62 /* GDModifyPwdApi.m */; };
 		49750EFE213AC73300779DDC /* GDSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 49750EFD213AC73300779DDC /* GDSlider.m */; };
@@ -412,6 +414,9 @@
 		496026D720D95A1000C3DD15 /* GDKnowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDKnowViewController.h; sourceTree = "<group>"; };
 		496026D820D95A1000C3DD15 /* GDKnowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDKnowViewController.m; sourceTree = "<group>"; };
 		496026D920D95A1000C3DD15 /* GDKnowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDKnowViewController.xib; sourceTree = "<group>"; };
+		49626CE721B400E300EE0BE5 /* GDQuestionSetController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDQuestionSetController.h; sourceTree = "<group>"; };
+		49626CE821B400E300EE0BE5 /* GDQuestionSetController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDQuestionSetController.m; sourceTree = "<group>"; };
+		49626CE921B400E300EE0BE5 /* GDQuestionSetController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDQuestionSetController.xib; sourceTree = "<group>"; };
 		496BBEF62172E67A004CFD62 /* GDForgetPwdApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDForgetPwdApi.h; sourceTree = "<group>"; };
 		496BBEF72172E67A004CFD62 /* GDForgetPwdApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDForgetPwdApi.m; sourceTree = "<group>"; };
 		496BBEF92172F5B9004CFD62 /* GDModifyPwdApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDModifyPwdApi.h; sourceTree = "<group>"; };
@@ -896,6 +901,9 @@
 				460BA8FF21417D98008D1D2E /* GDEditListViewController.h */,
 				460BA90021417D98008D1D2E /* GDEditTableViewController.m */,
 				460BA90121417D98008D1D2E /* GDEditCollectionViewController.m */,
+				49626CE721B400E300EE0BE5 /* GDQuestionSetController.h */,
+				49626CE821B400E300EE0BE5 /* GDQuestionSetController.m */,
+				49626CE921B400E300EE0BE5 /* GDQuestionSetController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1777,6 +1785,7 @@
 				E61A5F2E2135661C0074D215 /* GDPGChooseCell.xib in Resources */,
 				E664C98720CA7547004E81A4 /* GDCauseCell.xib in Resources */,
 				E611FC0520DA42CC00807E95 /* animation_5.jpg in Resources */,
+				49626CEB21B400E300EE0BE5 /* GDQuestionSetController.xib in Resources */,
 				460BA94321417D99008D1D2E /* GDSurveyTypeCollectionViewCell.xib in Resources */,
 				E6655CD220C5138F005B46C3 /* Main.storyboard in Resources */,
 				E611FC0120DA42CC00807E95 /* animation_20.jpg in Resources */,
@@ -1893,6 +1902,7 @@
 				E611FBC920DA070900807E95 /* GDLaunchReadyView.m in Sources */,
 				E611FBE120DA3DDE00807E95 /* GDOrgAnimationView.m in Sources */,
 				460BA95621417D99008D1D2E /* GDCreateServeyFactory.m in Sources */,
+				49626CEA21B400E300EE0BE5 /* GDQuestionSetController.m in Sources */,
 				E69C3F9820CF6F6E004F5614 /* AnimationWaveEnd.m in Sources */,
 				E6A7A26B21AE7B2800931E5C /* SDWaitingView.m in Sources */,
 				E6655CCF20C5138F005B46C3 /* ViewController.m in Sources */,
@@ -2195,10 +2205,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WRG5GSFC88;
+				DEVELOPMENT_TEAM = 5RB384YXLM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GoodDeed/Tool/PrefixHeader.pch";
 				INFOPLIST_FILE = GoodDeed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2215,10 +2226,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WRG5GSFC88;
+				DEVELOPMENT_TEAM = 5RB384YXLM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GoodDeed/Tool/PrefixHeader.pch";
 				INFOPLIST_FILE = GoodDeed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

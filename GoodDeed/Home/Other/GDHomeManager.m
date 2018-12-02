@@ -142,82 +142,121 @@ static CGFloat const GDSpringFactor = 10;
 }
 
 //上传图片
-//+ (void)uploadImage:(UIImage *)image {
-//
-//    GDUploadImageApi *api = [[GDUploadImageApi alloc] initWithImage:image];
-//    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
-//
-//
-//    } failure:^(YTKBaseRequest *request) {
-//        [GDWindow showWithString:@"网络异常"];
-//    }];
-//}
++ (void)uploadImage3:(UIImage *)image {
 
-+ (void)uploadImage:(UIImage *)image{
-    
-    NSMutableString *url = [[NSMutableString alloc] init];
-    [url appendString:[NSString stringWithFormat:@"%@%@",GDBaseUrl,@"/image/uploadImage"]];
-    
-    NSString *TWITTERFON_FORM_BOUNDARY = @"AaB03x";
-    //分界线 --AaB03x
-    NSString *MPboundary=[[NSString alloc]initWithFormat:@"--%@",TWITTERFON_FORM_BOUNDARY];
-    //结束符 AaB03x--
-    NSString *endMPboundary=[[NSString alloc]initWithFormat:@"%@--",MPboundary];
-    
-    NSMutableString *body = [[NSMutableString alloc] init];
-    
-    
-    [body appendFormat:@"%@\r\n",MPboundary];
-    
-    //请求参数
-    [body appendFormat:@"Content-Disposition: form-data;name=\"%@\"\r\n\r\n",@"token"];
-    
-    //参数值
-    [body appendFormat:@"%@\r\n", @""];
-    
-   // NSData *imageData = UIImagePNGRepresentation([UtilTool changeImg:image max:1136]);
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.1);
-    //声明myRequestData，用来放入http body
-    NSMutableData *myRequestData;
-    //将body字符串转化为UTF8格式的二进制
-    myRequestData=[NSMutableData data];
-    
-    
-    //上传文件
-    [body appendFormat:@"%@\r\n",MPboundary];
-    [body appendFormat:@"Content-Disposition: form-data; name=\"uploadFile\"; filename=\"%@\"\r\n",@"temp.png"];
-    [body appendFormat:@"Content-Type: image/png\r\n\r\n"];
-    [myRequestData appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [myRequestData appendData:imageData];
-    
-    //声明结束符：--AaB03x--
-    NSString *end=[[NSString alloc]initWithFormat:@"\r\n%@",endMPboundary];
-    //加入结束符--AaB03x--
-    [myRequestData appendData:[end dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString:url]];
-    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    //    [request setTimeoutInterval:[DataStore getHttpTimeout]];
-    [request setHTTPMethod:@"POST"];
-    //设置HTTPHeader中Content-Type的值
-    NSString *cttype=[[NSString alloc]initWithFormat:@"multipart/form-data; boundary=%@",TWITTERFON_FORM_BOUNDARY];
-    //设置HTTPHeader
-    [request setValue:cttype forHTTPHeaderField:@"Content-Type"];
-    //设置Content-Length
-    [request setValue:[NSString stringWithFormat:@"%ld", [myRequestData length]] forHTTPHeaderField:@"Content-Length"];
-    [request setHTTPBody:myRequestData];
+    GDUploadImageApi *api = [[GDUploadImageApi alloc] initWithImage:image];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
 
-    NSURLSession * session = [NSURLSession sharedSession];
-    //创建任务
-    NSURLSessionDataTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSLog(@"----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-        NSLog(@"response==%@",response);
+
+    } failure:^(YTKBaseRequest *request) {
+        
+        
+        [GDWindow showWithString:@"网络异常"];
     }];
-    //开启网络任务
-    [task resume];
-
 }
++ (void)uploadImage:(UIImage *)image{///传图片
+        NSLog(@"上传。。。。");
+        //self.imageView.image=[UIImage imageNamed:@"icon.jpg"];
+        if (image == nil) return;
+        
+        // 1.创建一个管理者
+        AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+       mgr.requestSerializer = [AFHTTPRequestSerializer serializer];
+        // 2.封装参数(这个字典只能放非文件参数)
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        params[@"username"] = @"zhangtao";
+        //    params[@"age"] = @20;
+        //params[@"pwd"] = @"123";
+        //    params[@"height"] = @1.55;
+        
+        // 2.发送一个请求//@"http://115.28.55.133:8000/getall"
+        NSMutableString *url = [[NSMutableString alloc] init];
+        [url appendString:[NSString stringWithFormat:@"%@%@",GDBaseUrl,@"/image/uploadImage"]];
+
+        [mgr POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            NSData *fileData = UIImageJPEGRepresentation(image, 1.0);
+            // NSLog(@"%@",fileData);
+            [formData appendPartWithFileData:fileData name:@"uploadFile" fileName:@"icon.png" mimeType:@"image/png"];
+            
+            // 不是用这个方法来设置文件参数
+            //        [formData appendPartWithFormData:fileData name:@"file"];
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"上传成功1");
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"上传失败1");
+            
+        }];
+        
+        // 文件下载，文件比较大，断点续传技术：普遍所有的HTTP服务器都支持
+        // 文件上传，文件比较大，断点续传技术：一般的HTTP服务器都不支持，常用的技术用的是Socket（TCP\IP、UDP）
+    }
+//+ (void)uploadImage:(UIImage *)image{
+//
+//    NSMutableString *url = [[NSMutableString alloc] init];
+//    [url appendString:[NSString stringWithFormat:@"%@%@",GDBaseUrl,@"/image/uploadImage"]];
+//
+//    NSString *TWITTERFON_FORM_BOUNDARY = @"AaB03x";
+//    //分界线 --AaB03x
+//    NSString *MPboundary=[[NSString alloc]initWithFormat:@"--%@",TWITTERFON_FORM_BOUNDARY];
+//    //结束符 AaB03x--
+//    NSString *endMPboundary=[[NSString alloc]initWithFormat:@"%@--",MPboundary];
+//
+//    NSMutableString *body = [[NSMutableString alloc] init];
+//
+//
+//    [body appendFormat:@"%@\r\n",MPboundary];
+//
+//    //请求参数
+//    [body appendFormat:@"Content-Disposition: form-data;name=\"%@\"\r\n\r\n",@"token"];
+//
+//    //参数值
+//    [body appendFormat:@"%@\r\n", @""];
+//
+//   // NSData *imageData = UIImagePNGRepresentation([UtilTool changeImg:image max:1136]);
+//    NSData *imageData = UIImageJPEGRepresentation(image, 0.1);
+//    //声明myRequestData，用来放入http body
+//    NSMutableData *myRequestData;
+//    //将body字符串转化为UTF8格式的二进制
+//    myRequestData=[NSMutableData data];
+//
+//
+//    //上传文件
+//    [body appendFormat:@"%@\r\n",MPboundary];
+//    [body appendFormat:@"Content-Disposition: form-data; name=\"uploadFile\"; filename=\"%@\"\r\n",@"temp.png"];
+//    [body appendFormat:@"Content-Type: image/png\r\n\r\n"];
+//    [myRequestData appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
+//
+//    [myRequestData appendData:imageData];
+//
+//    //声明结束符：--AaB03x--
+//    NSString *end=[[NSString alloc]initWithFormat:@"\r\n%@",endMPboundary];
+//    //加入结束符--AaB03x--
+//    [myRequestData appendData:[end dataUsingEncoding:NSUTF8StringEncoding]];
+//
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString:url]];
+//    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+//    //    [request setTimeoutInterval:[DataStore getHttpTimeout]];
+//    [request setHTTPMethod:@"POST"];
+//    //设置HTTPHeader中Content-Type的值
+//    NSString *cttype=[[NSString alloc]initWithFormat:@"multipart/form-data; boundary=%@",TWITTERFON_FORM_BOUNDARY];
+//    //设置HTTPHeader
+//    [request setValue:cttype forHTTPHeaderField:@"Content-Type"];
+//    //设置Content-Length
+//    [request setValue:[NSString stringWithFormat:@"%ld", [myRequestData length]] forHTTPHeaderField:@"Content-Length"];
+//    [request setHTTPBody:myRequestData];
+//
+//    NSURLSession * session = [NSURLSession sharedSession];
+//    //创建任务
+//    NSURLSessionDataTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        NSLog(@"----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//        NSLog(@"response==%@",response);
+//    }];
+//    //开启网络任务
+//    [task resume];
+//
+//}
 
 
 //创建团队

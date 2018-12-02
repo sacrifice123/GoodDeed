@@ -19,6 +19,7 @@
 
 - (IBAction)settingEvent:(id)sender
 {
+    
     if (self.clickEvent) {
         self.clickEvent();
     }

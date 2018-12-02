@@ -49,6 +49,13 @@
 
 - (void)createChoosePage
 {
+    if(self.configPages){
+        for (UIViewController *obj in self.configPages) {
+            if([obj isKindOfClass:[GDChooseQuestionTypeViewController class]]){
+                return;
+            }
+        }
+    }
     // 选题类型
     GDChooseQuestionTypeViewController *chooseTypeVC = [[GDChooseQuestionTypeViewController alloc] init];
     [self addPage:chooseTypeVC];

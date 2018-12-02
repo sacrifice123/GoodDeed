@@ -33,12 +33,16 @@
     //开了支持滑动返回
     self.webView.allowsBackForwardNavigationGestures = YES;
     [self.view addSubview:self.webView];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (self.navigationController) {
         self.navigationController.navigationBarHidden = NO;
+    }
+    if(self.taskData){
+        [[NSNotificationCenter defaultCenter] postNotificationName:GDAnswerFinishNoti object:nil userInfo:self.taskData];
     }
 
 }
@@ -59,24 +63,29 @@
     [_progressLayer startLoad];
 
 }
+    
 // 当内容开始返回时调用
 - (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{
     
 }
+    
 // 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{//这里修改导航栏的标题，动态改变
     self.title = webView.title;
     [_progressLayer finishedLoad];
 }
+    
 // 页面加载失败时调用
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation{
     [_progressLayer finishedLoad];
 
 }
+    
 // 接收到服务器跳转请求之后再执行
 - (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)navigation{
     
 }
+    
 // 在收到响应后，决定是否跳转
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler{
     

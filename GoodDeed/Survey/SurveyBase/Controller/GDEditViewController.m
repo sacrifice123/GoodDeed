@@ -56,16 +56,20 @@
 #pragma mark - Action
 - (void)saveAction
 {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:picker animated:YES completion:^{ }];
-    
+//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//    [self presentViewController:picker animated:YES completion:^{ }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)nextAction
 {
     
     __weak typeof(self) weak_self = self;
     NSInteger index = self.scrollView.contentOffset.x / CGRectGetWidth(self.scrollView.frame);
+    if(index<self.manager.pages.count-1){
+        [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH*(index+1), 0) animated:YES];
+        return;
+    }
     if (index < self.manager.pages.count) {
         UIViewController <GDSurveyPageProtocol>*page = (UIViewController <GDSurveyPageProtocol>*)[self.manager.pages objectAtIndex:index];
         if ([page conformsToProtocol:@protocol(GDSurveyPageProtocol)]) {
@@ -161,11 +165,11 @@
     if (!_bottomView) {
         _bottomView = [GDEditBottomView editBottomView];
         __weak typeof(self) weak_self = self;
-        _bottomView.saveEvent = ^{
+        _bottomView.saveEvent = ^{//保存到草稿
             [weak_self saveAction];
         };
         
-        _bottomView.nextEvent = ^{
+        _bottomView.nextEvent = ^{//下一步
             [weak_self nextAction];
         };
         

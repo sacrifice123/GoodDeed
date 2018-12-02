@@ -102,6 +102,7 @@
                 <outlet property="button" destination="xP5-jR-JVn" id="pcH-iH-sd9"/>
                 <outlet property="contentLabel" destination="gho-Zb-VxH" id="YE1-IY-gzb"/>
                 <outlet property="headBgImgView" destination="CTB-5L-aK5" id="OZK-qk-5Wu"/>
+                <outlet property="moreButton" destination="04U-8C-Q8r" id="dbm-lG-2n6"/>
                 <outlet property="organImgView" destination="y7G-uN-H65" id="ckz-QX-Kn6"/>
                 <outlet property="titleLabel" destination="qqf-oa-Ghu" id="4YQ-vC-k8h"/>
             </connections>

@@ -25,6 +25,7 @@
 #import "GDStackRankEditTableViewCell.h"
 #import "GDStackRankAddOptionTableViewCell.h"
 
+#import "GDQuestionSetController.h"
 
 @interface GDEditTableViewController () <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, LZImageCroppingDelegate>
 
@@ -192,8 +193,21 @@
     
     UIView *footerContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 90)];
     self.tableView.tableFooterView = footerContainer;
+    
+    __weak typeof(self) weakSelf = self;
     GDEditBottomSettingView *footer = [GDEditBottomSettingView editBottomSettingViewWithClickEvent:^{
-        
+        GDQuestionSetController *setVc = [[GDQuestionSetController alloc] init];
+        setVc.providesPresentationContextTransitionStyle = YES;
+        setVc.definesPresentationContext = YES;
+        if ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0) {
+            setVc.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+        }else{
+            setVc.modalPresentationStyle=UIModalPresentationCurrentContext;
+        }//
+
+        setVc.view.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.8];
+        [weakSelf presentViewController:setVc animated:YES completion:nil];
+
     }];
     [footerContainer addSubview:footer];
     [footer mas_makeConstraints:^(MASConstraintMaker *make) {

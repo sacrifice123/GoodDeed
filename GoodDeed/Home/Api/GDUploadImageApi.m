@@ -26,10 +26,10 @@
     return YTKRequestMethodPost;
 }
 
-//- (YTKRequestSerializerType)requestSerializerType{
-//
-//    return YTKRequestSerializerTypeJSON;
-//}
+- (YTKRequestSerializerType)requestSerializerType{
+
+    return YTKRequestSerializerTypeHTTP;
+}
 
 - (NSString *)requestUrl {
     
