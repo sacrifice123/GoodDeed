@@ -23,6 +23,7 @@
 #import "GDSurveyTaskModel.h"
 #import "GDFindSurveyApi.h"
 #import "GDWriteSurveyApi.h"
+#import "GDClickCardButtonApi.h"
 
 @implementation GDHomeManager
 
@@ -142,60 +143,24 @@ static CGFloat const GDSpringFactor = 10;
 }
 
 //上传图片
-+ (void)uploadImage3:(UIImage *)image {
++ (void)uploadImage:(UIImage *)image {
 
     GDUploadImageApi *api = [[GDUploadImageApi alloc] initWithImage:image];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
 
-
-    } failure:^(YTKBaseRequest *request) {
+     [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
         
+    } failure:^(YTKBaseRequest *request) {
         
         [GDWindow showWithString:@"网络异常"];
     }];
 }
-+ (void)uploadImage:(UIImage *)image{///传图片
-        NSLog(@"上传。。。。");
-        //self.imageView.image=[UIImage imageNamed:@"icon.jpg"];
-        if (image == nil) return;
-        
-        // 1.创建一个管理者
-        AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-       mgr.requestSerializer = [AFHTTPRequestSerializer serializer];
-        // 2.封装参数(这个字典只能放非文件参数)
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        params[@"username"] = @"zhangtao";
-        //    params[@"age"] = @20;
-        //params[@"pwd"] = @"123";
-        //    params[@"height"] = @1.55;
-        
-        // 2.发送一个请求//@"http://115.28.55.133:8000/getall"
-        NSMutableString *url = [[NSMutableString alloc] init];
-        [url appendString:[NSString stringWithFormat:@"%@%@",GDBaseUrl,@"/image/uploadImage"]];
-
-        [mgr POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            NSData *fileData = UIImageJPEGRepresentation(image, 1.0);
-            // NSLog(@"%@",fileData);
-            [formData appendPartWithFileData:fileData name:@"uploadFile" fileName:@"icon.png" mimeType:@"image/png"];
-            
-            // 不是用这个方法来设置文件参数
-            //        [formData appendPartWithFormData:fileData name:@"file"];
-        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"上传成功1");
-            
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"上传失败1");
-            
-        }];
-        
-        // 文件下载，文件比较大，断点续传技术：普遍所有的HTTP服务器都支持
-        // 文件上传，文件比较大，断点续传技术：一般的HTTP服务器都不支持，常用的技术用的是Socket（TCP\IP、UDP）
-    }
-//+ (void)uploadImage:(UIImage *)image{
+//-(void)uploadImage22:(UIImage *)image{
 //
+//    //请求地址
 //    NSMutableString *url = [[NSMutableString alloc] init];
-//    [url appendString:[NSString stringWithFormat:@"%@%@",GDBaseUrl,@"/image/uploadImage"]];
+//    [url appendString:GDBaseUrl];
+//    [url appendString:@"/image/uploadImage"];
 //
 //    NSString *TWITTERFON_FORM_BOUNDARY = @"AaB03x";
 //    //分界线 --AaB03x
@@ -208,21 +173,19 @@ static CGFloat const GDSpringFactor = 10;
 //
 //    [body appendFormat:@"%@\r\n",MPboundary];
 //
-//    //请求参数
-//    [body appendFormat:@"Content-Disposition: form-data;name=\"%@\"\r\n\r\n",@"token"];
+//    　　//请求参数
+//   // [body appendFormat:@"Content-Disposition: form-data;name=\"%@\"\r\n\r\n",@"token"];
 //
-//    //参数值
-//    [body appendFormat:@"%@\r\n", @""];
+//    　　//参数值
+//    //[body appendFormat:@"%@\r\n", [UtilTool getToken]];
 //
-//   // NSData *imageData = UIImagePNGRepresentation([UtilTool changeImg:image max:1136]);
-//    NSData *imageData = UIImageJPEGRepresentation(image, 0.1);
+//    NSData *imageData = UIImagePNGRepresentation(image);
 //    //声明myRequestData，用来放入http body
 //    NSMutableData *myRequestData;
 //    //将body字符串转化为UTF8格式的二进制
 //    myRequestData=[NSMutableData data];
 //
 //
-//    //上传文件
 //    [body appendFormat:@"%@\r\n",MPboundary];
 //    [body appendFormat:@"Content-Disposition: form-data; name=\"uploadFile\"; filename=\"%@\"\r\n",@"temp.png"];
 //    [body appendFormat:@"Content-Type: image/png\r\n\r\n"];
@@ -246,18 +209,8 @@ static CGFloat const GDSpringFactor = 10;
 //    //设置Content-Length
 //    [request setValue:[NSString stringWithFormat:@"%ld", [myRequestData length]] forHTTPHeaderField:@"Content-Length"];
 //    [request setHTTPBody:myRequestData];
-//
-//    NSURLSession * session = [NSURLSession sharedSession];
-//    //创建任务
-//    NSURLSessionDataTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//        NSLog(@"----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-//        NSLog(@"response==%@",response);
-//    }];
-//    //开启网络任务
-//    [task resume];
-//
+//    [NSURLConnection sendSynchronousRequest:request returningResponse:nil error: nil];
 //}
-
 
 //创建团队
 + (void)createGroupWithHeadUrl:(NSString *)url uidName:(NSString *)uidName name:(NSString *)name completionBlock:(void(^)(GDGroupListModel *))block{
@@ -298,34 +251,6 @@ static CGFloat const GDSpringFactor = 10;
     }];
 }
 
-//+ (void)uploadImage:(UIImage *)image {
-//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    manager.requestSerializer.timeoutInterval = 20;
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", @"text/html", @"text/json", nil];
-//    NSString *urlStr = [NSString stringWithFormat:@"%@/%@", GDBaseUrl , @"/image/uploadImage"];
-//    NSDictionary *dic = @{@"id":@"0"};
-//    //根据当前系统时间生成图片名称
-//    [manager POST:urlStr parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-//
-//        NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
-//        float size = imageData.length/1024.0/1024.0;
-//        if (size>=1) {
-//            imageData = UIImageJPEGRepresentation(image, 0.3);
-//        }else{
-//            imageData = UIImageJPEGRepresentation(image, 0.5);
-//        }
-//
-//        [formData appendPartWithFileData:imageData name:@"image" fileName:@"image" mimeType:@"image/jpeg"];
-//
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-//
-//        NSLog(@"上传成功");
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//
-//        NSLog(@"上传失败");
-//    }];
-//
-//}
 
 //更换头像
 + (void)changeHeadImage:(NSString *)url{
@@ -468,8 +393,22 @@ static CGFloat const GDSpringFactor = 10;
                 NSArray *data = [jsonData objectForKey:@"data"];
                 if (data&&[data isKindOfClass:[NSArray class]]) {
                     for (NSDictionary *obj in data) {
-                        GDSurveyTaskModel *model = [GDSurveyTaskModel yy_modelWithDictionary:obj];
-                        [array addObject:model];
+                        
+                        GDHomeModel *homeModel = [[GDHomeModel alloc] init];
+                        homeModel.isHasSurvery = YES;
+                        if ([[obj objectForKey:@"card"] boolValue]) {//card
+                            NSDictionary *dic = [obj objectForKey:@"cardRespVo"];
+                            GDCardModel *model = [GDCardModel yy_modelWithDictionary:dic];
+                            homeModel.cardModel = model;
+                            homeModel.type = GDHomeCardType;
+                            homeModel.cardModel.isHome = YES;
+                        }else{
+                            NSDictionary *dic = [obj objectForKey:@"taskRespVo"];
+                            GDSurveyTaskModel *model = [GDSurveyTaskModel yy_modelWithDictionary:dic];
+                            homeModel.taskModel = model;
+                            homeModel.type = GDHomeSuveryStatusType;
+                        }
+                        [array addObject:homeModel];
 
                     }
                     block(array);
@@ -562,48 +501,53 @@ static CGFloat const GDSpringFactor = 10;
 }
 
 
-//只会有card
+//最多只会有一个card
 + (void)getSurveyOptionCardWithCompletionBlock:(void(^)(GDCardModel *))block{
     NSMutableArray *surveyList = [GDLunchManager sharedManager].suveryList;
     NSMutableArray *array = [NSMutableArray new];
-    dispatch_queue_t queue = dispatch_get_main_queue();
-    dispatch_group_t group =dispatch_group_create();
-
+    NSMutableArray *writeList = [GDLunchManager sharedManager].writeReqVoList;
+  
     for (GDFirstQuestionListModel*obj in surveyList) {
         NSArray *optionList = obj.firstOptionList;
         for (GDOptionModel *model in optionList) {
-            if (model.cardId) {
-                #warning 测试用
-                if (obj == surveyList.firstObject&&model == optionList.firstObject) {
-                    model.cardId = @"1";
-                }
-                dispatch_group_enter(group);
-                dispatch_group_async(group, queue, ^{
+            
+            for (GDQuestionWriteModel *writeModel in writeList) {
+                if ([model.optionId isEqualToString:writeModel.optionId]&&model.cardId&&![model.cardId isEqualToString:@"0"]) {
+                    [array addObject:model.cardId];
                     
-                    [self getCardById:model.cardId completionBlock:^(GDCardModel *cardModel) {
-                        if (cardModel) {
-                            [array addObject:cardModel];
+                }
 
-                        }
-                        dispatch_group_leave(group);
-                    }];
-
-                });
-
-           
             }
      
         }
    
     }
+    if (array.count>0) {//有card
+        [self getCardById:array.firstObject completionBlock:^(GDCardModel *cardModel) {
+            block(cardModel);
+        }];
+        
+    }else{//选项里没有card
+       block(nil);
+    }
+
+}
+
+//点击完成问卷后的cardButton
++ (void)cardButtonClick:(NSString *)taskId completionBlock:(void(^)(GDSurveyTaskModel *))block{
     
-    dispatch_group_notify(group, queue, ^{
-        
-        if (array.count>0) {
-            block(array.firstObject);
+    GDClickCardButtonApi *api = [[GDClickCardButtonApi alloc] initWithTaskId:taskId];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        NSDictionary *data = request.responseJSONObject;
+        if ([[data objectForKey:@"code"] integerValue] == 200) {
+            GDSurveyTaskModel *model = [GDSurveyTaskModel yy_modelWithDictionary:[data objectForKey:@"data"]];
+            block(model);
+        }else{
+            [GDWindow showWithString:[data objectForKey:@"message"]];
         }
-        
-    });
+    } failure:^(YTKBaseRequest *request) {
+        [GDWindow showWithString:@"网络异常"];
+    }];
 
 }
 

@@ -35,6 +35,34 @@
     return self;
 }
 
+
+//- (void)addNoti{
+//
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(keyboardWillShow:)
+//                                                 name:UIKeyboardWillShowNotification
+//                                               object:nil];
+//
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(keyboardWillHide:)
+//                                                 name:UIKeyboardWillHideNotification
+//                                               object:nil];
+//
+//}
+//
+//- (void)keyboardWillShow:(NSNotification *)notification {
+//
+//
+//
+//}
+//
+//- (void)keyboardWillHide:(NSNotification *)notification {
+//
+//
+//
+//}
+
+
 - (void)initializeDataSourceWithType:(GDSurveyEditType)type
 {
     switch (type) {
@@ -89,7 +117,7 @@
     return nil;
 }
 
-// 增加选项
+// 增加新选项
 - (void)addOption
 {
     switch (self.type) {
@@ -181,14 +209,18 @@
     GDEditTextViewModel *option = [GDEditTextViewModel chooseOneViewModelWithSortIndex:(lastOption.sortIndex + 1) deleteEnabel:YES] ;
     [self.dataSource insertObject:option atIndex:[self.dataSource indexOfObject:[self.dataSource lastObject]]];
     
-    [self updateDeleteEnabelOfItems:(self.dataSource.count - 2 > 2)];
+    //[self updateDeleteEnabelOfItems:(self.dataSource.count - 2 > 2)];
+
+    [self updateDeleteEnabelOfItems:NO addOption:option];
+    
 }
 
 - (void)chooseOneListRemoveOption:(GDEditBaseViewModel *)option
 {
     if ([self.dataSource containsObject:option]) {
         [self.dataSource removeObject:option];
-        [self updateDeleteEnabelOfItems:(self.dataSource.count - 2 > 2)];
+        //[self updateDeleteEnabelOfItems:(self.dataSource.count - 2 > 2)];
+        [self updateDeleteEnabelOfItems:NO];
     }
 }
 
@@ -217,14 +249,17 @@
 
     [self.dataSource insertObject:option atIndex:[self.dataSource indexOfObject:[self.dataSource lastObject]]];
     
-    [self updateDeleteEnabelOfItems:(self.dataSource.count - 2 > 2)];
+    //[self updateDeleteEnabelOfItems:(self.dataSource.count - 2 > 2)];
+    [self updateDeleteEnabelOfItems:NO addOption:option];
 }
 
 - (void)chooseMultipleListRemoveOption:(GDEditBaseViewModel *)option
 {
     if ([self.dataSource containsObject:option]) {
         [self.dataSource removeObject:option];
-        [self updateDeleteEnabelOfItems:(self.dataSource.count - 2 > 2)];
+       // [self updateDeleteEnabelOfItems:(self.dataSource.count - 2 > 2)];
+        [self updateDeleteEnabelOfItems:NO];
+        
     }
 }
 
@@ -294,7 +329,8 @@
     GDEditTextViewModel *answer = [GDEditTextViewModel stackRangeViewModel:3 deleteEnabel:YES] ;
     [self.dataSource insertObject:answer atIndex:(self.dataSource.count - 1)];
 
-    [self updateDeleteEnabelOfItems:(addIndexModel.index > 3)];
+    //[self updateDeleteEnabelOfItems:(addIndexModel.index > 3)];
+    [self updateDeleteEnabelOfItems:NO addOption:addIndexModel];
 }
 
 - (void)stackRankListRemoveOption:(GDEditBaseViewModel *)model
@@ -306,7 +342,8 @@
         GDEditRankIndexViewModel *lastRankModel = [self.dataSource objectAtIndex:(index - 1)];
         [self.dataSource removeObject:lastRankModel];
         
-        [self updateDeleteEnabelOfItems:((lastRankModel.index  - 1)> 3)];
+        //[self updateDeleteEnabelOfItems:((lastRankModel.index  - 1)> 3)];
+        [self updateDeleteEnabelOfItems:NO];
     }
 }
 
@@ -357,6 +394,13 @@
     }
 }
 
+- (void)updateDeleteEnabelOfItems:(BOOL)deleteEnabel addOption:(GDEditBaseViewModel *)item{
+    [self updateDeleteEnabelOfItems:deleteEnabel];
+    if (item) {
+        item.deleteEnabel = YES;
+    }
+    
+}
 
 - (NSMutableArray *)dataSource
 {

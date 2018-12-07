@@ -64,14 +64,21 @@
 //2.如果是回答问卷里推送的card，点击跳转外链
 - (IBAction)switchToCause:(id)sender {
     
-    if (self.model.isHome) {//点击完成问卷
+    if (self.model.isHome) {//点击完成问卷生成的首页card
         WkwebViewController *webVc = [[WkwebViewController alloc] init];
         webVc.url = self.model.buttonHref;
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
         if (self.taskModel) {
             [dic setObject:self.taskModel forKey:@"task"];
         }
-        webVc.taskData = dic;
+        if (self.model.surveyId) {
+            [GDHomeManager cardButtonClick:self.model.taskId completionBlock:^(GDSurveyTaskModel *model) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:GDAnswerFinishNoti object:nil userInfo:dic];
+                
+            }];
+
+        }
+        
         UIViewController *vc = [GDHelper getSuperVc:self];
         [vc.navigationController pushViewController:webVc animated:YES];
 

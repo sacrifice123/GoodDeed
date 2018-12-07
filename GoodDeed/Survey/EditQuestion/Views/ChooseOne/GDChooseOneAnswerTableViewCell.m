@@ -121,7 +121,7 @@
     }
     return _textView;
 }
-
+ 
 - (UIButton *)deleteButton
 {
     if (!_deleteButton) {
@@ -131,6 +131,12 @@
         _deleteButton.hidden = YES;
     }
     return _deleteButton;
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    self.deleteButton.hidden = !selected;
+    
 }
 
 @end

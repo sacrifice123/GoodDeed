@@ -24,7 +24,7 @@
 
 - (NSString *)requestUrl{
     
-    return @"/survey/findMyTask";
+    return @"/survey/findMyTaskOrCard";
 }
 
 - (YTKRequestMethod)requestMethod {

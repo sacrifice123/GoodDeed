@@ -17,5 +17,5 @@
 @interface GDEditTableViewController : GDEditListViewController
 
 - (instancetype)initWithPageModel:(GDEditPageModel *)pageModel;
-
+- (void)updateDeleteEnableWith:(UITextView *)textView;
 @end

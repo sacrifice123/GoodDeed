@@ -28,4 +28,5 @@ typedef NS_ENUM(NSInteger, GDSurveyType) {
 @property (nonatomic,copy) NSString *questionId;
 @property (nonatomic,assign) GDSurveyType type;
 
+//@property (nonatomic,copy) NSString *cardId;//新增
 @end

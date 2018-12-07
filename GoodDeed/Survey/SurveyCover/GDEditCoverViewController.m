@@ -74,7 +74,11 @@
 // 问卷内容
 - (id)surveyContent
 {
-    return @"封面数据";
+    NSString *image = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1543402593910&di=31e7246c9129590d772b1164b9537c5a&imgtype=0&src=http%3A%2F%2Fimg.mp.sohu.com%2Fupload%2F20170812%2F9d2c06b4343a45dda867eaab9ae9e13f_th.png";
+    NSMutableDictionary *data = [NSMutableDictionary dictionary];
+    [data setObject:image forKey:@"image"];
+    [data setObject:self.coverTitle forKey:@"title"];
+    return data;
 }
 
 

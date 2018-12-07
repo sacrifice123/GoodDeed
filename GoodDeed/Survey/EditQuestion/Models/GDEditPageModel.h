@@ -39,5 +39,5 @@
 - (void)updateIncludeImage:(UIImage *)image;
 
 //+ (NSDictionary *)
-
+- (void)updateDeleteEnabelOfItems:(BOOL)deleteEnabel addOption:(GDEditBaseViewModel *)item;
 @end

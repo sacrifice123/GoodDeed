@@ -68,7 +68,7 @@
         _textView.font = [UIFont systemFontOfSize:20];
         _textView.textColor = [UIColor colorWithHex:0x999999];
         _textView.textAlignment = NSTextAlignmentCenter;
-        _textView.backgroundColor = [UIColor purpleColor];
+        _textView.backgroundColor = [UIColor whiteColor];
         _textView.placeholer = @"点击此处\n准确编辑你的提问";
         _textView.standardHeight = 64.f;
     }

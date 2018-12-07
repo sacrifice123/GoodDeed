@@ -26,8 +26,11 @@
 #import "GDStackRankAddOptionTableViewCell.h"
 
 #import "GDQuestionSetController.h"
+#import "GDQuestionSetView.h"
+#import "GDFinishSurveyView.h"
+#import "GDSurveyPageProtocol.h"
 
-@interface GDEditTableViewController () <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, LZImageCroppingDelegate>
+@interface GDEditTableViewController () <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, LZImageCroppingDelegate,GDSurveyPageProtocol>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) GDEditPageModel *pageModel;
@@ -45,6 +48,95 @@
     
     return self;
     
+}
+
+- (id)surveyContent{
+    
+    return self.pageModel;
+}
+
+- (GDSurveyEditType)surveyType{
+    
+    return GDSurveyTypeEditChooseType;
+}
+
+//下一步
+- (void)nextStep:(GDSurveyNextStepEvent)nextStep{
+    
+    NSArray *array = self.tableView.visibleCells;
+    for (UITableViewCell *cell in array) {//判断需要吊起键盘的textView
+        for (GDTextView *obj in cell.contentView.subviews) {
+            if ([obj isKindOfClass:[UITextView class]]||
+                [obj isKindOfClass:[UITextField class]]) {
+                if ([obj canBecomeFirstResponder]&&(!obj.gdText||obj.gdText.length==0)) {
+                    [obj becomeFirstResponder];
+                    return;
+                }
+            }
+        }
+    }
+    GDFinishSurveyView *view = [[GDFinishSurveyView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    view.clickBlock = ^(NSInteger tag) {
+        if (tag == 0) {//send
+            
+            
+        }else{//add
+            if (nextStep) {
+                nextStep(self);
+            }
+        }
+    };
+    [GDWindow addSubview:view];
+    [view show];
+    
+}
+
+- (BOOL)isCanUpdate{
+    
+    BOOL isCanUpdate = NO;
+    switch (self.pageModel.type) {
+        case GDSurveyTypeChooseOne:
+            isCanUpdate = (self.pageModel.numberOfItems>4);
+            break;
+        case GDSurveyTypeChooseMultiple:
+            isCanUpdate = (self.pageModel.numberOfItems>4);
+            break;
+        case GDSurveyTypeBoundedRange:
+            isCanUpdate = (self.pageModel.numberOfItems>5);
+            break;
+        case GDSurveyTypeStackRank:
+            isCanUpdate = (self.pageModel.numberOfItems>4);
+            break;
+        case GDSurveyTypeImageVote:
+            isCanUpdate = (self.pageModel.numberOfItems>4);
+            break;
+            
+        default:
+            break;
+    }
+    return isCanUpdate;
+}
+
+//点击textView刷新删除图标状态
+- (void)updateDeleteEnableWith:(UITextView *)textView{
+
+    if ([self isCanUpdate]) {
+        if (textView) {
+            UITableViewCell *cell = (UITableViewCell *)[GDHelper getTargetView:[UITableViewCell class] view:textView];
+            for (UITableViewCell *obj in self.tableView.visibleCells) {
+                obj.selected = NO;
+            }
+            cell.selected = YES;
+            
+        }else{
+            for (UITableViewCell *obj in self.tableView.visibleCells) {
+                obj.selected = NO;
+            }
+            
+        }
+
+    }
+
 }
 
 - (void)viewDidLoad {
@@ -71,7 +163,7 @@
     UITableViewCell *cell;
     GDEditBaseViewModel *item = [self.pageModel itemAtIndex:indexPath.section];
     cell = [tableView dequeueReusableCellWithIdentifier:item.kCellReuseId];
-    
+   // cell.userInteractionEnabled = ([item isKindOfClass:[GDEditToolViewModel class]]);
     if ([cell conformsToProtocol:@protocol(GDEditTextTypeCellProtocol)]) {
         UITableViewCell <GDEditTextTypeCellProtocol> *textCell = (UITableViewCell <GDEditTextTypeCellProtocol> *)cell;
         textCell.viewModel = item;
@@ -96,11 +188,39 @@
     GDEditBaseViewModel *item = [self.pageModel itemAtIndex:indexPath.section];
     if ([item isKindOfClass:[GDEditToolViewModel class]]) {
         if (item.type == GDSurveyTypeChooseOne
-            || item.type == GDSurveyTypeChooseMultiple) {
-            [self.pageModel addOption];
+            || item.type == GDSurveyTypeChooseMultiple
+            || item.type == GDSurveyTypeStackRank) {
+            [self.pageModel addOption];//添加新选项
             [self.tableView reloadData];
         }
+    }else{
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.selected = NO;
+        [self.view endEditing:YES];
     }
+    
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    for (UIView *obj in cell.contentView.subviews) {
+//        if ([obj isKindOfClass:[GDTextView class]]&&[obj canBecomeFirstResponder]) {
+//            [obj becomeFirstResponder];
+//        }
+//    }
+
+//    else if([self isCanUpdate]){
+//        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//        for (UITableViewCell *obj in self.tableView.visibleCells) {
+//            obj.selected = NO;
+//        }
+//        cell.selected = YES;
+//
+//        if (cell.selected) {
+//            for (UIView *obj in cell.contentView.subviews) {
+//                if ([obj isKindOfClass:[GDTextView class]]&&[obj canBecomeFirstResponder]) {
+//                    [obj becomeFirstResponder];
+//                }
+//            }
+//        }
+//    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -196,17 +316,23 @@
     
     __weak typeof(self) weakSelf = self;
     GDEditBottomSettingView *footer = [GDEditBottomSettingView editBottomSettingViewWithClickEvent:^{
-        GDQuestionSetController *setVc = [[GDQuestionSetController alloc] init];
-        setVc.providesPresentationContextTransitionStyle = YES;
-        setVc.definesPresentationContext = YES;
-        if ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0) {
-            setVc.modalPresentationStyle=UIModalPresentationOverCurrentContext;
-        }else{
-            setVc.modalPresentationStyle=UIModalPresentationCurrentContext;
-        }//
+//        GDQuestionSetController *setVc = [[GDQuestionSetController alloc] init];
+//        setVc.providesPresentationContextTransitionStyle = YES;
+//        setVc.definesPresentationContext = YES;
+//        if ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0) {
+//            setVc.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+//        }else{
+//            setVc.modalPresentationStyle=UIModalPresentationCurrentContext;
+//        }//
+//
+//        setVc.view.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.8];
+//        [weakSelf presentViewController:setVc animated:YES completion:nil];
 
-        setVc.view.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.8];
-        [weakSelf presentViewController:setVc animated:YES completion:nil];
+        UIView *bottomView = [weakSelf.parentViewController.view viewWithTag:100];
+        GDQuestionSetView *view = [[GDQuestionSetView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        [weakSelf.parentViewController.view insertSubview:view belowSubview:bottomView];
+       // [weakSelf.parentViewController.view addSubview:view];
+        [view show];
 
     }];
     [footerContainer addSubview:footer];

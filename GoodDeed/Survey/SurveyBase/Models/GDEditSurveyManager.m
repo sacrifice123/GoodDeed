@@ -52,7 +52,13 @@
     if(self.configPages){
         for (UIViewController *obj in self.configPages) {
             if([obj isKindOfClass:[GDChooseQuestionTypeViewController class]]){
-                return;
+                if (obj == self.configPages.lastObject) {
+                    return;
+                }else{
+                    [self.configPages removeObject:obj];
+                    break;
+
+                }
             }
         }
     }

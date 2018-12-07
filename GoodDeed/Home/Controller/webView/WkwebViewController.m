@@ -34,15 +34,13 @@
     self.webView.allowsBackForwardNavigationGestures = YES;
     [self.view addSubview:self.webView];
 
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (self.navigationController) {
         self.navigationController.navigationBarHidden = NO;
-    }
-    if(self.taskData){
-        [[NSNotificationCenter defaultCenter] postNotificationName:GDAnswerFinishNoti object:nil userInfo:self.taskData];
     }
 
 }

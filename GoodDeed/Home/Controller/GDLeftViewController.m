@@ -274,11 +274,87 @@
     // 从info中将图片取出，并加载到imageView当中
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
     [GDHomeManager uploadImage:image];
+    //[self upload:image];
     if (self.headerView.imageBlock) {
         self.headerView.imageBlock(image);
     }
 }
 
+- (void)upload:(UIImage *)image{
+    
+    //请求地址
+    NSMutableString *url = [[NSMutableString alloc] init];
+    [url appendString:GDBaseUrl];
+    [url appendString:@"/image/uploadImage"];
+    
+    NSString *TWITTERFON_FORM_BOUNDARY = @"AaB03x";
+//    //分界线 --AaB03x
+//    NSString *MPboundary=[[NSString alloc]initWithFormat:@"--%@",TWITTERFON_FORM_BOUNDARY];
+//    //结束符 AaB03x--
+//    NSString *endMPboundary=[[NSString alloc]initWithFormat:@"%@--",MPboundary];
+//
+    NSMutableString *body = [[NSMutableString alloc] init];
+    
+    
+    //[body appendFormat:@"%@\r\n",MPboundary];
+    
+    　　//请求参数
+    // [body appendFormat:@"Content-Disposition: form-data;name=\"%@\"\r\n\r\n",@"token"];
+    
+    　　//参数值
+    //[body appendFormat:@"%@\r\n", [UtilTool getToken]];
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    //声明myRequestData，用来放入http body
+    NSMutableData *myRequestData;
+    //将body字符串转化为UTF8格式的二进制
+    myRequestData=[NSMutableData data];
+    
+    
+   // [body appendFormat:@"%@\r\n",MPboundary];
+    [body appendFormat:@"Content-Disposition: form-data; name=\"uploadFile\"; filename=\"%@\"\r\n",@"temp.png"];
+    [body appendFormat:@"Content-Type: image/png\r\n\r\n"];
+    [myRequestData appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [myRequestData appendData:imageData];
+    
+//    //声明结束符：--AaB03x--
+//    NSString *end=[[NSString alloc]initWithFormat:@"\r\n%@",endMPboundary];
+//    //加入结束符--AaB03x--
+//    [myRequestData appendData:[end dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString:url]];
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    //    [request setTimeoutInterval:[DataStore getHttpTimeout]];
+    [request setHTTPMethod:@"POST"];
+    //设置HTTPHeader中Content-Type的值
+    NSString *cttype=[[NSString alloc]initWithFormat:@"multipart/form-data; boundary=%@",TWITTERFON_FORM_BOUNDARY];    //设置HTTPHeader
+    [request setValue:cttype forHTTPHeaderField:@"Content-Type"];
+    //设置Content-Length
+    [request setValue:[NSString stringWithFormat:@"%ld", [myRequestData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody:myRequestData];
+    NSOperationQueue *queue=[NSOperationQueue mainQueue];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response,NSData *data, NSError *connectionError){
+    NSLog(@"response = %@",response);
+    NSLog(@"data = %@",data);
+    NSString *urlString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"urlString = %@",urlString);
+        
+    UIImage *image1 = [UIImage imageWithData:data];
+    NSLog(@"image = %@",image1);
+        
+        
+        
+        
+}];
+
+//        NSLog(@"response = %@",response);
+//        NSLog(@"data = %@",data);
+//        NSLog(@"error = %@",connectionError);
+//    }];
+   
+
+}
 // 取消选取调用的方法
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:nil];

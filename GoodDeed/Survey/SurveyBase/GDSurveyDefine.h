@@ -13,6 +13,7 @@
 typedef NS_ENUM(NSInteger, GDSurveyEditType) {
     GDSurveyTypeCoverInfo,       // 封面信息
     GDSurveyTypeChooseType,      // 选择类型
+    GDSurveyTypeEditChooseType,  // 编辑选择类型
     GDSurveyTypeChooseOne,       // 单选
     GDSurveyTypeChooseMultiple,  // 多选
     GDSurveyTypeSlidingScale,    // 滑动

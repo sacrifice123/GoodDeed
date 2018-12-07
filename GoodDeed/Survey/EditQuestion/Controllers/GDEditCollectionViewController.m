@@ -12,11 +12,11 @@
 #import "GDEditQuestionCollectionViewCell.h"
 #import "GDImageVoteAnswerCollectionViewCell.h"
 #import "GDImageVoteAddOptionCollectionViewCell.h"
-
+#import "GDSurveyPageProtocol.h"
 static CGFloat Margin = 24.f;
 static CGFloat Space = 24.f;
 
-@interface GDEditCollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, UIImagePickerControllerDelegate, LZImageCroppingDelegate>
+@interface GDEditCollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, UIImagePickerControllerDelegate, LZImageCroppingDelegate,GDSurveyPageProtocol>
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) GDEditPageModel *pageModel;

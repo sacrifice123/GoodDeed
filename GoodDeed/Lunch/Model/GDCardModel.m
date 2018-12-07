@@ -10,4 +10,11 @@
 
 @implementation GDCardModel
 
++ (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper{
+    
+    return @{
+             @"taskId":@"id"
+             };
+}
+
 @end

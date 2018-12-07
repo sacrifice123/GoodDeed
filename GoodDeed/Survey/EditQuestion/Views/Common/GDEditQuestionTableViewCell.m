@@ -100,12 +100,17 @@
         _textView.font = [UIFont systemFontOfSize:20];
         _textView.textColor = [UIColor colorWithHex:0x999999];
         _textView.textAlignment = NSTextAlignmentCenter;
-        _textView.backgroundColor = [UIColor purpleColor];
+        _textView.backgroundColor = [UIColor whiteColor];
         _textView.standardHeight = 64.f;
     }
     return _textView;
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state
+}
 
 
 @end

@@ -129,7 +129,7 @@
         _textView.textColor = [UIColor colorWithHex:0x999999];
         _textView.textAlignment = NSTextAlignmentLeft;
         _textView.standardHeight = 36.f;
-        _textView.backgroundColor = [UIColor greenColor];
+        //_textView.backgroundColor = [UIColor greenColor];
     }
     return _textView;
 }
@@ -145,6 +145,11 @@
     return _deleteButton;
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    self.deleteButton.hidden = !selected;
+    
+}
 
 
 @end

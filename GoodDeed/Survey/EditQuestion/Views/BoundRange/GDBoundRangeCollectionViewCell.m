@@ -110,5 +110,10 @@
     return _deleteButton;
 }
 
+- (void)setSelected:(BOOL)selected{
+    [super setSelected:selected];
+    
+    self.deleteButton.hidden = !selected;
+}
 
 @end

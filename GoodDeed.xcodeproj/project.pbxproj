@@ -251,10 +251,13 @@
 		E6C55C2A20CA7EBC0034A65A /* GDBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C55C2920CA7EBC0034A65A /* GDBaseCell.m */; };
 		E6C55C2E20CA85970034A65A /* GDPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C55C2C20CA85970034A65A /* GDPreviewViewController.m */; };
 		E6C55C2F20CA85970034A65A /* GDPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C55C2D20CA85970034A65A /* GDPreviewViewController.xib */; };
+		E6C5686B21B8CDA7005C811A /* GDFinishSurveyView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C5686A21B8CDA7005C811A /* GDFinishSurveyView.m */; };
 		E6D6F1B3217973AD005982BB /* GDSuveryStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D6F1B1217973AD005982BB /* GDSuveryStatusCell.m */; };
 		E6D6F1B4217973AD005982BB /* GDSuveryStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6D6F1B2217973AD005982BB /* GDSuveryStatusCell.xib */; };
 		E6D6F1B621797640005982BB /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D6F1B52179763F005982BB /* Foundation+Log.m */; };
 		E6DF79DC211D514600ED8951 /* UIImageView+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = E6DF79DB211D514600ED8951 /* UIImageView+URL.m */; };
+		E6EDBD3A21B52CE300910D3D /* GDQuestionSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EDBD3921B52CE300910D3D /* GDQuestionSetView.m */; };
+		E6EDBD3F21B6812100910D3D /* GDClickCardButtonApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EDBD3E21B6812100910D3D /* GDClickCardButtonApi.m */; };
 		E6F1435A21198B290038A9D6 /* GDLoginApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F1435921198B290038A9D6 /* GDLoginApi.m */; };
 		E6F1435D21198EEC0038A9D6 /* GDBaseApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F1435C21198EEC0038A9D6 /* GDBaseApi.m */; };
 		E6F143622119BB850038A9D6 /* GDLunchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F143612119BB850038A9D6 /* GDLunchManager.m */; };
@@ -711,6 +714,8 @@
 		E6C55C2B20CA85970034A65A /* GDPreviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDPreviewViewController.h; sourceTree = "<group>"; };
 		E6C55C2C20CA85970034A65A /* GDPreviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDPreviewViewController.m; sourceTree = "<group>"; };
 		E6C55C2D20CA85970034A65A /* GDPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDPreviewViewController.xib; sourceTree = "<group>"; };
+		E6C5686921B8CDA7005C811A /* GDFinishSurveyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDFinishSurveyView.h; sourceTree = "<group>"; };
+		E6C5686A21B8CDA7005C811A /* GDFinishSurveyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDFinishSurveyView.m; sourceTree = "<group>"; };
 		E6D6F1B0217973AD005982BB /* GDSuveryStatusCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSuveryStatusCell.h; sourceTree = "<group>"; };
 		E6D6F1B1217973AD005982BB /* GDSuveryStatusCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSuveryStatusCell.m; sourceTree = "<group>"; };
 		E6D6F1B2217973AD005982BB /* GDSuveryStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDSuveryStatusCell.xib; sourceTree = "<group>"; };
@@ -718,6 +723,10 @@
 		E6DF79BD211C60A900ED8951 /* GDHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDHeader.h; sourceTree = "<group>"; };
 		E6DF79DA211D514600ED8951 /* UIImageView+URL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+URL.h"; sourceTree = "<group>"; };
 		E6DF79DB211D514600ED8951 /* UIImageView+URL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+URL.m"; sourceTree = "<group>"; };
+		E6EDBD3821B52CE300910D3D /* GDQuestionSetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDQuestionSetView.h; sourceTree = "<group>"; };
+		E6EDBD3921B52CE300910D3D /* GDQuestionSetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDQuestionSetView.m; sourceTree = "<group>"; };
+		E6EDBD3D21B6812100910D3D /* GDClickCardButtonApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDClickCardButtonApi.h; sourceTree = "<group>"; };
+		E6EDBD3E21B6812100910D3D /* GDClickCardButtonApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDClickCardButtonApi.m; sourceTree = "<group>"; };
 		E6F1435821198B290038A9D6 /* GDLoginApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDLoginApi.h; sourceTree = "<group>"; };
 		E6F1435921198B290038A9D6 /* GDLoginApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDLoginApi.m; sourceTree = "<group>"; };
 		E6F1435B21198EEC0038A9D6 /* GDBaseApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDBaseApi.h; sourceTree = "<group>"; };
@@ -836,8 +845,8 @@
 		460BA8DA21417D98008D1D2E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				460BA8DB21417D98008D1D2E /* GDEditViewController.m */,
 				460BA8DC21417D98008D1D2E /* GDEditViewController.h */,
+				460BA8DB21417D98008D1D2E /* GDEditViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -895,11 +904,11 @@
 		460BA8FB21417D98008D1D2E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				460BA8FC21417D98008D1D2E /* GDEditListViewController.m */,
 				460BA8FD21417D98008D1D2E /* GDEditTableViewController.h */,
-				460BA8FE21417D98008D1D2E /* GDEditCollectionViewController.h */,
-				460BA8FF21417D98008D1D2E /* GDEditListViewController.h */,
 				460BA90021417D98008D1D2E /* GDEditTableViewController.m */,
+				460BA8FF21417D98008D1D2E /* GDEditListViewController.h */,
+				460BA8FC21417D98008D1D2E /* GDEditListViewController.m */,
+				460BA8FE21417D98008D1D2E /* GDEditCollectionViewController.h */,
 				460BA90121417D98008D1D2E /* GDEditCollectionViewController.m */,
 				49626CE721B400E300EE0BE5 /* GDQuestionSetController.h */,
 				49626CE821B400E300EE0BE5 /* GDQuestionSetController.m */,
@@ -911,15 +920,16 @@
 		460BA90221417D98008D1D2E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E6EDBD3721B52B8400910D3D /* popView */,
 				460BA90321417D98008D1D2E /* BoundRange */,
 				460BA90921417D98008D1D2E /* ChooseMultiple */,
 				460BA90F21417D98008D1D2E /* SlidingScale */,
 				460BA91221417D98008D1D2E /* StackRank */,
 				460BA91C21417D98008D1D2E /* GDTextView.h */,
+				460BA93121417D98008D1D2E /* GDTextView.m */,
 				460BA91D21417D98008D1D2E /* Common */,
 				460BA92721417D98008D1D2E /* GDEditTextTypeCellProtocol.h */,
 				460BA92821417D98008D1D2E /* ImageVote */,
-				460BA93121417D98008D1D2E /* GDTextView.m */,
 				460BA93221417D98008D1D2E /* Text */,
 				460BA93621417D98008D1D2E /* ChooseOne */,
 			);
@@ -930,8 +940,8 @@
 			isa = PBXGroup;
 			children = (
 				460BA90421417D98008D1D2E /* GDBoundRangeAnswerTableViewCell.h */,
-				460BA90521417D98008D1D2E /* GDBoundRangeCollectionViewCell.m */,
 				460BA90621417D98008D1D2E /* GDBoundRangeAnswerTableViewCell.m */,
+				460BA90521417D98008D1D2E /* GDBoundRangeCollectionViewCell.m */,
 				460BA90721417D98008D1D2E /* GDBoundRangeCollectionViewCell.h */,
 				460BA90821417D98008D1D2E /* Untitled.xcworkspace */,
 			);
@@ -1031,8 +1041,8 @@
 		460BA93C21417D98008D1D2E /* SurveyCover */ = {
 			isa = PBXGroup;
 			children = (
-				460BA93D21417D98008D1D2E /* GDEditCoverViewController.m */,
 				460BA93E21417D98008D1D2E /* GDEditCoverViewController.h */,
+				460BA93D21417D98008D1D2E /* GDEditCoverViewController.m */,
 			);
 			path = SurveyCover;
 			sourceTree = "<group>";
@@ -1062,6 +1072,8 @@
 				E67ABBC02178840F0097B651 /* GDFindMyTaskApi.m */,
 				E6B3AA5A217EF72400CA6ED9 /* GDFindSurveyApi.h */,
 				E6B3AA5B217EF72400CA6ED9 /* GDFindSurveyApi.m */,
+				E6EDBD3D21B6812100910D3D /* GDClickCardButtonApi.h */,
+				E6EDBD3E21B6812100910D3D /* GDClickCardButtonApi.m */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -1558,6 +1570,17 @@
 			path = webViewProgress;
 			sourceTree = "<group>";
 		};
+		E6EDBD3721B52B8400910D3D /* popView */ = {
+			isa = PBXGroup;
+			children = (
+				E6EDBD3821B52CE300910D3D /* GDQuestionSetView.h */,
+				E6EDBD3921B52CE300910D3D /* GDQuestionSetView.m */,
+				E6C5686921B8CDA7005C811A /* GDFinishSurveyView.h */,
+				E6C5686A21B8CDA7005C811A /* GDFinishSurveyView.m */,
+			);
+			path = popView;
+			sourceTree = "<group>";
+		};
 		E6F1435721198AF50038A9D6 /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -1879,6 +1902,7 @@
 				E6115D0D2153859400E57470 /* GDGroupListItemCell.m in Sources */,
 				E611FC1F20DBA07500807E95 /* GDSortQuestionView.m in Sources */,
 				E611FC1620DB9FE800807E95 /* GDMoreSelQuestionView.m in Sources */,
+				E6EDBD3F21B6812100910D3D /* GDClickCardButtonApi.m in Sources */,
 				E61F433720E22E91004D2E09 /* GDPGHeaderView.m in Sources */,
 				E6A359D0215098FB00BC5B64 /* GDGroupCell.m in Sources */,
 				E69C3FA520CF6F6E004F5614 /* AnimationErectBegin.m in Sources */,
@@ -1977,6 +2001,7 @@
 				460BA96E21417D99008D1D2E /* GDImageVoteAddOptionCollectionViewCell.m in Sources */,
 				460BA95F21417D99008D1D2E /* GDChooseMultipleAddOptionTableViewCell.m in Sources */,
 				460BA97D21417EA9008D1D2E /* LZImageCropping+GDCrop.m in Sources */,
+				E6EDBD3A21B52CE300910D3D /* GDQuestionSetView.m in Sources */,
 				E61A5F17213529930074D215 /* GDSingleSelCell.m in Sources */,
 				E6A7A28221AFF42800931E5C /* UIView+Frame.m in Sources */,
 				460BA96021417D99008D1D2E /* GDSlidingScaleTableViewCell.m in Sources */,
@@ -2027,6 +2052,7 @@
 				E611FBC620D9FE7A00807E95 /* GDLaunchQuestionController.m in Sources */,
 				E61A5F10213528320074D215 /* GDQuantifyCell.m in Sources */,
 				460BA97221417D99008D1D2E /* GDTextView.m in Sources */,
+				E6C5686B21B8CDA7005C811A /* GDFinishSurveyView.m in Sources */,
 				496BBEF82172E67A004CFD62 /* GDForgetPwdApi.m in Sources */,
 				E61A5F1C21352D830074D215 /* GDMoreSelCell.m in Sources */,
 				E6115D11215394AE00E57470 /* GDGroupListModel.m in Sources */,
@@ -2205,7 +2231,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5RB384YXLM;
+				DEVELOPMENT_TEAM = DWWC262532;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GoodDeed/Tool/PrefixHeader.pch";
 				INFOPLIST_FILE = GoodDeed/Info.plist;
@@ -2214,7 +2240,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = zhangtao.GoodDeed;
+				PRODUCT_BUNDLE_IDENTIFIER = "zhangtao.GoodDeed-123";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2226,7 +2252,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5RB384YXLM;
+				DEVELOPMENT_TEAM = DWWC262532;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GoodDeed/Tool/PrefixHeader.pch";
 				INFOPLIST_FILE = GoodDeed/Info.plist;
@@ -2235,7 +2261,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = zhangtao.GoodDeed;
+				PRODUCT_BUNDLE_IDENTIFIER = "zhangtao.GoodDeed-123";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

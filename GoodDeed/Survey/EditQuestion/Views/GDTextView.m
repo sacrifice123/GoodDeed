@@ -7,7 +7,7 @@
 //
 
 #import "GDTextView.h"
-
+//#import "GDEditTableViewController.h"
 
 #define EdgeInsets UIEdgeInsetsMake(8, 8, 8, 8 )
 
@@ -36,11 +36,41 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self initialization];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endediting:) name:UITextViewTextDidEndEditingNotification object:self];
     }
     
     return self;
 }
 
+- (void)endediting:(NSNotification *)notification{
+    
+    [self updateDeleteEnableWithObject:nil];
+//    UITableView *tabView = (UITableView *)[GDHelper getTargetView:[UITableView class] view:self];
+//    if (tabView) {
+//        for (UITableViewCell *cell in tabView.visibleCells) {
+//            cell.selected = NO;
+//        }
+//    }
+
+}
+
+- (void)updateDeleteEnableWithObject:(UITextView *)obj{
+    
+    UIViewController *vc = [GDHelper getSuperVc:self];
+    NSString *classStr = @"GDEditTableViewController";
+    NSString *selStr = @"updateDeleteEnableWith:";
+    SEL sel = NSSelectorFromString(selStr);
+    if (vc&&[vc isKindOfClass:NSClassFromString(classStr)]) {
+        if ([vc respondsToSelector:sel]) {
+            [vc performSelector:sel withObject:obj];
+        }
+    }
+
+//    if ([vc isKindOfClass:[GDEditTableViewController class]]) {
+//        GDEditTableViewController *editVc = (GDEditTableViewController *)vc;
+//        [editVc updateDeleteEnableWith:obj];
+//    }
+}
 
 - (void)initialization
 {
@@ -86,12 +116,17 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
+    [self updateDeleteEnableWithObject:textView];
+//    UITableViewCell *cell = (UITableViewCell *)[GDHelper getTargetView:[UITableViewCell class] view:self];
+//    if (cell) {
+//        cell.selected = YES;
+//    }
     // 移动光标到起始位置
-    if ([self.placeholer isEqualToString:textView.text]) {
-        self.selectedRange = NSMakeRange(0, 0);
-    } else {
-        self.selectedRange = NSMakeRange(textView.text.length - 1, 0);
-    }
+//    if ([self.placeholer isEqualToString:textView.text]) {
+//        self.selectedRange = NSMakeRange(0, 0);
+//    } else {
+//        self.selectedRange = NSMakeRange(textView.text.length - 1, 0);
+//    }
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
@@ -107,13 +142,18 @@
         if (text.length == 0) {
             return NO;
         } else {
-            textView.text = nil;
+            textView.text = @"";
         }
     }
     
     NSMutableString *mutableText = [[NSMutableString alloc] initWithString:textView.text];
+//    if (mutableText&&mutableText.length>0) {
+//
+//    }else{
+//        return NO;
+//    }
     [mutableText replaceCharactersInRange:range withString:text];
-    
+
     if (mutableText.length == 0) {
         textView.text = self.placeholer;
         self.selectedRange = NSMakeRange(0, 0);
@@ -143,5 +183,8 @@
 }
 
 
-
+- (void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

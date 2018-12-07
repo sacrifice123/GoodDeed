@@ -36,25 +36,26 @@
     return @"/image/uploadImage";
 }
 
-- (AFConstructingBlock)constructingBodyBlock{
-    __weak typeof(self) weakSelf = self;
-    return ^(id<AFMultipartFormData> formData){
-        NSData *data = UIImageJPEGRepresentation(weakSelf.image, 0.1);
-        NSString *name = @"image.jpeg";
-        NSString *formKey = @"image";
-        NSString *type = @"image/jpeg";
-        [formData appendPartWithFileData:data name:formKey fileName:name mimeType:type];
+//- (AFConstructingBlock)constructingBodyBlock{
+//    UIImage *image = self.image;
+//    return ^(id<AFMultipartFormData> formData){
+//        NSData *data = UIImageJPEGRepresentation(image, 0.1);
+//        NSString *name = @"file";
+//        NSString *formKey = @"image";
+//        NSString *type = @"image/jpeg";
+//        [formData appendPartWithFileData:data name:formKey fileName:name mimeType:type];
+//    };
+//}
+
+- (AFConstructingBlock)constructingBodyBlock {
+    UIImage *image = self.image;
+    return ^(id<AFMultipartFormData> formData) {
+        NSData *data = UIImagePNGRepresentation(image);
+        NSString *name = @"file";
+        NSString *fileName = @"upload";
+        NSString *type = @"image/png";
+        [formData appendPartWithFileData:data name:name fileName:fileName mimeType:type];
     };
 }
 
-- (id)jsonValidator{
-    return @{ @"imageId": [NSString class] };
-}
-
-//-
-//- (NSString *)responseImageId {
-//
-//    NSDictionary *dict = self.responseJSONObject;
-//        return dict[@"imageId"];
-//}
 @end

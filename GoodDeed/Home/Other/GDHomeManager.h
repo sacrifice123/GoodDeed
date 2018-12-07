@@ -31,5 +31,5 @@
 + (void)getSurveyListWithSurveyId:(NSString *)surveyId completionBlock:(void(^)(NSArray *))block;
 + (void)finishAnswerSurveyWithCompletionBlock:(void(^)(GDSurveyTaskModel *,GDCardModel *))block;
 + (void)getSurveyOptionCard;
-
++ (void)cardButtonClick:(NSString *)taskId completionBlock:(void(^)(GDSurveyTaskModel *))block;
 @end

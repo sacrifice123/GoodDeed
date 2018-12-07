@@ -152,19 +152,14 @@
                 }
             }else{
 
-                NSMutableArray *taskArray = [[NSMutableArray alloc] init];
-                for (GDSurveyTaskModel *obj in array) {
-                    if (!obj.status) {//有未回答完的问卷
-                        [GDHomeManager getSurveyListWithSurveyId:obj.surveyId completionBlock:^(NSArray *array) {}];
+                for (GDHomeModel *obj in array) {
+                    if (obj.taskModel&&!obj.taskModel.status) {//有未回答完的问卷
+                        //查询问卷问题
+                        [GDHomeManager getSurveyListWithSurveyId:obj.taskModel.surveyId completionBlock:^(NSArray *array) {}];
                     }
-                    GDHomeModel *homeModel = [GDHomeModel new];
-                    homeModel.type = GDHomeSuveryStatusType;
-                    homeModel.isHasSurvery = YES;
-                    homeModel.taskModel = obj;
-                    [taskArray addObject:homeModel];
                 }
                 @synchronized (self.homeArray){
-                    [self.homeArray addObjectsFromArray:taskArray];
+                    [self.homeArray addObjectsFromArray:array];
                     
                 }
                 

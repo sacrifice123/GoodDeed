@@ -34,7 +34,6 @@
         [writeReqVoList addObject:dic];
     }
     GDUserModel *model = [[GDDataBaseManager sharedManager] queryUserData];
-    GDFirstSurveyModel *suu=[GDLunchManager sharedManager].surveyModel;
     
     return @{
              @"data": @{
