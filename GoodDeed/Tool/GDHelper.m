@@ -89,6 +89,7 @@
     [formatter setTimeZone:timeZone];
     NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
     NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]*1000];
+    
     return timeSp;
 }
 

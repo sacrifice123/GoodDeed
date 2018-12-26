@@ -98,7 +98,9 @@
         for (GDFirstQuestionListModel*model in [GDLunchManager sharedManager].suveryList) {
             
             GDQuestionView *view = [[GDQuestionView alloc] initWithFrame:self.view.frame listModel:model];
-            view.isAnswer = NO;
+            if (model.isSkip&&[model.isSkip isKindOfClass:[NSString class]]) {
+                view.isAnswer = [model.isSkip boolValue];
+            }
             view.finishBlock = ^(NSInteger index) {
                 [weakSelf animationFinish:index];
             };
@@ -111,8 +113,12 @@
 }
 
 - (void)animationFinish:(NSInteger)index{
+    
+    if (self.isPreView) {
+        [self back];
+        return;
+    }
     GDOrgAnimationView *view = [GDOrgAnimationView sharedView];
-
     [view removeFromSuperview];
     [self.view addSubview:view];
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -183,6 +189,7 @@
     pageControl.pageIndicatorTintColor = [UIColor colorWithHexString:@"#AAAAAA"];
     pageControl.currentPageIndicatorTintColor = [UIColor colorWithHexString:@"#555555"];
     [self.view addSubview:pageControl];
+    pageControl.hidden = !(self.pages.count>1);
     self.pageControl = pageControl;
     if (!self.isHome) {//初始化首页
         GDLaunchReadyView *readyView = self.pages.firstObject;
@@ -208,7 +215,7 @@
 - (void)scrollViewDidEndScroll:(UIScrollView *)scrollView{
     
     GDQuestionBaseView *currQuesView = self.pages[self.pageControl.currentPage];
-    if (!currQuesView.isAnswer&&(scrollView.contentOffset.x>SCREEN_WIDTH*self.pageControl.currentPage)) {
+    if (!self.isPreView&&!currQuesView.isAnswer&&(scrollView.contentOffset.x>SCREEN_WIDTH*self.pageControl.currentPage)) {
         [scrollView setContentOffset:CGPointMake(SCREEN_WIDTH*self.pageControl.currentPage, 0) animated:NO];
         return;
     }

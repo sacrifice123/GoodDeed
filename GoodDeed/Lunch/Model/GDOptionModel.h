@@ -10,6 +10,8 @@
 
 @interface GDOptionModel : NSObject
 
+@property (copy, nonatomic) NSString *questionId;//本地多表查询使用
+
 @property (copy, nonatomic) NSString *optionId;
 @property (copy, nonatomic) NSString *optionName;
 @property (copy, nonatomic) NSString *position;

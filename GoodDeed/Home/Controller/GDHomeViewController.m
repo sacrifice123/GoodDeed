@@ -8,7 +8,7 @@
 
 #import "GDHomeViewController.h"
 #import "GDPreviewViewController.h"
-
+#import "GDLaunchQuestionController.h"
 @interface GDHomeViewController ()<SCAdViewDelegate,GDOperationDelegate>
 
 @property (nonatomic, strong) SCAdView *adView;
@@ -71,6 +71,9 @@
     [self showAdHorizontally];
     [self groupRequest];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(answerFinish:) name:GDAnswerFinishNoti object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(surveySave:) name:GDSurveySaveNoti object:nil];
+
+    
 }
 
 - (void)groupRequest{
@@ -325,6 +328,14 @@
             break;
         case 3:{//我的调查
             
+            for (GDFirstSurveyModel *obj in [GDDataBaseManager survey_queryAll]) {
+
+                GDHomeModel *homeModel = [GDHomeModel new];
+                homeModel.surveyModel = obj;
+                homeModel.type = GDHomeSurveyType;
+                [array addObject:homeModel];
+            }
+
         }
             
             break;
@@ -352,9 +363,17 @@
 }
 
 #pragma mark GDOperationDelegate
-- (void)gotoPreVc:(UIView *)view{
-    self.transitionView = view;
-    [self.navigationController hh_pushScaleViewController:[GDPreviewViewController new]];
+- (void)gotoPreVc:(UIView *)view :(GDFirstSurveyModel *)model{
+    
+    if (model) {
+        [GDLunchManager sharedManager].surveyModel = model;
+        self.transitionView = view;
+        GDLaunchQuestionController *vc = [[GDLaunchQuestionController alloc] init];
+        vc.isHome = YES;
+        vc.isPreView = YES;
+        [self.navigationController hh_pushScaleViewController:vc];
+
+    }
 }
 
 - (UIView *)hh_transitionAnimationView{
@@ -394,6 +413,13 @@
 
     }
 }
+
+
+- (void)surveySave:(NSNotification *)noti{
+    
+    [self reloadDataWithIndex:3];
+}
+
 
 - (void)dealloc{
     

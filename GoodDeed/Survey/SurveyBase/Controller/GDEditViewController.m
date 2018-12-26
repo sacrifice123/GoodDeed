@@ -102,11 +102,12 @@
 //保存草稿
 - (void)saveAction
 {
+    [GDDataBaseManager  createSurveyTable];
 
     GDFirstSurveyModel *surveyModel = [[GDFirstSurveyModel alloc] init];
+    surveyModel.surveyId = [self getNowTimestamp];
     NSArray *pages = self.manager.pages;
     NSMutableArray <GDFirstQuestionListModel *>*questionList = [[NSMutableArray alloc] init];
-    NSMutableArray <GDOptionModel*>*optionVoList = [[NSMutableArray alloc] init];
     for (UIViewController<GDSurveyPageProtocol> *page in pages) {
         if ([page conformsToProtocol:@protocol(GDSurveyPageProtocol)]) {
            // GDEditTableViewController *page = (GDEditTableViewController *)obj;
@@ -121,29 +122,37 @@
                     
                 }
                     break;
-                case GDSurveyTypeEditChooseType:{//问卷具体问题内容
-                    
+                case GDSurveyTypeEditChooseType:{//这里进来的次数就是问卷里问题的个数
+                    //问卷具体问题内容,遍历创建问卷的所有问题在这个类型里
+                    //一次问卷只能创建一个，但是问题可以创建多个
                     GDEditPageModel *pageModel = [page surveyContent];
                     GDFirstQuestionListModel *listModel = [GDFirstQuestionListModel new];//问题model
-                    listModel.type = [self getQuestionType:[page surveyType]];
-                    for (int i=0; i<pageModel.numberOfItems; i++) {//此处相当于遍历一个问题
+                    listModel.questionId = [self getNowTimestamp];
+                    listModel.surveyId = surveyModel.surveyId;
+                    NSMutableArray <GDOptionModel*>*optionVoList = [[NSMutableArray alloc] init];
+                    listModel.type = [self getQuestionType:pageModel.type];
+                    for (int i=0; i<pageModel.numberOfItems; i++) {//此处相当于遍历一个问题（遍历页面每个cell）
                         GDEditBaseViewModel *model = [pageModel itemAtIndex:i];
                         if ([model isKindOfClass:[GDEditQuestionViewModel class]]) {//问题的标题
                             GDEditQuestionViewModel *quesModel = (GDEditQuestionViewModel *)model;
                             listModel.questionName = quesModel.text;
-                            [questionList addObject:listModel];
+                            
                         }else if ([model isKindOfClass:[GDEditTextViewModel class]]){//问题的选项
                             
                             GDEditTextViewModel *textModel = (GDEditTextViewModel *)model;
                             GDOptionModel *optionModel = [GDOptionModel new];
+                            optionModel.optionId = [self getNowTimestamp];
+                            optionModel.questionId = listModel.questionId;
                             optionModel.optionName = textModel.text;
                             [optionVoList addObject:optionModel];
                         }
                         
-                        
-                    }
+                    }//----问卷里一个问题遍历结束
                     
-                    listModel.firstOptionList = optionVoList;
+                    listModel.firstOptionList = optionVoList;//问题里的选项
+                    [questionList addObject:listModel];
+
+
                 }
                     break;
                 case GDSurveyTypeChooseOne:{//单选
@@ -161,8 +170,19 @@
             }
         }
         
-    }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    }//----一个问卷保存结束 
+    surveyModel.firstQuestionList = questionList;
+    [GDDataBaseManager saveSurvey:surveyModel];
+    
+//    NSMutableArray *array = [GDDataBaseManager survey_queryAll];
+    
+//    [[GDLunchManager sharedManager].suveryList removeAllObjects];
+//    [GDLunchManager sharedManager].surveyModel = surveyModel;
+
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:GDSurveySaveNoti object:surveyModel];
+    }];
 }
 
 //下一步
@@ -318,6 +338,20 @@
     NSInteger index = offsetX/SCREEN_WIDTH;
     self.pageControl.currentPage = index;
     
+}
+
+- (NSString *)getNowTimestamp{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss SSS"];
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    [formatter setTimeZone:timeZone];
+    NSDate *datenow = [NSDate date];
+    NSString *timeSp = [NSString stringWithFormat:@"%lli", (long long)([datenow timeIntervalSince1970]*1000*1000)];
+    NSLog(@"timeSp===%@",timeSp);
+
+    return timeSp;
 }
 
 @end

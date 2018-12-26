@@ -21,8 +21,6 @@
 @property (nonatomic,copy) NSString *personTypeId;//sys_condition_list对应表中id
 @property (nonatomic,copy) NSString *personNum;//如果type为0则填写人数
 @property (nonatomic,strong) NSMutableArray <GDFirstQuestionListModel *>*firstQuestionList;
-//@property (nonatomic,strong) NSArray <GDFirstQuestionListModel *>*questionRespVos;
 @property (nonatomic,copy) NSString *cardId;
-
 
 @end

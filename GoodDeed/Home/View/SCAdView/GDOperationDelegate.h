@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class GDFirstSurveyModel;
 @protocol GDOperationDelegate <NSObject>
 @optional
 /**
  *  @brief 通过实现此代理为view或者cell来设置
  */
 -(void)setModel:(id)model;
--(void)gotoPreVc:(UIView *)view;
+-(void)gotoPreVc:(UIView *)view :(GDFirstSurveyModel *)model;
 
 @end

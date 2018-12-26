@@ -38,6 +38,16 @@ static CGFloat Space = 24.f;
     return self;
 }
 
+- (id)surveyContent{
+    
+    return self.pageModel;
+}
+
+- (GDSurveyEditType)surveyType{
+    
+    return GDSurveyTypeEditChooseType;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

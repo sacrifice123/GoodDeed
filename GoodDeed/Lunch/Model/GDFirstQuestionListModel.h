@@ -12,9 +12,11 @@
 
 @interface GDFirstQuestionListModel : GDBaseModel
 
+@property (copy, nonatomic) NSString *surveyId;//本地多表查询使用
+
 @property (nonatomic,strong) NSArray <GDOptionModel*> *firstOptionList;//问题选项
 @property (nonatomic,copy) NSString *imgUrl;//问题头部图片
-@property (nonatomic,copy) NSString *isSkip;//是否跳过
+@property (nonatomic,copy) NSString *isSkip;//是否跳过(1可以 0不可以)
 @property (nonatomic,copy) NSString *questionName;//问题描述
 @property (nonatomic,copy) NSString *questionId;//问题id，唯一标识
 @property (nonatomic,assign) NSInteger sort;//排序

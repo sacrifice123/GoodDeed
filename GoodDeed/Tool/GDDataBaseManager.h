@@ -17,4 +17,11 @@
 - (GDUserModel *)query:(NSString *)uid;
 - (void)deleteData;
 - (GDUserModel *)queryUserData;
+
+//创建草稿问卷本地缓存
++ (void)createSurveyTable;
++ (void)saveSurvey:(GDFirstSurveyModel *)model;
++ (NSMutableArray *)survey_queryAll;
++ (GDFirstSurveyModel *)survey_query:(NSString *)surveyId;
++ (void)survey_delete:(NSString *)surveyId :(NSString *)questionId;
 @end

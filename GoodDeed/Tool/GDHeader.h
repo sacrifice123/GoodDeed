@@ -21,6 +21,7 @@ static NSString *const GDAnimationStatus = @"animationStatus";
 static NSString *const GDOrgaUid = @"820380768";
 static NSString *const GDReloadHome = @"GDReloadHome";
 static NSString *const GDAnswerFinishNoti = @"GDAnswerFinishNoti";
+static NSString *const GDSurveySaveNoti = @"GDSurveySaveNoti";
 
 #define GDScaleValue(value) (MIN([UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height) * (value) / 375.f)
 
