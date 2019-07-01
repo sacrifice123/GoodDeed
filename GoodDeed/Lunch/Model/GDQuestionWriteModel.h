@@ -7,17 +7,6 @@
 //
 
 #import "GDBaseModel.h"
-typedef NS_ENUM(NSInteger, GDSurveyType) {
-    
-    GDReadyType = 0,    //准备
-    GDSingleType,       //单选题1
-    GDMultipleType,     //多选题2
-    GDSlideType,        //滑动题3
-    GDQuantitativeType, //定量题4
-    GDSortType,         //排序题5
-    GDSelectType,       //勾选图片题6
-    GDWriteType         //填写题7
-};
 
 @interface GDQuestionWriteModel : GDBaseModel
 
@@ -29,4 +18,9 @@ typedef NS_ENUM(NSInteger, GDSurveyType) {
 @property (nonatomic,assign) GDSurveyType type;
 
 //@property (nonatomic,copy) NSString *cardId;//新增
+
+@property (nonatomic,copy) NSString *answerContent;//填写题用
+@property (nonatomic,strong) NSMutableDictionary *optionOrderAndSortMap;//排序题用
+@property (nonatomic,strong) NSMutableArray *optionOrders;//选中选项序号集合
+@property (nonatomic,copy) NSString *questionOrder;//问题序号
 @end

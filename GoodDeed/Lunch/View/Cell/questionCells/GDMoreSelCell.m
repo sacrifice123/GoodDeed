@@ -21,12 +21,12 @@
     // Initialization code
 }
 
-- (void)refreshData:(GDFirstQuestionListModel *)model{
+- (void)refreshData:(GDQuestionModel *)model{
     self.model = model;
-    if (model.firstOptionList.count>model.index) {
-        GDOptionModel *optionModel = model.firstOptionList[model.index];
+    if (model.options.count>model.index) {
+        GDOptionModel *optionModel = model.options[model.index];
         self.contentLabel.text = optionModel.optionName;
-        BOOL isSelected = [[model.writeModel.selectedArray objectAtIndex:model.index] boolValue];
+        BOOL isSelected = [model.writeModel.optionOrders containsObject:optionModel.order];
         [self setOptionSelectedStatus:isSelected];
     }
 }

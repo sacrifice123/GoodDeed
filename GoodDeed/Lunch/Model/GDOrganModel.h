@@ -14,5 +14,7 @@
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *imgUrl;
 @property (nonatomic,assign) BOOL isSelected;
-
+@property (nonatomic,copy) NSString *sort;
+@property (nonatomic,copy) NSString *donation;
+@property (nonatomic,copy) NSString *createTime;
 @end

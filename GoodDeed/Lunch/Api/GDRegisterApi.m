@@ -11,24 +11,20 @@
 
 @implementation GDRegisterApi
 {
-    NSString *_mail;
+    NSString *_userName;
     NSString *_password;
-    NSNumber *_type;
-    NSString *_token;
     
 }
 
 /*登录
  type: 1邮箱 2手机号 3微信 4新浪 5用户名
  */
-- (instancetype)initWith:(NSString *)mail
+- (instancetype)initWith:(NSString *)userName
                 password:(NSString *)password
-                    type:(NSNumber *)type
                    {
     if (self == [super init]) {
-        _mail = mail;
+        _userName = userName;
         _password = password;
-        _type = type;
     }
     
     return self;
@@ -45,34 +41,29 @@
 
 - (id)requestArgument{
 
-    NSMutableArray *writeReqVoList = [NSMutableArray array];//;
-    for (GDQuestionWriteModel *obj in [GDLunchManager sharedManager].writeReqVoList) {
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        [dic setObject:obj.content forKey:@"content"];
-        [dic setObject:@(obj.optionId.integerValue) forKey:@"optionId"];
-        [dic setObject:@(obj.optionOrder.integerValue) forKey:@"optionOrder"];
-        [dic setObject:@(obj.questionId.integerValue) forKey:@"questionId"];
-        [dic setObject:@(obj.type) forKey:@"type"];
-        [writeReqVoList addObject:dic];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    NSMutableArray *resultViews = [[NSMutableArray alloc] init];
+    for (GDQuestionModel *model in [GDLunchManager sharedManager].suveryList) {
+        NSMutableDictionary *obj = [NSMutableDictionary dictionary];
+        [obj setObject:model.writeModel.answerContent?:@"" forKey:@"answerContent"];
+        if (model.writeModel.optionOrderAndSortMap) {
+            [obj setObject:model.writeModel.optionOrderAndSortMap forKey:@"optionOrderAndSortMap"];
+        }
+        if (model.writeModel.optionOrders) {
+            [obj setObject:model.writeModel.optionOrders forKey:@"optionOrders"];
+        }
+        [obj setObject:model.writeModel.questionOrder?:@"" forKey:@"questionOrder"];
+        [resultViews addObject:obj];
     }
-    GDUserModel *model = [[GDDataBaseManager sharedManager] query:GDOrgaUid];
-    return @{
-        @"data": @{
-            @"mail": _mail?:@"",
-            @"password":_password?:@"",
-            @"resultReqVo": @{
-                    @"organId": model.organId?:@"",
-                    @"writeReqVo": @{
-                            @"surveyId": [GDLunchManager sharedManager].surveyModel.surveyId?:@"",
-                            @"uid": [GDLunchManager sharedManager].surveyModel.uid?:@"",
-                            @"writeReqVoList": writeReqVoList
-                 }
-            },
-            @"type": _type
-        },
-        @"token": @""
-        
-        };
+    [dic setObject:resultViews forKey:@"resultViews"];
+    NSDictionary *userView = @{//@"5cbc23564754240d520afcdf"
+                               @"organizationId":[GDLunchManager sharedManager].userModel.organId?:@"",
+                               @"password":_password?:@"",
+                               @"username":_userName?:@""
+                               };
+    [dic setObject:userView forKey:@"userView"];
+    
+    return dic;
 }
 
 @end

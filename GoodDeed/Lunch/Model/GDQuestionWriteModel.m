@@ -36,4 +36,21 @@
     
     return _questionId?:@"";
 }
+
+- (NSMutableDictionary *)optionOrderAndSortMap{
+    
+    if (_optionOrderAndSortMap == nil) {
+        _optionOrderAndSortMap = [[NSMutableDictionary alloc] init];
+    }
+    return _optionOrderAndSortMap;
+}
+
+- (NSMutableArray *)optionOrders{
+    
+    if (_optionOrders == nil) {
+        _optionOrders = [[NSMutableArray alloc] init];
+    }
+    return _optionOrders;
+}
+
 @end

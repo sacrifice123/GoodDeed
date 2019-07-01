@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSMutableArray *pages;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) UIButton *backButton;
-
+@property (nonatomic, strong) GDSurveyModel *surveyModel;
 @end
 
 @implementation GDLaunchQuestionController
@@ -46,6 +46,7 @@
     self.backButton = backButton;
 
 }
+
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -89,18 +90,15 @@
             readyView.finishBlock = ^(NSInteger index) {
                 [weakSelf animationFinish:index];
             };
-            GDFirstQuestionListModel *model = [GDFirstQuestionListModel new];
-            model.type = GDReadyType;
+            GDQuestionModel *model = [GDQuestionModel new];
+            model.surveyType = GDReadyType;
             [_pages addObject:readyView];
 
         }
-
-        for (GDFirstQuestionListModel*model in [GDLunchManager sharedManager].suveryList) {
+        for (GDQuestionModel*model in [GDLunchManager sharedManager].suveryList) {
             
             GDQuestionView *view = [[GDQuestionView alloc] initWithFrame:self.view.frame listModel:model];
-            if (model.isSkip&&[model.isSkip isKindOfClass:[NSString class]]) {
-                view.isAnswer = [model.isSkip boolValue];
-            }
+            view.isAnswer = model.isSkip;
             view.finishBlock = ^(NSInteger index) {
                 [weakSelf animationFinish:index];
             };
@@ -111,6 +109,15 @@
     
     return _pages;
 }
+
+//- (GDSurveyModel *)surveyModel{
+//
+//    if (_isPreView) {
+//
+//    }else{
+//        return [GDLunchManager sharedManager].surveyModel;
+//    }
+//}
 
 - (void)animationFinish:(NSInteger)index{
     
@@ -130,8 +137,7 @@
         if (finished) {
             if ([GDLunchManager sharedManager].suveryList.count>(self.pageControl.currentPage+self.isHome)) {
                 [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH*(index), 0) animated:YES];
-            }else{//题做完了
-                GDBaseNavigationController *nav = [[GDBaseNavigationController alloc] initWithRootViewController:[GDAnswerFinishViewController new]];
+            }else{//题目全部做完了
                 if (self.isHome) {//在主页答题
                     //NSArray *array = [GDLunchManager sharedManager].writeReqVoList;
                     //问卷回答结束--在首页刷新页面显示
@@ -148,7 +154,8 @@
                         [self.navigationController popViewControllerAnimated:YES];
 
                     }];
-                }else{ 
+                }else{
+                    GDBaseNavigationController *nav = [[GDBaseNavigationController alloc] initWithRootViewController:[GDAnswerFinishViewController new]];
                     [self presentViewController:nav animated:YES completion:^{
                         [GDOrgAnimationView destory];
                     }];
@@ -222,13 +229,15 @@
     CGFloat offsetX = scrollView.contentOffset.x;
     NSInteger index = offsetX/SCREEN_WIDTH;
     self.pageControl.currentPage = index;
-    GDQuestionBaseView *quesView = self.pages[index];
-    quesView.frame = CGRectMake(index*SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-    if (![scrollView.subviews containsObject:quesView]) {
-        [scrollView addSubview:quesView];
+    if (self.pages.count>index) {
+        GDQuestionBaseView *quesView = self.pages[index];
+        quesView.frame = CGRectMake(index*SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        if (![scrollView.subviews containsObject:quesView]) {
+            [scrollView addSubview:quesView];
+            
+        }
 
     }
-
 
 }
 

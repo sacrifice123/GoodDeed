@@ -21,7 +21,8 @@
 
     self.navigationController.navigationBarHidden = YES;
     self.contentLabel.text = @"请创建一个账号，这样我们就可以把\n善款捐给红十字会";
-    //NSMutableArray *array = [GDLunchManager sharedManager].writeReqVoList;
+   // NSMutableArray *array = [GDLunchManager sharedManager].suveryList;
+    
     
 }
 

@@ -11,12 +11,12 @@
 @implementation GDQuestionBaseView
 
 
-- (void)finishAnswer:(GDFirstQuestionListModel *)model{
+- (void)finishAnswer:(GDQuestionModel *)model{
     
     if (self.finishBlock) {
         self.isAnswer = YES;
         self.finishBlock(model.sort);
-        [[GDLunchManager sharedManager] finishAnswerWithModel:model];
+       // [[GDLunchManager sharedManager] finishAnswerWithModel:model];
     }
     
 }   

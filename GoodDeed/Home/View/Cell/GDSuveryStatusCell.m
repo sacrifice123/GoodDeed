@@ -35,6 +35,7 @@
 
 - (void)setCardModel:(GDHomeModel *)cardModel{
    
+    _model = cardModel.taskModel;
     self.answerNumLabel.text = cardModel.taskModel.personNum;
     self.finishTimeLabel.text = cardModel.taskModel.preFinishTime;
     self.knowView.hidden = cardModel.isHasSurvery;
@@ -52,15 +53,24 @@
     }
 }
 
+
+
 //去回答问题
 - (IBAction)GoAndAnswerQuestion:(id)sender {
-    UIViewController *vc = [GDHelper getSuperVc:self];
-    if (vc) {
-        GDLaunchQuestionController *quesVc = [[GDLaunchQuestionController alloc] init];
-        quesVc.isHome = YES;
-        [vc.navigationController pushViewController:quesVc animated:YES];
+
+    if (self.model&&!self.model.status) {//有未回答完的问卷
+        //查询问卷问题
+        [GDHomeManager getSurveyListWithSurveyId:self.model.surveyId completionBlock:^(NSArray *array) {
+            if (array&&array.count>0) {
+                UIViewController *vc = [GDHelper getSuperVc:self];
+                if (vc) {
+                    GDLaunchQuestionController *quesVc = [[GDLaunchQuestionController alloc] init];
+                    quesVc.isHome = YES;
+                    [vc.navigationController pushViewController:quesVc animated:YES];
+                }
+            }
+        }];
     }
-    
 }
 
 

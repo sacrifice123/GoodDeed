@@ -21,10 +21,10 @@
     // Initialization code
 }
 
-- (void)refreshData:(GDFirstQuestionListModel *)model{
+- (void)refreshData:(GDQuestionModel *)model{
     
     self.model = model;
-    GDOptionModel *optionModel = model.firstOptionList[model.index];
+    GDOptionModel *optionModel = model.options[model.index];
     optionModel.optionName = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1543402593910&di=31e7246c9129590d772b1164b9537c5a&imgtype=0&src=http%3A%2F%2Fimg.mp.sohu.com%2Fupload%2F20170812%2F9d2c06b4343a45dda867eaab9ae9e13f_th.png";
     [self.selectImageView gd_setImageWithUrlStr:optionModel.optionName];
 }

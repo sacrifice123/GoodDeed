@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GDFirstQuestionListModel.h"
+#import "GDQuestionModel.h"
 
 @interface GDQuestionBaseCell : UICollectionViewCell
 
-@property (nonatomic, strong) GDFirstQuestionListModel *model;
+@property (nonatomic, strong) GDQuestionModel *model;
 
 - (void)enableScroll:(BOOL)isEnable;
 - (void)finishAnswer;
-- (void)refreshData:(GDFirstQuestionListModel *)model;
+- (void)refreshData:(GDQuestionModel *)model;
 
 @end

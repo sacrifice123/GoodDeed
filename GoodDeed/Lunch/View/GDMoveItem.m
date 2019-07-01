@@ -209,14 +209,15 @@
         }
     }
   
-    [view.model.writeModel.selectedArray removeAllObjects];
+   // [view.model.writeModel.selectedArray removeAllObjects];
     for (GDSortModel*model in self.targetArray) {
-        GDQuestionWriteModel *writeModel = [GDQuestionWriteModel new];
-        writeModel.optionId = model.item.optionId;
-        writeModel.optionOrder = [NSString stringWithFormat:@"%li",model.item.position];
-        writeModel.questionId = view.model.writeModel.questionId;
-        writeModel.type = view.model.type;
-        [view.model.writeModel.selectedArray addObject:writeModel];
+//        GDQuestionWriteModel *writeModel = [GDQuestionWriteModel new];
+//        writeModel.optionId = model.item.optionId;
+//        writeModel.optionOrder = [NSString stringWithFormat:@"%li",model.item.position];
+//        writeModel.questionId = view.model.writeModel.questionId;
+//        writeModel.type = view.model.surveyType;
+//        [view.model.writeModel.selectedArray addObject:writeModel];
+        [view.model.writeModel.optionOrderAndSortMap setObject:@(model.item.position) forKey:model.item.optionId];
     }
 
     [view finishAnswer:view.model];

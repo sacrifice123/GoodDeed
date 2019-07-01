@@ -24,24 +24,29 @@
 
 - (NSString *)requestUrl{
     
-    return @"/survey/findMyTaskOrCard";
+    GDUserModel *model = [[GDDataBaseManager sharedManager] queryUserData];
+    return [NSString stringWithFormat:@"%@%@",@"/task/",model.uid];
 }
 
 - (YTKRequestMethod)requestMethod {
-    return YTKRequestMethodPost;
+    return YTKRequestMethodGet;
 }
 
-- (id)requestArgument{
-    GDUserModel *model = [[GDDataBaseManager sharedManager] queryUserData];
-    return @{
-             @"data":@{
-                     @"uid":model.uid?:@"",
-                     @"pageNum":@(_pageNum),
-                     @"pageSize":@(_pageSize)
-                     },
-             @"token":model.token?:@""
-             };
+//- (id)requestArgument{
+//    GDUserModel *model = [[GDDataBaseManager sharedManager] queryUserData];
+//    return @{
+//             @"userId":model.uid?:@"",
+////             @"page":@(_pageNum),//默认为0
+////             @"size":@(_pageSize)//默认为10
+//             };
+//
+//}
+
+- (NSDictionary *)requestHeaderFieldValueDictionary{
     
+    NSDictionary *auth = [self authorizationInfoWithMethod:@"GET" urlPath:@"/task"];
+    return auth;
 }
+
 
 @end

@@ -10,4 +10,5 @@
 
 @interface GDWriteSurveyApi : GDBaseApi
 
+- (instancetype)initWithSurveyId:(NSString *)surveyId;
 @end

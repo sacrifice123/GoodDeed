@@ -71,10 +71,14 @@
 		490699302151479B0009A4B7 /* GDGetUserInfoApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4906992F2151479B0009A4B7 /* GDGetUserInfoApi.m */; };
 		49120BF92119DDF600EA263C /* UIWindow+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 49120BF82119DDF600EA263C /* UIWindow+HUD.m */; };
 		49120BFC2119E43E00EA263C /* GDRegisterApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 49120BFB2119E43E00EA263C /* GDRegisterApi.m */; };
+		4916F5B822C31A5D000004F2 /* MBProgressHUD+Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4916F5B622C31A5C000004F2 /* MBProgressHUD+Progress.m */; };
 		4925FC2B21762B57004BD587 /* GDGetRegisterCardApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925FC2A21762B57004BD587 /* GDGetRegisterCardApi.m */; };
 		4925FC2E21762C24004BD587 /* GDCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925FC2D21762C24004BD587 /* GDCardModel.m */; };
 		4925FC3121762DAA004BD587 /* GDGetCardByIdApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925FC3021762DAA004BD587 /* GDGetCardByIdApi.m */; };
 		4928F636213B83E500F9E4CE /* GDMoveLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4928F635213B83E500F9E4CE /* GDMoveLabel.m */; };
+		4939AF352275D86D002B9A7D /* NSString+GDMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 4939AF342275D86D002B9A7D /* NSString+GDMD5.m */; };
+		493F92FC2286C239004FFD0B /* GDSurveyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F92FB2286C239004FFD0B /* GDSurveyModel.m */; };
+		493F92FF2286C274004FFD0B /* GDQuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F92FE2286C274004FFD0B /* GDQuestionModel.m */; };
 		49594A4F212F01CF00402ADB /* GDAnswerFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49594A4D212F01CF00402ADB /* GDAnswerFinishViewController.m */; };
 		49594A50212F01CF00402ADB /* GDAnswerFinishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49594A4E212F01CF00402ADB /* GDAnswerFinishViewController.xib */; };
 		49594A54212F0B0200402ADB /* GDOpenNotiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49594A52212F0B0200402ADB /* GDOpenNotiViewController.m */; };
@@ -83,6 +87,8 @@
 		496026DB20D95A1000C3DD15 /* GDKnowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496026D920D95A1000C3DD15 /* GDKnowViewController.xib */; };
 		49626CEA21B400E300EE0BE5 /* GDQuestionSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49626CE821B400E300EE0BE5 /* GDQuestionSetController.m */; };
 		49626CEB21B400E300EE0BE5 /* GDQuestionSetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49626CE921B400E300EE0BE5 /* GDQuestionSetController.xib */; };
+		49677CF022C705A1000C93C5 /* GDSurveySendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49677CEE22C705A1000C93C5 /* GDSurveySendController.m */; };
+		49677CF122C705A1000C93C5 /* GDSurveySendController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49677CEF22C705A1000C93C5 /* GDSurveySendController.xib */; };
 		496BBEF82172E67A004CFD62 /* GDForgetPwdApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 496BBEF72172E67A004CFD62 /* GDForgetPwdApi.m */; };
 		496BBEFB2172F5B9004CFD62 /* GDModifyPwdApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 496BBEFA2172F5B9004CFD62 /* GDModifyPwdApi.m */; };
 		49750EFE213AC73300779DDC /* GDSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 49750EFD213AC73300779DDC /* GDSlider.m */; };
@@ -400,6 +406,8 @@
 		49120BF82119DDF600EA263C /* UIWindow+HUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+HUD.m"; sourceTree = "<group>"; };
 		49120BFA2119E43E00EA263C /* GDRegisterApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDRegisterApi.h; sourceTree = "<group>"; };
 		49120BFB2119E43E00EA263C /* GDRegisterApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDRegisterApi.m; sourceTree = "<group>"; };
+		4916F5B622C31A5C000004F2 /* MBProgressHUD+Progress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Progress.m"; sourceTree = "<group>"; };
+		4916F5B722C31A5C000004F2 /* MBProgressHUD+Progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Progress.h"; sourceTree = "<group>"; };
 		4925FC2921762B57004BD587 /* GDGetRegisterCardApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDGetRegisterCardApi.h; sourceTree = "<group>"; };
 		4925FC2A21762B57004BD587 /* GDGetRegisterCardApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDGetRegisterCardApi.m; sourceTree = "<group>"; };
 		4925FC2C21762C24004BD587 /* GDCardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDCardModel.h; sourceTree = "<group>"; };
@@ -408,6 +416,12 @@
 		4925FC3021762DAA004BD587 /* GDGetCardByIdApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDGetCardByIdApi.m; sourceTree = "<group>"; };
 		4928F634213B83E500F9E4CE /* GDMoveLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDMoveLabel.h; sourceTree = "<group>"; };
 		4928F635213B83E500F9E4CE /* GDMoveLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDMoveLabel.m; sourceTree = "<group>"; };
+		4939AF332275D86D002B9A7D /* NSString+GDMD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+GDMD5.h"; sourceTree = "<group>"; };
+		4939AF342275D86D002B9A7D /* NSString+GDMD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+GDMD5.m"; sourceTree = "<group>"; };
+		493F92FA2286C239004FFD0B /* GDSurveyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSurveyModel.h; sourceTree = "<group>"; };
+		493F92FB2286C239004FFD0B /* GDSurveyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSurveyModel.m; sourceTree = "<group>"; };
+		493F92FD2286C274004FFD0B /* GDQuestionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDQuestionModel.h; sourceTree = "<group>"; };
+		493F92FE2286C274004FFD0B /* GDQuestionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDQuestionModel.m; sourceTree = "<group>"; };
 		49594A4C212F01CF00402ADB /* GDAnswerFinishViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDAnswerFinishViewController.h; sourceTree = "<group>"; };
 		49594A4D212F01CF00402ADB /* GDAnswerFinishViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDAnswerFinishViewController.m; sourceTree = "<group>"; };
 		49594A4E212F01CF00402ADB /* GDAnswerFinishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDAnswerFinishViewController.xib; sourceTree = "<group>"; };
@@ -420,6 +434,9 @@
 		49626CE721B400E300EE0BE5 /* GDQuestionSetController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDQuestionSetController.h; sourceTree = "<group>"; };
 		49626CE821B400E300EE0BE5 /* GDQuestionSetController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDQuestionSetController.m; sourceTree = "<group>"; };
 		49626CE921B400E300EE0BE5 /* GDQuestionSetController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDQuestionSetController.xib; sourceTree = "<group>"; };
+		49677CED22C705A1000C93C5 /* GDSurveySendController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSurveySendController.h; sourceTree = "<group>"; };
+		49677CEE22C705A1000C93C5 /* GDSurveySendController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSurveySendController.m; sourceTree = "<group>"; };
+		49677CEF22C705A1000C93C5 /* GDSurveySendController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GDSurveySendController.xib; sourceTree = "<group>"; };
 		496BBEF62172E67A004CFD62 /* GDForgetPwdApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDForgetPwdApi.h; sourceTree = "<group>"; };
 		496BBEF72172E67A004CFD62 /* GDForgetPwdApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDForgetPwdApi.m; sourceTree = "<group>"; };
 		496BBEF92172F5B9004CFD62 /* GDModifyPwdApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDModifyPwdApi.h; sourceTree = "<group>"; };
@@ -913,6 +930,9 @@
 				49626CE721B400E300EE0BE5 /* GDQuestionSetController.h */,
 				49626CE821B400E300EE0BE5 /* GDQuestionSetController.m */,
 				49626CE921B400E300EE0BE5 /* GDQuestionSetController.xib */,
+				49677CED22C705A1000C93C5 /* GDSurveySendController.h */,
+				49677CEE22C705A1000C93C5 /* GDSurveySendController.m */,
+				49677CEF22C705A1000C93C5 /* GDSurveySendController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1514,6 +1534,8 @@
 				E6BE89E42120062C00C3AEDC /* UIView+LXShadowPath.m */,
 				49F0A78220D171B500CD06C3 /* GDEditButton.h */,
 				49F0A78320D171B500CD06C3 /* GDEditButton.m */,
+				4916F5B722C31A5C000004F2 /* MBProgressHUD+Progress.h */,
+				4916F5B622C31A5C000004F2 /* MBProgressHUD+Progress.m */,
 				E664C94E20C925A5004E81A4 /* PrefixHeader.pch */,
 				E6DF79BD211C60A900ED8951 /* GDHeader.h */,
 				E664C95820C9327B004E81A4 /* GDHelper.h */,
@@ -1528,6 +1550,8 @@
 				E61A5EF32134F8E00074D215 /* GDRuler.m */,
 				E6B4C5502151E2B7003129AD /* GDDataBaseManager.h */,
 				E6B4C5512151E2B7003129AD /* GDDataBaseManager.m */,
+				4939AF332275D86D002B9A7D /* NSString+GDMD5.h */,
+				4939AF342275D86D002B9A7D /* NSString+GDMD5.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1635,6 +1659,10 @@
 				4906992B2151427F0009A4B7 /* GDUserModel.m */,
 				4925FC2C21762C24004BD587 /* GDCardModel.h */,
 				4925FC2D21762C24004BD587 /* GDCardModel.m */,
+				493F92FA2286C239004FFD0B /* GDSurveyModel.h */,
+				493F92FB2286C239004FFD0B /* GDSurveyModel.m */,
+				493F92FD2286C274004FFD0B /* GDQuestionModel.h */,
+				493F92FE2286C274004FFD0B /* GDQuestionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1794,6 +1822,7 @@
 				E611FBFE20DA42CC00807E95 /* animation_13.jpg in Resources */,
 				E67ABBB1217822540097B651 /* GDCardCell.xib in Resources */,
 				E6655CD420C51391005B46C3 /* Assets.xcassets in Resources */,
+				49677CF122C705A1000C93C5 /* GDSurveySendController.xib in Resources */,
 				E6C55C2F20CA85970034A65A /* GDPreviewViewController.xib in Resources */,
 				460BA94721417D99008D1D2E /* GDSurveyTitleCollectionReusableView.xib in Resources */,
 				E66875AD20D903CD0038307F /* GDLaunchViewController.xib in Resources */,
@@ -1893,6 +1922,7 @@
 				E65BDC23212971C400F2D5C0 /* GDQuestionWriteModel.m in Sources */,
 				E6A359C8214A7F8A00BC5B64 /* GDReLoginViewController.m in Sources */,
 				E6115CC02152412C00E57470 /* GDChangeHeadApi.m in Sources */,
+				4939AF352275D86D002B9A7D /* NSString+GDMD5.m in Sources */,
 				460BA96A21417D99008D1D2E /* GDEditQuestionTableViewCell.m in Sources */,
 				E6D6F1B3217973AD005982BB /* GDSuveryStatusCell.m in Sources */,
 				E6F1435D21198EEC0038A9D6 /* GDBaseApi.m in Sources */,
@@ -1961,6 +1991,7 @@
 				460BA95221417D99008D1D2E /* GDEditPageModel.m in Sources */,
 				460BA95421417D99008D1D2E /* GDEditSlidingScaleViewModel.m in Sources */,
 				E61A5F2121352DE70074D215 /* GDImageSelCell.m in Sources */,
+				493F92FF2286C274004FFD0B /* GDQuestionModel.m in Sources */,
 				E611FC1920DBA01100807E95 /* GDSlideQuestionView.m in Sources */,
 				E6B8D117217D629C00C73C66 /* GDSurveyTaskModel.m in Sources */,
 				E6A359BF2148A98A00BC5B64 /* GDOptionModel.m in Sources */,
@@ -1983,6 +2014,7 @@
 				E664C97120CA174D004E81A4 /* SCAdView.m in Sources */,
 				E664C95620C92F24004E81A4 /* GDLeftCell.m in Sources */,
 				460BA95921417D99008D1D2E /* GDEditCollectionViewController.m in Sources */,
+				493F92FC2286C239004FFD0B /* GDSurveyModel.m in Sources */,
 				E6655CCC20C5138F005B46C3 /* AppDelegate.m in Sources */,
 				49120BF92119DDF600EA263C /* UIWindow+HUD.m in Sources */,
 				4925FC3121762DAA004BD587 /* GDGetCardByIdApi.m in Sources */,
@@ -1996,6 +2028,7 @@
 				E664C97C20CA7502004E81A4 /* GDHomeCell.m in Sources */,
 				460BA95D21417D99008D1D2E /* GDChooseMultipleAnswerTableViewCell.m in Sources */,
 				E6682B94215E24F5003CE4C0 /* GDGetGroupInfoApi.m in Sources */,
+				4916F5B822C31A5D000004F2 /* MBProgressHUD+Progress.m in Sources */,
 				E611FC2220DBA0F000807E95 /* GDImageSelQuestionView.m in Sources */,
 				460BA94621417D99008D1D2E /* GDSurveyTitleCollectionReusableView.m in Sources */,
 				460BA96E21417D99008D1D2E /* GDImageVoteAddOptionCollectionViewCell.m in Sources */,
@@ -2016,6 +2049,7 @@
 				E6C55C2E20CA85970034A65A /* GDPreviewViewController.m in Sources */,
 				E61A5F33213567F10074D215 /* GDWriteCell.m in Sources */,
 				E69C3FA320CF6F6E004F5614 /* VCInteractionDelegate.m in Sources */,
+				49677CF022C705A1000C93C5 /* GDSurveySendController.m in Sources */,
 				4906992C2151427F0009A4B7 /* GDUserModel.m in Sources */,
 				E6F1435A21198B290038A9D6 /* GDLoginApi.m in Sources */,
 				460BA94A21417D99008D1D2E /* GDEditBottomView.m in Sources */,

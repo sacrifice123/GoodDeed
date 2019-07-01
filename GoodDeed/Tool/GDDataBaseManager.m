@@ -52,15 +52,16 @@ static FMDatabaseQueue *sharedQueue;
     } else {
         NSLog(@"数据库创建失败!");
     }
-    // 创建user表
+    // 创建user表与问卷表
     if ([self.database open]) {
-        NSString *createTableSql = @"create table if not exists t_user(uid text not null primary key,token text not null,name text not null,headPortrait text not null, money text not null, mySurveyNum text not null,nowTime text not null,imgUrl text not null,organId text not null)";
+        NSString *createTableSql = @"create table if not exists t_user(uid text not null primary key,token text not null,name text not null,headPortrait text not null, money text not null, mySurveyNum text not null,mail text not null,imgUrl text not null,organId text not null)";
         BOOL result = [self.database executeUpdate:createTableSql];
         if (result) {
             NSLog(@"创建表成功");
         } else {
             NSLog(@"创建表失败");
         }
+        [self createSuveryTable:self.database];
         // 每次执行完对应SQL之后，要关闭数据库
         [self.database close];
     }
@@ -70,8 +71,8 @@ static FMDatabaseQueue *sharedQueue;
 - (void)insert:(GDUserModel *)model{
 
     if ([self.database open]) {
-        NSString *sql = @"insert into t_user(token, headPortrait, money,mySurveyNum,uid,nowTime,imgUrl,name,organId) values(?,?,?,?,?,?,?,?,?)";
-        BOOL result = [self.database executeUpdate:sql withArgumentsInArray:@[ model.token, model.headPortrait, model.money,model.mySurveyNum,model.uid,model.nowTime,model.imgUrl,model.name,model.organId]];
+        NSString *sql = @"insert into t_user(token, headPortrait, money,mySurveyNum,uid,mail,imgUrl,name,organId) values(?,?,?,?,?,?,?,?,?)";
+        BOOL result = [self.database executeUpdate:sql withArgumentsInArray:@[ model.token, model.headPortrait, model.money,model.mySurveyNum,model.uid,model.mail,model.imgUrl,model.name,model.organId]];
         if (result) {
             NSLog(@"插入数据成功");
         } else {
@@ -116,7 +117,7 @@ static FMDatabaseQueue *sharedQueue;
             model.uid = [result stringForColumn:@"uid"];
             model.money = [result stringForColumn:@"money"];
             model.mySurveyNum = [result stringForColumn:@"mySurveyNum"];
-            model.nowTime = [result stringForColumn:@"nowTime"];
+            model.mail = [result stringForColumn:@"mail"];
             model.imgUrl = [result stringForColumn:@"imgUrl"];
             model.name = [result stringForColumn:@"name"];
             model.organId = [result stringForColumn:@"organId"];
@@ -139,7 +140,7 @@ static FMDatabaseQueue *sharedQueue;
             model.uid = [result stringForColumn:@"uid"];
             model.money = [result stringForColumn:@"money"];
             model.mySurveyNum = [result stringForColumn:@"mySurveyNum"];
-            model.nowTime = [result stringForColumn:@"nowTime"];
+            model.mail = [result stringForColumn:@"mail"];
             model.imgUrl = [result stringForColumn:@"imgUrl"];
             model.name = [result stringForColumn:@"name"];
             model.organId = [result stringForColumn:@"organId"];
@@ -169,50 +170,80 @@ static FMDatabaseQueue *sharedQueue;
 
 
 #pragma mark 创建草稿问卷本地缓存
-+ (void)createSurveyTable{
+- (void)createSuveryTable:(FMDatabase *)db{
+    //对应GDSurveyModel表
+    BOOL result1 = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS survey (surveyId text PRIMARY KEY,uid text,name text,imgUrl text,type text,personTypeId text,personNum text)"];
+    if (result1) {
+        NSLog(@"问卷表创建成功");
+    }else{
+        NSLog(@"问卷表创建失败");
+    }
     
-    [[self sharedQueue] inDatabase:^(FMDatabase * _Nonnull db) {//多线程使用事务
-        
-        if ([db open]) {
-            //对应GDFirstSurveyModel表
-            BOOL result1 = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS survey (surveyId text PRIMARY KEY,uid text,name text,imgUrl text,type text,personTypeId text,personNum text)"];
-            if (result1) {
-                NSLog(@"问卷表创建成功");
-            }else{
-                NSLog(@"问卷表创建失败");
-            }
-
-            //对应GDFirstQuestionListModel表
-            BOOL result2 = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS survey_question (questionId text PRIMARY KEY,surveyId text,isSkip text,imgUrl text,questionName text,index_s integer,sort integer,type integer)"];
-            if (result2) {
-                NSLog(@"问题表创建成功");
-            }else{
-                NSLog(@"问题表创建失败");
-            }
-
-            //对应GDOptionModel表
-            BOOL result3 = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS survey_option (optionId text PRIMARY KEY,questionId text,optionName text,position text)"];
-            if (result3) {
-                NSLog(@"选项表创建成功");
-            }else{
-                NSLog(@"选项表创建失败");
-            }
-
-            [db close];
-            
-        }
-    }];
+    //对应GDQuestionModel表
+    BOOL result2 = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS survey_question (questionId text PRIMARY KEY,surveyId text,isSkip text,imgUrl text,questionName text,index_s integer,sort integer,type integer)"];
+    if (result2) {
+        NSLog(@"问题表创建成功");
+    }else{
+        NSLog(@"问题表创建失败");
+    }
+    
+    //对应GDOptionModel表
+    BOOL result3 = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS survey_option (optionId text PRIMARY KEY,questionId text,optionName text,position text)"];
+    if (result3) {
+        NSLog(@"选项表创建成功");
+    }else{
+        NSLog(@"选项表创建失败");
+    }
 
 }
 
-+ (void)saveSurvey:(GDFirstSurveyModel *)model{
+//+ (void)createSurveyTable{
+//    
+//    [[self sharedQueue] inDatabase:^(FMDatabase * _Nonnull db) {//多线程使用事务
+//        
+//        if ([db open]) {
+//            //对应GDSurveyModel表
+//            BOOL result1 = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS survey (surveyId text PRIMARY KEY,uid text,name text,imgUrl text,type text,personTypeId text,personNum text)"];
+//            if (result1) {
+//                NSLog(@"问卷表创建成功");
+//            }else{
+//                NSLog(@"问卷表创建失败");
+//            }
+//
+//            //对应GDQuestionModel表
+//            BOOL result2 = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS survey_question (questionId text PRIMARY KEY,surveyId text,isSkip text,imgUrl text,questionName text,index_s integer,sort integer,type integer)"];
+//            if (result2) {
+//                NSLog(@"问题表创建成功");
+//            }else{
+//                NSLog(@"问题表创建失败");
+//            }
+//
+//            //对应GDOptionModel表
+//            BOOL result3 = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS survey_option (optionId text PRIMARY KEY,questionId text,optionName text,position text)"];
+//            if (result3) {
+//                NSLog(@"选项表创建成功");
+//            }else{
+//                NSLog(@"选项表创建失败");
+//            }
+//
+//            [db close];
+//            
+//        }
+//    }];
+//
+//}
+
++ (void)saveSurvey:(GDSurveyModel *)model{
     
     [[self sharedQueue] inDatabase:^(FMDatabase * _Nonnull db) {
         if ([db open]) {
+            if (!model.surveyId||model.surveyId.length==0) return;
             [self survey_insertOrUpdate:model dataBase:db];
-            for (GDFirstQuestionListModel *quesModel in model.firstQuestionList) {
+            for (GDQuestionModel *quesModel in model.questions) {
+                if (!quesModel.questionId||quesModel.questionId.length==0) return;
                 [self survey_insertOrUpdate:quesModel dataBase:db];
-                for (GDOptionModel *optionModel in quesModel.firstOptionList) {
+                for (GDOptionModel *optionModel in quesModel.options) {
+                    if (!optionModel.optionId||optionModel.optionId.length==0) return;
                     [self survey_insertOrUpdate:optionModel dataBase:db];
                     
                 }
@@ -221,20 +252,43 @@ static FMDatabaseQueue *sharedQueue;
         }
     }];
 }
+//@property (nonatomic,assign) BOOL isHome;
+//@property (nonatomic,copy) NSString *surveyId;//问卷ID
+//@property (nonatomic,copy) NSString *uid;
+//@property (nonatomic,copy) NSString *surveyName;//问卷名称
+//@property (nonatomic,copy) NSString *backgroundImageUrl;// 图片路径
+//@property (nonatomic,copy) NSString *personTypeId;//sys_condition_list对应表中id---
+//@property (nonatomic,copy) NSString *personNum;//如果type为0则填写人数---
+////@property (nonatomic,strong) NSMutableArray <GDQuestionModel *>*questionList;
+//@property (nonatomic,strong) NSMutableArray <GDQuestionModel *>*questions;
+//@property (nonatomic,copy) NSString *cardId;
+//@property (nonatomic,copy) NSString *creatorId;
+//@property (nonatomic,copy) NSString *surveyStatus;
+//@property (nonatomic,copy) NSString *preAnswerTime;
+//@property (nonatomic,copy) NSString *createTime;
 
+//@property (copy, nonatomic) NSString *questionId;//本地多表查询使用
+//@property (copy, nonatomic) NSString *optionId;
+//@property (copy, nonatomic) NSString *optionName;
+//@property (copy, nonatomic) NSString *position;
+//@property (copy, nonatomic) NSString *cardId;//首页回答问卷使用
+//@property (copy, nonatomic) NSString *order;//排序
+//@property (copy, nonatomic) NSString *count;
+//@property (copy, nonatomic) NSString *imageUrl;
+//@property (strong, nonatomic) NSDictionary *orderAndCount;
 
 + (void)survey_insertOrUpdate:(id)model dataBase:(FMDatabase *)db{
     NSString *sql;
     NSArray *array;
-    if ([model isKindOfClass:[GDFirstSurveyModel class]]) {
-        GDFirstSurveyModel *surveyModel = (GDFirstSurveyModel *)model;
-        sql = @"INSERT OR replace into survey(surveyId, uid, name, imgUrl, type, personTypeId, personNum) VALUES (?,?,?,?,?,?,?)";
-        array = @[surveyModel.surveyId?:@"",surveyModel.uid?:@"",surveyModel.name?:@"",surveyModel.imgUrl?:@"",surveyModel.type?:@"",surveyModel.personTypeId?:@"",surveyModel.personNum?:@""];
+    if ([model isKindOfClass:[GDSurveyModel class]]) {
+        GDSurveyModel *surveyModel = (GDSurveyModel *)model;
+        sql = @"INSERT OR replace into survey(surveyId, uid, name, imgUrl, personTypeId, personNum) VALUES (?,?,?,?,?,?)";
+        array = @[surveyModel.surveyId?:@"",surveyModel.uid?:@"",surveyModel.surveyName?:@"",surveyModel.backgroundImageUrl?:@"",surveyModel.personTypeId?:@"",surveyModel.personNum?:@""];
     }
-    else if ([model isKindOfClass:[GDFirstQuestionListModel class]]){
-        GDFirstQuestionListModel *quesModel = (GDFirstQuestionListModel *)model;
+    else if ([model isKindOfClass:[GDQuestionModel class]]){
+        GDQuestionModel *quesModel = (GDQuestionModel *)model;
         sql = @"INSERT OR replace into survey_question(questionId, surveyId, isSkip, imgUrl, questionName, index_s, sort, type) VALUES (?,?,?,?,?,?,?,?)";
-        array = @[quesModel.questionId?:@"",quesModel.surveyId?:@"",quesModel.isSkip?:@"",quesModel.imgUrl?:@"",quesModel.questionName?:@"",@(quesModel.index),@(quesModel.sort),@(quesModel.type)];
+        array = @[quesModel.questionId?:@"",quesModel.surveyId?:@"",@(quesModel.isSkip),quesModel.backgroundImageUrl?:@"",quesModel.questionName?:@"",@(quesModel.index),@(quesModel.sort),quesModel.type];
 
     }else if ([model isKindOfClass:[GDOptionModel class]]){
         GDOptionModel *optionModel = (GDOptionModel *)model;
@@ -253,9 +307,9 @@ static FMDatabaseQueue *sharedQueue;
     }
 }
 
-+ (GDFirstSurveyModel *)survey_query:(NSString *)surveyId{
++ (GDSurveyModel *)survey_query:(NSString *)surveyId{
     
-    GDFirstSurveyModel *model = [[GDFirstSurveyModel alloc] init];
+    GDSurveyModel *model = [[GDSurveyModel alloc] init];
     NSString *sql = @"select *from survey where surveyId = ?";
     [[self sharedQueue] inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
         
@@ -263,13 +317,12 @@ static FMDatabaseQueue *sharedQueue;
             FMResultSet *result = [db executeQuery:sql withArgumentsInArray:@[surveyId]];
             while ([result next]) {
                 model.surveyId = [result stringForColumn:@"surveyId"];
-                model.imgUrl = [result stringForColumn:@"imgUrl"];
+                model.backgroundImageUrl = [result stringForColumn:@"imgUrl"];
                 model.uid = [result stringForColumn:@"uid"];
-                model.name = [result stringForColumn:@"name"];
-                model.type = [result stringForColumn:@"type"];
+                model.surveyName = [result stringForColumn:@"name"];
                 model.personTypeId = [result stringForColumn:@"personTypeId"];
                 model.personNum = [result stringForColumn:@"personNum"];
-                model.firstQuestionList = [self survey_question_query:[result stringForColumn:@"surveyId"] dataBase:db];
+                model.questions = [self survey_question_query:[result stringForColumn:@"surveyId"] dataBase:db];
             }
             
             [db close];
@@ -287,15 +340,14 @@ static FMDatabaseQueue *sharedQueue;
         if ([db open]) {
             FMResultSet *result = [db executeQuery:sql];
             while ([result next]) {
-                GDFirstSurveyModel *model = [[GDFirstSurveyModel alloc] init];
+                GDSurveyModel *model = [[GDSurveyModel alloc] init];
                 model.surveyId = [result stringForColumn:@"surveyId"];
-                model.imgUrl = [result stringForColumn:@"imgUrl"];
+                model.backgroundImageUrl = [result stringForColumn:@"imgUrl"];
                 model.uid = [result stringForColumn:@"uid"];
-                model.name = [result stringForColumn:@"name"];
-                model.type = [result stringForColumn:@"type"];
+                model.surveyName = [result stringForColumn:@"name"];
                 model.personTypeId = [result stringForColumn:@"personTypeId"];
                 model.personNum = [result stringForColumn:@"personNum"];
-                model.firstQuestionList = [GDDataBaseManager survey_question_query:model.surveyId dataBase:db];
+                model.questions = [GDDataBaseManager survey_question_query:model.surveyId dataBase:db];
                 [array addObject:model];
             }
 
@@ -312,16 +364,16 @@ static FMDatabaseQueue *sharedQueue;
     if ([db open]) {
         FMResultSet *result = [db executeQuery:sql withArgumentsInArray:@[surveyId]];
         while ([result next]) {
-            GDFirstQuestionListModel *model = [[GDFirstQuestionListModel alloc] init];
+            GDQuestionModel *model = [[GDQuestionModel alloc] init];
             model.surveyId = [result stringForColumn:@"surveyId"];
-            model.imgUrl = [result stringForColumn:@"imgUrl"];
+            model.backgroundImageUrl = [result stringForColumn:@"imgUrl"];
             model.isSkip = [result stringForColumn:@"isSkip"];
             model.questionName = [result stringForColumn:@"questionName"];
-            model.type = [result intForColumn:@"type"];
+            model.type = [result stringForColumn:@"type"];
             model.index = [result intForColumn:@"index_s"];
             model.sort = [result intForColumn:@"sort"];
             model.questionId = [result stringForColumn:@"questionId"];
-            model.firstOptionList = [self survey_option_query:[result stringForColumn:@"questionId"] dataBase:db];
+            model.options = [self survey_option_query:[result stringForColumn:@"questionId"] dataBase:db];
             [array addObject:model];
         }
         
@@ -354,21 +406,34 @@ static FMDatabaseQueue *sharedQueue;
 
 }
 
-+ (void)survey_delete:(NSString *)surveyId :(NSString *)questionId{
+//+ (void)survey_delete:(NSString *)surveyId :(NSString *)questionId{
+//    
+//    NSString *sql = @"select *from survey where surveyId = ?";
+//    NSString *sql_question = @"select *from survey_question where surveyId = ?";
+//    NSString *sql_option = @"select *from survey_option where questionId = ?";
+//    
+//    [[self sharedQueue] inDatabase:^(FMDatabase * _Nonnull db) {
+//        if ([db open]) {
+//            [db executeUpdate:sql withArgumentsInArray:@[surveyId]];
+//            [db executeUpdate:sql_question withArgumentsInArray:@[surveyId]];
+//            [db executeUpdate:sql_option withArgumentsInArray:@[questionId]];
+//            [db close];
+//        }
+//    }];
+//    
+//}
+
++ (void)survey_delete:(NSString *)surveyId{
     
-    NSString *sql = @"select *from survey where surveyId = ?";
-    NSString *sql_question = @"select *from survey_question where surveyId = ?";
-    NSString *sql_option = @"select *from survey_option where questionId = ?";
-    
+    NSString *sql = @"delete from survey where surveyId = ?";
     [[self sharedQueue] inDatabase:^(FMDatabase * _Nonnull db) {
         if ([db open]) {
             [db executeUpdate:sql withArgumentsInArray:@[surveyId]];
-            [db executeUpdate:sql_question withArgumentsInArray:@[surveyId]];
-            [db executeUpdate:sql_option withArgumentsInArray:@[questionId]];
             [db close];
         }
     }];
     
 }
+
 @end
 

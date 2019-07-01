@@ -7,7 +7,9 @@
 //
 
 #import "YTKRequest.h"
+#import "NSString+GDMD5.h"
 
 @interface GDBaseApi : YTKRequest
 
+- (NSDictionary *)authorizationInfoWithMethod:(NSString *)method urlPath:(NSString *)path;
 @end

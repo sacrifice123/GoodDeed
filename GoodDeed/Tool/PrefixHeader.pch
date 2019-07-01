@@ -28,4 +28,6 @@
 #import "GDBaseNavigationController.h"
 #import <FMDB.h>
 #import "GDDataBaseManager.h"
+#import "MBProgressHUD+Progress.h"
+
 #endif

@@ -26,6 +26,6 @@ typedef NS_ENUM(NSInteger,GDHomeCellType) {
 @property (nonatomic,strong) GDCardModel *cardModel;//card使用
 @property (nonatomic,strong) GDSurveyTaskModel *taskModel;
 @property (nonatomic, assign) BOOL isHasSurvery;//是否含有问卷
-@property (nonatomic,strong) GDFirstSurveyModel *surveyModel;
+@property (nonatomic,strong) GDSurveyModel *surveyModel;
 //@property (nonatomic, assign) BOOL isFinishAnswer;//是否答题结束
 @end

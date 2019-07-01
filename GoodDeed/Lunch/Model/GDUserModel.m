@@ -10,6 +10,16 @@
 
 @implementation GDUserModel
 
++ (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper{
+    
+    return @{
+             @"imgUrl":@"orgImageUrl",
+             @"uid":@"userId",
+             @"money":@"userDonation",
+             @"headPortrait":@"profilePhotoUrl"
+             };
+}
+
 - (NSString *)token{
 
     if (_token&&![_token isKindOfClass:[NSNull class]]) {

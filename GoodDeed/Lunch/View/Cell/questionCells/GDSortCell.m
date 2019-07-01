@@ -35,7 +35,7 @@
     return _bgView;
 }
 
-- (void)refreshData:(GDFirstQuestionListModel *)model{
+- (void)refreshData:(GDQuestionModel *)model{
     
     self.model = model;
     if ([self.contentView.subviews containsObject:self.bgView]) {
@@ -47,9 +47,9 @@
     }];
     [self.contentView layoutIfNeeded];
     CGFloat margin = 17;
-    CGFloat space = model.firstOptionList.count*(item_height+margin)+25;
+    CGFloat space = model.options.count*(item_height+margin)+25;
     NSMutableArray *targetArray = [[NSMutableArray alloc] init];
-    for (int i=0; i<model.firstOptionList.count; i++) {
+    for (int i=0; i<model.options.count; i++) {
         CGRect frame = CGRectMake(25, i*(item_height+margin), SCREEN_WIDTH-50, item_height);
         
         UIButton *button = [[UIButton alloc] initWithFrame:frame];
@@ -65,7 +65,7 @@
         GDMoveItem *item = [[GDMoveItem alloc] initWithFrame:CGRectMake(25, i*(item_height+margin)+space, SCREEN_WIDTH-50, item_height)];
         item.targetArray = targetArray;
         item.tag = i;
-        GDOptionModel *optionModel = model.firstOptionList[i];
+        GDOptionModel *optionModel = model.options[i];
         item.text = optionModel.optionName;
         item.optionId = optionModel.optionId;
         [self.bgView addSubview:item];

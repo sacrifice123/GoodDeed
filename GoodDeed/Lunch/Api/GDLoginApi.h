@@ -10,5 +10,5 @@
 
 @interface GDLoginApi : GDBaseApi
 
-- (instancetype)initWith:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token;
+- (instancetype)initWith:(NSString *)mail password:(NSString *)password;
 @end

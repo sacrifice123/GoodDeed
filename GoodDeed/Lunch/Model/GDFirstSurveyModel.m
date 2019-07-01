@@ -20,10 +20,10 @@
 
 + (nullable NSDictionary<NSString *, id> *)modelContainerPropertyGenericClass{
     
-    return @{@"firstQuestionList":[GDFirstQuestionListModel class]};
+    return @{@"firstQuestionList":[GDQuestionModel class]};
 }
 
-- (NSMutableArray<GDFirstQuestionListModel *> *)firstQuestionList{
+- (NSMutableArray<GDQuestionModel *> *)firstQuestionList{
     
     if (_firstQuestionList == nil) {
         _firstQuestionList = [[NSMutableArray alloc] init];

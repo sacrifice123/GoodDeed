@@ -52,7 +52,7 @@
     
     [self.view endEditing:YES];
     if (self.isUser) {//登陆
-        [GDLunchManager loginWithMail:self.mailTextField.text password:self.pwdTextField.text type:@1 token:@"" completionBlock:^(BOOL result) {
+        [GDLunchManager loginWithUserName:self.mailTextField.text password:self.pwdTextField.text completionBlock:^(BOOL result) {
             if (result) {
                 [self dismissViewControllerAnimated:YES completion:^{
                     GDWindow.rootViewController = [GDHomeManager getRootController:YES];
@@ -64,7 +64,7 @@
         }];
 
     }else{//注册
-        [GDLunchManager registerWithMail:self.mailTextField.text password:self.pwdTextField.text type:@1 completionBlock:^(BOOL result) {
+        [GDLunchManager registerWithUserName:self.mailTextField.text password:self.pwdTextField.text completionBlock:^(BOOL result) {
             
             if (result) {
                 [self dismissViewControllerAnimated:YES completion:^{

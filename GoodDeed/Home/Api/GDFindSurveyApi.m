@@ -23,22 +23,28 @@
 
 - (NSString *)requestUrl{
     
-    return @"/survey/findSurvey";
+    return [NSString stringWithFormat:@"/survey/%@",_surveyId?:@""];;
 }
 
 - (YTKRequestMethod)requestMethod {
-    return YTKRequestMethodPost;
+    return YTKRequestMethodGet;
 }
 
-- (id)requestArgument{
-    GDUserModel *model = [[GDDataBaseManager sharedManager] queryUserData];
-    return @{
-             @"data":@{
-                     @"surveyId":_surveyId?:@"",
-                     @"uid":model.uid?:@""
-                     },
-             @"token":model.token?:@""
-             };
+- (NSDictionary *)requestHeaderFieldValueDictionary{
+    
+    NSDictionary *auth = [self authorizationInfoWithMethod:@"GET" urlPath:@"/survey"];
+    return auth;
 }
+
+//- (id)requestArgument{
+//    GDUserModel *model = [[GDDataBaseManager sharedManager] queryUserData];
+//    return @{
+//             @"data":@{
+//                     @"surveyId":_surveyId?:@"",
+//                     @"uid":model.uid?:@""
+//                     },
+//             @"token":model.token?:@""
+//             };
+//}
 
 @end

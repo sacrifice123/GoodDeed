@@ -68,6 +68,7 @@
     
     [super viewDidLoad];
    // [self setleftItem];
+    [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:GDAnimationStatus];//进来即可认为完成动画
     [self showAdHorizontally];
     [self groupRequest];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(answerFinish:) name:GDAnswerFinishNoti object:nil];
@@ -87,40 +88,40 @@
     dispatch_group_t group =dispatch_group_create();
     
     //3.异步函数
-    dispatch_group_enter(group);
-    dispatch_group_async(group, queue, ^{
-        
-        [GDHomeManager getUserInfoWithCompletionBlock:^(BOOL result) {
-            
-            if (result) {
-                GDUserModel *model =  [GDLunchManager sharedManager].userModel;
-                if (model.isCreatedGroup) {
-                    GDHomeModel *model = [GDHomeModel new];
-                    model.type = GDHomeTeamFinishType;//创建团队结束
-                    @synchronized (self.homeArray){
-                        [self.homeArray addObject:model];
-                    }
-                }else{
-                    GDHomeModel *model = [GDHomeModel new];
-                    model.type = GDHomeTeamType;//创建团队
-                    @synchronized (self.homeArray){
-                        [self.teamArray addObject:model];
-                        
-                    }
-                }
-            }
-            dispatch_group_leave(group);
-
-            
-        }];
-
-        
-    });
+//    dispatch_group_enter(group);
+//    dispatch_group_async(group, queue, ^{
+//
+//        [GDHomeManager getUserInfoWithCompletionBlock:^(BOOL result) {
+//
+//            if (result) {
+//                GDUserModel *model =  [GDLunchManager sharedManager].userModel;
+//                if (model.isCreatedGroup) {
+//                    GDHomeModel *model = [GDHomeModel new];
+//                    model.type = GDHomeTeamFinishType;//创建团队结束
+//                    @synchronized (self.homeArray){
+//                        [self.homeArray addObject:model];
+//                    }
+//                }else{
+//                    GDHomeModel *model = [GDHomeModel new];
+//                    model.type = GDHomeTeamType;//创建团队
+//                    @synchronized (self.homeArray){
+//                        [self.teamArray addObject:model];
+//
+//                    }
+//                }
+//            }
+//            dispatch_group_leave(group);
+//
+//
+//        }];
+//
+//
+//    });
     
     dispatch_group_enter(group);
     dispatch_group_async(group, queue, ^{
-        
-        //获取card
+
+        //获取首页card（滑动到最后一个位置）
         [GDHomeManager getRegisterCardWithCompletionBlock:^(GDCardModel *model) {
             if (model) {
                 GDHomeModel *homeModel = [GDHomeModel new];
@@ -128,16 +129,16 @@
                 homeModel.cardModel = model;
                 @synchronized (self.homeArray){
                     [self.homeArray addObject:homeModel];
-                    
+
                 }
             }
             dispatch_group_leave(group);
 
         }];
 
-        
+
     });
-    
+
     dispatch_group_enter(group);
     dispatch_group_async(group, queue, ^{
         
@@ -155,12 +156,12 @@
                 }
             }else{
 
-                for (GDHomeModel *obj in array) {
-                    if (obj.taskModel&&!obj.taskModel.status) {//有未回答完的问卷
-                        //查询问卷问题
-                        [GDHomeManager getSurveyListWithSurveyId:obj.taskModel.surveyId completionBlock:^(NSArray *array) {}];
-                    }
-                }
+//                for (GDHomeModel *obj in array) {
+//                    if (obj.taskModel&&!obj.taskModel.status) {//有未回答完的问卷
+//                        //查询问卷问题
+//                        [GDHomeManager getSurveyListWithSurveyId:obj.taskModel.surveyId completionBlock:^(NSArray *array) {}];
+//                    }
+//                }
                 @synchronized (self.homeArray){
                     [self.homeArray addObjectsFromArray:array];
                     
@@ -326,9 +327,9 @@
                 
         }
             break;
-        case 3:{//我的调查
+        case 3:{//我的调查问卷
             
-            for (GDFirstSurveyModel *obj in [GDDataBaseManager survey_queryAll]) {
+            for (GDSurveyModel *obj in [GDDataBaseManager survey_queryAll]) {
 
                 GDHomeModel *homeModel = [GDHomeModel new];
                 homeModel.surveyModel = obj;
@@ -363,7 +364,7 @@
 }
 
 #pragma mark GDOperationDelegate
-- (void)gotoPreVc:(UIView *)view :(GDFirstSurveyModel *)model{
+- (void)gotoPreVc:(UIView *)view :(GDSurveyModel *)model{
     
     if (model) {
         [GDLunchManager sharedManager].surveyModel = model;
@@ -374,6 +375,10 @@
         [self.navigationController hh_pushScaleViewController:vc];
 
     }
+}
+
+- (void)survey_reloadData:(NSInteger)index{
+    [self reloadDataWithIndex:index];
 }
 
 - (UIView *)hh_transitionAnimationView{

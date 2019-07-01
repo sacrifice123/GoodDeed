@@ -136,7 +136,7 @@ static GDOrgAnimationView *_view;
 - (void)animationStart:(NSInteger)index completion:(void (^)(BOOL))block{
 
   //  [self.bgView bringSubviewToFront:self.progressView];
-    GDFirstSurveyModel *model = [GDLunchManager sharedManager].surveyModel;
+    GDSurveyModel *model = [GDLunchManager sharedManager].surveyModel;
     NSArray *suveryList = [GDLunchManager sharedManager].suveryList;
     [UIView animateWithDuration:0.5 animations:^{
         if (self.isAnimation||model.isHome) {

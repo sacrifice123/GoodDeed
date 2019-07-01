@@ -19,4 +19,5 @@
 + (UIView *)getTargetView:(Class)targetClass view:(UIView *)view;
 + (NSString *)getNowTimestamp;
 + (void)addShadowToView:(UIView *)theView withColor:(UIColor *)theColor;
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 @end

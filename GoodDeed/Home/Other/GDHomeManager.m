@@ -350,7 +350,7 @@ static CGFloat const GDSpringFactor = 10;
     
 }
 
-//获取注册后的card（不针对用户，每个用户一样的）
+//获取首页的card（不针对用户，每个用户一样的）
 + (void)getRegisterCardWithCompletionBlock:(void(^)(GDCardModel *))block{
     
     GDGetRegisterCardApi *api = [[GDGetRegisterCardApi alloc] init];
@@ -358,7 +358,7 @@ static CGFloat const GDSpringFactor = 10;
         
         NSDictionary *jsonData = request.responseJSONObject;
         if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
-            if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
+            if (request.responseStatusCode == 200) {
                 
                 NSDictionary *dic = [jsonData objectForKey:@"data"];
                 if (dic&&[dic isKindOfClass:[NSDictionary class]]) {
@@ -382,32 +382,36 @@ static CGFloat const GDSpringFactor = 10;
 //查询我是否有可回答的问卷
 + (void)findMySurveyTaskWithCompletionBlock:(void(^)(NSArray *))block{
  
-    GDFindMyTaskApi *api = [[GDFindMyTaskApi alloc] initWithPageNum:1 pageSize:10];
+    GDFindMyTaskApi *api = [[GDFindMyTaskApi alloc] initWithPageNum:0 pageSize:10];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
         NSDictionary *jsonData = request.responseJSONObject;
         if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
-            if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
+            if (request.responseStatusCode == 200) {
                 
                 NSMutableArray *array = [[NSMutableArray alloc] init];
-                NSArray *data = [jsonData objectForKey:@"data"];
+                NSArray *data = [jsonData objectForKey:@"list"];
                 if (data&&[data isKindOfClass:[NSArray class]]) {
                     for (NSDictionary *obj in data) {
                         
                         GDHomeModel *homeModel = [[GDHomeModel alloc] init];
                         homeModel.isHasSurvery = YES;
-                        if ([[obj objectForKey:@"card"] boolValue]) {//card
-                            NSDictionary *dic = [obj objectForKey:@"cardRespVo"];
-                            GDCardModel *model = [GDCardModel yy_modelWithDictionary:dic];
-                            homeModel.cardModel = model;
-                            homeModel.type = GDHomeCardType;
-                            homeModel.cardModel.isHome = YES;
-                        }else{
-                            NSDictionary *dic = [obj objectForKey:@"taskRespVo"];
-                            GDSurveyTaskModel *model = [GDSurveyTaskModel yy_modelWithDictionary:dic];
-                            homeModel.taskModel = model;
-                            homeModel.type = GDHomeSuveryStatusType;
-                        }
+                        homeModel.type = GDHomeSuveryStatusType;
+                        GDSurveyTaskModel *model = [GDSurveyTaskModel yy_modelWithDictionary:obj];
+                        homeModel.taskModel = model;
+
+//                        if ([[obj objectForKey:@"card"] boolValue]) {//card
+//                            NSDictionary *dic = [obj objectForKey:@"cardRespVo"];
+//                            GDCardModel *model = [GDCardModel yy_modelWithDictionary:dic];
+//                            homeModel.cardModel = model;
+//                            homeModel.type = GDHomeCardType;
+//                            homeModel.cardModel.isHome = YES;
+//                        }else{
+//                            NSDictionary *dic = [obj objectForKey:@"taskRespVo"];
+//                            GDSurveyTaskModel *model = [GDSurveyTaskModel yy_modelWithDictionary:dic];
+//                            homeModel.taskModel = model;
+//                            homeModel.type = GDHomeSuveryStatusType;
+//                        }
                         [array addObject:homeModel];
 
                     }
@@ -417,7 +421,7 @@ static CGFloat const GDSpringFactor = 10;
          
             }else{
 
-                [GDWindow showWithString:[jsonData objectForKey:@"message"]];
+               // [GDWindow showWithString:[jsonData objectForKey:@"message"]];
                 block(nil);
             }
 
@@ -433,42 +437,73 @@ static CGFloat const GDSpringFactor = 10;
 
 //根据surveryId查询问卷
 + (void)getSurveyListWithSurveyId:(NSString *)surveyId completionBlock:(void(^)(NSArray *))block{
+    [MBProgressHUD showHUD];
     
     GDFindSurveyApi *api = [[GDFindSurveyApi alloc] initWithSurveyId:(NSString *)surveyId];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
-        
+        [MBProgressHUD hideHUD];
         NSDictionary *jsonData = request.responseJSONObject;
         if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
-            if ([[jsonData objectForKey:@"code"] integerValue] == 200&&[jsonData objectForKey:@"data"]) {
+            if (request.responseStatusCode == 200){
                 
-                GDFirstSurveyModel *surveyModel = [GDFirstSurveyModel yy_modelWithDictionary:[jsonData objectForKey:@"data"]];
-                surveyModel.isHome = YES;
-                surveyModel.surveyId = surveyId;
-                NSArray *list = [surveyModel.firstQuestionList sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+                GDSurveyModel *surveyModel = [GDSurveyModel yy_modelWithDictionary:jsonData];
+                //问题排序
+                NSArray *questions = [surveyModel.questions sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
                     
-                    GDFirstQuestionListModel *model1 = (GDFirstQuestionListModel *)obj1;
-                    GDFirstQuestionListModel *model2 = (GDFirstQuestionListModel *)obj2;
-                    return model1.sort>model2.sort;
+                    GDQuestionModel *model1 = (GDQuestionModel *)obj1;
+                    GDQuestionModel *model2 = (GDQuestionModel *)obj2;
+                    return model1.order.integerValue>model2.order.integerValue;
                 }];
-                [surveyModel.firstQuestionList removeAllObjects];
-                [surveyModel.firstQuestionList addObjectsFromArray:list];
-                for (int i=0; i<surveyModel.firstQuestionList.count; i++) {
-                    GDFirstQuestionListModel *model = surveyModel.firstQuestionList[i];
-                    model.sort = i+1;
-                }
-                [GDLunchManager sharedManager].surveyModel= surveyModel;
-                 NSLog(@"home==%@",surveyModel.firstQuestionList);
+                [surveyModel.questions removeAllObjects];
+                [surveyModel.questions addObjectsFromArray:questions];
                 
-            }else{
-                [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
+                //选项排序
+                for (GDQuestionModel *model in surveyModel.questions ) {
+                    NSInteger index = [surveyModel.questions indexOfObject:model];
+                    model.sort = (surveyModel.isHome?index+1:index+2);
+                    NSArray *options = [model.options sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+                        
+                        GDOptionModel *model1 = (GDOptionModel *)obj1;
+                        GDOptionModel *model2 = (GDOptionModel *)obj2;
+                        return model1.order.integerValue>model2.order.integerValue;
+                    }];
+                    [model.options removeAllObjects];
+                    [model.options addObjectsFromArray:options];
+                }
+                [GDLunchManager sharedManager].surveyModel = surveyModel;
+                
             }
+//            {
+//
+//                GDSurveyModel *surveyModel = [GDSurveyModel yy_modelWithDictionary:[jsonData objectForKey:@"data"]];
+//                surveyModel.isHome = YES;
+//                surveyModel.surveyId = surveyId;
+//                NSArray *list = [surveyModel.questions sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+//
+//                    GDQuestionModel *model1 = (GDQuestionModel *)obj1;
+//                    GDQuestionModel *model2 = (GDQuestionModel *)obj2;
+//                    return model1.sort>model2.sort;
+//                }];
+//                [surveyModel.questions removeAllObjects];
+//                [surveyModel.questions addObjectsFromArray:list];
+//                for (int i=0; i<surveyModel.questions.count; i++) {
+//                    GDQuestionModel *model = surveyModel.questions[i];
+//                    model.sort = i+1;
+//                }
+//                [GDLunchManager sharedManager].surveyModel= surveyModel;
+//                 NSLog(@"home==%@",surveyModel.questions);
+//
+//            }else{
+//                [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
+//            }
             
         }
         block([GDLunchManager sharedManager].suveryList);
         
     } failure:^(YTKBaseRequest *request) {
         
-        block([GDLunchManager sharedManager].suveryList);
+        block(nil);
+   //     block([GDLunchManager sharedManager].suveryList);
         [GDWindow showWithString:@"网络异常"];
     }];
 
@@ -480,7 +515,7 @@ static CGFloat const GDSpringFactor = 10;
     GDWriteSurveyApi *api = [[GDWriteSurveyApi alloc] init];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
        
-        if (request.responseJSONObject&&[[request.responseJSONObject objectForKey:@"code"] integerValue] == 200) {
+        if (request.responseJSONObject&&request.responseStatusCode == 200) {
             NSDictionary *data = [request.responseJSONObject objectForKey:@"data"];
             if (data&&[data isKindOfClass:[NSDictionary class]]) {
                 GDSurveyTaskModel *model = [GDSurveyTaskModel yy_modelWithDictionary:data];
@@ -507,8 +542,8 @@ static CGFloat const GDSpringFactor = 10;
     NSMutableArray *array = [NSMutableArray new];
     NSMutableArray *writeList = [GDLunchManager sharedManager].writeReqVoList;
   
-    for (GDFirstQuestionListModel*obj in surveyList) {
-        NSArray *optionList = obj.firstOptionList;
+    for (GDQuestionModel*obj in surveyList) {
+        NSArray *optionList = obj.options;
         for (GDOptionModel *model in optionList) {
             
             for (GDQuestionWriteModel *writeModel in writeList) {

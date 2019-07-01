@@ -18,7 +18,9 @@
 @property (nonatomic, copy) NSString *hrefName;
 @property (nonatomic, copy) NSString *hrefUrl;
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *logoUrl;
 @property (nonatomic, assign) BOOL isHome;
+@property (nonatomic, strong) NSNumber *registeredCard;
 @property (nonatomic, copy) NSString *taskId;//点击button用
 
 @property (nonatomic, copy) NSString *surveyId;//所属调查问卷的id

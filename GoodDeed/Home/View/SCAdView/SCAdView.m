@@ -391,5 +391,11 @@
 
     self.collectionView.scrollEnabled = !(self.dataArray.count==1);
     [self.collectionView reloadData];
+//    if (self.dataArray.count>1) {
+//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.dataArray.count-1 inSection:0];
+//        [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionRight animated:NO];
+//
+//    }
+
 }
 @end

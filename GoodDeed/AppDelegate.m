@@ -19,6 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:GDAnimationStatus];
     [IQKeyboardManager sharedManager].enable = NO;
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     GDUserModel *model = [[GDDataBaseManager sharedManager] queryUserData];

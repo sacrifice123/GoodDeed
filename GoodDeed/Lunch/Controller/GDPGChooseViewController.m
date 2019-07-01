@@ -25,7 +25,7 @@
         [chooseView reloadWithDatas:self.organList];
     }else{
         [GDLunchManager getOrganListWithCompletionBlock:^(NSArray *list) {
-             [chooseView reloadWithDatas:list];
+            [chooseView reloadWithDatas:list];
         }];
     }
     

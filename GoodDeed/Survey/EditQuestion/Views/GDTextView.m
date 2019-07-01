@@ -152,7 +152,9 @@
 //    }else{
 //        return NO;
 //    }
-    [mutableText replaceCharactersInRange:range withString:text];
+    if (range.length<text.length) {
+        [mutableText replaceCharactersInRange:range withString:text];
+    }
 
     if (mutableText.length == 0) {
         textView.text = self.placeholer;

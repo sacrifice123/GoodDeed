@@ -11,5 +11,5 @@
 @interface GDQuestionView : GDQuestionBaseView
 
 
-- (instancetype)initWithFrame:(CGRect)frame listModel:(GDFirstQuestionListModel *)model;
+- (instancetype)initWithFrame:(CGRect)frame listModel:(GDQuestionModel *)model;
 @end

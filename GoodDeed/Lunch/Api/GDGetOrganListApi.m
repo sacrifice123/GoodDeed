@@ -12,21 +12,21 @@
 
 - (NSString *)requestUrl{
     
-    return @"/organ/findOrgan";
+    return @"/organ";
 }
 
 - (YTKRequestMethod)requestMethod {
-    return YTKRequestMethodPost;
+    return YTKRequestMethodGet;
 }
 
-- (id)requestArgument{
-    return @{
-             @"data":@{
-                     
-                     },
-             @"token":@""
-             };
-    
-}
+//- (id)requestArgument{
+//    return @{
+//             @"data":@{
+//
+//                     },
+//             @"token":@""
+//             };
+//
+//}
 
 @end

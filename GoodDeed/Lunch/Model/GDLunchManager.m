@@ -38,9 +38,10 @@ static GDLunchManager *manager;
     return manager;
 }
 
+//问题列表
 - (NSMutableArray *)suveryList{
 
-    return self.surveyModel.firstQuestionList;
+    return self.surveyModel.questions;
 }
 
 - (NSMutableArray *)writeReqVoList{
@@ -68,20 +69,19 @@ static GDLunchManager *manager;
     //return [[GDDataBaseManager sharedManager] query:@""];
 }
 /*注册
- type: 1邮箱 2手机号 3微信 4新浪 5用户名
  */
-+ (void)registerWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type completionBlock:(void(^)(BOOL))block{
++ (void)registerWithUserName:(NSString *)userName password:(NSString *)password completionBlock:(void (^)(BOOL))block {
     
-    GDRegisterApi *api = [[GDRegisterApi alloc] initWith:mail password:password type:type];
+    GDRegisterApi *api = [[GDRegisterApi alloc] initWith:userName password:password];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
-        if (request.responseJSONObject&&[[request.responseJSONObject objectForKey:@"code"] integerValue] == 200) {
-            [self loginWithMail:mail password:password type:type token:@"" isFirst:YES completionBlock:^(BOOL result) {
+        if (request.responseStatusCode == 200) {
+            [self loginWithUserName:userName password:password completionBlock:^(BOOL result) {
                 block(result);
             }];
             
         }else{
-            [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
+            //[GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
         }
 
         
@@ -93,18 +93,18 @@ static GDLunchManager *manager;
 }
 
 /*登录
- type: 1邮箱 2手机号 3微信 4新浪 5用户名
  */
-+ (void)loginWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token isFirst:(BOOL)isFirst completionBlock:(void(^)(BOOL))block{
++ (void)loginWithUserName:(NSString *)userName password:(NSString *)password completionBlock:(void (^)(BOOL))block{
     
-    GDLoginApi *api = [[GDLoginApi alloc] initWith:mail password:password type:type token:token];
+    GDLoginApi *api = [[GDLoginApi alloc] initWith:userName password:password];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
-        if (request.responseJSONObject&&[[request.responseJSONObject objectForKey:@"code"] integerValue] == 200) {
-            GDUserModel *model = [GDUserModel new];
-            model.token = [request.responseJSONObject objectForKey:@"token"];
-            model.nowTime = [[request.responseJSONObject objectForKey:@"data"] objectForKey:@"expireTime"];
-            model.uid = [[request.responseJSONObject objectForKey:@"data"] objectForKey:@"uid"];
+        NSString *authStr = [request.responseHeaders objectForKey:@"WWW-Authenticate"];
+        [[NSUserDefaults standardUserDefaults] setObject:authStr forKey:@"WWW-Authenticate"];
+
+        if (request.responseStatusCode == 200) {
+            
+            GDUserModel *model = [GDUserModel yy_modelWithDictionary:request.responseJSONObject];
             [[GDDataBaseManager sharedManager] insert:model];
             [GDLunchManager sharedManager].userModel = model;//备用
 
@@ -114,20 +114,38 @@ static GDLunchManager *manager;
         }
         
     } failure:^(YTKBaseRequest *request) {
-        
+        NSString *authStr = [request.responseHeaders objectForKey:@"WWW-Authenticate"];
+        [[NSUserDefaults standardUserDefaults] setObject:authStr forKey:@"WWW-Authenticate"];
         [GDWindow showWithString:@"网络异常"];
     }];
 
 }
 
-
-
-+ (void)loginWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token completionBlock:(void(^)(BOOL))block{
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString
+{
+    if (jsonString == nil) {
+        return nil;
+    }
     
-    [self loginWithMail:mail password:password type:type token:token isFirst:NO completionBlock:^(BOOL result) {
-        block(result);
-    }];
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                        options:NSJSONReadingMutableContainers
+                                                          error:&err];
+    if(err)
+    {
+        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }
+    return dic;
 }
+
+//+ (void)loginWithMail:(NSString *)mail password:(NSString *)password type:(NSNumber *)type token:(NSString *)token completionBlock:(void(^)(BOOL))block{
+//
+//    [self loginWithUserName:mail password:password completionBlock:^(BOOL result) {
+//        block(result);
+//    }];
+//}
 
 + (void)forgetWithMail:(NSString *)mail  completionBlock:(void(^)(BOOL))block{
     
@@ -151,23 +169,33 @@ static GDLunchManager *manager;
         
         NSDictionary *jsonData = request.responseJSONObject;
         if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
-            if ([[jsonData objectForKey:@"code"] integerValue] == 200&&[jsonData objectForKey:@"data"]) {
+            if (request.responseStatusCode == 200) {
                 
-                GDFirstSurveyModel *surveyModel = [GDFirstSurveyModel yy_modelWithDictionary:[jsonData objectForKey:@"data"]];
-                NSArray *list = [surveyModel.firstQuestionList sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-                    
-                    GDFirstQuestionListModel *model1 = (GDFirstQuestionListModel *)obj1;
-                    GDFirstQuestionListModel *model2 = (GDFirstQuestionListModel *)obj2;
-                    return model1.sort>model2.sort;
+                GDSurveyModel *surveyModel = [GDSurveyModel yy_modelWithDictionary:jsonData];
+                //问题排序
+                NSArray *questions = [surveyModel.questions sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+
+                    GDQuestionModel *model1 = (GDQuestionModel *)obj1;
+                    GDQuestionModel *model2 = (GDQuestionModel *)obj2;
+                    return model1.order.integerValue>model2.order.integerValue;
                 }];
-                [surveyModel.firstQuestionList removeAllObjects];
-                [surveyModel.firstQuestionList addObjectsFromArray:list];
-                for (int i=0; i<surveyModel.firstQuestionList.count; i++) {
-                    GDFirstQuestionListModel *model = surveyModel.firstQuestionList[i];
-                    model.sort = (surveyModel.isHome?i+1:i+2);
+                [surveyModel.questions removeAllObjects];
+                [surveyModel.questions addObjectsFromArray:questions];
+                
+                //选项排序
+                for (GDQuestionModel *model in surveyModel.questions ) {
+                    NSInteger index = [surveyModel.questions indexOfObject:model];
+                    model.sort = (surveyModel.isHome?index+1:index+2);
+                    NSArray *options = [model.options sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+                        
+                        GDOptionModel *model1 = (GDOptionModel *)obj1;
+                        GDOptionModel *model2 = (GDOptionModel *)obj2;
+                        return model1.order.integerValue>model2.order.integerValue;
+                    }];
+                    [model.options removeAllObjects];
+                    [model.options addObjectsFromArray:options];
                 }
                 [GDLunchManager sharedManager].surveyModel = surveyModel;
-               // NSLog(@"%@",surveyModel.firstQuestionList);
 
             }else{
                 [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
@@ -178,10 +206,28 @@ static GDLunchManager *manager;
 
     } failure:^(YTKBaseRequest *request) {
         
+//        NSString *authStr = [request.responseHeaders objectForKey:@"WWW-Authenticate"];
+//        [[NSUserDefaults standardUserDefaults] setObject:authStr forKey:@"WWW-Authenticate"];
         block([GDLunchManager sharedManager].suveryList);
         [GDWindow showWithString:@"网络异常"];
     }];
     
+}
+
++ (NSMutableArray *)dictionaryToArray:(NSDictionary *)dict{
+    
+    NSMutableArray *resultArr = [NSMutableArray array];
+    if (dict&&[dict isKindOfClass:[NSDictionary class]]) {
+        NSArray *array = [dict allKeys];
+        array = [array sortedArrayUsingComparator:^NSComparisonResult(NSNumber *obj1, NSNumber *obj2) {
+            return obj1.integerValue>obj2.integerValue;
+        }];
+        for (NSNumber *obj in array) {
+            [resultArr addObject:[dict objectForKey:obj]];
+        }
+
+    }
+    return resultArr;
 }
 
 /*
@@ -192,25 +238,21 @@ static GDLunchManager *manager;
     GDGetOrganListApi *api = [[GDGetOrganListApi alloc] init];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
        
-        NSDictionary *jsonData = request.responseJSONObject;
-        if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
-            if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
-                NSArray *list = [jsonData objectForKey:@"data"];
-                if (list&&[list isKindOfClass:[NSArray class]]) {
-                    NSMutableArray *organList = [[NSMutableArray alloc] init];
-                    for (NSDictionary *obj in list) {
-                        GDOrganModel *model = [GDOrganModel yy_modelWithDictionary:obj];
-                        [organList addObject:model];
-                    }
-                    block(organList);
-                   // NSLog(@"%@",organList);
+        NSArray *jsonData = [request.responseJSONObject objectForKey:@"list"];
+        if (jsonData&&[jsonData isKindOfClass:[NSArray class]]) {
+            if (request.responseStatusCode == 200) {
+                NSMutableArray *organList = [[NSMutableArray alloc] init];
+                for (NSDictionary *obj in jsonData) {
+                    GDOrganModel *model = [GDOrganModel yy_modelWithDictionary:obj];
+                    [organList addObject:model];
                 }
+                block(organList);
+
             }else{
-               [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
+              // [GDWindow showWithString:[request.responseJSONObject objectForKey:@"message"]];
             }
 
         }
-
         
     } failure:^(YTKBaseRequest *request) {
         
@@ -226,7 +268,7 @@ static GDLunchManager *manager;
     
     GDSearchOrganApi *api = [[GDSearchOrganApi alloc] initWithOrganName:name uid:uid];
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
-        
+
         NSDictionary *jsonData = request.responseJSONObject;
         if (jsonData&&[jsonData isKindOfClass:[NSDictionary class]]) {
             if ([[jsonData objectForKey:@"code"] integerValue] == 200) {
@@ -288,24 +330,24 @@ static GDLunchManager *manager;
 /*
  获取cell size
  */
-+ (CGSize)collectionView:(UICollectionView *)collectionView surveyModel:(GDFirstQuestionListModel *)model sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
++ (CGSize)collectionView:(UICollectionView *)collectionView surveyModel:(GDQuestionModel *)model sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     CGFloat width = SCREEN_WIDTH;
     CGFloat height = 0.0;
     if (indexPath.section == 0) {//问题描述cell
-        height = [GDHelper calculateRectWithFont:20 Withtext:model.questionName Withsize:CGSizeMake(SCREEN_WIDTH-150, MAXFLOAT)].height+90-((model.imgUrl&&[model.imgUrl isKindOfClass:[NSString class]]&&model.imgUrl.length>0)?30:0);
+        height = [GDHelper calculateRectWithFont:20 Withtext:model.questionName Withsize:CGSizeMake(SCREEN_WIDTH-150, MAXFLOAT)].height+90-((model.backgroundImageUrl&&[model.backgroundImageUrl isKindOfClass:[NSString class]]&&model.backgroundImageUrl.length>0)?30:0);
         
     }else{
-        switch (model.type) {
+        switch (model.surveyType) {
             case 1:{
-                GDOptionModel *option = model.firstOptionList[indexPath.row];
+                GDOptionModel *option = model.options[indexPath.row];
                 height = [GDHelper calculateRectWithFont:20 Withtext:option.optionName Withsize:CGSizeMake(SCREEN_WIDTH-90, MAXFLOAT)].height+43;
 
             }
                 
                 break;
             case 2:{
-                GDOptionModel *option = model.firstOptionList[indexPath.row];
+                GDOptionModel *option = model.options[indexPath.row];
                 height = [GDHelper calculateRectWithFont:20 Withtext:option.optionName Withsize:CGSizeMake(SCREEN_WIDTH-150, MAXFLOAT)].height;
                 height = (height>35?height:35)+20;
                 
@@ -323,10 +365,10 @@ static GDLunchManager *manager;
                 
                 break;
             case 5:{
-                BOOL isHasHeader = (model.imgUrl&&[model.imgUrl isKindOfClass:[NSString class]]&&model.imgUrl.length>0);
+                BOOL isHasHeader = (model.backgroundImageUrl&&[model.backgroundImageUrl isKindOfClass:[NSString class]]&&model.backgroundImageUrl.length>0);
                 CGFloat sectionOneHeight = [GDHelper calculateRectWithFont:20 Withtext:model.questionName Withsize:CGSizeMake(SCREEN_WIDTH-150, MAXFLOAT)].height+90;
                 CGFloat bottomSpace = SCREEN_HEIGHT-(isHasHeader?SCREEN_HEIGHT*0.52:0)-sectionOneHeight;
-                 height = (44*model.firstOptionList.count+35)*2;
+                 height = (44*model.options.count+35)*2;
                  height = height<bottomSpace?bottomSpace:height;
             
             }
@@ -412,9 +454,9 @@ static GDLunchManager *manager;
     
 }
 
-- (void)finishAnswerWithModel:(GDFirstQuestionListModel *)model{
+- (void)finishAnswerWithModel:(GDQuestionModel *)model{
    
-    switch (model.type) {
+    switch (model.surveyType) {
         case 1://单选题
         case 3://滑动题
         case 4://定量题
@@ -443,7 +485,7 @@ static GDLunchManager *manager;
             for (NSNumber *obj in model.writeModel.selectedArray) {
                 if ([obj boolValue]) {
                     NSInteger index = [model.writeModel.selectedArray indexOfObject:obj];
-                    GDOptionModel *option = model.firstOptionList[index];
+                    GDOptionModel *option = model.options[index];
                     [self createWriteModel:model.writeModel optionId:option.optionId];
                 }
             }
@@ -475,7 +517,7 @@ static GDLunchManager *manager;
 - (void)createWriteModel:(GDQuestionWriteModel *)model optionId:(NSString *)optionId{
     
     GDQuestionWriteModel *writeModel = [GDQuestionWriteModel new];
-    writeModel.content = model.content;
+    writeModel.answerContent = model.answerContent;
     writeModel.optionId = optionId;
     writeModel.questionId = model.questionId;
     writeModel.type = model.type;

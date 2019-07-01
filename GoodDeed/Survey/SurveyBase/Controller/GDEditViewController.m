@@ -15,7 +15,7 @@
 #import <Masonry.h>
 
 #import "GDEditSurveyManager.h"
-#import "GDFirstSurveyModel.h"
+#import "GDSurveyModel.h"
 
 @interface GDEditViewController ()<UIScrollViewDelegate>
 
@@ -102,20 +102,20 @@
 //保存草稿
 - (void)saveAction
 {
-    [GDDataBaseManager  createSurveyTable];
+   // [GDDataBaseManager createSurveyTable];
 
-    GDFirstSurveyModel *surveyModel = [[GDFirstSurveyModel alloc] init];
+    GDSurveyModel *surveyModel = [[GDSurveyModel alloc] init];
     surveyModel.surveyId = [self getNowTimestamp];
     NSArray *pages = self.manager.pages;
-    NSMutableArray <GDFirstQuestionListModel *>*questionList = [[NSMutableArray alloc] init];
+    NSMutableArray <GDQuestionModel *>*questionList = [[NSMutableArray alloc] init];
     for (UIViewController<GDSurveyPageProtocol> *page in pages) {
         if ([page conformsToProtocol:@protocol(GDSurveyPageProtocol)]) {
            // GDEditTableViewController *page = (GDEditTableViewController *)obj;
             switch ( [page surveyType]) {
                 case GDSurveyTypeCoverInfo:{//问卷封面信息
                     NSDictionary *data = [page surveyContent];
-                    surveyModel.imgUrl = [data objectForKey:@"image"];
-                    surveyModel.name = [data objectForKey:@"title"];
+                    surveyModel.backgroundImageUrl = [data objectForKey:@"image"];
+                    surveyModel.surveyName = [data objectForKey:@"title"];
                 }
                     break;
                 case GDSurveyTypeChooseType:{
@@ -126,11 +126,11 @@
                     //问卷具体问题内容,遍历创建问卷的所有问题在这个类型里
                     //一次问卷只能创建一个，但是问题可以创建多个
                     GDEditPageModel *pageModel = [page surveyContent];
-                    GDFirstQuestionListModel *listModel = [GDFirstQuestionListModel new];//问题model
+                    GDQuestionModel *listModel = [GDQuestionModel new];//问题model
                     listModel.questionId = [self getNowTimestamp];
                     listModel.surveyId = surveyModel.surveyId;
                     NSMutableArray <GDOptionModel*>*optionVoList = [[NSMutableArray alloc] init];
-                    listModel.type = [self getQuestionType:pageModel.type];
+                    listModel.type = [listModel setTypeWith:[self getQuestionType:pageModel.type]];
                     for (int i=0; i<pageModel.numberOfItems; i++) {//此处相当于遍历一个问题（遍历页面每个cell）
                         GDEditBaseViewModel *model = [pageModel itemAtIndex:i];
                         if ([model isKindOfClass:[GDEditQuestionViewModel class]]) {//问题的标题
@@ -149,7 +149,7 @@
                         
                     }//----问卷里一个问题遍历结束
                     
-                    listModel.firstOptionList = optionVoList;//问题里的选项
+                    listModel.options = optionVoList;//问题里的选项
                     [questionList addObject:listModel];
 
 
@@ -170,14 +170,15 @@
             }
         }
         
-    }//----一个问卷保存结束 
-    surveyModel.firstQuestionList = questionList;
+    }//----一个问卷保存本地结束
+    surveyModel.questions = questionList;
     [GDDataBaseManager saveSurvey:surveyModel];
     
-//    NSMutableArray *array = [GDDataBaseManager survey_queryAll];
-    
-//    [[GDLunchManager sharedManager].suveryList removeAllObjects];
-//    [GDLunchManager sharedManager].surveyModel = surveyModel;
+    NSMutableArray *array = [GDDataBaseManager survey_queryAll];
+    GDQuestionModel *model11 = questionList.firstObject;
+    NSLog(@"========%li",model11.surveyType);
+    [[GDLunchManager sharedManager].suveryList removeAllObjects];
+    [GDLunchManager sharedManager].surveyModel = surveyModel;
 
     [self dismissViewControllerAnimated:YES completion:^{
         

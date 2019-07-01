@@ -12,19 +12,15 @@
 
 - (NSString *)requestUrl{
     
-    return @"/getRegisterCard";
+    return @"/card/homePageCard";
 }
 
 - (YTKRequestMethod)requestMethod {
-    return YTKRequestMethodPost;
+    return YTKRequestMethodGet;
 }
 
-- (id)requestArgument{
-    return @{
-             @"data":@{},
-             @"token":@""
-             };
+- (NSDictionary *)requestHeaderFieldValueDictionary{
     
+    return [self authorizationInfoWithMethod:@"GET" urlPath:@"/card/homePageCard"];
 }
-
 @end

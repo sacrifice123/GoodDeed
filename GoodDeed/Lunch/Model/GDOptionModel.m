@@ -17,4 +17,13 @@
              };
 }
 
+- (NSString *)optionId{
+    
+    return _order;
+}
+
+- (void)setOptionId:(NSString *)optionId{
+    
+    _order = optionId;
+}
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GDSurveyModel.h"
 
 @interface GDDataBaseManager : NSObject
 
@@ -19,9 +20,10 @@
 - (GDUserModel *)queryUserData;
 
 //创建草稿问卷本地缓存
-+ (void)createSurveyTable;
-+ (void)saveSurvey:(GDFirstSurveyModel *)model;
+//+ (void)createSurveyTable;
++ (void)saveSurvey:(GDSurveyModel *)model;
 + (NSMutableArray *)survey_queryAll;
-+ (GDFirstSurveyModel *)survey_query:(NSString *)surveyId;
-+ (void)survey_delete:(NSString *)surveyId :(NSString *)questionId;
++ (GDSurveyModel *)survey_query:(NSString *)surveyId;
+//+ (void)survey_delete:(NSString *)surveyId :(NSString *)questionId;
++ (void)survey_delete:(NSString *)surveyId;
 @end

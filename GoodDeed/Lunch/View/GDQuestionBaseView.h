@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GDFirstQuestionListModel.h"
+#import "GDQuestionModel.h"
 
 typedef void(^answerFinishBlock)(NSInteger index);
 
 @interface GDQuestionBaseView : UIView
 
-@property (nonatomic, strong) GDFirstQuestionListModel *model;
+@property (nonatomic, strong) GDQuestionModel *model;
 @property (nonatomic, assign) BOOL isAnswer;
 @property (nonatomic, strong) answerFinishBlock finishBlock;
 
-- (void)finishAnswer:(GDFirstQuestionListModel *)model;
+- (void)finishAnswer:(GDQuestionModel *)model;
 @end

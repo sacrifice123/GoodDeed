@@ -7,7 +7,7 @@
 //
 
 #import "GDBaseModel.h"
-#import "GDFirstQuestionListModel.h"
+#import "GDQuestionModel.h"
 
 //暂时没用
 @interface GDFirstSurveyModel : GDBaseModel
@@ -20,7 +20,7 @@
 @property (nonatomic,copy) NSString *type;//类型（0消费者 1我的名单） ,
 @property (nonatomic,copy) NSString *personTypeId;//sys_condition_list对应表中id
 @property (nonatomic,copy) NSString *personNum;//如果type为0则填写人数
-@property (nonatomic,strong) NSMutableArray <GDFirstQuestionListModel *>*firstQuestionList;
+@property (nonatomic,strong) NSMutableArray <GDQuestionModel *>*firstQuestionList;
 @property (nonatomic,copy) NSString *cardId;
 
 @end
