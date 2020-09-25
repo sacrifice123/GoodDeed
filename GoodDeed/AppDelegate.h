@@ -11,7 +11,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UIWindow *testwindow;///llll
-//b2e504e6987d94ac8922e7953c086c0522fbfbed
+
 
 @end
 
