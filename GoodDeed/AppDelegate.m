@@ -10,7 +10,7 @@
 #import "GDHomeManager.h"
 #import "IQKeyboardManager.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()////
 
 @end
 
